@@ -1690,7 +1690,9 @@ static void mED_mouse_place_cursor(Submenu* submenu, f32 mouse_x, f32 mouse_y) {
     mED_check_line_over(editor_ovl);
     editor_ovl->exchange_code = mED_get_exchange_code(editor_ovl);
     editor_ovl->cursol_opacity_step = 0;
+#ifdef TARGET_PC
     editor_ovl->cursol_opacity_accum = 0.0f;
+#endif
     if (old_cursor != editor_ovl->cursor_idx ||
         (board_ovl != NULL && (old_field != board_ovl->field || old_header_pos != board_ovl->header_pos))) {
         sAdo_SysTrgStart(NA_SE_35);

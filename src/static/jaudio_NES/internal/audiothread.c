@@ -213,6 +213,20 @@ static void* audioproc(void* param) {
         OSReceiveMessage(&audioproc_mq, &msg, OS_MESSAGE_BLOCK);
         switch ((int)msg) {
             case (int)AUDIOPROC_MESSAGE_UPDATE_DAC:
+#ifdef ACGC_PORT
+                /* No DSP microcode runs (the Wii port, as the PC's): the
+                 * DSP's interrupt after each subframe never comes, so its
+                 * work is done here, before the frame is mixed, as the PC's
+                 * pc_audio_process_frame does it */
+                while (intcount > 0) {
+                    intcount--;
+                    if (intcount == 0) {
+                        DspFrameEnd();
+                    } else {
+                        UpdateDSP();
+                    }
+                }
+#endif
                 Jac_UpdateDAC();
                 break;
             case (int)AUDIOPROC_MESSAGE_DSP_SYNC:

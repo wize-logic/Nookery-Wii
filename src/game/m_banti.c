@@ -80,7 +80,7 @@ static void banti_chk_disp_left(GAME_PLAY* play) {
     Game_play_Projection_Trans(play, &get_player_actor_withoutCheck(play)->actor_class.world.position,
                                &player_pos_screen);
 
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
     if (player_pos_screen.x >= 180.0f + pc_widescreen_get_hud_edge_offset() && player_pos_screen.y >= 150.0f) {
 #else
     if (player_pos_screen.x >= 180.0f && player_pos_screen.y >= 150.0f) {
@@ -572,7 +572,7 @@ extern void banti_draw(GAME_PLAY* play) {
             Matrix_translate(-184.0f, 0.0f, 0.0f, MTX_MULT);
         }
 
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
         {
             f32 edge_x = pc_widescreen_get_hud_edge_offset();
 

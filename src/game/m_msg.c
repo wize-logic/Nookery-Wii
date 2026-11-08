@@ -10,8 +10,10 @@
 #include "m_event.h"
 #include "libforest/emu64/emu64_wrapper.h"
 #include "sys_matrix.h"
+#ifdef ACGC_PORT
 #ifdef TARGET_PC
 #include "pc_bswap.h"
+#endif
 #include "pc_settings.h"
 #endif
 #ifdef MOUSE_INPUT

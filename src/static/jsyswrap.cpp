@@ -326,6 +326,11 @@ extern "C" int g_pc_running;
 #endif
 
 extern void JW_BeginFrame() {
+#ifdef TARGET_WII
+    /* widescreen: hor+ again until the frame's markers say otherwise
+     * (wii/src/widescreen.c; the PC does this in ac_aurora_begin_frame) */
+    g_pc_widescreen_stretch = 0;
+#endif
 #ifdef TARGET_PC
     ZoneScoped;
     while (g_pc_running && !ac_aurora_begin_frame()) {

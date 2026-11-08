@@ -2,7 +2,7 @@
 
 #ifdef TARGET_PC
 #include "pc_platform.h"
-#else
+#elif !defined(TARGET_WII)
 #define pc_widescreen_set_projection GXSetProjection
 #endif
 

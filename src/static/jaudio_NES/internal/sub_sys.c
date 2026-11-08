@@ -11,7 +11,11 @@
 
 #ifdef TARGET_PC
 #include <stdatomic.h>
+#endif
 
+#if defined(TARGET_PC) || defined(TARGET_WII)
+/* (the ports mix on the CPU and take the commands once an audio frame: see
+ * audiostruct.h's thread_cmd_proc_msg_buf) */
 #define AUDIO_PORT_CMD_CAPACITY 2048
 #define AUDIO_PORT_CMD_MASK (AUDIO_PORT_CMD_CAPACITY - 1)
 #else
@@ -306,7 +310,7 @@ extern s32 Nap_SendStart(void) {
         return -1;
     }
 
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
     /* The host can run game frames much faster than the real-time audio
      * callback (notably with --no-framelimit).  An empty command range has
      * no work for the callback, so do not consume a queue slot for it.  A

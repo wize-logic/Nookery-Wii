@@ -28,8 +28,10 @@
 #include "zurumode.h"
 #ifdef ACGC_PORT
 #include "pc_diag.h"
+#ifdef TARGET_PC
 #include "pc_platform.h"
 extern int g_pc_running;
+#endif
 #endif
 
 GRAPH graph_class;

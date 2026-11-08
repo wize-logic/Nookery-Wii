@@ -359,7 +359,7 @@ extern int aWeather_ShouldSpawnEvery(ACTOR* actorx, f32 period_frames) {
 }
 
 extern f32 aWeather_GetHorizontalScale() {
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
     f32 aspect_factor = pc_widescreen_get_aspect_factor();
 
     /* Weather volumes and their CPU-side visibility checks use the original

@@ -690,7 +690,7 @@ static int makeBumpTexture(GAME_PLAY* play, GRAPH* graph1, GRAPH* graph2) {
 
         gSPDisplayList(NEXT_OVERLAY_DISP, polydisp);
 
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
         /* Tell GXSetProjection to skip widescreen aspect correction for
          * transitions (wipes, fades) so they fill the entire screen.
          * See pc_platform.h for how the marker/flag mechanism works. */
@@ -739,7 +739,7 @@ static int makeBumpTexture(GAME_PLAY* play, GRAPH* graph1, GRAPH* graph2) {
     if (play->submenu.mode == mSM_MODE_PRERENDER_DONE) {
         poly = NOW_POLY_OPA_DISP;
 
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
         /* The prerendered background is a fullscreen textured rect that goes
          * through ortho projection — enable stretch so it fills widescreen. */
         gDPNoOpTag(poly++, PC_NOOP_WIDESCREEN_STRETCH);
@@ -754,7 +754,7 @@ static int makeBumpTexture(GAME_PLAY* play, GRAPH* graph1, GRAPH* graph2) {
         gDPSetTile_Dolphin(rect_disp++, G_DOLPHIN_TLUT_DEFAULT_MODE, 0, 0, 0, 0, 0, 0);
         gSPTextureRectangle(rect_disp++, 0, 0, ((2*SCREEN_WIDTH) - 1) << 2, ((2*SCREEN_HEIGHT) - 1) << 2, G_TX_RENDERTILE, 0, 0, (256) << G_TEXTURE_IMAGE_FRAC,
                             (256) << G_TEXTURE_IMAGE_FRAC);
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
         /* Disable stretch so the inventory overlay UI gets 4:3 correction. */
         gDPNoOpTag(rect_disp++, PC_NOOP_WIDESCREEN_STRETCH_OFF);
 #endif

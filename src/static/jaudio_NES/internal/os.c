@@ -43,15 +43,28 @@ extern void Z_osCreateMesgQueue(OSMesgQueue* mq, OSMesg* msg, s32 count) {
     mq->first = 0;
 }
 
+#ifdef TARGET_WII
+/* The game's thread sends and the audio thread (audiothread.c, above it)
+ * receives: each side's count update kept whole, or a message is lost (the
+ * gyroid's save music never started). The PC locks a mutex; one core here. */
+#define Z_MQ_LOCK() BOOL z_mq_level = OSDisableInterrupts()
+#define Z_MQ_UNLOCK() OSRestoreInterrupts(z_mq_level)
+#else
+#define Z_MQ_LOCK()
+#define Z_MQ_UNLOCK()
+#endif
+
 extern s32 Z_osSendMesg(OSMesgQueue* mq, OSMesg msg, s32 flags) {
 #ifdef TARGET_PC
     if (z_mq_mutex) SDL_LockMutex(z_mq_mutex);
 #endif
+    Z_MQ_LOCK();
     int msgCount = mq->msgCount;
     if (mq->validCount == mq->msgCount) {
 #ifdef TARGET_PC
         if (z_mq_mutex) SDL_UnlockMutex(z_mq_mutex);
 #endif
+        Z_MQ_UNLOCK();
         return -1;
     }
 
@@ -68,6 +81,7 @@ extern s32 Z_osSendMesg(OSMesgQueue* mq, OSMesg msg, s32 flags) {
 #ifdef TARGET_PC
     if (z_mq_mutex) SDL_UnlockMutex(z_mq_mutex);
 #endif
+    Z_MQ_UNLOCK();
     return 0;
 }
 
@@ -88,10 +102,12 @@ extern s32 Z_osRecvMesg(OSMesgQueue* mq, OSMesg* msg, s32 flags) {
 #endif
     }
 
+    Z_MQ_LOCK();
     if (mq->validCount == 0) {
 #ifdef TARGET_PC
         if (z_mq_mutex) SDL_UnlockMutex(z_mq_mutex);
 #endif
+        Z_MQ_UNLOCK();
         return -1;
     }
 
@@ -110,6 +126,7 @@ extern s32 Z_osRecvMesg(OSMesgQueue* mq, OSMesg* msg, s32 flags) {
 #ifdef TARGET_PC
     if (z_mq_mutex) SDL_UnlockMutex(z_mq_mutex);
 #endif
+    Z_MQ_UNLOCK();
     return 0;
 }
 

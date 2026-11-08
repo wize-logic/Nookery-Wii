@@ -16,12 +16,15 @@
 #include "JSystem/JUtility/JUTVideo.h"
 #include "JSystem/JFramework/JFWSystem.h"
 
+#ifdef ACGC_PORT
 #ifdef TARGET_PC
 #include "pc_bswap.h"
+#endif
 
 /* Font buffer loaded from DOL at runtime (replaces .s file's .incbin) */
 ATTRIBUTE_ALIGN(32) unsigned char JUTResFONT_Ascfont_fix12[0x4160];
 
+#ifdef TARGET_PC
 /* BFN1 byte-swap: swap multi-byte header/block fields, skip glyph pixel data */
 static void bswap_bfn1(u8* data, u32 total_size) {
     u32 num_blocks, i;
@@ -72,12 +75,15 @@ static void bswap_bfn1(u8* data, u32 total_size) {
         block += block_size;
     }
 }
+#endif /* TARGET_PC */
 
 extern "C" {
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_JUTResFONT_Ascfont_fix12(void) {
     pc_load_asset(NULL, (void*)&JUTResFONT_Ascfont_fix12, 0x4160, 0x0A8260, 1 /* SRC_DOL */, 0 /* SWAP_NONE */);
+#ifdef TARGET_PC
     bswap_bfn1((u8*)&JUTResFONT_Ascfont_fix12, 0x4160);
+#endif
 }
 }
 #endif /* ACGC_PORT */

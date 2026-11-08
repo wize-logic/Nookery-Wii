@@ -49,7 +49,9 @@
 
 #ifdef ACGC_PORT
 #include "kyureki.h"
+#endif
 
+#ifdef TARGET_PC
 extern int g_pc_time_override;
 extern int g_pc_min_override;
 extern int g_pc_sec_override;

@@ -959,11 +959,14 @@ typedef struct AudioGlobals {
     /* 0x8A7C */ OSMesgQueue spec_change_mq;
     /* 0x8A94 */ OSMesg task_start_msg_buf[1];
     /* 0x8A98 */ OSMesg spec_change_msg_buf[1];
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
     /* On PC (synchronous), port commands are only consumed once per frame
      * in CreateAudioTask. During spec changes (reset_status!=0), consumption
      * pauses for ~14 frames while the game keeps sending 55 cmds/frame.
-     * Need more queue slots to avoid overflow. */
+     * Need more queue slots to avoid overflow. The Wii mixes on the CPU the
+     * same way (src/static/jaudio_NES/internal/audiothread.c): with the
+     * GameCube's 4 and 256, commands were dropped (the gyroid's save music
+     * never started, the town's never faded). */
     /* 0x8A9C */ OSMesg thread_cmd_proc_msg_buf[64];
     /* 0x8AAC */ AudioPort audio_port_cmds[2048];
 #else

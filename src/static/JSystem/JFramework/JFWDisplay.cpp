@@ -1,6 +1,8 @@
 #ifdef ACGC_PORT
 #include <string.h>
+#ifdef TARGET_PC
 #include <tracy/Tracy.hpp>
+#endif
 #else
 #include <libc/string.h>
 #endif
@@ -16,7 +18,7 @@
 
 #ifdef TARGET_PC
 #include "pc_platform.h"
-#else
+#elif !defined(TARGET_WII)
 #define pc_widescreen_set_projection GXSetProjection
 #define pc_widescreen_set_viewport GXSetViewport
 #endif

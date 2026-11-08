@@ -19,6 +19,8 @@
 #ifdef MOUSE_INPUT
 #include "aurora_mouse_cursor.h"
 #endif
+#elif defined(TARGET_WII)
+/* (the pointer's hand: drawn in the game's own lists, m_hand_ovl.c) */
 #else
 #define pc_widescreen_set_projection GXSetProjection
 #define pc_widescreen_set_viewport GXSetViewport
@@ -4555,7 +4557,7 @@ void emu64::dl_G_NOOP() {
 
     switch (noop->tag) {
         case G_TAG_NONE:
-#ifdef MOUSE_INPUT
+#if defined(MOUSE_INPUT) && defined(TARGET_PC)
             if (this->gfx.words.w1 == PC_NOOP_MOUSE_CAPTURE_BEGIN) {
                 aurora_mouse_cursor_capture_begin();
                 break;
@@ -4571,7 +4573,7 @@ void emu64::dl_G_NOOP() {
                 break;
             }
 #endif
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
             /* PC widescreen: skip aspect correction for transitions / bg blits.
              * See pc_platform.h for how the marker/flag mechanism works. */
             if (this->gfx.words.w1 == PC_NOOP_WIDESCREEN_STRETCH) {
@@ -5440,7 +5442,7 @@ void emu64::dl_G_CULLDL() {
         }
 
         /* Assign culling flags to vertex */
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
         /* Widescreen hor+ widens the rendered frustum but culling uses the
          * original 4:3 projection matrix.  Extend X cull bounds to match. */
         {
@@ -5649,9 +5651,20 @@ void emu64::dl_G_MOVEWORD() {
             this->segments[segment] = segment_base;
 #else
             EMU64_WARNF("gsSPSegmentA(%d, 0x%08x),", segment, moveword->data);
+#ifdef TARGET_WII
+            /* The Wii's MEM2 (0x90000000 up: the game's tables, the C
+             * library's heap) is addressed as it is; a physical address
+             * still becomes its cached one */
+            this->segments[segment] = (moveword->data & 0xE0000000) == 0x80000000
+                                          ? moveword->data
+                                          : (0x80000000 + (moveword->data & 0x1FFFFFFF));
+            if (segment >= EMU64_NUM_SEGMENTS ||
+                (moveword->data != 0 && (moveword->data < 0x80000000 || moveword->data >= 0x94000000))) {
+#else
             this->segments[segment] = (0x80000000 + (moveword->data & 0x0FFFFFFF));
             if (segment >= EMU64_NUM_SEGMENTS ||
                 (moveword->data != 0 && (moveword->data < 0x80000000 || moveword->data > 0x83000000))) {
+#endif
                 sprintf(s1, "gsSPSegmentA no=%d", segment);
                 sprintf(s2, "base=%s", this->segchk(moveword->data));
                 sprintf(s3, "gfxp=%s", this->segchk((u32)this->gfx_p));

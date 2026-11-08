@@ -8,6 +8,10 @@
 #include "pc_assets.h"
 #include "pc_bswap.h"
 #include <dolphin/dvd.h>
+#ifdef TARGET_WII
+#include <malloc.h>
+const u8* DVDGetDOLLocation(s32* size); /* wii/src/dvd.c */
+#endif
 
 extern int g_pc_verbose;
 
@@ -19,7 +23,9 @@ static u8* g_dol_data = NULL;
 static int g_rel_data_is_aligned = 0;
 
 static void* aurora_aligned_alloc(size_t alignment, size_t size) {
-#if defined(_MSC_VER)
+#if defined(TARGET_WII)
+    return memalign(alignment, size);
+#elif defined(_MSC_VER)
     return _aligned_malloc(size, alignment);
 #else
     return aligned_alloc(alignment, size);
@@ -52,7 +58,10 @@ static u8* aurora_yaz0_decode(const u8* src, u32 src_size, u32* out_size) {
     if (src_size < 16 || memcmp(src, "Yaz0", 4) != 0) return NULL;
     decoded_size = pc_load_be32(src + 4);
     dst = (u8*)malloc(decoded_size);
-    if (dst == NULL) return NULL;
+    if (dst == NULL) {
+        printf("[PC] assets: no memory to decompress %u bytes\n", (unsigned)decoded_size);
+        return NULL;
+    }
 
     while (dst_pos < decoded_size && src_pos < src_size) {
         u8 flags = src[src_pos++];
@@ -86,6 +95,8 @@ static u8* aurora_yaz0_decode(const u8* src, u32 src_size, u32* out_size) {
     }
 
     if (dst_pos != decoded_size) {
+        printf("[PC] assets: Yaz0 stream ended at %u of %u bytes (%u of %u read)\n", (unsigned)dst_pos,
+               (unsigned)decoded_size, (unsigned)src_pos, (unsigned)src_size);
         free(dst);
         return NULL;
     }
@@ -124,13 +135,20 @@ static int aurora_load_rom_images(void) {
     u8* rel_raw;
 
     mounted_dol = DVDGetDOLLocation(&dol_size);
-    if (mounted_dol == NULL || dol_size <= 0) return 0;
+    if (mounted_dol == NULL || dol_size <= 0) {
+        printf("[PC] assets: the disc's main.dol could not be read\n");
+        return 0;
+    }
     g_dol_data = (u8*)malloc((size_t)dol_size);
-    if (g_dol_data == NULL) return 0;
+    if (g_dol_data == NULL) {
+        printf("[PC] assets: no memory for main.dol (%d bytes)\n", (int)dol_size);
+        return 0;
+    }
     memcpy(g_dol_data, mounted_dol, (size_t)dol_size);
 
     rel_raw = aurora_load_dvd_file("/foresta.rel.szs", &rel_size);
     if (rel_raw == NULL) {
+        printf("[PC] assets: the disc's foresta.rel.szs could not be read\n");
         free(g_dol_data);
         g_dol_data = NULL;
         return 0;
@@ -152,6 +170,7 @@ static int aurora_load_rom_images(void) {
     }
 
     if (g_rel_data == NULL) {
+        printf("[PC] assets: foresta.rel.szs (%u bytes) did not decompress\n", (unsigned)rel_size);
         free(g_dol_data);
         g_dol_data = NULL;
         return 0;
@@ -199,6 +218,13 @@ void pc_assets_pal_n64_to_gc(u16* pal, int count) {
 }
 
 static void do_swap(void* data, unsigned int size, int type) {
+#ifndef TARGET_PC
+    /* The disc's tables are big-endian, as the Wii is */
+    (void)data;
+    (void)size;
+    (void)type;
+    return;
+#endif
     switch (type) {
         case SWAP_U16: pc_bswap_asset_u16(data, size); break;
         case SWAP_VTX: pc_bswap_asset_vtx(data, size); break;

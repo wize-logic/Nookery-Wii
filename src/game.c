@@ -1,8 +1,10 @@
 #include "game.h"
 #include "pc_tracy.h"
 
+#ifdef ACGC_PORT
 #ifdef TARGET_PC
 #include "pc_platform.h"
+#endif
 #include "pc_diag.h"
 #endif
 

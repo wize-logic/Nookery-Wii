@@ -347,7 +347,7 @@ extern int Actor_draw_actor_no_culling_check2(ACTOR* actor, xyz_t* camera_pos, f
 
     if (-actor->cull_radius < camera_pos->z && camera_pos->z < actor->cull_distance + actor->cull_radius) {
         f32 m = camera_w < 1.0f ? 1.0f : 1.0f / camera_w;
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
         /* Widescreen hor+ widens the rendered frustum.  The projection matrix
          * used to compute camera_pos is the original 4:3 one, so the NDC X
          * edge (1.0) is too narrow.  Extend by the aspect ratio correction. */

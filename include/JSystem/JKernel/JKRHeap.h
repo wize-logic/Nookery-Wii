@@ -373,9 +373,13 @@ void operator delete[](void*, JKRHeapToken) noexcept;
 void* operator new(size_t);
 void* operator new(size_t, s32);
 void* operator new(size_t, JKRHeap*, int);
+#ifdef ACGC_PORT
+#include <new> /* placement new is the host C++ library's */
+#else
 inline void* operator new(size_t, void* buf) {
     return buf;
 } // i believe this is actually part of MSL_C?
+#endif
 void* operator new[](size_t);
 void* operator new[](size_t, s32);
 void* operator new[](size_t, JKRHeap*, int);

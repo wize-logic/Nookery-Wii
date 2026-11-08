@@ -15,25 +15,35 @@
 
 #include <string.h>
 
+/* The big-endian loads and stores below swap on a little-endian host only
+ * (the Wii port is big-endian, as the data) */
+#if defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+#define PC_HOST_BE_TO_NATIVE16(x) (x)
+#define PC_HOST_BE_TO_NATIVE32(x) (x)
+#else
+#define PC_HOST_BE_TO_NATIVE16(x) pc_bswap16(x)
+#define PC_HOST_BE_TO_NATIVE32(x) pc_bswap32(x)
+#endif
+
 static inline unsigned short pc_load_be16(const void* src) {
     unsigned short value;
     memcpy(&value, src, sizeof(value));
-    return pc_bswap16(value);
+    return PC_HOST_BE_TO_NATIVE16(value);
 }
 
 static inline unsigned int pc_load_be32(const void* src) {
     unsigned int value;
     memcpy(&value, src, sizeof(value));
-    return pc_bswap32(value);
+    return PC_HOST_BE_TO_NATIVE32(value);
 }
 
 static inline void pc_store_be16(void* dst, unsigned short value) {
-    value = pc_bswap16(value);
+    value = PC_HOST_BE_TO_NATIVE16(value);
     memcpy(dst, &value, sizeof(value));
 }
 
 static inline void pc_store_be32(void* dst, unsigned int value) {
-    value = pc_bswap32(value);
+    value = PC_HOST_BE_TO_NATIVE32(value);
     memcpy(dst, &value, sizeof(value));
 }
 

@@ -25,7 +25,7 @@ eEC_PROFILE_c iam_ef_shooting_set = {
 };
 
 static f32 eShootingSet_GetHorizontalScale() {
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
     f32 aspect_factor = pc_widescreen_get_aspect_factor();
 
     if (aspect_factor < 1.0f) {
