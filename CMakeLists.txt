@@ -1,5 +1,14 @@
 cmake_minimum_required(VERSION 3.25)
 
+# The Wii build (devkitPPC and libogc: cmake --preset wii) has its own
+# description: the game's sources over the SDK's GX and the port's OS (wii/).
+# (The toolchain file names the system only once project() reads it.)
+if (CMAKE_TOOLCHAIN_FILE MATCHES "/Wii\\.cmake$")
+    project(nookery_wii VERSION 0.1.0 LANGUAGES C CXX ASM)
+    include(wii/cmake/Wii.cmake)
+    return()
+endif ()
+
 
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING

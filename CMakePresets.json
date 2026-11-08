@@ -187,6 +187,21 @@
         "CMAKE_DISABLE_FIND_PACKAGE_PkgConfig": true,
         "CMAKE_MSVC_DEBUG_INFORMATION_FORMAT": "Embedded"
       }
+    },
+    {
+      "name": "wii",
+      "displayName": "Nookery Wii",
+      "description": "Wii homebrew build with devkitPPC and libogc",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "toolchainFile": "$env{DEVKITPRO}/cmake/Wii.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      },
+      "environment": {
+        "DEVKITPRO": "/opt/devkitpro",
+        "DEVKITPPC": "/opt/devkitpro/devkitPPC"
+      }
     }
   ],
   "buildPresets": [
@@ -261,6 +276,10 @@
       "targets": [
         "install"
       ]
+    },
+    {
+      "name": "wii",
+      "configurePreset": "wii"
     }
   ]
 }
