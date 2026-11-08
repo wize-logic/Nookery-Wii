@@ -889,6 +889,14 @@ extern void play_main(GAME* game) {
     game->doing_point = 0;
     game->doing_point_specific = 0x8C;
 
+#ifdef NOOKERY_WII_NET
+    /* The online play (wii/src/netgame): the others' puppets and the town's
+     * ground, before the actors move and draw */
+    {
+        extern void nk_netgame_play_frame(GAME_PLAY* play);
+        nk_netgame_play_frame(play);
+    }
+#endif
     if ((GETREG(HREG, 80) != 10) || (GETREG(HREG, 81) != 0)) {
         Game_play_move(game);
     }

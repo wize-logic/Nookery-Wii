@@ -1329,6 +1329,39 @@ extern int mPlib_get_player_actor_request_main_index(GAME* game) {
     return -1;
 }
 
+#ifdef ACGC_PORT
+/* A face's texture (0xE00 bytes: the eyes, then the mouths) and palette for
+ * any player, not Now_Private's: the online play's remote players
+ * (wii/src/netgame). After ACGC-PC-Multiplayer's. */
+extern void mPlib_Load_FaceTexAndPallet(void* face_tex_p, void* face_pallet_p, int sex, int face_type,
+                                        int sunburn_rank, int swell, int decoy) {
+    u32 tex_rom_p;
+    u32 pallet_rom_p;
+
+    if (face_tex_p == NULL || face_pallet_p == NULL) {
+        return;
+    }
+
+    tex_rom_p = mPlib_Get_UseFaceTexRom_p_common(sex, face_type, swell, decoy);
+    _JW_GetResourceAram(tex_rom_p, (u8*)face_tex_p, 0xE00);
+    DCStoreRangeNoSync(face_tex_p, 0xE00);
+
+    if (sunburn_rank > 0 && decoy == FALSE) {
+        u32 idx = mPlib_Get_UseFaceRom_index(sex, face_type, swell, FALSE, mPlayer_USE_FACE_ROM_TYPE_PAL);
+        u32 base = mPlib_Get_UseFaceTexRom_p_common(mPr_SEX_FEMALE, mPr_FACE_TYPE7, TRUE, TRUE);
+        pallet_rom_p = base + 0xE00 + (sunburn_rank + idx) * 0x20;
+    } else {
+        pallet_rom_p = tex_rom_p + 0xE00;
+    }
+
+    _JW_GetResourceAram(pallet_rom_p, (u8*)face_pallet_p, mNW_PALETTE_SIZE);
+#ifdef TARGET_PC
+    mPlib_ByteSwapPlayerPalette((u16*)face_pallet_p);
+#endif
+    DCStoreRangeNoSync(face_pallet_p, mNW_PALETTE_SIZE);
+}
+#endif
+
 extern cKF_Skeleton_R_c cKF_bs_r_boy_1;
 extern cKF_Skeleton_R_c cKF_bs_r_grl_1;
 

@@ -857,6 +857,45 @@ extern ACTOR* Actor_info_make_actor(Actor_info* actor_info, GAME* game, s16 prof
     return actor;
 }
 
+#ifdef ACGC_PORT
+/* An actor of a profile the game's table doesn't have (the online play's
+ * remote players: wii/src/netgame), through the same allocation, init, link
+ * and construction as Actor_info_make_actor. After ACGC-PC-Multiplayer's
+ * pc_actor_make_from_profile. Not tied to a block (as the player's own). */
+extern ACTOR* Actor_info_make_actor_from_profile(Actor_info* actor_info, GAME* game, ACTOR_PROFILE* profile,
+                                                 ACTOR_DLFTBL* dlftbl, f32 x, f32 y, f32 z, s16 rot_x, s16 rot_y,
+                                                 s16 rot_z, mActor_name_t name_id, s16 arg) {
+    GAME_PLAY* play = (GAME_PLAY*)game;
+    ACTOR* actor;
+    int data_bank_idx = -1;
+
+    if (actor_info->total_num > mAc_MAX_ACTORS || profile == NULL || dlftbl == NULL || profile->class_size == 0) {
+        return NULL;
+    }
+    if (Actor_data_bank_regist_check(&data_bank_idx, profile, dlftbl, play, name_id) == FALSE) {
+        return NULL;
+    }
+#ifdef TARGET_PC
+    mAc_pc_actor_alloc_kind alloc_kind = mAc_PC_ACTOR_ALLOC_NONE;
+    if (Actor_malloc_actor_class(&actor, profile, dlftbl, "", name_id, &alloc_kind) == FALSE) {
+        return NULL;
+    }
+    mAc_pc_record_actor_alloc(actor, alloc_kind);
+#else
+    if (Actor_malloc_actor_class(&actor, profile, dlftbl, "", name_id) == FALSE) {
+        return NULL;
+    }
+#endif
+
+    dlftbl->num_actors++;
+    Actor_init_actor_class(actor, profile, dlftbl, play, data_bank_idx, x, y, z, rot_x, rot_y, rot_z, -1, -1, -1,
+                           name_id, arg);
+    Actor_info_part_new(actor_info, actor, profile->part);
+    Actor_ct(actor, game);
+    return actor;
+}
+#endif
+
 extern ACTOR* Actor_info_make_child_actor(Actor_info* actor_info, ACTOR* parent_actor, GAME* game, s16 profile, f32 x,
                                           f32 y, f32 z, s16 rot_x, s16 rot_y, s16 rot_z, s16 move_actor_list_idx,
                                           mActor_name_t name_id, s16 arg, int data_bank_idx) {

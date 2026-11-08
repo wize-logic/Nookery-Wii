@@ -75,6 +75,13 @@ static BOOL l_lbRTC_IsSampled;
 static OSTime lbRTC_GetHardTime() {
 #ifdef TARGET_PC
   return OSGetSystemTime();
+#elif defined(TARGET_WII)
+  {
+    /* A test (settings.ini clock_test_skew): a console whose clock is set
+     * that many seconds off */
+    extern int g_nk_clock_test_skew;
+    return OSGetTime() + (OSTime)g_nk_clock_test_skew * OS_TIMER_CLOCK;
+  }
 #else
   return OSGetTime();
 #endif
@@ -166,6 +173,17 @@ static void lbRTC_GetGameTime(lbRTC_time_c* time) {
   OSCalendarTime ctime;
   OSTime t = lbRTC_GetHardTime();
   t += Save_Get(time_delta);
+#ifdef TARGET_WII
+  {
+    /* Online, a guest in the host's town keeps the host's clock
+     * (wii/src/netgame/nk_netgame.c) */
+    extern int g_nk_clock_active;
+    extern long long g_nk_clock_offset;
+    if (g_nk_clock_active) {
+      t = lbRTC_GetHardTime() + g_nk_clock_offset;
+    }
+  }
+#endif
 
   OSTicksToCalendarTime(t, &ctime);
 #ifdef TARGET_PC
