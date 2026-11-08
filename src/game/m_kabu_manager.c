@@ -51,7 +51,13 @@ static void Kabu_decide_trade_market() {
     next_trade_market_typeA, next_trade_market_typeB, next_trade_market_typeC
   };
 
+#ifdef BUGFIXES
+  /* A save with an unknown market type read a pointer past the table */
+  int market = Save_Get(kabu_price_schedule.trade_market);
+  f32* next_type_market = next_trade_market[market < Kabu_TRADE_MARKET_TYPE_NUM ? market : 0];
+#else
   f32* next_type_market = next_trade_market[Save_Get(kabu_price_schedule.trade_market)];
+#endif
   f32 chosen = fqrand(); /* [0.0f, 1.0f) */
   int i;
 

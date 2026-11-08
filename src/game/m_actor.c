@@ -812,6 +812,13 @@ extern ACTOR* Actor_info_make_actor(Actor_info* actor_info, GAME* game, s16 prof
 #endif
 
     play = (GAME_PLAY*)game;
+#ifdef ACGC_PORT
+    /* A profile number from bad save data (an unknown structure item) would
+     * read a profile pointer far past the table */
+    if (profile_no < 0 || profile_no >= mAc_PROFILE_NUM) {
+        return NULL;
+    }
+#endif
     dlftbl = actor_dlftbls + profile_no;
     overlay_info.actor_name = "";
     if (actor_info->total_num > mAc_MAX_ACTORS) {

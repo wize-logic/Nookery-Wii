@@ -271,7 +271,15 @@ extern void mHsRm_HuusuiRoomOvl(int player_no) {
     goods_power = 0;
 
     /* Evaluate the main room first */
+#ifdef BUGFIXES
+    /* A house of the statue size (mHm_HOMESIZE_STATUE: only a save editor
+     * makes one, mHm_CheckRehouseOrder) read past the table: its main floor
+     * is the upper house's */
+    ut_max = mHsRm_unit_max[home->size_info.size < mHm_HOMESIZE_STATUE ? home->size_info.size
+                                                                      : mHm_HOMESIZE_UPPER];
+#else
     ut_max = mHsRm_unit_max[home->size_info.size];
+#endif
     layers[0] = &home->floors[mHm_ROOM_MAIN].layer_main;
     layers[1] = &home->floors[mHm_ROOM_MAIN].layer_secondary;
     mHsRm_EvaluateHuusuiPoint(layers, ut_max, &money_power, &goods_power);

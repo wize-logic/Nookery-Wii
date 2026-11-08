@@ -109,6 +109,12 @@ static STRUCTURE_ACTOR* aSTR_setupActor_proc(GAME* game, mActor_name_t structure
     int bx;
     int bz;
 
+#ifdef BUGFIXES
+    /* A save editor's unknown structure item read past setupInfo_table */
+    if (structure_name >= STRUCTURE_END) {
+        return NULL;
+    }
+#endif
     if (structure_name < NPC_HOUSE_END) {
         mNpc_SearchAnimalinfo(Save_Get(animals), NPC_HOUSE_ID_TO_NPC_ID(structure_name), ANIMAL_NUM_MAX);
         profile = mAc_PROFILE_HOUSE;

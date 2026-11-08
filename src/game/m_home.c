@@ -452,6 +452,14 @@ extern void mHm_CheckRehouseOrder() {
     int i;
 
     for (i = 0; i < PLAYER_NUM; i++) {
+#ifdef BUGFIXES
+        /* The game never makes a house the statue size (only the next size
+         * it orders); a save editor's can, and every table of the house's
+         * models, rooms and doors would be read past its end */
+        if (home->size_info.size >= mHm_HOMESIZE_STATUE) {
+            home->size_info.size = mHm_HOMESIZE_UPPER;
+        }
+#endif
         if (mPr_NullCheckPersonalID(&home->ownerID) == FALSE) {
             if (home->outlook_pal != home->next_outlook_pal) {
                 home->outlook_pal = home->next_outlook_pal;
