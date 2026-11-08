@@ -1,11 +1,11 @@
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_tailor_on_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) extern u16 int_tak_tailor_on_pal[] = {
     #include "assets/int_tak_tailor_on_pal.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_tailor_off_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) extern u16 int_tak_tailor_off_pal[] = {

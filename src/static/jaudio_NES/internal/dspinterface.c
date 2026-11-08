@@ -459,7 +459,7 @@ ATTRIBUTE_ALIGN(32) static u32 DSPRES_FILTER[] = {
  */
 void DSP_SetupBuffer()
 {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 	/* The PC implementation is a no-op; rspsim reads the native tables directly. */
 	DsetupTable((u32)CH_BUF_LENGTH, 0, 0, 0, 0);
 #else

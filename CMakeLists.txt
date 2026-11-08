@@ -104,6 +104,7 @@ endif ()
 
 add_compile_definitions(
     TARGET_PC=1
+    ACGC_PORT=1     # a static GCC/Clang build of the game (include/types.h)
     VERSION=0
     F3DEX_GBI_2
     NDEBUG

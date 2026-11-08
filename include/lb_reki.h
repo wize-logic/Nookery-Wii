@@ -17,7 +17,7 @@ extern "C" {
 #define lbRk_KYUU_LEAP_MONTH 13
 
 #define lbRk_HARVEST_MOON_YEAR_MIN 2002
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #define lbRk_HARVEST_MOON_YEAR_MAX GAME_YEAR_MAX
 #else
 #define lbRk_HARVEST_MOON_YEAR_MAX 2030
@@ -31,7 +31,7 @@ extern int lbRk_ToKyuuReki(lbRTC_ymd_c* kyuu_ymd, lbRTC_ymd_c* seiyo_ymd);
 extern int lbRk_VernalEquinoxDay(int year);
 extern int lbRk_AutumnalEquinoxDay(int year);
 extern void lbRk_HarvestMoonDay(lbRTC_ymd_c* harvest_moon_day, int year);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* Returns FALSE without modifying the output if the calendar cannot be built. */
 extern int lbRk_TryHarvestMoonDay(lbRTC_ymd_c* harvest_moon_day, int year);
 #endif

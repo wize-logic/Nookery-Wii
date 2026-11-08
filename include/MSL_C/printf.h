@@ -1,7 +1,7 @@
 #ifndef MSL_PRINTF_H
 #define MSL_PRINTF_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* On PC, system headers provide printf family */
 #include <stdio.h>
 #include <stdarg.h>
@@ -24,6 +24,6 @@ int snprintf(char* s, size_t n, const char* format, ...);
 }
 #endif
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 #endif

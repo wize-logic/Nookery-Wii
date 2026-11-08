@@ -1,4 +1,4 @@
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_yaz_fish_trophy_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) extern u16 int_yaz_fish_trophy_pal[] = {

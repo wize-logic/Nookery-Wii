@@ -145,7 +145,7 @@ int graph_dt_scaled_step(struct game_s* game, int step, float* accum);
 #define NEXT_BG_OPA_DISP NEXT_DISP(&__graph->bg_opaque_thaga)
 #define NEXT_BG_XLU_DISP NEXT_DISP(&__graph->bg_translucent_thaga)
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* Metrowerks allows cast-to-lvalue; GCC does not. head_p is already Gfx*. */
 #define NOW_POLY_OPA_DISP NOW_DISP(&__graph->polygon_opaque_thaga)
 #define NOW_POLY_XLU_DISP NOW_DISP(&__graph->polygon_translucent_thaga)

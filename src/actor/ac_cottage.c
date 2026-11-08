@@ -339,7 +339,7 @@ static int Cottage_my_check_door_pl_in(STRUCTURE_ACTOR* cottage, GAME_PLAY* play
 
         if ((SQ(xOffs) + SQ(zOffs)) < 1600.0f && (xOffs + zOffs) < 40.0f) {
             y = player->actor_class.shape_info.rotation.y;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
             // -DEG2SHORT_ANGLE(180.0f) becomes +32768 on GCC (s16 cast wraps, unary minus
             // promotes to int) making the lower bound unreachable.
             if (y > -32768 && y < -DEG2SHORT_ANGLE(90.0f) && chkTrigger(BUTTON_A) != FALSE) {

@@ -2,7 +2,7 @@
 
 #include "m_name_table.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static void BoxTrick01_Actor_ct(ACTOR* actor, GAME* game);
 static void BoxTrick01_Actor_dt(ACTOR* actor, GAME* game);
 static void BoxTrick01_Actor_move(ACTOR* actor, GAME* game);

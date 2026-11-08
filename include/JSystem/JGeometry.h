@@ -4,14 +4,14 @@
 #include <dolphin/mtx.h>
 #include "types.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <math.h>
 #include <float.h>
 #endif
 
 #ifdef __cplusplus
 inline f32 fsqrt_step(f32 mag) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     f32 root = (f32)(1.0 / sqrt((double)mag));
 #else
     f32 root = __frsqrte(mag);

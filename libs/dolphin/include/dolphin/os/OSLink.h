@@ -24,7 +24,7 @@ struct OSModuleQueue {
     OSModuleInfo* tail;
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern OSModuleQueue __OSModuleList;
 extern void* __OSStringTable;
 #else

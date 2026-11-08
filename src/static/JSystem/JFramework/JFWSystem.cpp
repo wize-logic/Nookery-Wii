@@ -80,7 +80,7 @@ void _pc_load_JUTResFONT_Ascfont_fix12(void) {
     bswap_bfn1((u8*)&JUTResFONT_Ascfont_fix12, 0x4160);
 }
 }
-#endif /* TARGET_PC */
+#endif /* ACGC_PORT */
 
 int JFWSystem::CSetUpParam::maxStdHeaps = 2;
 u32 JFWSystem::CSetUpParam::sysHeapSize = 0x400000;
@@ -90,7 +90,7 @@ u32 JFWSystem::CSetUpParam::aramGraphBufSize = 0x600000;
 s32 JFWSystem::CSetUpParam::streamPriority = 8;
 s32 JFWSystem::CSetUpParam::decompPriority = 7;
 s32 JFWSystem::CSetUpParam::aPiecePriority = 6;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 const ResFONT* JFWSystem::CSetUpParam::systemFontRes = (const ResFONT*)JUTResFONT_Ascfont_fix12;
 #else
 const ResFONT* JFWSystem::CSetUpParam::systemFontRes = &JUTResFONT_Ascfont_fix12;

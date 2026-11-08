@@ -663,7 +663,7 @@ extern int cKF_SkeletonInfo_R_play(cKF_SkeletonInfo_R_c* keyframe) {
 
     int dataIndex = 0;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* Validate keyframe data to prevent crash from corrupted animation state.
        Note: data_table and key_table can legitimately be NULL for static poses
        (all flags zero, all values from fixed_table). Only reject truly invalid state. */

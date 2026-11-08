@@ -1,7 +1,7 @@
 #ifndef _MSL_COMMON_FLOAT_H
 #define _MSL_COMMON_FLOAT_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <math.h>
 #include <float.h>
 #else
@@ -94,6 +94,6 @@ inline int __fpclassifyd(double __value)
 #define DBL_MAX_EXP    1024
 #define DBL_MAX_10_EXP 308
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 #endif /* _MSL_COMMON_FLOAT_H */

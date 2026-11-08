@@ -1,6 +1,6 @@
 #include "jaudio_NES/dspproc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /*==========================================================================
  * PC: No hardware DSP — rspsim.c does all audio processing in software.
  * These functions become no-ops or simple state tracking.
@@ -48,7 +48,7 @@ extern void DagbSec(u32 arg0) {
     (void)arg0;
 }
 
-#else /* !TARGET_PC — original GC code */
+#else /* !ACGC_PORT — original GC code */
 
 #include "dolphin/dsp.h"
 
@@ -139,5 +139,5 @@ extern void DagbSec(u32 arg0){
     DSPWaitFinish();
 }
 
-#endif /* TARGET_PC */
+#endif /* ACGC_PORT */
 

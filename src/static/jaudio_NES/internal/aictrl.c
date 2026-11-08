@@ -233,7 +233,7 @@ extern void Jac_VframeWork(void) {
     JAC_VFRAME_COUNTER++;
 
     s16* mixedTrack = MixDsp(DAC_SIZE / 2);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* On PC, rspsim's INTERLEAVE command already produces interleaved stereo
      * in tmp_buf/dsp_buf. The original Jac_imixcopy assumes split-channel
      * layout (first half = R, second half = L) which is the GC DSP hardware

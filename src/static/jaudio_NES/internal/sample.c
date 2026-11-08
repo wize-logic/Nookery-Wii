@@ -2,7 +2,7 @@
 
 #include "dolphin/os/OSCache.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* reinterpret_cast -> C cast so sample.c compiles as C on PC */
 #define CAST_PTR_U32(p) ((u32)(uintptr_t)(p))
 #include <string.h> /* memmove */
@@ -30,7 +30,7 @@ extern void Jac_bcopyfast(u32* src, u32* dest, u32 size) {
 }
 
 extern void Jac_bcopy(void* src, void* dest, size_t size) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* N64 RSP bcopy must be overlap-safe (delay lines, ring buffers, DMEM slides).
        The original forward-only copy corrupts overlapping regions (dst > src),
        causing audible pops on one channel at frame boundaries. */
@@ -92,7 +92,7 @@ extern void Jac_bzerofast(u32* dest, u32 size) {
 extern void Jac_bzero(void* dest, s32 size) {
     u32* udest;
     u8* bdest = (u8*)dest;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     u8 alignedbitsDst = CAST_PTR_U32(bdest) & 0x3;
 #else
     u8 alignedbitsDst = reinterpret_cast<u32>(bdest) & 0x3;

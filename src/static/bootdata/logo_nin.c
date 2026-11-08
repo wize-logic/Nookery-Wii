@@ -1,13 +1,13 @@
 #include "bootdata.h"
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 nintendo_376x104[0x4C60];
 #else
 #include "assets/bootdata/nintendo_376x104.inc"
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx logo_nin_v[0x40 / sizeof(Vtx)];
 #else
 Vtx logo_nin_v[] = {
@@ -27,7 +27,7 @@ Gfx logo_ninT_model[] = {
   gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_static_bootdata_logo_nin_c(void) {
     pc_load_asset("assets/bootdata/logo_nin_v.bin", logo_nin_v, 0x40, 0xC00C0, 1, 2);

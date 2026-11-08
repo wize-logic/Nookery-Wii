@@ -628,7 +628,7 @@ Bank_* Bank_Test(u8* ibnk_address)
  */
 static BOOL __Bank_Regist_Inner(u8* ibnk, u32 param_2, u32 param_3)
 {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 	if (param_2 >= BANKP_SIZE) {
 		OSReport("[PC] IBNK registration index %u is out of range\n", param_2);
 		return FALSE;

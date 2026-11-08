@@ -188,7 +188,7 @@ typedef struct _MUSEUM_FISH_ACTOR {
 //  data
 extern ACTOR_PROFILE Museum_Fish_Profile;
 // technically static, but this helps with vscode includes
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static xyz_t suisou_pos[5];
 #else
 extern xyz_t suisou_pos[5];

@@ -1,7 +1,7 @@
 #ifndef ACGC_LIBC_STRING_H
 #define ACGC_LIBC_STRING_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #error ACGC console libc headers are not host libc wrappers; include the system header instead
 #endif
 

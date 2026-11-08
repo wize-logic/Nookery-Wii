@@ -9,7 +9,7 @@
 #ifdef MOUSE_INPUT
 #include "game_pointer.h"
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <math.h>
 #else
 #include "libc/math.h"
@@ -74,7 +74,7 @@ static u32 mCD_sp_soncho_chk(lbRTC_year_t year, lbRTC_month_t month, lbRTC_day_t
             }
             break;
         default:
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
             if (!lbRk_TryHarvestMoonDay(&harvest_moon_day, year)) {
                 break;
             }
@@ -249,7 +249,7 @@ static void mCD_make_calendar_event_sanka_check(lbRTC_year_t year, lbRTC_month_t
 }
 
 static void mDC_set_event_day_data(mCD_month_entry_c* entry, lbRTC_month_t month, lbRTC_day_t day, u8 event, u8 day_type, u8 p6) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* Algorithmic calendar failures return a zero date. */
     if (month < lbRTC_JANUARY || month > lbRTC_DECEMBER || day < 1 || day > 31) {
         return;
@@ -408,7 +408,7 @@ static void mCD_make_calendar_data_unfixed_day_event(mCD_month_entry_c* entry, l
 
     mDC_set_event_day_data(entry, lbRTC_JULY, (lbRTC_day_t)Save_Get(town_day), mSC_EVENT_TOWN_DAY, mCD_DAY_EVENT, 0);
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (!lbRk_TryHarvestMoonDay(&harvest_moon_day, year)) {
         return;
     }

@@ -1,4 +1,4 @@
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w1_tex[] = {
@@ -6,7 +6,7 @@ ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w2_tex[0x1000];
 #else
 ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w2_tex[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w3_tex[0x1000];
 #else
 ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w3_tex[] = {
@@ -22,7 +22,7 @@ ATTRIBUTE_ALIGN(32) static u8 con_kaiwa2_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx con_kaiwa2_v[0x180 / sizeof(Vtx)];
 #else
 static Vtx con_kaiwa2_v[] = {
@@ -75,7 +75,7 @@ static Gfx con_kaiwa2_modelT[] = {
   gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 con_namefuti_TXT[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 con_namefuti_TXT[] = {
@@ -83,7 +83,7 @@ ATTRIBUTE_ALIGN(32) static u8 con_namefuti_TXT[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx con_kaiwaname_v[0x40 / sizeof(Vtx)];
 #else
 static Vtx con_kaiwaname_v[] = {
@@ -120,7 +120,7 @@ static Gfx mMsg_init_disp[] = {
   gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_game_m_msg_data_c_inc(void) {
     pc_load_asset("assets/msg/con_kaiwa2_w1_tex.bin", con_kaiwa2_w1_tex, 0x800, 0x2E71A0, 0, 0);

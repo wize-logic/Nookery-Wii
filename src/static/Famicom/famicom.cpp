@@ -171,7 +171,7 @@ static void pc_nes_rom_copy_title(u8* dst, const char* filename) {
 #define pc_widescreen_set_viewport GXSetViewport
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <string.h>
 #else
 #include "libc/string.h"
@@ -2080,7 +2080,7 @@ static s32 memcard_game_list(
     char* namebufp,
     int namebuf_size
 ) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* Skip the GC memory card. */
     char** names;
     int count = pc_nes_rom_scan(&names);
@@ -2656,7 +2656,7 @@ static int SetupResIcon(const ResTIMG* img, u8* dst, size_t max_size, size_t* si
 extern int famicom_cleanup() {
     int res = FALSE;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* Sync fixNES battery RAM back to bbramp before save extraction */
     pc_sync_prgram_to_bbramp();
     pc_fixnes_cleanup();
@@ -2842,7 +2842,7 @@ static int famicom_rom_load() {
         famicomCommon.save_data_name = (u8*)"GAFEFSE\x1A";
         famicomCommon.save_data_single_size = max_ofs + 0xB;
         famicomCommon.save_data_total_size = famicomCommon.save_data_single_size * PLAYER_NUM + sizeof(FamicomSaveDataHeader);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         pc_nes_cartridge.image.resize(famicomCommon.save_data_total_size);
         famicomCommon.save_data_header = (FamicomSaveDataHeader*)pc_nes_cartridge.image.data();
         famicomCommon.internal_save_datap = pc_nes_cartridge.image.data() + sizeof(FamicomSaveDataHeader) +
@@ -2916,7 +2916,7 @@ static int famicom_rom_load() {
         OSReport("NES emu reset failed!!");
     }
     else {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         /* Initialize fixNES with the loaded ROM, then load battery RAM save */
         pc_fixnes_init(famicomCommon.nesromp, nesrom_buffer_size);
         pc_sync_bbramp_to_prgram();
@@ -2961,7 +2961,7 @@ static void famicom_key_convert() {
             input &= ~(JUTGamePad::A | JUTGamePad::B);
         }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         input &= ~(JUTGamePad::X | JUTGamePad::Y);
 #endif
 
@@ -3068,7 +3068,7 @@ static void famicom_draw() {
 #endif
 }
 
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 static void* ksnes_proc(void* param) {
     u32* flags_p = (u32*)param;
 
@@ -3363,7 +3363,7 @@ extern void famicom_1frame() {
         }
     }
 
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
     GXSetScissor(0, 0, 640, 480);
     pc_widescreen_set_viewport(0.0f, 0.0f, 640.0f, 480.0f, 0.0f, 1.0f);
     ksNesDraw(famicomCommon.wp, famicomCommon.sp);
@@ -3379,7 +3379,7 @@ extern void famicom_1frame() {
 
     JW_SetFamicomMode(TRUE);
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     pc_fixnes_render_frame(nullptr);
 #else
     famicom_draw();
@@ -3598,7 +3598,7 @@ extern int famicom_internal_data_save() {
 }
 
 extern int famicom_external_data_save() {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (pc_nes_cartridge.ram_size == 0) return FAMICOM_RESULT_OK;
     if (!famicomCommon.nesrom_memcard || famicomCommon.save_data_header == nullptr ||
         pc_nes_cartridge.image.empty() ||

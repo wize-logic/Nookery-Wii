@@ -5,7 +5,8 @@
 #include "dolphin/os/OSTime.h"
 #include "dolphin/os/OSMessage.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
+/* (the SDK headers of a port have no OSTimer: the decomp's layout) */
 #include "dolphin/os/OSAlarm.h"
 typedef struct OSTimer_s {
     OSAlarm alarm;

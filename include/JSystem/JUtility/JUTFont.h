@@ -396,7 +396,7 @@ struct JUTCacheFont : public JUTResFont {
     int _B4;                  // _B4
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern unsigned char JUTResFONT_Ascfont_fix12[];
 #else
 extern const ResFONT JUTResFONT_Ascfont_fix12;

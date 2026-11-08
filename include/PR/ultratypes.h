@@ -32,7 +32,7 @@
 /**********************************************************************
  * General data types for R4300
  */
-#if defined(_LANGUAGE_C) || defined(_LANGUAGE_C_PLUS_PLUS) || defined(TARGET_PC)
+#if defined(_LANGUAGE_C) || defined(_LANGUAGE_C_PLUS_PLUS) || defined(ACGC_PORT)
 
 #ifdef TARGET_PC
 #include <dolphin/types.h>
@@ -61,7 +61,7 @@ typedef float   f32;    /* single prec floating point */
 typedef double  f64;    /* double prec floating point */
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <stddef.h>
 #else
 #if !defined(_SIZE_T) && !defined(_SIZE_T_) && !defined(_SIZE_T_DEF)

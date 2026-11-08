@@ -624,7 +624,7 @@ static void setupFog(GAME_PLAY* play, GRAPH* graph) {
     SET_POLY_OPA_DISP(game_play_set_fog(play, NOW_POLY_OPA_DISP));
     SET_POLY_XLU_DISP(game_play_set_fog(play, NOW_POLY_XLU_DISP));
 
-    #if defined(BUGFIXES) || defined(TARGET_PC)
+    #if defined(BUGFIXES) || defined(ACGC_PORT)
     // Apply fog to blocks
     SET_BG_OPA_DISP(game_play_set_fog(play, NOW_BG_OPA_DISP));
     SET_BG_XLU_DISP(game_play_set_fog(play, NOW_BG_XLU_DISP));
@@ -815,7 +815,7 @@ static void Game_play_draw(GAME_PLAY* play) {
 
     // @BUG - when removing display list segment function present in N64, the devs went slightly too far
     // and removed setting the background fill color while in the main field area.
-#if defined(BUGFIXES) || defined(TARGET_PC)
+#if defined(BUGFIXES) || defined(ACGC_PORT)
     if (Common_Get(field_type) == mFI_FIELDTYPE2_FG && mEv_CheckTitleDemo() != mEv_TITLEDEMO_STAFFROLL) {
         fill_r = play->kankyo.base_light.background_color[0];
         fill_g = play->kankyo.base_light.background_color[1];

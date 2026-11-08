@@ -27,7 +27,7 @@ extern u8 boot_sound_initializing;
 typedef void(*HotStartProc)();
 
 #define NMISaveArea (void*)0x811FFFC0
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern OSModuleHeader* BaseModule;
 #else
 OSModuleHeader* BaseModule AT_ADDRESS(0x800030C8);

@@ -1,7 +1,7 @@
 #include "jaudio_NES/dspboot.h"
 #include "jaudio_NES/dspproc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* PC: No DSP hardware — DspBoot is skipped from StartAudioThread.
  * Provide empty stubs for symbols that may be referenced. */
 u16 jdsp[1] = { 0 };
@@ -19,7 +19,7 @@ void DSPInit2(DSPTaskInfo2* task) {
     (void)task;
 }
 
-#else /* !TARGET_PC — original GC code */
+#else /* !ACGC_PORT — original GC code */
 
 #include "dolphin/dsp.h"
 #include "dolphin/os.h"
@@ -400,4 +400,4 @@ void DspBoot(){
     DwaitFrame();
 }
 
-#endif /* TARGET_PC */
+#endif /* ACGC_PORT */

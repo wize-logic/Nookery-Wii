@@ -33,7 +33,7 @@ void osSyncPrintf(const char* fmt, ...);
 void osWritebackDCache(void* vaddr, u32 nbytes);
 u32 osGetCount(void);
 OSTime osGetTime(void);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 int __abs(int value);
 #endif
 

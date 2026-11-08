@@ -59,7 +59,7 @@ typedef int BOOL;
 #endif
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>

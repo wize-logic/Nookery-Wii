@@ -1,4 +1,4 @@
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 aKOI_obj_e_koinobori_a_pal[0x20 / sizeof(u16)];
 #else
 u16 aKOI_obj_e_koinobori_a_pal[] = {
@@ -6,7 +6,7 @@ u16 aKOI_obj_e_koinobori_a_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_koinobori_b_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_koinobori_b_pal[] = {

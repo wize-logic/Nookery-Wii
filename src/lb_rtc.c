@@ -47,7 +47,7 @@
 #include "types.h"
 #include "dolphin/os.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include "kyureki.h"
 
 extern int g_pc_time_override;
@@ -559,7 +559,7 @@ extern int lbRTC_IntervalTime(const lbRTC_time_c* time0, const lbRTC_time_c* tim
  * @return Number of days between the two given dates.
  */
 extern int lbRTC_GetIntervalDays(const lbRTC_time_c* t0, const lbRTC_time_c* t1) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
   qk_gregorian date0 = { t0->year, t0->month, t0->day };
   qk_gregorian date1 = { t1->year, t1->month, t1->day };
   long day0, day1;

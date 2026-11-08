@@ -1,5 +1,5 @@
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx tol_sponge_1_v[0xA0 / sizeof(Vtx)];
 #else
 static Vtx tol_sponge_1_v[] = {
@@ -7,7 +7,7 @@ static Vtx tol_sponge_1_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_sponge_1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_sponge_1_pal[] = {
@@ -15,7 +15,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_sponge_1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 tol_sponge_1_main1_tex_txt[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 tol_sponge_1_main1_tex_txt[] = {
@@ -68,7 +68,7 @@ static const Gfx tol_sponge_1_model[] = {
 };
 // clang-format on
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_game_m_player_tools_c_inc(void) {
     pc_load_asset("assets/tol_sponge_1_v.bin", tol_sponge_1_v, 0xA0, 0x32E3C0, 0, 2);

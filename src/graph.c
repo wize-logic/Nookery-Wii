@@ -26,7 +26,7 @@
 #include "sys_dynamic.h"
 #include "sys_ucode.h"
 #include "zurumode.h"
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include "pc_diag.h"
 #include "pc_platform.h"
 extern int g_pc_running;
@@ -41,7 +41,7 @@ u8 SoftResetEnable;
 static int frame; // TODO: this is actually declared in graph_task_set00
 static float graph_audio_accum;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #define CONSTRUCT_THA_GA(tha_ga, name, name2) (THA_GA_ct((tha_ga), sys_dynamic.name, name2 ## _SIZE * sizeof(Gfx)))
 #else
 #define CONSTRUCT_THA_GA(tha_ga, name, name2) (THA_GA_ct((tha_ga), sys_dynamic.##name, ##name2##_SIZE * sizeof(Gfx)))

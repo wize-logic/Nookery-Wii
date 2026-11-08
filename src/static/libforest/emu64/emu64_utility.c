@@ -4,7 +4,7 @@
 #include "terminal.h"
 #include "MSL_C/w_math.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 uintptr_t emu64::seg2k0(uintptr_t segadr) {
     if (segadr > UINT32_MAX) {
         return segadr;

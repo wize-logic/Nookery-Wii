@@ -9,7 +9,7 @@ static mActor_proc Player_actor_dt_func;
 static mActor_proc Player_actor_move_func;
 static mActor_proc Player_actor_draw_func;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static void Player_actor_ct_call(ACTOR* actor, GAME* game);
 static void Player_actor_dt_call(ACTOR* actor, GAME* game);
 static void Player_actor_move_call(ACTOR* actor, GAME* game);

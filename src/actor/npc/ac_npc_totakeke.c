@@ -10,7 +10,7 @@
 #include "m_string_data.h"
 #include "m_ledit_ovl.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static void aNTT_schedule_proc(NPC_TOTAKEKE_ACTOR* totakeke, GAME_PLAY* play, int schedule_id);
 static int aNTT_change_talk_proc(NPC_TOTAKEKE_ACTOR*, int);
 static void aNTT_setup_think_proc(NPC_TOTAKEKE_ACTOR*, GAME_PLAY*, u8);
@@ -21,7 +21,7 @@ int aNTT_change_talk_proc(NPC_TOTAKEKE_ACTOR*, int);
 void aNTT_setup_think_proc(NPC_TOTAKEKE_ACTOR*, GAME_PLAY*, u8);
 int aNTT_enso_init(NPC_TOTAKEKE_ACTOR*);
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static void aNTT_actor_ct(ACTOR* actorx, GAME* game);
 static void aNTT_actor_dt(ACTOR* actorx, GAME* game);
 static void aNTT_actor_init(ACTOR* actorx, GAME* game);

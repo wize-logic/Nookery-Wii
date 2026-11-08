@@ -8,14 +8,14 @@
 #include "_mem.h"
 #include "dolphin/os.h"
 
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 #pragma optimizewithasm off
 #endif
 
 // TODO: verify function signatures.
 // TODO: replace hard-coded function pointers with function names.
 
-#ifndef TARGET_PC /* All function tables + asm reference PPC asm entry points */
+#ifndef ACGC_PORT /* All function tables + asm reference PPC asm entry points */
 
 typedef void (*STORE_FUNC)(u32 addr, u32 data);
 
@@ -2311,7 +2311,7 @@ KS_NES_INSTR ksNesInstJumpTbl[0x100] = {
 };
 // clang-format on
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 void ksNesDrawMakeOBJIndTex(ksNesCommonWorkObj* wp) {
     static const u8 array[] = {
@@ -2936,9 +2936,9 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
     sp->os_tick = os_tick;
     return 0; // return success.
 }
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 void ksNesEmuFrame(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags) {
     u8 status;
     size_t count = 0;
@@ -2980,7 +2980,7 @@ void ksNesEmuFrame(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags) {
 
     return;
 }
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 #ifndef TARGET_PC /* PPC inline assembly — replaced by pc_nes_core.c on PC */
 
@@ -7436,6 +7436,6 @@ L_8003DE94:
 
 // clang-format on
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 // void ksNesStoreBBRAM() {}

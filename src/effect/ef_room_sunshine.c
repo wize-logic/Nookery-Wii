@@ -6,7 +6,7 @@
 #include "m_collision_bg.h"
 #include "sys_matrix.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static void Ef_Room_Sunshine_actor_ct(ACTOR* actor, GAME* play);
 static void Ef_Room_SunshineL_actor_move(ACTOR* actor, GAME* play);
 static void Ef_Room_SunshineL_actor_draw(ACTOR* actor, GAME* play);

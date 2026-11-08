@@ -819,7 +819,7 @@ extern ACTOR* Actor_info_make_actor(Actor_info* actor_info, GAME* game, s16 prof
     }
 
     profile = dlftbl->profile;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* Skip actors with NULL or stubbed profiles (stub functions masquerading as struct data) */
     if (profile == NULL || profile->class_size == 0 || profile->class_size > 0x100000) {
         return NULL;

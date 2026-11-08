@@ -28,7 +28,7 @@ extern void mGcgba_EndComm() {
 }
 
 extern int mGcgba_ConnectEnabled() {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
   /* Pretend a GBA is connected so Kapp'n lets us travel to the island. */
   Port = GBA_CHAN0;
   return GBA2_GBA_STATE_SUCCESS;
@@ -342,7 +342,7 @@ extern int mGcgba_IsEditor() {
 }
 
 extern int mGcgba_IsIsland() {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
   /* No GBA: fail fast so Sendo falls back to the RAM island data path. */
   return GBA2_GBA_STATE_ERROR;
 #else

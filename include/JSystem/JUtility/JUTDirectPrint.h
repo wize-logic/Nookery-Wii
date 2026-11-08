@@ -2,7 +2,7 @@
 #define JUTDIRECTPRINT_H
 
 #include "types.h"
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <stdarg.h>
 #else
 #include "libc/stdarg.h"

@@ -6,7 +6,7 @@
 #include "m_common_data.h"
 #include "m_rcp.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx wipe1_v[0x190 / sizeof(Vtx)];
 #else
 Vtx wipe1_v[] = {
@@ -14,7 +14,7 @@ Vtx wipe1_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 g_wipe1_txt[0x800];
 #else
 u8 g_wipe1_txt[] = {

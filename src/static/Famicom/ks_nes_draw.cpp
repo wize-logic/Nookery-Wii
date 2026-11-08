@@ -1,4 +1,4 @@
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include "dolphin/gx/GXEnum.h"
 #include "dolphin/gx/GXTexture.h"
 #include "dolphin/gx/GXVert.h"

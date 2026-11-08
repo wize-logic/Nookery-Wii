@@ -6,7 +6,7 @@
 #ifdef __cplusplus
 namespace std {
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* On PC, don't redefine input_iterator_tag (system <iterator> may provide it),
  * but keep our simple distance() since the decomp iterators don't have
  * iterator_traits::difference_type that the system std::distance requires. */

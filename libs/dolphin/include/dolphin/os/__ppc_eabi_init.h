@@ -8,7 +8,7 @@ extern "C"{
 #endif
 
 typedef void (*voidfunctionptr)(void); // pointer to function returning void
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 __declspec(section ".ctors") extern voidfunctionptr _ctors[];
 __declspec(section ".dtors") extern voidfunctionptr _dtors[];
 #else
@@ -88,7 +88,7 @@ typedef struct ExtabIndexInfo {
     u32 codeSize;    // at 0x10
 } ExtabIndexInfo;
 
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 __declspec(section ".init") extern  RomSection _rom_copy_info[];
 __declspec(section ".init") extern  BssSection _bss_init_info[];
 __declspec(section ".init") extern  ExtabIndexInfo _eti_init_info[];

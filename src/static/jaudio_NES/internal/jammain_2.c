@@ -54,7 +54,7 @@ static u8 SEQ_CMD;
 static u32 SEQ_ARG[8];
 
 // predeclare this so Jam_UpdateTrackAll can use this stupid function.
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 extern "C" static void OSf32tos8(f32* in, s8* out);
 #endif
 

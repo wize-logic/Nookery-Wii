@@ -1,7 +1,7 @@
 #ifndef _FDLIBM_H
 #define _FDLIBM_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* On PC, system math.h provides everything */
 #include <math.h>
 #include <float.h>
@@ -20,7 +20,7 @@
 #ifndef MAXFLOAT
 #define MAXFLOAT ((float)3.40282346638528860e+38)
 #endif
-#else /* !TARGET_PC */
+#else /* !ACGC_PORT */
 
 /* @(#)fdlibm.h 1.5 04/04/22 */
 /**
@@ -272,6 +272,6 @@ extern unsigned long __float_huge[];
 };
 #endif // ifdef __cplusplus
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 #endif

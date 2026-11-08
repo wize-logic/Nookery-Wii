@@ -1,7 +1,7 @@
 #ifndef W_MATH_H
 #define W_MATH_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* On PC, system math.h provides all needed functions */
 #include <math.h>
 #else
@@ -89,6 +89,6 @@ extern "C" {
 }
 #endif
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 #endif /* W_MATH_H */

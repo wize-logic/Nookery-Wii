@@ -1,7 +1,16 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#ifdef TARGET_PC
+/* ACGC_PORT: the game built with GCC or Clang outside the GameCube (the PC
+ * port, TARGET_PC, or the Wii port, TARGET_WII): linked statically (no REL),
+ * on the host's C library, with the game's tables read from the player's disc
+ * image at start (pc/src/pc_assets.c). TARGET_PC alone means a little-endian,
+ * 64-bit host under Aurora. */
+#if (defined(TARGET_PC) || defined(TARGET_WII)) && !defined(ACGC_PORT)
+#define ACGC_PORT 1
+#endif
+
+#ifdef ACGC_PORT
 /* On PC, we don't have MSL_C - use standard math */
 #include <limits.h>
 #include <math.h>
@@ -46,7 +55,7 @@ typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned long u32;
 #endif
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 #ifndef _SIZE_T_DEF
 #define _SIZE_T_DEF
 typedef unsigned long size_t;
@@ -161,10 +170,10 @@ typedef u32 unknown;
 #define GPACK_RGB5A3(r, g, b, a) \
     ARGB8_to_RGB5A3((((a) & 0xFF) << 24) | (((r) & 0xFF) << 16) | (((g) & 0xFF) << 8) | ((b) & 0xFF))
 
-#if !defined(TARGET_PC)
+#if !defined(ACGC_PORT)
 #pragma section RX "forcestrip"
 #endif
-#if !defined(__INTELLISENSE__) && !defined(TARGET_PC)
+#if !defined(__INTELLISENSE__) && !defined(ACGC_PORT)
 #define FORCESTRIP __declspec(section "forcestrip")
 #else
 #define FORCESTRIP
@@ -176,7 +185,7 @@ typedef u32 unknown;
 #define MATCH_FORCESTRIP
 #endif
 
-#if !defined(__INTELLISENSE__) && defined(MUST_MATCH) && !defined(TARGET_PC)
+#if !defined(__INTELLISENSE__) && defined(MUST_MATCH) && !defined(ACGC_PORT)
 #define ORDER_BSS_DATA static asm void order_bss()
 #define ORDER_BSS(s) lis r3, s @ha
 #define BSS_ORDER_GROUP_START FORCESTRIP ORDER_BSS_DATA {
@@ -188,7 +197,7 @@ typedef u32 unknown;
 #define BSS_ORDER_ITEM(v)
 #endif
 
-#if !defined(__cplusplus) && !defined(TARGET_PC)
+#if !defined(__cplusplus) && !defined(ACGC_PORT)
 // Some definitions rely on wchar_t being defined
 typedef unsigned short wchar_t;
 #endif

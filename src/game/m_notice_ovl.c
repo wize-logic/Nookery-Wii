@@ -11,7 +11,7 @@
 #ifdef MOUSE_INPUT
 #include "game_pointer.h"
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <math.h>
 #else
 #include "libc/math.h"

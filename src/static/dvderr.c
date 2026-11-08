@@ -9,28 +9,28 @@
 #include "dolphin/gx.h"
 
 /* imports */
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_1_tex[0x500];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_1_tex[] = {
 #include "assets/dvd_keikoku_moji1_1_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_2_tex[0x500];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_2_tex[] = {
 #include "assets/dvd_keikoku_moji1_2_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_3_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_3_tex[] = {
 #include "assets/dvd_keikoku_moji1_3_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_4_tex[0x600];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_4_tex[] = {
@@ -38,42 +38,42 @@ ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji1_4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w1_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w1_tex[] = {
 #include "assets/ctl_att_w1_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w2_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w2_tex[] = {
 #include "assets/ctl_att_w2_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w3_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w3_tex[] = {
 #include "assets/ctl_att_w3_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w4_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w4_tex[] = {
 #include "assets/ctl_att_w4_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w5_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w5_tex[] = {
 #include "assets/ctl_att_w5_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w6_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ctl_att_w6_tex[] = {
@@ -81,7 +81,7 @@ ATTRIBUTE_ALIGN(32) static u8 ctl_att_w6_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx dvd_keikoku1_v[0x3C0 / sizeof(Vtx)];
 #else
 static Vtx dvd_keikoku1_v[] = {
@@ -219,21 +219,21 @@ static Gfx keikoku1_dvd_att_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji2_tex[0x280];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji2_tex[] = {
 #include "assets/dvd_keikoku_moji2_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji2_2_tex[0x600];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji2_2_tex[] = {
 #include "assets/dvd_keikoku_moji2_2_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji2_3_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji2_3_tex[] = {
@@ -241,7 +241,7 @@ ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji2_3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx dvd_keikoku2_v[0x380 / sizeof(Vtx)];
 #else
 static Vtx dvd_keikoku2_v[] = {
@@ -362,28 +362,28 @@ static Gfx keikoku2_dvd_att_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji4_tex[0x280];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji4_tex[] = {
 #include "assets/dvd_keikoku_moji4_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji3_1_tex[0x600];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji3_1_tex[] = {
 #include "assets/dvd_keikoku_moji3_1_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji3_2_tex[0x280];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji3_2_tex[] = {
 #include "assets/dvd_keikoku_moji3_2_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji3_3_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji3_3_tex[] = {
@@ -391,7 +391,7 @@ ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji3_3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx dvd_keikoku3_v[0x440 / sizeof(Vtx)];
 #else
 static Vtx dvd_keikoku3_v[] = {
@@ -531,49 +531,49 @@ static Gfx keikoku3_dvd_att_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji5_tex[0x300];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji5_tex[] = {
 #include "assets/dvd_keikoku_moji5_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_2_tex[0x480];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_2_tex[] = {
 #include "assets/dvd_keikoku_moji6_2_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_3_tex[0x280];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_3_tex[] = {
 #include "assets/dvd_keikoku_moji6_3_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_tex[] = {
 #include "assets/dvd_keikoku_moji6_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_1_tex[0x580];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_1_tex[] = {
 #include "assets/dvd_keikoku_moji6_1_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_new1_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_new1_tex[] = {
 #include "assets/dvd_keikoku_moji6_new1_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_new2_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_new2_tex[] = {
@@ -581,7 +581,7 @@ ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji6_new2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx dvd_keikoku4_v[0x480 / sizeof(Vtx)];
 #else
 static Vtx dvd_keikoku4_v[] = {
@@ -730,42 +730,42 @@ static Gfx keikoku4_dvd_att_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji7_tex[0x500];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji7_tex[] = {
 #include "assets/dvd_keikoku_moji7_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji8_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji8_tex[] = {
 #include "assets/dvd_keikoku_moji8_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji10_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji10_tex[] = {
 #include "assets/dvd_keikoku_moji10_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji11_tex[0x480];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji11_tex[] = {
 #include "assets/dvd_keikoku_moji11_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji12_tex[0x280];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji12_tex[] = {
 #include "assets/dvd_keikoku_moji12_tex.inc"
 };
 #endif
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji9_tex[0x500];
 #else
 ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji9_tex[] = {
@@ -773,7 +773,7 @@ ATTRIBUTE_ALIGN(32) static u8 dvd_keikoku_moji9_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx dvd_keikoku5_v[0x440 / sizeof(Vtx)];
 #else
 static Vtx dvd_keikoku5_v[] = {
@@ -1092,7 +1092,7 @@ extern void dvderr_init() {
   guLookAt(&this->projection, 0.0f, 0.0f, 400.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_static_dvderr_c(void) {
     pc_load_asset("assets/dvd_keikoku_moji1_1_tex.bin", dvd_keikoku_moji1_1_tex, 0x500, 0xADA60, 1, 0);

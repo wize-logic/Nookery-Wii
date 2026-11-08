@@ -1,7 +1,7 @@
 #ifndef _MSL_COMMON_ANSI_FILES_H
 #define _MSL_COMMON_ANSI_FILES_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* On PC, system stdio.h provides FILE, fpos_t, etc. */
 #include <stdio.h>
 #include <stddef.h>
@@ -128,6 +128,6 @@ extern files __files;
 };
 #endif
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 #endif /* _MSL_COMMON_ANSI_FILES_H */

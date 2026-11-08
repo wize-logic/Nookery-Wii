@@ -1,6 +1,6 @@
 #include "Famicom/famicomPriv.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern "C" void pc_fixnes_write_wram(unsigned int ofs, const unsigned char* data, unsigned int size);
 #endif
 
@@ -483,7 +483,7 @@ static void update_highscore_raw(unsigned int ofs, unsigned int size, u8* initia
             // The high score in WRAM has been reset to its default value.
             OSReport("WRAMのハイスコアが初期値になりました\n");
             memcpy(current_score_p, high_score, size);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
             /* Also write to fixNES Main_Mem so the NES game displays saved
              * scores. The sp->wram write above keeps the mirror consistent
              * so the next forward sync (Main_Mem→sp->wram) won't clobber. */
@@ -962,7 +962,7 @@ extern void nesinfo_tag_process2() {
                     case 3:
                     default: {
                         /* This gives us an effective patch application range of [0x80000000, 0x807FFFFF] */
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
                         if (patch_type >= 0x80 && patch_type <= 0xFF) {
                             dst_p = (u8*)(uintptr_t)((0x8000 + (patch_type - 0x80)) << 16) + patch_ofs;
                         } else {

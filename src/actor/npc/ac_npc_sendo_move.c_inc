@@ -539,7 +539,7 @@ static void aSEN_pl_ride_on_check2_talk_proc(NPC_SENDO_ACTOR* sendo, GAME_PLAY* 
     if (mMsg_Check_MainNormalContinue(msg_p) == TRUE) {
         switch (mChoice_Get_ChoseNum(mChoice_Get_base_window_p())) {
             case mChoice_CHOICE0:
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
                 /* Skip the AGB save chain (msgs 0x3082/0x3086/0x308A all
                  * reference the GBA) and go straight to "climb aboard". */
                 mDemo_Set_OrderValue(mDemo_ORDER_NPC0, 9, 0);

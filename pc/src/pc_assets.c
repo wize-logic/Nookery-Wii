@@ -1,5 +1,5 @@
 /* pc_assets.c - Runtime binary asset loader (auto-generated) */
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30819,4 +30819,4 @@ int pc_assets_init(void) {
     return 1;
 }
 
-#endif /* TARGET_PC */
+#endif /* ACGC_PORT */

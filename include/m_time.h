@@ -13,7 +13,7 @@ extern "C" {
 #define mTM_FIELD_RENEW_HOUR 6 /* hour which daily things 'reset' */
 
 #define mTM_MIN_YEAR 2001
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #define mTM_MAX_YEAR (GAME_YEAR_MAX - 1)
 #else
 #define mTM_MAX_YEAR 2030

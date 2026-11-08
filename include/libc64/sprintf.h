@@ -1,7 +1,7 @@
 #ifndef SPRINTF_H
 #define SPRINTF_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <stdio.h>
 #else
 
@@ -15,6 +15,6 @@ int sprintf(char* dst, const char* fmt, ...);
 }
 #endif
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 #endif

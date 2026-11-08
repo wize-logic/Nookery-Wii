@@ -32,7 +32,7 @@ extern "C" {
 /* Float modulo operator */
 #define MOD_F(a, m) (a - (int)((a) * (1.0f / (m))) * (m))
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* Direct float-to-s16/u16 conversions are UB when the truncated value
  * is outside the destination range. Convert through s32 to retain the
  * original wrapping behavior. */

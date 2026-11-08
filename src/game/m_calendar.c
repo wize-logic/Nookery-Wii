@@ -100,7 +100,7 @@ static void mCD_calendar_clear_day(mCD_player_calendar_c* calendar, lbRTC_year_t
             case lbRTC_SEPTEMBER: {
                 lbRTC_ymd_c harvest_moon_day;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
                 if (!lbRk_TryHarvestMoonDay(&harvest_moon_day, year)) {
                     break;
                 }
@@ -118,7 +118,7 @@ static void mCD_calendar_clear_day(mCD_player_calendar_c* calendar, lbRTC_year_t
             case lbRTC_OCTOBER: {
                 lbRTC_ymd_c harvest_moon_day;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
                 if (!lbRk_TryHarvestMoonDay(&harvest_moon_day, year)) {
                     break;
                 }

@@ -45,11 +45,11 @@ static inline void OSInitFastCast() {
 
 // Float to int.
 static inline s16 __OSf32tos16(
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
     register
 #endif
     f32 inF) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (inF > 32767.0f) return 32767;
     if (inF < -32768.0f) return -32768;
     return (s16)inF;
@@ -72,11 +72,11 @@ static inline void OSf32tos16(f32* f, s16* out) {
 }
 
 static inline u8 __OSf32tou8(
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
     register
 #endif
     f32 inF) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (inF > 255.0f) return 255;
     if (inF < 0.0f) return 0;
     return (u8)inF;
@@ -99,11 +99,11 @@ static inline void OSf32tou8(f32* f, u8* out) {
 }
 
 static inline s8 __OSf32tos8(
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
     register
 #endif
     f32 inF) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (inF > 127.0f) return 127;
     if (inF < -128.0f) return -128;
     return (s8)inF;
@@ -127,11 +127,11 @@ static inline void OSf32tos8(f32* f, s8* out) {
 }
 
 static inline float __OSs16tof32(
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
     register
 #endif
     s16* s) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     return (float)(*s);
 #else
     register float f;
@@ -145,11 +145,11 @@ static inline float __OSs16tof32(
 }
 
 static inline void OSs16tof32(
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
     register
 #endif
     s16* s,
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
     volatile register
 #endif
     f32* f) {

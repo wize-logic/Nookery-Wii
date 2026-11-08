@@ -1,7 +1,7 @@
 #include "bootdata.h"
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 gam_win_moji3_tex[0x500];
 ATTRIBUTE_ALIGN(32) u8 gam_win_moji4_tex[0x500];
 ATTRIBUTE_ALIGN(32) static u8 att_win_waku1_tex[0x400];
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) static u8 att_win_waku6_tex[0x80];
 #include "assets/bootdata/win2/att_win_waku6_tex.inc"
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx gam_win2_v[0x340 / sizeof(Vtx)];
 #else
 static Vtx gam_win2_v[] = {
@@ -136,7 +136,7 @@ Gfx gam_win2_winT_model[] = {
   gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_static_bootdata_gam_win2_c(void) {
     pc_load_asset("assets/bootdata/win2/gam_win2_v.bin", gam_win2_v, 0x340, 0xBA380, 1, 2);

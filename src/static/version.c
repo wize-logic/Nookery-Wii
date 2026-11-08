@@ -1,6 +1,6 @@
 #include "version.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 char __Creator__[0xC];
 #else
 char __Creator__[] = {
@@ -8,7 +8,7 @@ char __Creator__[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 char __DateTime__[0x12];
 #else
 char __DateTime__[] = {

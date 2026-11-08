@@ -4,7 +4,7 @@
 #include "types.h"
 #include "MSL_C/w_math.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* On PC, system math.h (via w_math.h) provides sinf, cosf, sin, cos, etc. */
 
 #define PI 3.14159265358979323846
@@ -16,7 +16,7 @@
 
 #define SQRTF(f) sqrtf(f)
 
-#else /* !TARGET_PC */
+#else /* !ACGC_PORT */
 
 #ifdef __cplusplus
 extern "C" {
@@ -52,6 +52,6 @@ extern double ceil(double);
 }
 #endif
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 
 #endif

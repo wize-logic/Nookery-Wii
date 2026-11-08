@@ -33,7 +33,7 @@ extern void watch_my_step_ct();
 extern void watch_my_step_move(GAME_PLAY* play);
 extern void watch_my_step_draw(GAME_PLAY* play);
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static void navigate_camera_ct();
 static void navigate_camera_move(GAME_PLAY* play);
 static void navigate_camera_draw(GAME_PLAY* play);

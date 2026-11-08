@@ -3,7 +3,7 @@
 
 #include "types.h"
 // #include "va_args.h"
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <stdarg.h>
 #else
 #include <libc/stdarg.h>
@@ -11,7 +11,7 @@
 #include "MSL_C/printf.h"
 #include "libforest/gbi_extensions.h"
 #include "libforest/emu64/texture_cache.h"
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 #include "dolphin/os/__ppc_eabi_init.h"
 #endif
 #include "dolphin/gx.h"
@@ -142,14 +142,14 @@ namespace std {
 typedef va_list __tag_va_List;
 }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #define EMU64_REGISTER
 #else
 #define EMU64_REGISTER register
 #endif
 
 float fastcast_float(EMU64_REGISTER unsigned char* s) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     return (float)(*s);
 #else
     register float f;
@@ -165,7 +165,7 @@ float fastcast_float(EMU64_REGISTER unsigned char* s) {
 }
 
 float fastcast_float(EMU64_REGISTER unsigned short* s) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     return (float)(*s);
 #else
     register float f;
@@ -181,7 +181,7 @@ float fastcast_float(EMU64_REGISTER unsigned short* s) {
 }
 
 float fastcast_float(EMU64_REGISTER signed char* s) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     return (float)(*s);
 #else
     register float f;
@@ -197,7 +197,7 @@ float fastcast_float(EMU64_REGISTER signed char* s) {
 }
 
 float fastcast_float(EMU64_REGISTER short* s) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     return (float)(*s);
 #else
     register float f;

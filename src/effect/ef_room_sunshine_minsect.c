@@ -7,7 +7,7 @@
 #include "sys_matrix.h"
 #include "m_rcp.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static void Ef_Room_Sunshine_Minsect_actor_ct(ACTOR* actor, GAME* play);
 static void Ef_Room_Sunshine_Minsect_actor_dt(ACTOR* actor, GAME* play);
 static void Ef_Room_Sunshine_MinsectL_actor_draw(ACTOR* actor, GAME* play);

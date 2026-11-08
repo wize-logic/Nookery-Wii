@@ -1,4 +1,4 @@
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <string.h>
 #include <tracy/Tracy.hpp>
 #else

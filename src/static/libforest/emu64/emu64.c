@@ -398,7 +398,7 @@ extern void emu64_texture_cache_data_entry_set(void* begin, void* end) {
 }
 
 static texture_cache_t* texture_cache_select(void* addr) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* On PC, always use the main data cache (no GC .data/.bss section distinction) */
     return &texture_cache_data;
 #else
@@ -3595,7 +3595,7 @@ void emu64::dl_G_DL(void) {
     uintptr_t target_address = _GBI_GET_POINTER(gfx);
 
     this->work_ptr = (void*)this->seg2k0(target_address);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (this->work_ptr == NULL) {
         return;
     }
@@ -3956,7 +3956,7 @@ void emu64::dl_G_SETTILESIZE() {
     this->dirty_flags[EMU64_DIRTY_FLAG_TEX_TILE0 + tile] = true;
 }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern "C" u16 s_tlut_first_word[16];
 #endif
 
@@ -4661,7 +4661,7 @@ void emu64::dl_G_MTX() {
         Mtx_t* mtx = (Mtx_t*)this->seg2k0(_GBI_GET_POINTER(&this->gfx));
         /* Matrix is in N64 s16.16 format. (First 8 elements are s16 integer
            components, second 8 elements are s16 fractional components). */
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         if (mtx == NULL) {
             EMU64_TIMED_SEGMENT_END(matrix_time);
             return;
@@ -4806,7 +4806,7 @@ void emu64::dl_G_VTX() {
 
     if (this->disable_polygons == false) {
         Vtx* vtx_p = (Vtx*)this->seg2k0(vertex_address);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         if (vtx_p == NULL) {
             EMU64_TIMED_SEGMENT_END(spvertex_time);
             return;

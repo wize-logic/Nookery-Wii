@@ -10,7 +10,7 @@ extern "C" {
 #endif
 
 #define mTI_MIN_YEAR 1
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #define mTI_MAX_YEAR (GAME_YEAR_MAX - GAME_YEAR_MIN - 1)
 #else
 #define mTI_MAX_YEAR 30

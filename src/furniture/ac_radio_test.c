@@ -26,7 +26,7 @@ static void fRT_mv(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game, u8* d
 }
 
 extern Gfx radio_DL_model[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern u16 obj_e_radio_pal[];
 #else
 ATTRIBUTE_ALIGN(32) static u16 radio_pal[] = {
@@ -39,7 +39,7 @@ static void fRT_dw(FTR_ACTOR* ftr_actor, ACTOR* my_room_actor, GAME* game, u8* d
 
     Matrix_RotateY(DEG2SHORT_ANGLE(-157.5f), MTX_MULT);
     gSPMatrix(NEXT_POLY_OPA_DISP, _Matrix_to_Mtx_new(game->graph), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     gSPSegment(NEXT_POLY_OPA_DISP, G_MWO_SEGMENT_8, obj_e_radio_pal);
 #else
     gSPSegment(NEXT_POLY_OPA_DISP, G_MWO_SEGMENT_8, radio_pal);

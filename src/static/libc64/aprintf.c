@@ -1,6 +1,6 @@
 #include "libc64/aprintf.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <stdio.h>
 #include <stdlib.h>
 #else
@@ -8,7 +8,7 @@
 #endif
 
 extern int vaprintf(aprout_func_t* func, const char* fmt, va_list ap) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
   va_list count_args;
   va_copy(count_args, ap);
   int length = vsnprintf(NULL, 0, fmt, count_args);

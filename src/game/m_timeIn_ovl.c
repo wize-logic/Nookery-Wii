@@ -510,7 +510,7 @@ static void mTI_set_character(Submenu* submenu, GAME* game, f32 x, f32 y) {
       int digits = 2;
       int value = timeIn_ovl->values[i];
       f32 text_x = set_pos_p[0];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
       if (i == mTI_IDX_YEAR) {
         value += GAME_YEAR_MIN;
         digits = 4;

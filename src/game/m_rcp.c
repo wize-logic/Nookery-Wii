@@ -378,7 +378,7 @@ extern Gfx* two_tex_scroll_dolphin(GRAPH* graph, int tile1, int x1, int y1, int 
 
 // @BUG - we don't need to clear the screen by drawing a full screen quad with the clear color,
 // as JW_setClearColor handles that for us.
-#if defined(BUGFIXES) || defined(TARGET_PC)
+#if defined(BUGFIXES) || defined(ACGC_PORT)
 extern void DisplayList_initialize(GRAPH* graph, u8 clear_r, u8 clear_g, u8 clear_b, GAME* game) {
     OPEN_DISP(graph);
 

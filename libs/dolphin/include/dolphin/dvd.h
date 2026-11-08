@@ -224,7 +224,7 @@ void DVDDumpWaitingQueue();
 
 #define DVD_WATYPE_MAX 2
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern DVDDiskID DiskID;
 #else
 DVDDiskID DiskID AT_ADDRESS(0x80000000);

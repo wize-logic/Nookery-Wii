@@ -1,4 +1,4 @@
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* On PC, system <cmath> provides all needed functions */
 #include <math.h>
 #ifndef HALF_PI
@@ -43,4 +43,4 @@ namespace std {
 }
 #endif
 
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */

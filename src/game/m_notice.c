@@ -554,7 +554,7 @@ static void mNtc_set_auto_nwrite_string(lbRTC_year_t year) {
     u8 buf[28];
 
     len = 0;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (lbRk_TryHarvestMoonDay(&harvest_moon_date, year)) {
 #else
     lbRk_HarvestMoonDay(&harvest_moon_date, year);

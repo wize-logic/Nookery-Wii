@@ -1,7 +1,7 @@
 #ifndef _ERRNO_H_
 #define _ERRNO_H_
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #error ACGC console libc headers are not host libc wrappers; include the system header instead
 #endif
 

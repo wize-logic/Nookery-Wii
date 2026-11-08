@@ -241,7 +241,7 @@ static void mHW_haniwa_ovl_move(Submenu* submenu) {
     menu_info->pre_move_func(submenu);
     (*ovl_move_proc[menu_info->proc_status])(submenu, menu_info);
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (submenu->overlay->haniwa_ovl == NULL) {
         return;
     }

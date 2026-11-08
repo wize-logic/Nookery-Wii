@@ -52,7 +52,7 @@ extern s16* DspbufProcess(DSPBUF_EVENTS event) {
                 write_buffer = write;
                 DspSyncCountClear(JAC_SUBFRAMES);
                 Probe_Start(7, "DSP-MAIN");
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
                 /* Hardware DSP buffer addresses are unused by the software mixer. */
                 DsyncFrame(JAC_SUBFRAMES, 0, 0);
 #else
@@ -64,7 +64,7 @@ extern s16* DspbufProcess(DSPBUF_EVENTS event) {
             break;
         }
         case DSPBUF_EVENT_MIX: {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
             /* DSP hardware doesn't run on PC — just return a zeroed buffer.
              * The original code fills with the last sample when buffers haven't
              * advanced, creating a per-frame DC offset that causes audible pops

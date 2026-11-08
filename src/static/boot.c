@@ -102,7 +102,7 @@ void* soundArenaAlloc(size_t size) { return nullptr; }
  * @return s32 success
  */
 s32 search_partial_address(u32 addr, u32* module_id, u32* section_idx, u32* section_addr, u32* module_name_ofs) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
   (void)addr;
   (void)module_id;
   (void)section_idx;
@@ -741,7 +741,7 @@ int main(int argc, const char** argv) {
 #endif
   LoadStringTable("/static.str");
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
   OSReport("[PC] boot: skipping REL module load (code is statically linked)\n");
   moduleA = (OSModuleHeader*)1;  /* non-null sentinel - code is statically linked */
 #else
@@ -767,7 +767,7 @@ int main(int argc, const char** argv) {
     HotStartEntry = (*(void* (*)())HotStartEntry)();
   }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
   /* No REL module to unlink on PC - code is statically linked */
   moduleA = nullptr;
 #else

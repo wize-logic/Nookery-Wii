@@ -1,7 +1,7 @@
 #ifndef _MSL_CTYPE_H
 #define _MSL_CTYPE_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <ctype.h> // Conflicts can happen otherwise in certain compiler versions
 #else
 
@@ -47,5 +47,5 @@ inline int _toupper(int c) {
 #ifdef __cplusplus
 }
 #endif
-#endif /* !TARGET_PC */
+#endif /* !ACGC_PORT */
 #endif /* _MSL_CTYPE_H */

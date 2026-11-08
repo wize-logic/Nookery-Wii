@@ -56,7 +56,7 @@ static int lbRk_SeirekiDays(int year, int month) {
 
 /* Convesion table which gets the beginning of a Kyuu Reki (Japanese lunisolar)
    date in Seiyo Reki (Gregoran calendar) date. */
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* Extended to 2100 for PC port. 2033-2100 computed via Meeus new moon algorithm (JST). */
 static lbRk_date_t l_lbRk_ConvertTable[lbRk_YEAR_NUM][lbRk_KYUU_LEAP_MONTH] = {
   /* 2000 */ {{2,  5}, {3,  6}, {4,  5}, {5,  4}, {6,  2}, {7,  2}, {7, 31}, {8, 29}, { 9, 28}, {10, 27}, {11, 26}, {12, 26}, { 0,  0}},
@@ -477,7 +477,7 @@ extern int lbRk_AutumnalEquinoxDay(int year) {
 extern void lbRk_HarvestMoonDay(lbRTC_ymd_c* harvest_moon_day, int year) {
   /* Array of precomputed Seiyo Reki (Gregorian calendar)
      Havest Moon Day dates. */
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
   /* Extended to 2099 with corrected dates (original had +-1 day errors for 17 years).
      Computed as: ConvertTable[year][month8].day + 14 (15th day of 8th lunisolar month). */
   static lbRk_date_t ev_day[lbRk_HARVEST_MOON_YEAR_NUM] = {

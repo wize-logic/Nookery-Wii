@@ -812,7 +812,7 @@ static void aMR_SetNicePos(xyz_t* nice_pos, xyz_t player_pos, f32* col_start_xz,
                            aMR_contact_info_c* contact_info, int type) {
     f32 nice_point[2];
     f32* norm;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     /* Needs the epsilon on x86 because float is doing float things. Fixes getting softlocked on furniture. */
 #define NICE_POS_EDGE_EQ(a, b) (ABS((a) - (b)) < 0.1f)
 #else
@@ -3043,7 +3043,7 @@ static void aMR_SetNowPosition(xyz_t* now_pos, xyz_t pos) {
     }
 }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static int aMR_FtrMovePastHalf(MY_ROOM_ACTOR* my_room) {
     cKF_FrameControl_c* fc = &my_room->keyframe.frame_control;
 
@@ -3103,14 +3103,14 @@ static int aMR_JudgePlayerAction(xyz_t* out_pos0, xyz_t* out_pos1, int ftrID) {
                     case 2:
                         aMR_SetNowPosition(out_pos0, my_room->nice_pos);
                         aMR_SetNowPosition(out_pos1, my_room->nice_pos);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
                         if (ftr_state == aFTR_STATE_PUSH && aMR_FtrMovePastHalf(my_room)) {
                             return 1;
                         }
 #endif
                         return 2;
                     case 3:
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
                         if (ftr_state == aFTR_STATE_PULL && aMR_FtrMovePastHalf(my_room)) {
                             aMR_SetNowPosition(out_pos0, my_room->nice_pos);
                             aMR_SetNowPosition(out_pos1, my_room->nice_pos);

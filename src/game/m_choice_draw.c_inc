@@ -58,7 +58,7 @@ static void mChoice_UnSetMatrixDisplay(GAME* game, int type) {
     CLOSE_DISP(graph);
 }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 con_waku_swaku3_tex[0x1000];
 #else
 ATTRIBUTE_ALIGN(32) static u8 con_waku_swaku3_tex[] = {
@@ -66,7 +66,7 @@ ATTRIBUTE_ALIGN(32) static u8 con_waku_swaku3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx con_sentaku2_v[0x40 / sizeof(Vtx)];
 #else
 static Vtx con_sentaku2_v[] = {
@@ -150,7 +150,7 @@ static void mChoice_DrawFont(mChoice_c* choice, GAME* game, int type) {
     }
 }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_game_m_choice_draw_c_inc(void) {
     pc_load_asset("assets/con_waku_swaku3_tex.bin", con_waku_swaku3_tex, 0x1000, 0x2DF6C0, 0, 0);

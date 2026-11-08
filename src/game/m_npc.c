@@ -2474,7 +2474,7 @@ extern void mNpc_SetAnimalTitleDemo(mNpc_demo_npc_c* demo_npc, Animal_c* animal,
     int i;
 
     for (i = 0; i < ANIMAL_NUM_MAX; i++) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         /* Keep title-demo animal slots deterministic across repeated demo loops. */
         mNpc_ClearAnimalInfo(animal);
 
@@ -2486,7 +2486,7 @@ extern void mNpc_SetAnimalTitleDemo(mNpc_demo_npc_c* demo_npc, Animal_c* animal,
         animal->home_info.block_z = demo_npc->block_z;
         animal->home_info.ut_x = demo_npc->ut_x;
         animal->home_info.ut_z = demo_npc->ut_z;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         }
 #endif
 

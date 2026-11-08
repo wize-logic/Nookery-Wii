@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 #include "MSL_C/printf.h"
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <string.h>
 #else
 #include "libc/string.h"
@@ -663,7 +663,7 @@ void JUTException::createFB() {
 
     mFrameMemory = (JUTExternalFB*)object;
 }
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 // clang-format off
 asm u32 JUTException::getFpscr() { // TODO: figure out if this is possible with asm
     fralloc

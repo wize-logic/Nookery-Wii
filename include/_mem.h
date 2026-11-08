@@ -1,7 +1,7 @@
 #ifndef _MEM_H
 #define _MEM_H
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include <string.h>
 #else
 #include "stddef.h"
@@ -13,7 +13,7 @@ extern "C" {
 
 #pragma section code_type ".init"
 
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
 void * memcpy(void * dst, const void * src, size_t n);
 void * memset(void * dst, int val, size_t n);
 int memcmp(const void* src1, const void* src2, size_t n);

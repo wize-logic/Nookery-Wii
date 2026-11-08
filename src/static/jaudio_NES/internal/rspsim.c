@@ -167,7 +167,7 @@ static void Rsp_Adpcm(u32 cmdHi, uintptr_t cmdAddr) {
         for (k = 0; k < 8; k++) {
             stage1[k] = block[k] << shift;
             s32 l;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
             acc = stage1[k] << 11;
             acc += prev1 * coefTable[k + 8];
             acc += prev2 * coefTable[k];
@@ -188,7 +188,7 @@ static void Rsp_Adpcm(u32 cmdHi, uintptr_t cmdAddr) {
         for (k = 0; k < 8; k++) {
             stage2[k] = block[k + 8] << shift;
             s32 l;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
             acc = stage2[k] << 11;
             acc += prev1 * coefTable[k + 8];
             acc += prev2 * coefTable[k];
