@@ -5,6 +5,16 @@
 Nookery (formerly known as ACGC-PC-Port) is a native Windows/Linux/macOS/Android/iOS port of Animal Crossing (GameCube), based on the
 [ac-decomp](https://github.com/ACreTeam/ac-decomp) decompilation.
 
+## This fork
+
+Nookery-Wii is [Nookery](https://github.com/flyngmt/Nookery) with:
+
+- **A Wii version**, run from the Homebrew Channel off your own disc image, with **online play** for two
+  to four players: host your town in a public or private lobby, or browse and join others'. Installing,
+  playing online and building it are in [wii/README.md](wii/README.md).
+
+The rest of this page, and the [FAQ](FAQ.md), are Nookery's own and about the PC and mobile ports.
+
 This repository contains no game assets. A legally obtained GAFE01 Rev 0 (USA)
 disc image is required. RVZ, ISO, CISO and GCM images are supported.
 
