@@ -1,6 +1,6 @@
 #include "m_design_ovl.h"
 
-#ifdef TARGET_PC
+#ifdef MOUSE_INPUT
 #include "game_pointer.h"
 #endif
 

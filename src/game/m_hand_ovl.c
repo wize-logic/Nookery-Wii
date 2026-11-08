@@ -1153,6 +1153,70 @@ void mHD_mouse_pointer_draw(GAME* game) {
                 (last_cached_frame - first_cached_frame) / (animation_end - animation_start) + 0.5f);
     }
 
+#ifdef TARGET_WII
+    /* The Wii: the hand drawn straight into the frame where the Remote
+     * points, in a viewport of the cursor's size, every frame. (The PC
+     * renders each pose once into a frame buffer of its own and draws that
+     * as a texture; the Wii has only the one EFB, and borrowing a corner of
+     * it showed on a real console.) The pose is the PC's: the same frame
+     * and progress. */
+    {
+        const GamePointerFrame* pointer = acgc_pointer_frame();
+        cKF_SkeletonInfo_R_c* keyframe = &pointer_hand.info.keyframe;
+        Vp* viewport = GRAPH_ALLOC_TYPE(graph, Vp, 1);
+        f32 progress = (f32)(frame - first_cached_frame) / (last_cached_frame - first_cached_frame);
+        f32 offset_x, offset_y, left, top;
+        Gfx* start;
+
+        if (viewport == NULL || !pointer->inside) {
+            return;
+        }
+        /* the PC's cursor rectangle (aurora_mouse_cursor_draw), in 4:3
+         * 640x480 pixels: the pillarbox mode below fits it to a 16:9 screen */
+        mHD_mouse_pointer_get_offset(&offset_x, &offset_y);
+        left = (pointer->x + offset_x - 16.0f) * 2.0f;
+        top = (pointer->y + offset_y - 16.0f) * 2.0f;
+        /* (emu64: GX's left = (vtrans - vscale) / 2, width = vscale / 2) */
+        *viewport = (Vp){ 128, 128, 511, 0, (s16)(2.0f * left + 128.0f), (s16)(2.0f * top + 128.0f), 511, 0 };
+
+        progress = progress * progress * (3.0f - 2.0f * progress);
+        if (!initialized) {
+            cKF_AnimInfo_c* anim = &mHD_animeTable[mHD_ACTION_SASU];
+            cKF_SkeletonInfo_R_ct(keyframe, &cKF_bs_r_hnd, NULL, pointer_hand.info.work, pointer_hand.info.morph);
+            cKF_SkeletonInfo_R_init(keyframe, &cKF_bs_r_hnd, anim->animation,
+                                   anim->start_frame, mouse_pointer_animation_end_frame, anim->start_frame,
+                                   0.0f, 0.0f, cKF_FRAMECONTROL_STOP, NULL);
+            initialized = TRUE;
+        }
+        keyframe->frame_control.current_frame = animation_start + progress * (animation_end - animation_start);
+        cKF_SkeletonInfo_R_play(keyframe);
+
+        OPEN_DISP(graph);
+        start = NOW_POLY_OPA_DISP;
+        Gfx* cursor = gfxopen(start);
+        gSPDisplayList(NOW_OVERLAY_DISP++, cursor);
+        gDPPipeSync(cursor++);
+        SET_POLY_OPA_DISP(cursor);
+        /* pillarbox: the viewport narrowed to 4:3's proportions on 16:9,
+         * the hand's own projection left alone */
+        gDPNoOpTag(NOW_POLY_OPA_DISP++, PC_NOOP_WIDESCREEN_STRETCH_OFF);
+        CLOSE_DISP(graph);
+
+        MtxF* previous_matrix = Matrix_swap_current(pointer_matrix_stack);
+        mSM_change_view(graph, 80.0f, 0.0f, 0.0f, 0.0f, 0,
+                       AURORA_MOUSE_CURSOR_VIEW_SIZE, AURORA_MOUSE_CURSOR_VIEW_SIZE);
+        OPEN_DISP(graph);
+        gSPViewport(NOW_POLY_OPA_DISP++, viewport);
+        CLOSE_DISP(graph);
+        mHD_hand_shape_draw(&pointer_hand, game, FALSE);
+        Matrix_swap_current(previous_matrix);
+
+        OPEN_DISP(graph);
+        gSPEndDisplayList(NOW_POLY_OPA_DISP++);
+        gfxclose(start, NOW_POLY_OPA_DISP);
+        CLOSE_DISP(graph);
+    }
+#else
     if (aurora_mouse_cursor_needs_capture(frame)) {
         Gfx* start;
         int texture_size = aurora_mouse_cursor_texture_size();
@@ -1208,6 +1272,7 @@ void mHD_mouse_pointer_draw(GAME* game) {
     OPEN_DISP(graph);
     gDPNoOpTag(NOW_OVERLAY_DISP++, PC_NOOP_MOUSE_CURSOR_DRAW + frame);
     CLOSE_DISP(graph);
+#endif
 }
 #endif
 
