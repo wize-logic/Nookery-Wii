@@ -1,0 +1,3 @@
+# Lobby servers: one address per line (name or IP, :port when not 28910).
+# Lines starting with # are ignored. Also editable in the launcher: Online > Lobby servers.
+# lobby.example.org
