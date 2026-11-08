@@ -387,6 +387,19 @@ enum {
 
 typedef void (*aNPC_GREETING_REACTION_PROC)(NPC_ACTOR*, NPC_ACTOR*, GAME_PLAY*);
 
+#ifdef ACGC_PORT
+/* Villager friendships (m_npc_life.h): meeting a friend deepens the friendship, meeting a rival the grudge */
+static void aNPC_life_greeting_bond(NPC_ACTOR* nactorx, NPC_ACTOR* pal_nactorx) {
+    int rel = mNL_GetRelation(nactorx->npc_info.animal, aNPC_get_animal_idx(pal_nactorx));
+
+    if (rel >= mNL_RELATION_FRIEND) {
+        aNPC_set_relation(nactorx, pal_nactorx, 3);
+    } else if (rel <= mNL_RELATION_RIVAL) {
+        aNPC_set_relation(nactorx, pal_nactorx, -2);
+    }
+}
+#endif
+
 static void aNPC_act_greeting_reaction(NPC_ACTOR* nactorx, GAME_PLAY* play) {
     // clang-format off
     static f32 react_rate_table[] = {
@@ -459,6 +472,13 @@ static void aNPC_act_greeting_reaction(NPC_ACTOR* nactorx, GAME_PLAY* play) {
                 rate_p++;
                 reaction_proc++;
             }
+
+#ifdef ACGC_PORT
+            if (mNL_IsEnabled()) {
+                aNPC_life_greeting_bond(nactorx, pal_nactorx);
+                aNPC_life_greeting_bond(pal_nactorx, nactorx);
+            }
+#endif
 
             greeting_flag = 1;
         }

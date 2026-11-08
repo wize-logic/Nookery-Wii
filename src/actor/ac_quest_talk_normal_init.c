@@ -1,4 +1,7 @@
 #include "ac_quest_talk_normal_init.h"
+#ifdef ACGC_PORT
+#include "m_npc_life.h"
+#endif
 
 #include "m_font.h"
 #include "m_msg.h"
@@ -2162,6 +2165,17 @@ static void aQMgr_talk_normal_select_talk(QUEST_MANAGER_ACTOR* manager) {
         msg_no = aQMgr_decide_fj_hint_msg_no(looks);
         mPr_AddFirstJobHint(Now_Private);
     } else {
+#ifdef ACGC_PORT
+        /* Villager friendships: sometimes talk about the other villagers instead */
+        msg_no = -1;
+        if (mNL_IsEnabled() && RANDOM(100) < mNL_gossip_chance) {
+            msg_no = mNL_DecideGossipMsg(animal, looks);
+        }
+
+        if (msg_no != -1) {
+            /* gossip chosen */
+        } else
+#endif
         if (animal->mood == mNpc_FEEL_HAPPY) {
             msg_no = aQMgr_decide_ki_msg_no(manager, looks);
         } else {

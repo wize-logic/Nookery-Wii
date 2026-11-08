@@ -1,0 +1,74 @@
+#ifndef M_NPC_LIFE_H
+#define M_NPC_LIFE_H
+
+/*
+ * Villager friendships (ACGC_PORT, setting villager_life).
+ *
+ * Every villager keeps a 0-255 opinion of each other villager
+ * (Animal_c.animal_relations, 128 = neutral). The original game changes it when
+ * two villagers greet each other but never reads it. This module reads it:
+ * villagers walk over to friends and away from rivals (ac_npc_think_wander.c_inc),
+ * friendships and grudges deepen when they meet (ac_npc_act_greeting.c_inc), and
+ * villagers gossip about it when the player talks to them
+ * (ac_quest_talk_normal_init.c).
+ *
+ * The gossip lines are new messages, served from mNL_MSG_BASE up by
+ * mMsg_LoadMsgData (m_npc_life_msg.txt, encoded by tools/npc_life_msg.py).
+ */
+
+#include "types.h"
+#include "m_npc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef ACGC_PORT
+
+/* Message numbers past the game's own (MSG_MAX) */
+#define mNL_MSG_BASE 0x4000
+
+/* Opinion thresholds (animal_relations) */
+#define mNL_RELATION_FRIEND 152 /* at or above: a friend */
+#define mNL_RELATION_RIVAL 104  /* at or below: a rival */
+
+/* Percent of ordinary chats that become gossip, when there is something to say
+ * (a variable for tests: settings life_test on the Wii raises it to 100) */
+#define mNL_GOSSIP_CHANCE 30
+extern int mNL_gossip_chance;
+
+enum {
+    mNL_TOPIC_LIKE,       /* the speaker likes STR_FREE13 */
+    mNL_TOPIC_DISLIKE,    /* the speaker dislikes STR_FREE13 */
+    mNL_TOPIC_PAIR_CLOSE, /* STR_FREE13 and STR_FREE14 like each other */
+    mNL_TOPIC_PAIR_FEUD,  /* STR_FREE13 and STR_FREE14 don't get along */
+    mNL_TOPIC_NEUTRAL,    /* the speaker barely knows STR_FREE13 */
+
+    mNL_TOPIC_NUM
+};
+
+extern int mNL_IsEnabled(void);
+
+/* Index of a town villager in Save animals, or -1 (islander, event NPC, NULL) */
+extern int mNL_GetAnimalIdx(const Animal_c* animal);
+
+/* animal's opinion of the villager at other_idx (128 when unknown) */
+extern int mNL_GetRelation(const Animal_c* animal, int other_idx);
+
+/* Picks gossip for speaker and sets STR_FREE13/14. Returns a message number or -1. */
+extern int mNL_DecideGossipMsg(const Animal_c* speaker, int looks);
+
+/* Gossip message lookup for mMsg_LoadMsgData */
+extern int mNL_IsExtMsg(int msg_no);
+extern int mNL_GetMsgData(int msg_no, const u8** data, u32* size);
+
+/* A message number the message window will load: the game's own or a gossip line */
+#define mNL_MSG_NO_VALID(msg_no) (((msg_no) >= 0 && (msg_no) < MSG_MAX) || mNL_IsExtMsg(msg_no))
+
+#endif /* ACGC_PORT */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* M_NPC_LIFE_H */

@@ -105,6 +105,7 @@ struct UserSettings {
         borealis::config::Var<bool> borderlessAcres;
         borealis::config::Var<bool> pillarboxNes;
         borealis::config::Var<bool> fastText;
+        borealis::config::Var<bool> villagerLife;
         borealis::config::Var<TravelMoveOutChance> travelMoveOutChance;
 
         explicit Enhancements(borealis::config::Registry& registry);

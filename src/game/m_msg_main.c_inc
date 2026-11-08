@@ -325,6 +325,24 @@ static int mMsg_Count_MsgData(u8* data) {
 }
 
 static int mMsg_LoadMsgData(mMsg_Data_c* msg_data, int index, int cut) {
+#ifdef ACGC_PORT
+    /* Gossip lines (m_npc_life.c) are not in the message archive */
+    if (msg_data != NULL && mNL_IsExtMsg(index)) {
+        const u8* src;
+        u32 size;
+
+        mFRm_set_msg_idx(index);
+        if (mNL_GetMsgData(index, &src, &size) && size <= mMsg_MSG_BUF_MAX) {
+            bcopy(src, msg_data->text_buf.data, size);
+            msg_data->msg_no = index;
+            msg_data->data_loaded = TRUE;
+            msg_data->msg_len = mMsg_Count_MsgData(msg_data->text_buf.data);
+            msg_data->cut = cut;
+            return TRUE;
+        }
+    }
+#endif
+
     if (msg_data != NULL) {
         u32 addr;
         u32 size;
@@ -388,7 +406,11 @@ static void mMsg_Set_LeadingCursolJust(mMsg_Window_c* msg_p) {
 }
 
 extern int mMsg_ChangeMsgData(mMsg_Window_c* msg_p, int index) {
+#ifdef ACGC_PORT
+    if (mNL_MSG_NO_VALID(index) && mMsg_LoadMsgData(msg_p->msg_data, index, FALSE)) {
+#else
     if (index >= 0 && index < MSG_MAX && mMsg_LoadMsgData(msg_p->msg_data, index, FALSE)) {
+#endif
         mMsg_Set_LeadingCursolJust(msg_p);
         msg_p->end_text_cursor_idx = 0;
         mMsg_Clear_CursolIndex(msg_p);

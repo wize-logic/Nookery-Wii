@@ -35,6 +35,10 @@
 #include "m_scene_table.h"
 #include "c_keyframe.h"
 #include "sys_matrix.h"
+#include "ac_npc.h"
+#include "m_msg.h"
+#include "m_npc_life.h"
+#include "m_choice.h"
 
 /* src/game/m_actor.c, src/game/m_player_lib.c (ACGC_PORT) */
 extern ACTOR* Actor_info_make_actor_from_profile(Actor_info* actor_info, GAME* game, ACTOR_PROFILE* profile,
@@ -619,6 +623,209 @@ static void travel_test(GAME_PLAY* play)
     }
 }
 
+extern int g_nk_life_test;
+
+/* settings life_test = 1, villager friendships (m_npc_life.h): on the
+ * town's streets, two villagers become close friends and two others fall out,
+ * every chat is gossip, the player is taken (as through a door) to the acre
+ * with the most villagers, and the nearest villager not yet talked to is
+ * brought in front of the player until the input script's A starts a chat.
+ * Each message the window loads is logged ("LIFETEST: msg"); "LIFETEST:
+ * gossip on screen N" comes 10 frames into the Nth gossip line.
+ * life_test = 2 only watches: the same acre, no chats, and every two seconds
+ * the distance between each two villagers there, with their opinions of each
+ * other ("LIFETEST: pair"). */
+static void life_test(GAME_PLAY* play)
+{
+    static int field_frames;
+    static int seeded;
+    static int warped;
+    static int last_msg = -1;
+    static int gossip_frames = -1;
+    static int gossip_count;
+    static int talked_mask;
+    static int talking_idx = -1;
+    PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+    mMsg_Window_c* window = mMsg_Get_base_window_p();
+    mNpc_NpcList_c* npclist = Common_Get(npclist);
+    int i;
+
+    if (Save_Get(scene_no) != SCENE_FG || player == NULL) {
+        return;
+    }
+    field_frames++;
+
+    if (!seeded && field_frames > 30) {
+        Animal_c* animals = Save_Get(animals);
+        int town[4];
+        int n = 0;
+
+        for (i = 0; i < ANIMAL_NUM_MAX && n < 4; i++) {
+            if (!mNpc_CheckFreeAnimalPersonalID(&animals[i].id)) {
+                town[n++] = i;
+            }
+        }
+        if (n == 4) {
+            animals[town[0]].animal_relations[town[1]] = 220;
+            animals[town[1]].animal_relations[town[0]] = 210;
+            animals[town[2]].animal_relations[town[3]] = 60;
+            animals[town[3]].animal_relations[town[2]] = 90;
+        }
+        mNL_gossip_chance = 100;
+        /* past the first-job hints, which come before any chat (not saved: the test never saves) */
+        if (Now_Private != NULL) {
+            Now_Private->hint_count = 0x80;
+        }
+        seeded = 1;
+        nk_wii_log("LIFETEST: seeded %d villagers (%d+%d close, %d+%d feud)\n", n, town[0], town[1], town[2],
+                   town[3]);
+    }
+
+    if (seeded && !warped && field_frames > 60) {
+        /* the acre with the most villagers */
+        int count[FG_BLOCK_Z_NUM + 2][FG_BLOCK_X_NUM + 2];
+        int best = -1, best_i = -1;
+
+        bzero(count, sizeof(count));
+        for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+            int bx, bz;
+            if (npclist[i].name == EMPTY_NO) {
+                continue;
+            }
+            mFI_Wpos2BlockNum(&bx, &bz, npclist[i].position);
+            if (bz >= 0 && bz < FG_BLOCK_Z_NUM + 2 && bx >= 0 && bx < FG_BLOCK_X_NUM + 2 &&
+                ++count[bz][bx] > best)
+            {
+                best = count[bz][bx];
+                best_i = i;
+            }
+        }
+        if (best_i >= 0) {
+            Door_data_c door;
+            bzero(&door, sizeof(door));
+            door.next_scene_id = SCENE_FG;
+            door.exit_orientation = mSc_DIRECT_SOUTH;
+            door.exit_position.x = (s16) npclist[best_i].position.x;
+            door.exit_position.y = (s16) npclist[best_i].position.y;
+            door.exit_position.z = (s16) npclist[best_i].position.z;
+            door.door_actor_name = EMPTY_NO;
+            door.wipe_type = WIPE_TYPE_FADE_BLACK;
+            if (goto_other_scene(play, &door, TRUE) == TRUE) {
+                warped = 1;
+                nk_wii_log("LIFETEST: to %d villagers around villager %d (%d,%d)\n", best, best_i,
+                           (int) door.exit_position.x, (int) door.exit_position.z);
+            }
+        } else {
+            warped = 1;
+        }
+        return;
+    }
+
+    if (warped && g_nk_life_test == 2) {
+        if (field_frames % 120 == 0) {
+            Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+            ACTOR* a = list->actor;
+            int n;
+            for (n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+                NPC_ACTOR* na = (NPC_ACTOR*) a;
+                int ia = mNL_GetAnimalIdx(na->npc_info.animal);
+                ACTOR* b;
+                int m;
+                if (ia < 0) {
+                    continue;
+                }
+                for (b = a->next_actor, m = n - 1; m != 0 && b != NULL; m--, b = b->next_actor) {
+                    NPC_ACTOR* nb = (NPC_ACTOR*) b;
+                    int ib = mNL_GetAnimalIdx(nb->npc_info.animal);
+                    if (ib < 0) {
+                        continue;
+                    }
+                    nk_wii_log("LIFETEST: pair %d-%d dist %.0f rel %d/%d\n", ia, ib,
+                               (double) search_position_distanceXZ(&a->world.position, &b->world.position),
+                               na->npc_info.animal->animal_relations[ib], nb->npc_info.animal->animal_relations[ia]);
+                }
+            }
+        }
+    } else if (warped) {
+        /* the nearest town villager not yet talked to, in front of the player, until a chat starts */
+        Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+        ACTOR* actor = list->actor;
+        NPC_ACTOR* nearest = NULL;
+        f32 best = 1e9f;
+        int talking = -1;
+
+        for (i = list->num_actors; i != 0 && actor != NULL; i--, actor = actor->next_actor) {
+            NPC_ACTOR* npc = (NPC_ACTOR*) actor;
+            int idx;
+            f32 dist;
+
+            if (ITEM_NAME_GET_TYPE(actor->npc_id) != NAME_TYPE_NPC) {
+                continue;
+            }
+            idx = mNL_GetAnimalIdx(npc->npc_info.animal);
+            if (idx < 0) {
+                continue;
+            }
+            if (npc->condition_info.talk_condition != aNPC_TALK_TYPE_NONE) {
+                talking = idx;
+            }
+            if (talked_mask & (1 << idx)) {
+                continue;
+            }
+            dist = search_position_distanceXZ(&actor->world.position, &player->actor_class.world.position);
+            if (dist < best) {
+                best = dist;
+                nearest = npc;
+            }
+        }
+        if (talking >= 0) {
+            talking_idx = talking;
+        } else if (talking_idx >= 0) {
+            /* that chat is over: the next villager */
+            talked_mask |= 1 << talking_idx;
+            nk_wii_log("LIFETEST: talked to villager %d\n", talking_idx);
+            talking_idx = -1;
+        }
+        if (nearest == NULL && talked_mask != 0) {
+            talked_mask = 0;
+        }
+        {
+            /* the villager's "what can I do for you?" menu (msgs 0x2A6 on): "Let's talk!", the second
+             * of the three (aQMgr_talk_quest_select_get_choice) */
+            mChoice_c* choice = mChoice_Get_base_window_p();
+            if (choice->main_index == mChoice_MAIN_NORMAL && choice->data.choice_num == 3 && last_msg >= 0x2A6 &&
+                last_msg <= 0x2B1)
+            {
+                choice->selected_choice_idx = 1;
+            }
+        }
+        if (nearest != NULL && talking < 0 && window->main_index == mMsg_INDEX_HIDE) {
+            /* the villager just beside the player, on its own side, and the player facing it */
+            xyz_t* ppos = &player->actor_class.world.position;
+            s16 angle = search_position_angleY(ppos, &nearest->actor_class.world.position);
+            if (best > 40.0f) {
+                nearest->actor_class.world.position.x = ppos->x + sin_s(angle) * 36.0f;
+                nearest->actor_class.world.position.z = ppos->z + cos_s(angle) * 36.0f;
+                nearest->actor_class.world.position.y = ppos->y;
+            }
+            player->actor_class.shape_info.rotation.y = angle;
+            player->actor_class.world.angle.y = angle;
+        }
+    }
+
+    if (window->msg_data != NULL && window->main_index != mMsg_INDEX_HIDE && window->msg_data->msg_no != last_msg) {
+        last_msg = window->msg_data->msg_no;
+        nk_wii_log("LIFETEST: msg 0x%04X%s\n", last_msg, mNL_IsExtMsg(last_msg) ? " (gossip)" : "");
+        if (mNL_IsExtMsg(last_msg)) {
+            gossip_frames = 0;
+        }
+    }
+    if (gossip_frames >= 0 && ++gossip_frames == 10) {
+        gossip_frames = -1;
+        nk_wii_log("LIFETEST: gossip on screen %d\n", ++gossip_count);
+    }
+}
+
 void nk_netgame_play_frame(GAME_PLAY* play)
 {
     if (g_nk_trace_scenes) {
@@ -636,6 +843,9 @@ void nk_netgame_play_frame(GAME_PLAY* play)
     }
     if (g_nk_travel_test) {
         travel_test(play);
+    }
+    if (g_nk_life_test) {
+        life_test(play);
     }
     if (g_nk_nes_test > 0) {
         /* two seconds on the town's streets, then the game, as the NES

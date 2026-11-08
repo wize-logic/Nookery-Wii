@@ -1,0 +1,532 @@
+# Villager gossip lines (m_npc_life.c). After editing, regenerate m_npc_life_msg.c_inc:
+#   python3 tools/npc_life_msg.py
+#
+# Each entry starts with "@CATEGORY PERSONALITY VARIANT" and uses tools/msg_tool.py's
+# markup. STR_FREE13 is the villager being talked about, STR_FREE14 the second one
+# in the PAIR_* topics. DEMONPC0 [00 00 xx] sets the speaker's expression
+# (03 smile, 07 sweat, 0A happy, 0B puzzled, 0C idea, 0E love, 0F pout, 10 gloomy,
+# 12 scheming, 13 sleepy, 15 grin, 16 sulk, 17 troubled, 01 annoyed, 05 angry).
+
+@LIKE NORMAL 0
+<<DEMONPC0 [00 00 0A]>>I had tea with <<STR_FREE13>>
+this morning,<<PAUSE [08]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>We talked for so long that
+the tea went cold!<<PAUSE [0A]>> I think
+that's the sign of a good
+friend, don't you?
+<<MSGEND>>
+
+@LIKE NORMAL 1
+<<DEMONPC0 [00 00 03]>>Have you noticed how kind
+<<STR_FREE13>> is,<<PAUSE [06]>> <<STR_PLAYERNAME>>?<<BTN>>
+<<MSGCLEAR>>Whenever I feel down,
+<<STR_FREE13>> seems to show
+up right on time.<<PAUSE [0A]>><<DEMONPC0 [00 00 0A]>> I'm lucky
+to live here, <<STR_TAIL>>.
+<<MSGEND>>
+
+@LIKE PEPPY 0
+<<DEMONPC0 [00 00 0A]>>Guess what, <<STR_PLAYERNAME>>!<<PAUSE [08]>>
+<<STR_FREE13>> and I are, like,<<PAUSE [06]>>
+TOTALLY best friends now!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0E]>>We're gonna make matching
+shirts and everything,<<PAUSE [08]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@LIKE PEPPY 1
+<<DEMONPC0 [00 00 15]>>Ooh, ooh! Have you seen
+<<STR_FREE13>> today?<<PAUSE [08]>> I've been
+looking all over!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>Hanging out with
+<<STR_FREE13>> is the best!<<PAUSE [08]>>
+Every day's a party,
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@LIKE LAZY 0
+<<DEMONPC0 [00 00 15]>>So,<<PAUSE [06]>> <<STR_FREE13>> came by
+with snacks yesterday.<<PAUSE [0A]>>
+Just...<<PAUSE [08]>> showed up with
+snacks.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0E]>>That's what friendship is,
+<<STR_TAIL>>.<<PAUSE [0C]>> I'm gonna
+tell everyone.
+<<MSGEND>>
+
+@LIKE LAZY 1
+<<DEMONPC0 [00 00 03]>><<STR_FREE13>> and I found
+a comfy spot to watch the
+clouds,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 13]>>We didn't say anything for
+an hour.<<PAUSE [0C]>> Best hour of my
+life.
+<<MSGEND>>
+
+@LIKE JOCK 0
+<<DEMONPC0 [00 00 0A]>>Yo, <<STR_PLAYERNAME>>!<<PAUSE [08]>> <<STR_FREE13>> has
+been my workout buddy all
+week!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>Nothing beats a friend who
+can keep up,<<PAUSE [06]>> <<STR_TAIL>>!<<PAUSE [0A]>>
+Well,<<PAUSE [06]>> almost keep up!
+<<MSGEND>>
+
+@LIKE JOCK 1
+<<DEMONPC0 [00 00 03]>>I raced <<STR_FREE13>> to the
+beach and back today!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>I won,<<PAUSE [06]>> obviously.<<PAUSE [0C]>> But it
+was close!<<PAUSE [08]>> A good pal
+makes you tough, <<STR_TAIL>>!
+<<MSGEND>>
+
+@LIKE CRANKY 0
+<<DEMONPC0 [00 00 16]>>Hmph.<<PAUSE [0A]>> Don't tell anyone,
+but <<STR_FREE13>> isn't half
+bad,<<PAUSE [08]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0F]>>We play checkers most
+evenings.<<PAUSE [0C]>> I let 'em win
+sometimes.<<PAUSE [0A]>> Sometimes.
+<<MSGEND>>
+
+@LIKE CRANKY 1
+<<DEMONPC0 [00 00 03]>>You know who's all right?<<PAUSE [0A]>>
+<<STR_FREE13>>.<<PAUSE [08]>> Doesn't talk my
+ear off like the rest of
+this town,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>...Present company
+excluded.<<PAUSE [0C]>> Probably.
+<<MSGEND>>
+
+@LIKE SNOOTY 0
+<<DEMONPC0 [00 00 03]>><<STR_FREE13>> has the most
+exquisite taste,<<PAUSE [06]>> <<STR_TAIL>>.<<PAUSE [0A]>>
+It's rare in a town
+like this.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>We've been having tea
+together every afternoon.<<PAUSE [0A]>>
+Very civilized,<<PAUSE [06]>> darling.
+<<MSGEND>>
+
+@LIKE SNOOTY 1
+<<DEMONPC0 [00 00 15]>>I've decided that
+<<STR_FREE13>> is worthy of
+my company,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0E]>>Don't look so surprised!<<PAUSE [0A]>>
+I have a very generous
+heart,<<PAUSE [06]>> you know.
+<<MSGEND>>
+
+@DISLIKE NORMAL 0
+<<DEMONPC0 [00 00 17]>>Um,<<PAUSE [08]>> <<STR_PLAYERNAME>>...<<PAUSE [0A]>> Does
+<<STR_FREE13>> seem a little
+cold to you lately?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 10]>>Whenever I say hello,<<PAUSE [08]>> I
+just get a funny look.<<PAUSE [0C]>>
+I wonder what I did,
+<<STR_TAIL>>...
+<<MSGEND>>
+
+@DISLIKE NORMAL 1
+<<DEMONPC0 [00 00 0F]>>I try to be nice to
+everyone,<<PAUSE [06]>> <<STR_TAIL>>.<<PAUSE [0A]>> I
+really do.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 01]>>But <<STR_FREE13>> makes it
+so hard sometimes!<<PAUSE [0A]>>
+Oh dear,<<PAUSE [06]>> I shouldn't have
+said that out loud.
+<<MSGEND>>
+
+@DISLIKE PEPPY 0
+<<DEMONPC0 [00 00 05]>>Ugh!<<PAUSE [08]>> <<STR_FREE13>> said my
+hair looked "interesting"!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>INTERESTING!<<PAUSE [0C]>> Can you
+believe it, <<STR_PLAYERNAME>>?!<<PAUSE [08]>>
+I'm not speaking to them
+ever again, <<STR_TAIL>>!
+<<MSGEND>>
+
+@DISLIKE PEPPY 1
+<<DEMONPC0 [00 00 0F]>>Don't even mention
+<<STR_FREE13>> to me right
+now,<<PAUSE [06]>> <<STR_PLAYERNAME>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 01]>>We had a teeny little fight<<PAUSE [08]>>
+and now it's,<<PAUSE [06]>> like,<<PAUSE [06]>> a whole
+thing,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@DISLIKE LAZY 0
+<<DEMONPC0 [00 00 17]>><<STR_FREE13>> told me to
+"get off the couch" once,<<PAUSE [08]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0F]>>I'm still thinking about
+it.<<PAUSE [0C]>> From the couch.<<PAUSE [0A]>> Rude.
+<<MSGEND>>
+
+@DISLIKE LAZY 1
+<<DEMONPC0 [00 00 07]>>I kinda hide behind trees
+when I see <<STR_FREE13>>
+coming,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 17]>>It's not personal.<<PAUSE [0A]>>
+Okay,<<PAUSE [06]>> it's a little
+personal.
+<<MSGEND>>
+
+@DISLIKE JOCK 0
+<<DEMONPC0 [00 00 01]>>Man,<<PAUSE [06]>> <<STR_FREE13>> said
+my push-ups were sloppy!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 05]>>Sloppy!<<PAUSE [0A]>> These are champion
+push-ups,<<PAUSE [06]>> <<STR_TAIL>>!<<PAUSE [08]>>
+I'm gonna do a thousand
+more,<<PAUSE [06]>> just to prove it!
+<<MSGEND>>
+
+@DISLIKE JOCK 1
+<<DEMONPC0 [00 00 16]>><<STR_FREE13>> keeps skipping
+our morning jog,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 01]>>A real teammate shows up,<<PAUSE [08]>>
+you know?<<PAUSE [0A]>> I'm running solo
+from now on!
+<<MSGEND>>
+
+@DISLIKE CRANKY 0
+<<DEMONPC0 [00 00 01]>>If you see <<STR_FREE13>>,<<PAUSE [08]>>
+tell 'em to keep their
+yapping down,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>I could hear 'em from my
+house.<<PAUSE [0C]>> With the windows
+closed!
+<<MSGEND>>
+
+@DISLIKE CRANKY 1
+<<DEMONPC0 [00 00 05]>>Hmph!<<PAUSE [0A]>> <<STR_FREE13>> walked
+right past me without
+saying a word.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>Fine by me,<<PAUSE [06]>> <<STR_TAIL>>.<<PAUSE [0A]>>
+I didn't wanna talk to
+'em anyway.
+<<MSGEND>>
+
+@DISLIKE SNOOTY 0
+<<DEMONPC0 [00 00 0F]>>Have you SEEN what
+<<STR_FREE13>> wore today,<<PAUSE [06]>>
+<<STR_TAIL>>?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 01]>>I simply can't be seen
+near such a fashion
+disaster.<<PAUSE [0C]>> I have a
+reputation, darling.
+<<MSGEND>>
+
+@DISLIKE SNOOTY 1
+<<DEMONPC0 [00 00 16]>><<STR_FREE13>> had the
+nerve to call me "fussy"!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0F]>>I am not fussy,<<PAUSE [08]>> <<STR_TAIL>>.<<PAUSE [0A]>>
+I simply have standards.<<PAUSE [0A]>>
+Very,<<PAUSE [06]>> very high ones.
+<<MSGEND>>
+
+@PAIR_CLOSE NORMAL 0
+<<DEMONPC0 [00 00 03]>>I keep seeing <<STR_FREE13>>
+and <<STR_FREE14>> walking
+together,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>They get along so well.<<PAUSE [0A]>>
+It warms my heart just to
+watch them!
+<<MSGEND>>
+
+@PAIR_CLOSE NORMAL 1
+<<DEMONPC0 [00 00 15]>>Did you know <<STR_FREE13>>
+and <<STR_FREE14>> are
+practically inseparable?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0E]>>Everywhere one goes,<<PAUSE [06]>> the
+other follows.<<PAUSE [0A]>> Isn't that
+sweet,<<PAUSE [06]>> <<STR_TAIL>>?
+<<MSGEND>>
+
+@PAIR_CLOSE PEPPY 0
+<<DEMONPC0 [00 00 0E]>>Okay,<<PAUSE [06]>> so,<<PAUSE [06]>> <<STR_FREE13>> and
+<<STR_FREE14>> have been
+hanging out a LOT.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>Like,<<PAUSE [06]>> a LOT a lot,<<PAUSE [08]>>
+<<STR_TAIL>>!<<PAUSE [0A]>> I need to know
+everything!
+<<MSGEND>>
+
+@PAIR_CLOSE PEPPY 1
+<<DEMONPC0 [00 00 0A]>><<STR_FREE13>> and
+<<STR_FREE14>> invited me
+to a picnic!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>They're the cutest pair of
+best friends ever,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@PAIR_CLOSE LAZY 0
+<<DEMONPC0 [00 00 03]>><<STR_FREE13>> and
+<<STR_FREE14>> are always
+together these days.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 13]>>I'm hoping they start a
+snack club,<<PAUSE [06]>> <<STR_TAIL>>.<<PAUSE [0A]>>
+I'd join.
+<<MSGEND>>
+
+@PAIR_CLOSE LAZY 1
+<<DEMONPC0 [00 00 15]>>I saw <<STR_FREE13>> and
+<<STR_FREE14>> napping
+under the same tree.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>That's real friendship,<<PAUSE [06]>>
+<<STR_TAIL>>.<<PAUSE [0A]>> Napping
+together.
+<<MSGEND>>
+
+@PAIR_CLOSE JOCK 0
+<<DEMONPC0 [00 00 03]>><<STR_FREE13>> and
+<<STR_FREE14>> have been
+training together!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>Teamwork,<<PAUSE [06]>> <<STR_TAIL>>!<<PAUSE [0A]>>
+That's what makes
+champions!
+<<MSGEND>>
+
+@PAIR_CLOSE JOCK 1
+<<DEMONPC0 [00 00 15]>>Those two,<<PAUSE [06]>> <<STR_FREE13>> and
+<<STR_FREE14>>?<<PAUSE [08]>> Total
+dream team,<<PAUSE [06]>> <<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0C]>>Maybe I'll challenge them
+to a relay race!
+<<MSGEND>>
+
+@PAIR_CLOSE CRANKY 0
+<<DEMONPC0 [00 00 16]>><<STR_FREE13>> and
+<<STR_FREE14>> are thick as
+thieves lately.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Always whispering.<<PAUSE [0A]>> Probably
+plotting something,<<PAUSE [06]>>
+<<STR_TAIL>>.
+<<MSGEND>>
+
+@PAIR_CLOSE CRANKY 1
+<<DEMONPC0 [00 00 03]>>Saw <<STR_FREE13>> and
+<<STR_FREE14>> laughing
+by the river.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0F]>>Bah.<<PAUSE [0A]>> Good for them,<<PAUSE [06]>> I
+guess,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGEND>>
+
+@PAIR_CLOSE SNOOTY 0
+<<DEMONPC0 [00 00 03]>>I hear <<STR_FREE13>> and
+<<STR_FREE14>> are quite the
+pair now,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>Not that I keep track of
+such things.<<PAUSE [0C]>> I simply
+hear things.
+<<MSGEND>>
+
+@PAIR_CLOSE SNOOTY 1
+<<DEMONPC0 [00 00 15]>><<STR_FREE13>> and
+<<STR_FREE14>> make a lovely
+pair of friends.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0F]>>Though I'd have chosen
+better company myself,<<PAUSE [06]>>
+<<STR_TAIL>>.
+<<MSGEND>>
+
+@PAIR_FEUD NORMAL 0
+<<DEMONPC0 [00 00 17]>>Oh,<<PAUSE [06]>> <<STR_PLAYERNAME>>...<<PAUSE [0A]>> <<STR_FREE13>>
+and <<STR_FREE14>> aren't
+getting along at all.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 10]>>I wish they would just
+make up,<<PAUSE [06]>> <<STR_TAIL>>.<<PAUSE [0A]>>
+It makes me so sad to see.
+<<MSGEND>>
+
+@PAIR_FEUD NORMAL 1
+<<DEMONPC0 [00 00 07]>>I asked <<STR_FREE13>> and
+<<STR_FREE14>> over for tea,<<PAUSE [08]>>
+but it was so awkward!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 17]>>They wouldn't even look at
+each other,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGEND>>
+
+@PAIR_FEUD PEPPY 0
+<<DEMONPC0 [00 00 04]>>Omigosh, <<STR_PLAYERNAME>>!<<PAUSE [08]>> Did you
+hear about <<STR_FREE13>>
+and <<STR_FREE14>>?!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 07]>>They are SO not talking
+right now!<<PAUSE [0A]>> It's, like,<<PAUSE [06]>> super
+dramatic,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@PAIR_FEUD PEPPY 1
+<<DEMONPC0 [00 00 17]>><<STR_FREE13>> and
+<<STR_FREE14>> both told me
+not to talk to the other!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 07]>>But I like them both!<<PAUSE [0A]>>
+What do I do,<<PAUSE [06]>> <<STR_TAIL>>?!
+<<MSGEND>>
+
+@PAIR_FEUD LAZY 0
+<<DEMONPC0 [00 00 17]>>So,<<PAUSE [06]>> <<STR_FREE13>> and
+<<STR_FREE14>> are kinda
+fighting,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 13]>>Sounds exhausting.<<PAUSE [0A]>> I'm
+gonna stay out of it and
+have a snack.
+<<MSGEND>>
+
+@PAIR_FEUD LAZY 1
+<<DEMONPC0 [00 00 0B]>>Why do <<STR_FREE13>> and
+<<STR_FREE14>> keep glaring
+at each other?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 17]>>It's making the whole
+town tense,<<PAUSE [06]>> <<STR_TAIL>>.<<PAUSE [0A]>>
+Can't nap like this.
+<<MSGEND>>
+
+@PAIR_FEUD JOCK 0
+<<DEMONPC0 [00 00 01]>><<STR_FREE13>> and
+<<STR_FREE14>> had a huge
+argument by the plaza!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0C]>>They should settle it with
+a footrace,<<PAUSE [06]>> <<STR_TAIL>>!<<PAUSE [0A]>>
+That's how I'd do it!
+<<MSGEND>>
+
+@PAIR_FEUD JOCK 1
+<<DEMONPC0 [00 00 17]>>Bad vibes between
+<<STR_FREE13>> and
+<<STR_FREE14>> lately,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Somebody needs to get
+those two on the same
+team!
+<<MSGEND>>
+
+@PAIR_FEUD CRANKY 0
+<<DEMONPC0 [00 00 12]>>Heh.<<PAUSE [0A]>> <<STR_FREE13>> and
+<<STR_FREE14>> can't stand
+each other.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>Finally,<<PAUSE [06]>> some peace and
+quiet around here,<<PAUSE [06]>>
+<<STR_TAIL>>.
+<<MSGEND>>
+
+@PAIR_FEUD CRANKY 1
+<<DEMONPC0 [00 00 0F]>>Don't mention <<STR_FREE13>>
+in front of <<STR_FREE14>>,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 01]>>Trust me.<<PAUSE [0A]>> I made that
+mistake once already.
+<<MSGEND>>
+
+@PAIR_FEUD SNOOTY 0
+<<DEMONPC0 [00 00 12]>>Between you and me,<<PAUSE [08]>>
+<<STR_FREE13>> and
+<<STR_FREE14>> are feuding.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>How terribly dramatic,<<PAUSE [06]>>
+<<STR_TAIL>>.<<PAUSE [0A]>> I'm simply
+dying to know more.
+<<MSGEND>>
+
+@PAIR_FEUD SNOOTY 1
+<<DEMONPC0 [00 00 0F]>><<STR_FREE13>> snubbed
+<<STR_FREE14>> at the shop
+this morning!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Honestly,<<PAUSE [06]>> some villagers
+have no manners,<<PAUSE [06]>>
+<<STR_TAIL>>.
+<<MSGEND>>
+
+@NEUTRAL NORMAL 0
+<<DEMONPC0 [00 00 0B]>>I don't think I've really
+talked to <<STR_FREE13>>
+much yet,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>Maybe I'll bake something
+and go say hello!
+<<MSGEND>>
+
+@NEUTRAL NORMAL 1
+<<DEMONPC0 [00 00 0B]>>What do you think of
+<<STR_FREE13>>,<<PAUSE [06]>> <<STR_PLAYERNAME>>?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>We only ever say hello.<<PAUSE [0A]>>
+I'd like to be friends,
+<<STR_TAIL>>.
+<<MSGEND>>
+
+@NEUTRAL PEPPY 0
+<<DEMONPC0 [00 00 0C]>>I just decided something!<<PAUSE [08]>>
+I'm gonna be friends with
+<<STR_FREE13>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>They don't know it yet,<<PAUSE [06]>>
+but it's happening,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@NEUTRAL PEPPY 1
+<<DEMONPC0 [00 00 0B]>>Is <<STR_FREE13>> fun?<<PAUSE [08]>> I've
+only ever waved hi,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>Next time I'll say WAY
+more than hi!
+<<MSGEND>>
+
+@NEUTRAL LAZY 0
+<<DEMONPC0 [00 00 0B]>>Hmm...<<PAUSE [0A]>> <<STR_FREE13>>...<<PAUSE [0A]>>
+I don't really know 'em,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>Do they like snacks?<<PAUSE [0A]>> That's
+all I need to know.
+<<MSGEND>>
+
+@NEUTRAL LAZY 1
+<<DEMONPC0 [00 00 13]>>I keep meaning to hang out
+with <<STR_FREE13>>,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 17]>>But then I sit down,<<PAUSE [08]>> and
+it's dinnertime.<<PAUSE [0A]>> Weird how
+that happens.
+<<MSGEND>>
+
+@NEUTRAL JOCK 0
+<<DEMONPC0 [00 00 0B]>>Does <<STR_FREE13>> work out,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0C]>>I should invite 'em for a
+jog sometime,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@NEUTRAL JOCK 1
+<<DEMONPC0 [00 00 03]>>I don't know much about
+<<STR_FREE13>> yet,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>But anyone can be a
+teammate if they've got
+heart!
+<<MSGEND>>
+
+@NEUTRAL CRANKY 0
+<<DEMONPC0 [00 00 0B]>><<STR_FREE13>>?<<PAUSE [0A]>> Never had
+much to say to 'em,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>Which is how I like it with
+most folks.
+<<MSGEND>>
+
+@NEUTRAL CRANKY 1
+<<DEMONPC0 [00 00 0F]>>You friendly with
+<<STR_FREE13>>,<<PAUSE [06]>> <<STR_PLAYERNAME>>?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>Can't make heads or tails
+of 'em myself,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGEND>>
+
+@NEUTRAL SNOOTY 0
+<<DEMONPC0 [00 00 0B]>>I haven't quite made up my
+mind about <<STR_FREE13>>,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>I'm observing.<<PAUSE [0A]>> From a
+distance.<<PAUSE [0A]>> Elegantly.
+<<MSGEND>>
+
+@NEUTRAL SNOOTY 1
+<<DEMONPC0 [00 00 0B]>>Tell me,<<PAUSE [06]>> <<STR_PLAYERNAME>>...<<PAUSE [08]>>
+is <<STR_FREE13>> the sort
+one ought to know?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>I only associate with the
+best,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGEND>>

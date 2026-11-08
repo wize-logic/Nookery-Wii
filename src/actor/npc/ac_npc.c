@@ -14,6 +14,9 @@
 #include "m_melody.h"
 #include "ac_ball.h"
 #include "m_actor_shadow.h"
+#ifdef ACGC_PORT
+#include "m_npc_life.h"
+#endif
 #ifdef TARGET_PC
 #include "pc_bswap.h"
 #endif

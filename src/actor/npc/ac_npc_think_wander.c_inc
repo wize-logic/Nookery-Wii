@@ -76,6 +76,156 @@ static int aNPC_think_wander_move_next(u16* arg_data, NPC_ACTOR* nactorx) {
     return ret;
 }
 
+#ifdef ACGC_PORT
+/* Villager friendships (m_npc_life.h): wandering villagers drift toward friends and away from rivals */
+#define aNPC_LIFE_FRIEND_RANGE 240.0f /* how far away a friend is noticed */
+#define aNPC_LIFE_RIVAL_RANGE 120.0f  /* how close a rival must be to be avoided */
+#define aNPC_LIFE_TOGETHER_DIST 70.0f /* close enough to stand together */
+#define aNPC_LIFE_SIDE_DIST 45.0f     /* where to stop beside a friend */
+
+/* The nearest friend (or rival) of nactorx within max_dist, on the same level */
+static NPC_ACTOR* aNPC_life_search(NPC_ACTOR* nactorx, int friend_flag, f32 max_dist, f32* dist_p) {
+    Animal_c* animal = nactorx->npc_info.animal;
+    Actor_list* list = &((GAME_PLAY*)gamePT)->actor_info.list[ACTOR_PART_NPC];
+    ACTOR* actor = list->actor;
+    NPC_ACTOR* found = NULL;
+    f32 best = max_dist;
+    int n;
+
+    if (mNL_GetAnimalIdx(animal) < 0) {
+        return NULL;
+    }
+
+    for (n = list->num_actors; n != 0 && actor != NULL; n--, actor = actor->next_actor) {
+        NPC_ACTOR* other = (NPC_ACTOR*)actor;
+        int other_idx;
+        int rel;
+        f32 dist;
+
+        if (other == nactorx || !aNPC_IS_NRM_NPC(other) || other->condition_info.hide_flg) {
+            continue;
+        }
+
+        other_idx = mNL_GetAnimalIdx(other->npc_info.animal);
+        if (other_idx < 0) {
+            continue;
+        }
+
+        rel = animal->animal_relations[other_idx];
+        if (friend_flag ? rel < mNL_RELATION_FRIEND : rel > mNL_RELATION_RIVAL) {
+            continue;
+        }
+
+        if (ABS(actor->world.position.y - nactorx->actor_class.world.position.y) >= 40.0f) {
+            continue;
+        }
+
+        dist = search_position_distanceXZ(&nactorx->actor_class.world.position, &actor->world.position);
+        if (dist < best) {
+            best = dist;
+            found = other;
+        }
+    }
+
+    *dist_p = best;
+    return found;
+}
+
+/* A spot beside the friend, on the near side */
+static int aNPC_life_to_friend(NPC_ACTOR* nactorx, NPC_ACTOR* friend_nactorx, u16* arg_data) {
+    xyz_t* pos = &nactorx->actor_class.world.position;
+    xyz_t* friend_pos = &friend_nactorx->actor_class.world.position;
+    f32 dx = pos->x - friend_pos->x;
+    f32 dz = pos->z - friend_pos->z;
+    f32 dist = sqrtf(SQ(dx) + SQ(dz));
+    xyz_t dst;
+
+    if (dist < 1.0f) {
+        return FALSE;
+    }
+
+    dst.x = friend_pos->x + (dx / dist) * aNPC_LIFE_SIDE_DIST;
+    dst.y = pos->y;
+    dst.z = friend_pos->z + (dz / dist) * aNPC_LIFE_SIDE_DIST;
+    if (mCoBG_Wpos2CheckNpc(dst) == TRUE &&
+        aNPC_moveRangeCheck2(nactorx, NULL, dst, nactorx->movement.range_type) == TRUE) {
+        arg_data[2] = (int)dst.x;
+        arg_data[3] = (int)dst.z;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+/* Of a few wander spots, the one farthest from the rival */
+static int aNPC_life_away_from(NPC_ACTOR* nactorx, NPC_ACTOR* rival_nactorx, u16* arg_data) {
+    u16 try_data[aNPC_REQUEST_ARG_NUM];
+    f32 best = -1.0f;
+    int ret = FALSE;
+    int i;
+
+    for (i = 0; i < 3; i++) {
+        bzero(try_data, sizeof(try_data));
+        if (aNPC_think_wander_move_next(try_data, nactorx) == TRUE) {
+            xyz_t spot;
+            f32 dist;
+
+            spot.x = try_data[2];
+            spot.y = 0.0f;
+            spot.z = try_data[3];
+            dist = search_position_distanceXZ(&spot, &rival_nactorx->actor_class.world.position);
+            if (dist > best) {
+                best = dist;
+                arg_data[2] = try_data[2];
+                arg_data[3] = try_data[3];
+                ret = TRUE;
+            }
+        }
+    }
+
+    return ret;
+}
+
+static int aNPC_life_decide(NPC_ACTOR* nactorx, u8* act_idx, u8* act_type, u16* arg_data) {
+    NPC_ACTOR* other;
+    f32 dist;
+
+    if (!mNL_IsEnabled() || !aNPC_IS_NRM_NPC(nactorx) || nactorx->think.idx != aNPC_THINK_WANDER) {
+        return FALSE;
+    }
+
+    other = aNPC_life_search(nactorx, FALSE, aNPC_LIFE_RIVAL_RANGE, &dist);
+    if (other != NULL && aNPC_life_away_from(nactorx, other, arg_data)) {
+        *act_idx = aNPC_ACT_WALK;
+    } else {
+        /* Half the time villagers go their own way, so friends drift apart and meet again */
+        other = aNPC_life_search(nactorx, TRUE, aNPC_LIFE_FRIEND_RANGE, &dist);
+        if (other == NULL || RANDOM(2) != 0) {
+            return FALSE;
+        }
+
+        if (dist < aNPC_LIFE_TOGETHER_DIST) {
+            *act_idx = aNPC_ACT_WAIT;
+            *act_type = aNPC_ACT_TYPE_DEFAULT;
+            return TRUE;
+        }
+
+        if (!aNPC_life_to_friend(nactorx, other, arg_data)) {
+            return FALSE;
+        }
+
+        *act_idx = aNPC_ACT_WALK;
+    }
+
+    if (aNPC_think_wander_check_ones_way(nactorx, arg_data) == TRUE) {
+        *act_idx = aNPC_ACT_TURN;
+    }
+
+    *act_type = aNPC_ACT_TYPE_TO_POINT;
+    return TRUE;
+}
+#endif
+
 static void aNPC_think_wander_decide_next(NPC_ACTOR* nactorx) {
     static int girl_decide_boarder[] = { 3, 6 }; // 40% wait, 30% walk, 30% run
     static int ko_girl_decide_boarder[] = { 6, 8 }; // 70% wait, 20% walk, 10% run
@@ -151,6 +301,13 @@ static void aNPC_think_wander_decide_next(NPC_ACTOR* nactorx) {
                 boarder_p++;
             }
         }
+
+#ifdef ACGC_PORT
+        if (aNPC_life_decide(nactorx, &act_idx, &act_type, arg_data)) {
+            aNPC_set_request_act(nactorx, 1, act_idx, act_type, arg_data);
+            return;
+        }
+#endif
 
         switch (act_idx) {
             case aNPC_ACT_WAIT:

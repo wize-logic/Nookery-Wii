@@ -12,8 +12,17 @@ Nookery-Wii is [Nookery](https://github.com/flyngmt/Nookery) with:
 - **A Wii version**, run from the Homebrew Channel off your own disc image, with **online play** for two
   to four players: host your town in a public or private lobby, or browse and join others'. Installing,
   playing online and building it are in [wii/README.md](wii/README.md).
+- **Villager friendships.** Villagers have opinions of each other, which the original game keeps but
+  never uses. They walk over to friends and away from rivals, friendships and grudges deepen when
+  they meet, and they gossip about it when you talk to them.
+
+Villager friendships are a setting, on by default, on every platform: Settings > Gameplay on PC and
+mobile, the launcher's Settings on the Wii. Saves keep their size and still work in the original
+game and in Dolphin.
 
 The rest of this page, and the [FAQ](FAQ.md), are Nookery's own and about the PC and mobile ports.
+The builds on Nookery's Releases page don't have what this fork adds: [build](BUILDING.md) this
+repository for those.
 
 This repository contains no game assets. A legally obtained GAFE01 Rev 0 (USA)
 disc image is required. RVZ, ISO, CISO and GCM images are supported.

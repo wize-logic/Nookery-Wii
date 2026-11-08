@@ -47,7 +47,11 @@ static void mMsg_request_main_index_fromNormal(mMsg_Window_c* msg_p, GAME* game)
       int continue_msg = msg_p->continue_msg_no;
       f32 overshoot = msg_p->force_next ? MIN(msg_p->cursor_timer, 0.0f) : 0.0f;
 
+#ifdef ACGC_PORT
+      if (mNL_MSG_NO_VALID(continue_msg) && mMsg_ChangeMsgData(msg_p, continue_msg)) {
+#else
       if (continue_msg >= 0 && continue_msg < MSG_MAX && mMsg_ChangeMsgData(msg_p, continue_msg)) {
+#endif
         msg_p->cursor_timer += overshoot;
         if (mMsg_request_main_cursol(msg_p, FALSE, 5) && msg_p->force_next == FALSE && mMsg_Check_NextIndex_SetSelectWindowCode(msg_p) == FALSE) {
           if ((msg_p->status_flags & mMsg_STATUS_FLAG_NO_SE_PAGE_OKURI) == 0) {

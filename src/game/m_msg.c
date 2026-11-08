@@ -15,6 +15,7 @@
 #include "pc_bswap.h"
 #endif
 #include "pc_settings.h"
+#include "m_npc_life.h"
 #endif
 #ifdef MOUSE_INPUT
 #include "game_pointer.h"

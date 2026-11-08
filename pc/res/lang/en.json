@@ -197,6 +197,8 @@
   "settings.gameplay.travel_move_out": "Travel Move-Out Chance",
   "settings.gameplay.travel_move_out.default": "Default",
   "settings.gameplay.travel_move_out_help": "How often the villager planning to move follows you to another town. Default always follows, like the original game.",
+  "settings.gameplay.villager_life": "Villager Friendships",
+  "settings.gameplay.villager_life_help": "Villagers walk with friends, avoid rivals and gossip about each other.",
   "settings.open_url.body": "This will open the following page in your web browser:",
   "settings.open_url.open": "Open",
   "settings.open_url.title": "Open Web Page?",
