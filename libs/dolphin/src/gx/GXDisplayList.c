@@ -84,6 +84,10 @@ void GXCallDisplayList(void *list, u32 nbytes)
         __GXSendFlushPrim();
     }
     GX_WRITE_U8(0x40);
+#ifdef TARGET_WII
+    GX_WRITE_U32((u32)list & 0x3FFFFFFF); /* (a MEM2 list's physical address) */
+#else
     GX_WRITE_U32(list);
+#endif
     GX_WRITE_U32(nbytes);
 }

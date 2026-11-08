@@ -14,7 +14,7 @@ typedef float  f32;
 typedef double f64;
 
 typedef char *Ptr;
-#ifndef TARGET_PC
+#if !defined(TARGET_PC) && !defined(TARGET_WII)
 typedef u32 uintptr_t; // Manually added
 typedef int intptr_t; // Manually added
 #else

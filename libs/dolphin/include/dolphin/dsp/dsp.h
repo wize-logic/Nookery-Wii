@@ -7,7 +7,9 @@
 extern "C"{
 #endif
 
+#ifdef __MWERKS__
 extern volatile u16 __DSPRegs[] AT_ADDRESS(0xCC005000);
+#endif
 
 #ifdef __cplusplus
 }

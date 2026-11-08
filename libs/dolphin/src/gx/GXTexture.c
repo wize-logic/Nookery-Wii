@@ -213,7 +213,7 @@ void GXInitTexObj(GXTexObj *obj, void *image_ptr, u16 width, u16 height, GXTexFm
     SET_REG_FIELD(0x267, t->image0, 4, 20, format & 0xF);
     ASSERTMSGLINEV(0x26D, ((u32)image_ptr & 0x1F) == 0, "%s: %s pointer not aligned to 32B", "GXInitTexObj", "image");
     imageBase = (u32)((u32)image_ptr >> 5) & 0x01FFFFFF;
-    SET_REG_FIELD(0x26F, t->image3, 21, 0, imageBase);
+    SET_REG_FIELD(0x26F, t->image3, GX_ADDR_BITS, 0, imageBase);
     switch (format & 0xF) {
     case 0:
     case 8:
@@ -320,7 +320,7 @@ void GXInitTexObjData(GXTexObj *obj, void *image_ptr)
     CHECK_GXBEGIN(0x320, "GXInitTexObjData");
     ASSERTMSGLINEV(0x323, ((u32)image_ptr & 0x1F) == 0, "%s: %s pointer not aligned to 32B", "GXInitTexObjData", "image");
     imageBase = ((u32)image_ptr >> 5) & 0x01FFFFFF;
-    SET_REG_FIELD(0x326, t->image3, 21, 0, imageBase);
+    SET_REG_FIELD(0x326, t->image3, GX_ADDR_BITS, 0, imageBase);
 }
 
 void GXInitTexObjWrapMode(GXTexObj *obj, GXTexWrapMode sm, GXTexWrapMode tm)
@@ -364,7 +364,7 @@ void GXGetTexObjAll(const GXTexObj *obj, void **image_ptr, u16 *width, u16 *heig
     const __GXTexObjInt *t = (const __GXTexObjInt *)obj;
 
     ASSERTMSGLINE(0x37E, obj, "Texture Object Pointer is null");
-    *image_ptr = (void *)(GET_REG_FIELD(t->image3, 21, 0) << 5);
+    *image_ptr = (void *)(GET_REG_FIELD(t->image3, GX_ADDR_BITS, 0) << 5);
     *width = (u32)GET_REG_FIELD(t->image0, 10, 0) + 1;
     *height = (u32)GET_REG_FIELD(t->image0, 10, 10) + 1;
     *format = t->fmt;
@@ -587,7 +587,7 @@ void GXInitTlutObj(GXTlutObj *tlut_obj, void *lut, GXTlutFmt fmt, u16 n_entries)
     ASSERTMSGLINEV(0x47D, ((u32)lut & 0x1F) == 0, "%s: %s pointer not aligned to 32B", "GXInitTlutObj", "Tlut");
     t->tlut = 0;
     SET_REG_FIELD(0x480, t->tlut, 2, 10, fmt);
-    SET_REG_FIELD(0x481, t->loadTlut0, 21, 0, ((u32)lut & 0x3FFFFFFF) >> 5);
+    SET_REG_FIELD(0x481, t->loadTlut0, GX_ADDR_BITS, 0, ((u32)lut & 0x3FFFFFFF) >> 5);
     SET_REG_FIELD(0x482, t->loadTlut0, 8, 24, 0x64);
     t->numEntries = n_entries;
 }
@@ -597,7 +597,7 @@ void GXGetTlutObjAll(const GXTlutObj *tlut_obj, void **data, GXTlutFmt *format, 
     const __GXTlutObjInt *t = (const __GXTlutObjInt *)tlut_obj;
 
     ASSERTMSGLINE(0x497, tlut_obj, "TLut Object Pointer is null");
-    *data = (void *)(GET_REG_FIELD(t->loadTlut0, 21, 0) << 5);
+    *data = (void *)(GET_REG_FIELD(t->loadTlut0, GX_ADDR_BITS, 0) << 5);
     *format = GET_REG_FIELD(t->tlut, 2, 10);
     *numEntries = t->numEntries;
 }
@@ -919,8 +919,8 @@ void GXPreLoadEntireTexture(GXTexObj *tex_obj, GXTexRegion *region)
 
     loadImage0 = 0;
     SET_REG_FIELD(0, loadImage0, 8, 24, 0x60);
-    base = t->image3 & 0x1FFFFF;
-    SET_REG_FIELD(0x658, loadImage0, 21, 0, base);
+    base = t->image3 & ((1u << GX_ADDR_BITS) - 1);
+    SET_REG_FIELD(0x658, loadImage0, GX_ADDR_BITS, 0, base);
 
     loadImage1 = 0;
     SET_REG_FIELD(0, loadImage1, 8, 24, 0x61);
@@ -1016,7 +1016,7 @@ void GXPreLoadEntireTexture(GXTexObj *tex_obj, GXTexRegion *region)
             tmem2 = (i & 1) ? tmemGB : tmemAR;
             __GetImageTileCount(t->fmt, (u16) (wd >> (i + 1)), (u16) (ht >> (i + 1)), &rowTiles, &colTiles, &cmpTiles);
             nTiles = rowTiles * colTiles;
-            SET_REG_FIELD(0x6D6, loadImage0, 21, 0, base);
+            SET_REG_FIELD(0x6D6, loadImage0, GX_ADDR_BITS, 0, base);
             SET_REG_FIELD(0x6D7, loadImage1, 15, 0, tmem1);
             SET_REG_FIELD(0x6D8, loadImage2, 15, 0, tmem2);
             SET_REG_FIELD(0x6D9, loadImage3, 15, 0, nTiles);

@@ -132,6 +132,15 @@ do { \
 
 #define GET_REG_FIELD(reg, size, shift) ((int)((reg) >> (shift)) & ((1 << (size)) - 1))
 
+/* The width of a memory address (in 32-byte units) in the GPU's texture,
+ * TLUT and copy registers: the GameCube's 24 MiB fits in 21 bits, the Wii's
+ * MEM2 (physical 0x10000000 up) needs 24, as libogc writes them */
+#ifdef TARGET_WII
+#define GX_ADDR_BITS 24
+#else
+#define GX_ADDR_BITS 21
+#endif
+
 #define SET_REG_FIELD(line, reg, size, shift, val) \
 do { \
     ASSERTMSGLINE(line, ((u32)(val) & ~((1 << (size)) - 1)) == 0, "GX Internal: Register field out of range"); \

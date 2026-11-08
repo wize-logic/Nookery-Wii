@@ -138,8 +138,21 @@ s32 __gUnknown800030C0[2] : (OS_BASE_CACHED | 0x30C0);
 u8 __gUnknown800030E3 : (OS_BASE_CACHED | 0x30E3);
 vu16 __OSDeviceCode AT_ADDRESS(OS_BASE_CACHED | 0x30E6);
 #else
+/* GCC (the Wii port): the globals in low memory, where the Wii's loader
+ * leaves them too */
+#define __OSPhysicalMemSize  (*(u32 *)(OS_BASE_CACHED | 0x0028))
+#define __OSTVMode           (*(volatile int *)(OS_BASE_CACHED | 0x00CC))
+#define __OSSimulatedMemSize (*(u32 *)(OS_BASE_CACHED | 0x00F0))
+#ifdef TARGET_WII
+/* The Wii port counts time in the GameCube's ticks (wii/src/os.c scales the
+ * Wii's time base), as the game's headers (Aurora's) do */
+#define __OSBusClock  162000000u
+#define __OSCoreClock 486000000u
+#else
 #define __OSBusClock  (*(u32 *)(OS_BASE_CACHED | 0x00F8))
 #define __OSCoreClock (*(u32 *)(OS_BASE_CACHED | 0x00FC))
+#endif
+#define __OSDeviceCode (*(vu16 *)(OS_BASE_CACHED | 0x30E6))
 #endif
 #define OS_BUS_CLOCK   __OSBusClock
 #define OS_CORE_CLOCK  __OSCoreClock

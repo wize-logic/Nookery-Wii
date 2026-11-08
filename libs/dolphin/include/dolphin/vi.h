@@ -7,6 +7,8 @@
 extern "C" {
 #endif
 
+struct _GXRenderModeObj; /* (GXStruct.h includes this header first) */
+
 #define VI_DISPLAY_PIX_SZ 2
 
 #define VI_INTERLACE 0
