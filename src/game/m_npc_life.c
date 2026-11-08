@@ -6,14 +6,17 @@
 #include "m_msg.h"
 #include "m_msg_data.h"
 #include "sys_math.h"
+#include "m_time.h"
+#include "lb_rtc.h"
 #include "pc_settings.h"
 
 #include "../src/game/m_npc_life_msg.c_inc"
 
-#define mNL_MSG_NUM (mNL_MSG_TOPIC_NUM * mNL_MSG_LOOKS_NUM * mNL_MSG_VARIANT_NUM)
-
 /* How much a topic is preferred over the others when several apply */
-static const int mNL_topic_weight[mNL_TOPIC_NUM] = { 3, 3, 2, 2, 1 };
+static const int mNL_topic_weight[mNL_TOPIC_NUM] = { 3, 3, 2, 2, 1, 2, 3, 3 };
+
+/* Opinion at or above which a villager is sorry to see another move away */
+#define mNL_RELATION_MISS 140
 
 /* Opinions close to neutral: the speaker has met the other villager but has no view yet */
 #define mNL_RELATION_NEUTRAL_MIN 116
@@ -47,6 +50,50 @@ extern int mNL_GetRelation(const Animal_c* animal, int other_idx) {
     }
 
     return animal->animal_relations[other_idx];
+}
+
+extern void mNL_DriftRelations(void) {
+    Animal_c* animals = Save_Get(animals);
+    lbRTC_time_c* now = Common_GetPointer(time.rtc_time);
+    lbRTC_time_c last;
+    int days;
+    int step;
+    int i;
+    int j;
+
+    if (!mNL_IsEnabled() || now->year == 0 || Save_Get(renew_time).year == 0) {
+        return;
+    }
+
+    /* renew_time: the day the town was last played (mTM_renewal_renew_time moves it on afterwards) */
+    mTM_ymd_2_time(&last, Save_GetPointer(renew_time));
+    days = lbRTC_GetIntervalDays(&last, now);
+    if (days <= 0) {
+        return;
+    }
+    if (days > mNL_DRIFT_MAX_DAYS) {
+        days = mNL_DRIFT_MAX_DAYS;
+    }
+
+    step = days * mNL_DRIFT_PER_DAY;
+    for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+        u8* relations = animals[i].animal_relations;
+
+        if (!mNL_IsTownAnimal(&animals[i])) {
+            continue;
+        }
+
+        for (j = 0; j < ANIMAL_NUM_MAX; j++) {
+            int rel = relations[j];
+
+            if (rel > 128) {
+                rel = MAX(128, rel - step);
+            } else if (rel < 128) {
+                rel = MIN(128, rel + step);
+            }
+            relations[j] = rel;
+        }
+    }
 }
 
 extern int mNL_IsExtMsg(int msg_no) {
@@ -105,18 +152,40 @@ extern int mNL_DecideGossipMsg(const Animal_c* speaker, int looks) {
     int i;
     int j;
 
-    if (self < 0 || looks < 0 || looks >= mNL_MSG_LOOKS_NUM) {
+    if (self < 0 || looks < 0 || looks >= mNL_MSG_LOOKS_NUM || mNL_MSG_TOPIC_NUM != mNL_TOPIC_NUM) {
         return -1;
     }
 
     bzero(pick, sizeof(pick));
     bzero(ties, sizeof(ties));
 
+    /* The villager thinking of moving away (they tell the player so themselves) */
+    i = Save_Get(remove_animal_idx);
+    if (i != self && i >= 0 && i < ANIMAL_NUM_MAX && mNL_IsTownAnimal(&animals[i])) {
+        int rel = speaker->animal_relations[i];
+
+        if (rel >= mNL_RELATION_MISS) {
+            mNL_Consider(&pick[mNL_TOPIC_MOVING_SAD], i, -1, rel, &ties[mNL_TOPIC_MOVING_SAD]);
+        } else if (rel <= mNL_RELATION_RIVAL) {
+            mNL_Consider(&pick[mNL_TOPIC_MOVING_GLAD], i, -1, 255 - rel, &ties[mNL_TOPIC_MOVING_GLAD]);
+        }
+    }
+
     for (i = 0; i < ANIMAL_NUM_MAX; i++) {
         int rel;
 
         if (i == self || !mNL_IsTownAnimal(&animals[i])) {
             continue;
+        }
+
+        /* The player's biggest fan, other than the speaker */
+        if (Now_Private != NULL) {
+            int mem_idx = mNpc_GetAnimalMemoryIdx(&Now_Private->player_ID, animals[i].memories, ANIMAL_MEMORY_NUM);
+
+            if (mem_idx != -1 && animals[i].memories[mem_idx].friendship >= mNL_PLAYER_FAN_FRIENDSHIP) {
+                mNL_Consider(&pick[mNL_TOPIC_PLAYER_FAN], i, -1, animals[i].memories[mem_idx].friendship,
+                             &ties[mNL_TOPIC_PLAYER_FAN]);
+            }
         }
 
         rel = speaker->animal_relations[i];
@@ -178,7 +247,8 @@ extern int mNL_DecideGossipMsg(const Animal_c* speaker, int looks) {
         mNL_SetNameFreeStr(1, mMsg_FREE_STR14, pick[topic].b);
     }
 
-    return mNL_MSG_BASE + (topic * mNL_MSG_LOOKS_NUM + looks) * mNL_MSG_VARIANT_NUM + RANDOM(mNL_MSG_VARIANT_NUM);
+    return mNL_MSG_BASE + mNL_msg_topic_first[topic] + looks * mNL_msg_variants[topic] +
+           RANDOM(mNL_msg_variants[topic]);
 }
 
 #endif /* ACGC_PORT */

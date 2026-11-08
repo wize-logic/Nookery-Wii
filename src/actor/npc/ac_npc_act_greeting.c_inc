@@ -398,6 +398,22 @@ static void aNPC_life_greeting_bond(NPC_ACTOR* nactorx, NPC_ACTOR* pal_nactorx) 
         aNPC_set_relation(nactorx, pal_nactorx, -2);
     }
 }
+
+/* Two villagers meet: rivals sometimes make up, otherwise each one's opinion deepens */
+static void aNPC_life_greeting(NPC_ACTOR* nactorx, NPC_ACTOR* pal_nactorx) {
+    int rel = mNL_GetRelation(nactorx->npc_info.animal, aNPC_get_animal_idx(pal_nactorx));
+    int pal_rel = mNL_GetRelation(pal_nactorx->npc_info.animal, aNPC_get_animal_idx(nactorx));
+
+    if ((rel <= mNL_RELATION_RIVAL || pal_rel <= mNL_RELATION_RIVAL) && RANDOM(100) < mNL_MAKE_UP_CHANCE) {
+        aNPC_set_relation(nactorx, pal_nactorx, MAX(0, mNL_MAKE_UP_RELATION - rel));
+        aNPC_set_relation(pal_nactorx, nactorx, MAX(0, mNL_MAKE_UP_RELATION - pal_rel));
+        aNPC_set_feel_info(nactorx, mNpc_FEEL_HAPPY, 1);
+        aNPC_set_feel_info(pal_nactorx, mNpc_FEEL_HAPPY, 1);
+    } else {
+        aNPC_life_greeting_bond(nactorx, pal_nactorx);
+        aNPC_life_greeting_bond(pal_nactorx, nactorx);
+    }
+}
 #endif
 
 static void aNPC_act_greeting_reaction(NPC_ACTOR* nactorx, GAME_PLAY* play) {
@@ -475,8 +491,7 @@ static void aNPC_act_greeting_reaction(NPC_ACTOR* nactorx, GAME_PLAY* play) {
 
 #ifdef ACGC_PORT
             if (mNL_IsEnabled()) {
-                aNPC_life_greeting_bond(nactorx, pal_nactorx);
-                aNPC_life_greeting_bond(pal_nactorx, nactorx);
+                aNPC_life_greeting(nactorx, pal_nactorx);
             }
 #endif
 

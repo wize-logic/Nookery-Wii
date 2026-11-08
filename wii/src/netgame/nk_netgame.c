@@ -39,6 +39,7 @@
 #include "m_msg.h"
 #include "m_npc_life.h"
 #include "m_choice.h"
+#include "m_time.h"
 
 /* src/game/m_actor.c, src/game/m_player_lib.c (ACGC_PORT) */
 extern ACTOR* Actor_info_make_actor_from_profile(Actor_info* actor_info, GAME* game, ACTOR_PROFILE* profile,
@@ -666,10 +667,61 @@ static void life_test(GAME_PLAY* play)
             }
         }
         if (n == 4) {
+            /* drift: five days since the town was last played */
+            lbRTC_ymd_c saved = Save_Get(renew_time);
+            lbRTC_time_c five_days_ago;
+            lbRTC_TimeCopy(&five_days_ago, Common_GetPointer(time.rtc_time));
+            lbRTC_Sub_DD(&five_days_ago, 5);
+            mTM_set_renew_time(Save_GetPointer(renew_time), &five_days_ago);
+            animals[town[0]].animal_relations[town[1]] = 200;
+            animals[town[2]].animal_relations[town[3]] = 100;
+            mNL_DriftRelations();
+            nk_wii_log("LIFETEST: drift over 5 days: 200 -> %d, 100 -> %d\n",
+                       animals[town[0]].animal_relations[town[1]], animals[town[2]].animal_relations[town[3]]);
+            Save_Set(renew_time, saved);
+
             animals[town[0]].animal_relations[town[1]] = 220;
             animals[town[1]].animal_relations[town[0]] = 210;
             animals[town[2]].animal_relations[town[3]] = 60;
             animals[town[3]].animal_relations[town[2]] = 90;
+        }
+        {
+            /* each topic's share of 50 picks for every villager (mNL_DecideGossipMsg), and the facts behind them */
+            static const u16 first[] = { 0, 24, 48, 72, 96, 120, 132, 144, 156 };
+            int counts[mNL_TOPIC_NUM];
+            int k, t, r;
+            bzero(counts, sizeof(counts));
+            /* a fan: villager town[2] very fond of the player, when they've met */
+            if (Now_Private != NULL) {
+                int m = mNpc_GetAnimalMemoryIdx(&Now_Private->player_ID, animals[town[2]].memories, ANIMAL_MEMORY_NUM);
+                if (m != -1) {
+                    animals[town[2]].memories[m].friendship = 90;
+                }
+            }
+            for (k = 0; k < ANIMAL_NUM_MAX; k++) {
+                if (mNpc_CheckFreeAnimalPersonalID(&animals[k].id)) {
+                    continue;
+                }
+                for (r = 0; r < 50; r++) {
+                    int no = mNL_DecideGossipMsg(&animals[k], animals[k].id.looks) - mNL_MSG_BASE;
+                    for (t = 0; t < mNL_TOPIC_NUM; t++) {
+                        if (no >= first[t] && no < first[t + 1]) {
+                            counts[t]++;
+                        }
+                    }
+                }
+            }
+            nk_wii_log("LIFETEST: topics like %d dislike %d close %d feud %d neutral %d fan %d moving-sad %d "
+                       "moving-glad %d; moving villager %d\n", counts[0], counts[1], counts[2], counts[3], counts[4],
+                       counts[5], counts[6], counts[7], (int) Save_Get(remove_animal_idx));
+            for (k = 0; k < ANIMAL_NUM_MAX; k++) {
+                int m = Now_Private != NULL ? mNpc_GetAnimalMemoryIdx(&Now_Private->player_ID, animals[k].memories,
+                                                                      ANIMAL_MEMORY_NUM) : -1;
+                if (m != -1 && animals[k].memories[m].friendship >= 40) {
+                    nk_wii_log("LIFETEST:   villager %d friendship with the player %d\n", k,
+                               animals[k].memories[m].friendship);
+                }
+            }
         }
         mNL_gossip_chance = 100;
         /* past the first-job hints, which come before any chat (not saved: the test never saves) */

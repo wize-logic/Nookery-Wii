@@ -24,6 +24,9 @@
 #include "m_event.h"
 #include "m_common_data.h"
 #include "m_design_ovl.h"
+#ifdef ACGC_PORT
+#include "m_npc_life.h"
+#endif
 
 static void famicom_emu_initial_common_data() {
     // stubbed
@@ -542,6 +545,9 @@ extern void mSDI_StartInitAfter(GAME* game, int renew_mode, int malloc_flag) {
     mHm_SetNowHome();
     mNpc_RenewalAnimalMemory();
     mNpc_ForceRemove();
+#ifdef ACGC_PORT
+    mNL_DriftRelations(); /* before renew_time moves on to today */
+#endif
     mTM_renewal_renew_time();
     mEv_ClearEventInfo();
     mEnv_DecideWeather_NormalGameStart();

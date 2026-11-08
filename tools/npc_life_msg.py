@@ -15,10 +15,18 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import msg_tool  # noqa: E402
 
-# Order matches the mNL_TOPIC_* and mNpc_LOOKS_* enums.
-TOPICS = ["LIKE", "DISLIKE", "PAIR_CLOSE", "PAIR_FEUD", "NEUTRAL"]
+# Order matches the mNL_TOPIC_* and mNpc_LOOKS_* enums; each topic's number of variants per personality.
+TOPICS = {
+    "LIKE": 4,
+    "DISLIKE": 4,
+    "PAIR_CLOSE": 4,
+    "PAIR_FEUD": 4,
+    "NEUTRAL": 4,
+    "PLAYER_FAN": 2,
+    "MOVING_SAD": 2,
+    "MOVING_GLAD": 2,
+}
 LOOKS = ["NORMAL", "PEPPY", "LAZY", "JOCK", "CRANKY", "SNOOTY"]
-VARIANTS = 2
 
 MAX_LINE_WIDTH = 28  # characters, with each placeholder at its widest
 MAX_PAGE_LINES = 4
@@ -53,7 +61,7 @@ def parse(path):
                 if len(parts) != 3:
                     raise SystemExit(f"bad header: {line.strip()}")
                 topic, looks, variant = parts[0], parts[1], int(parts[2])
-                if topic not in TOPICS or looks not in LOOKS or not 0 <= variant < VARIANTS:
+                if topic not in TOPICS or looks not in LOOKS or not 0 <= variant < TOPICS[topic]:
                     raise SystemExit(f"unknown entry: {line.strip()}")
                 key = (topic, looks, variant)
                 if key in entries:
@@ -101,14 +109,15 @@ def main():
         "",
         f"#define mNL_MSG_TOPIC_NUM {len(TOPICS)}",
         f"#define mNL_MSG_LOOKS_NUM {len(LOOKS)}",
-        f"#define mNL_MSG_VARIANT_NUM {VARIANTS}",
         "",
     ]
     names = []
     sizes = []
-    for topic in TOPICS:
+    firsts = []
+    for topic, variants in TOPICS.items():
+        firsts.append(len(names))
         for looks in LOOKS:
-            for variant in range(VARIANTS):
+            for variant in range(variants):
                 key = (topic, looks, variant)
                 if key not in entries:
                     print(f"missing entry: {topic} {looks} {variant}", file=sys.stderr)
@@ -128,6 +137,12 @@ def main():
     if not ok:
         raise SystemExit(1)
 
+    out.append(f"#define mNL_MSG_NUM {len(names)}")
+    out.append("")
+    out.append("/* Each topic's first message, and its variants per personality (messages: topic, personality, variant) */")
+    out.append("static const u16 mNL_msg_topic_first[] = { " + ", ".join(map(str, firsts)) + " };")
+    out.append("static const u8 mNL_msg_variants[] = { " + ", ".join(map(str, TOPICS.values())) + " };")
+    out.append("")
     out.append("static const u8* const mNL_msg_data[] = {")
     out.extend(f"    {n}," for n in names)
     out.append("};")

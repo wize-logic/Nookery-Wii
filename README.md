@@ -15,6 +15,7 @@ Nookery-Wii is [Nookery](https://github.com/flyngmt/Nookery) with:
 - **Villager friendships.** Villagers have opinions of each other, which the original game keeps but
   never uses. They walk over to friends and away from rivals, friendships and grudges deepen when
   they meet, and they gossip about it when you talk to them.
+  Opinions drift back toward neutral over the days, and rivals who meet sometimes make up.
 
 Villager friendships are a setting, on by default, on every platform: Settings > Gameplay on PC and
 mobile, the launcher's Settings on the Wii. Saves keep their size and still work in the original
