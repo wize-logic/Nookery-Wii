@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 kan_win_fune_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 kan_win_fune_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 kan_win_fune_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx kan_fune_v[0x40 / sizeof(Vtx)];
 #else
 Vtx kan_fune_v[] = {

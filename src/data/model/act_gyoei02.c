@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_gyoei02_0_int_i4[0x100];
 #else
 u8 act_gyoei02_0_int_i4[] = {
@@ -11,7 +11,7 @@ u8 act_gyoei02_0_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_gyoei02_1_int_i4[0x100];
 #else
 u8 act_gyoei02_1_int_i4[] = {
@@ -19,7 +19,7 @@ u8 act_gyoei02_1_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_gyoei02_2_int_i4[0x100];
 #else
 u8 act_gyoei02_2_int_i4[] = {
@@ -27,7 +27,7 @@ u8 act_gyoei02_2_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_gyoei02_3_int_i4[0x100];
 #else
 u8 act_gyoei02_3_int_i4[] = {
@@ -35,7 +35,7 @@ u8 act_gyoei02_3_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_gyoei02_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx act_gyoei02_00_v[] = {

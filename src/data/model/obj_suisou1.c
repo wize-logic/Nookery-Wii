@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx obj_suisou1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_suisou1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_suisou1_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_suisou1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_suisou1_evw_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_suisou1_evw_tex_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 obj_suisou1_evw_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_suisou1_front_tex[0x200];
 #else
 u8 obj_suisou1_front_tex[] = {
@@ -30,7 +30,7 @@ u8 obj_suisou1_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_suisou1_futi_tex[0x80];
 #else
 u8 obj_suisou1_futi_tex[] = {
@@ -38,7 +38,7 @@ u8 obj_suisou1_futi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_suisou1_isi_tex[0x800];
 #else
 u8 obj_suisou1_isi_tex[] = {
@@ -46,7 +46,7 @@ u8 obj_suisou1_isi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_suisou1_mizu_tex[0x80];
 #else
 u8 obj_suisou1_mizu_tex[] = {
@@ -54,7 +54,7 @@ u8 obj_suisou1_mizu_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_suisou1_evw_tex[0x80];
 #else
 u8 obj_suisou1_evw_tex[] = {
@@ -62,7 +62,7 @@ u8 obj_suisou1_evw_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_suisou1_water1_tex_rgb_i4[0x200];
 #else
 u8 obj_suisou1_water1_tex_rgb_i4[] = {
@@ -70,7 +70,7 @@ u8 obj_suisou1_water1_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_suisou1_water2_tex_rgb_i4[0x200];
 #else
 u8 obj_suisou1_water2_tex_rgb_i4[] = {
@@ -78,7 +78,7 @@ u8 obj_suisou1_water2_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_suisou1_v[0x6D0 / sizeof(Vtx)];
 #else
 Vtx obj_suisou1_v[] = {

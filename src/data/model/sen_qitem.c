@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 sen_qitem_kage_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 sen_qitem_kage_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 sen_qitem_kage_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 sen_win_yaji2_tex[0x100];
 #else
 static u8 sen_win_yaji2_tex[] = {
@@ -21,7 +21,7 @@ static u8 sen_win_yaji2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 sen_qitem_waku_tex[0x800];
 #else
 u8 sen_qitem_waku_tex[] = {
@@ -29,7 +29,7 @@ u8 sen_qitem_waku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 sen_itemw_yaji2_tex[0x100];
 #else
 static u8 sen_itemw_yaji2_tex[] = {
@@ -37,7 +37,7 @@ static u8 sen_itemw_yaji2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 sen_qitem_yajirushi[0x80];
 #else
 u8 sen_qitem_yajirushi[] = {
@@ -45,7 +45,7 @@ u8 sen_qitem_yajirushi[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 sen_qitem_yajirushi2[0x100];
 #else
 u8 sen_qitem_yajirushi2[] = {
@@ -53,7 +53,7 @@ u8 sen_qitem_yajirushi2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 sen_itemw_yaji_tex[0x80];
 #else
 static u8 sen_itemw_yaji_tex[] = {
@@ -61,7 +61,7 @@ static u8 sen_itemw_yaji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 sen_item2_yaji_tex[0x80];
 #else
 static u8 sen_item2_yaji_tex[] = {
@@ -69,7 +69,7 @@ static u8 sen_item2_yaji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx sen_qitem_v[0x200 / sizeof(Vtx)];
 #else
 Vtx sen_qitem_v[] = {
@@ -172,7 +172,7 @@ Gfx sen_qitem_yajirushi6T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_sen_qitem_c(void) {
     pc_load_asset("assets/sen_qitem/sen_win_yaji2_tex.bin", sen_win_yaji2_tex, 0x100, 0x7BA0C0, 0, 0);

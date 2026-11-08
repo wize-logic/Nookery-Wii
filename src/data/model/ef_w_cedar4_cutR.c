@@ -9,7 +9,7 @@ extern u8 ef_w_cedar_trunk_modeset[];
 extern u8 ef_w_cedar_leaf_modeset[];
 extern u8 obj_w_cedar_cutL_tex_txt[];
 extern Vtx ef_w_cedar4_cutR_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_w_cedar4_cutR_v[0x350 / sizeof(Vtx)];
 #else
 Vtx ef_w_cedar4_cutR_v[] = {

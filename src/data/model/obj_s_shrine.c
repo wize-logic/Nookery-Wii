@@ -7,7 +7,7 @@
 
 extern u8 obj_w_shrine_bubble_tex_pic_i4[];
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_s_shrine_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_s_shrine_pal[] = {
@@ -15,7 +15,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_s_shrine_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_shrine_t1_tex_txt[0x800];
 #else
 u8 obj_s_shrine_t1_tex_txt[] = {
@@ -23,7 +23,7 @@ u8 obj_s_shrine_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_shrine_t3_tex_txt[0x800];
 #else
 u8 obj_s_shrine_t3_tex_txt[] = {
@@ -31,7 +31,7 @@ u8 obj_s_shrine_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_shrine_t2_tex_txt[0x800];
 #else
 u8 obj_s_shrine_t2_tex_txt[] = {
@@ -39,7 +39,7 @@ u8 obj_s_shrine_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_shrine_t4_tex_txt[0x400];
 #else
 u8 obj_s_shrine_t4_tex_txt[] = {
@@ -47,7 +47,7 @@ u8 obj_s_shrine_t4_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_shrine_sprash_tex_pic_i4[0x100];
 #else
 u8 obj_s_shrine_sprash_tex_pic_i4[] = {
@@ -55,7 +55,7 @@ u8 obj_s_shrine_sprash_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_shrine_water_tex_pic_i4[0x100];
 #else
 u8 obj_s_shrine_water_tex_pic_i4[] = {
@@ -63,7 +63,7 @@ u8 obj_s_shrine_water_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_shrine_wave_tex_pic_i4[0x100];
 #else
 u8 obj_s_shrine_wave_tex_pic_i4[] = {
@@ -71,7 +71,7 @@ u8 obj_s_shrine_wave_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_shrine_v[0x2110 / sizeof(Vtx)];
 #else
 Vtx obj_s_shrine_v[] = {
@@ -314,7 +314,7 @@ Gfx obj_s_shrine_base_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_w_shrine_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_w_shrine_pal[] = {
@@ -322,7 +322,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_w_shrine_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_shrine_t1_tex_txt[0x800];
 #else
 u8 obj_w_shrine_t1_tex_txt[] = {
@@ -330,7 +330,7 @@ u8 obj_w_shrine_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_shrine_t3_tex_txt[0x800];
 #else
 u8 obj_w_shrine_t3_tex_txt[] = {
@@ -338,7 +338,7 @@ u8 obj_w_shrine_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_shrine_t2_tex_txt[0x800];
 #else
 u8 obj_w_shrine_t2_tex_txt[] = {
@@ -346,7 +346,7 @@ u8 obj_w_shrine_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_shrine_t4_tex_txt[0x400];
 #else
 u8 obj_w_shrine_t4_tex_txt[] = {
@@ -354,7 +354,7 @@ u8 obj_w_shrine_t4_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_shrine_bubble_tex_pic_i4[0x200];
 #else
 u8 obj_w_shrine_bubble_tex_pic_i4[] = {
@@ -362,7 +362,7 @@ u8 obj_w_shrine_bubble_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_shrine_sprash_tex_pic_i4[0x100];
 #else
 u8 obj_w_shrine_sprash_tex_pic_i4[] = {
@@ -370,7 +370,7 @@ u8 obj_w_shrine_sprash_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_shrine_water_tex_pic_i4[0x100];
 #else
 u8 obj_w_shrine_water_tex_pic_i4[] = {
@@ -378,7 +378,7 @@ u8 obj_w_shrine_water_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_shrine_wave_tex_pic_i4[0x100];
 #else
 u8 obj_w_shrine_wave_tex_pic_i4[] = {
@@ -386,7 +386,7 @@ u8 obj_w_shrine_wave_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_shrine_v[0x2110 / sizeof(Vtx)];
 #else
 Vtx obj_w_shrine_v[] = {
@@ -629,7 +629,7 @@ Gfx obj_w_shrine_base_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_s_shrine_c(void) {
     pc_load_asset("assets/obj_s_shrine/obj_s_shrine_pal.bin", obj_s_shrine_pal, 0x20, 0x86C0E0, 0, 1);

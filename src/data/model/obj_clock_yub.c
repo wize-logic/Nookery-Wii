@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx obj_clock_yub_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_clock_yub_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_clock_yub_pal[] = {
@@ -14,7 +14,7 @@ u16 obj_clock_yub_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_yub_t3_txt[0x100];
 #else
 u8 obj_clock_yub_t3_txt[] = {
@@ -22,7 +22,7 @@ u8 obj_clock_yub_t3_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_yub_t1_txt[0x200];
 #else
 u8 obj_clock_yub_t1_txt[] = {
@@ -30,7 +30,7 @@ u8 obj_clock_yub_t1_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_yub_t2_txt[0x200];
 #else
 u8 obj_clock_yub_t2_txt[] = {
@@ -38,7 +38,7 @@ u8 obj_clock_yub_t2_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_clock_yub_v[0x1A0 / sizeof(Vtx)];
 #else
 Vtx obj_clock_yub_v[] = {

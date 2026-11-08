@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_tent_bike01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_tent_bike01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_tent_bike01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_tent_bike01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_tire1_tex_txt[0x200];
 #else
 u8 int_ike_tent_bike_tire1_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_ike_tent_bike_tire1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_tire2_tex_txt[0x80];
 #else
 u8 int_ike_tent_bike_tire2_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_ike_tent_bike_tire2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_pedal1_tex_txt[0x40];
 #else
 u8 int_ike_tent_bike_pedal1_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_ike_tent_bike_pedal1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_tire3_tex_txt[0x100];
 #else
 u8 int_ike_tent_bike_tire3_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_ike_tent_bike_tire3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_handle2_tex_txt[0x80];
 #else
 u8 int_ike_tent_bike_handle2_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_ike_tent_bike_handle2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_frame2_tex_txt[0x80];
 #else
 u8 int_ike_tent_bike_frame2_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_ike_tent_bike_frame2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_handle1_tex_txt[0x80];
 #else
 u8 int_ike_tent_bike_handle1_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_ike_tent_bike_handle1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_chiar1_tex_txt[0x40];
 #else
 u8 int_ike_tent_bike_chiar1_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 int_ike_tent_bike_chiar1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_chiar2_tex_txt[0x40];
 #else
 u8 int_ike_tent_bike_chiar2_tex_txt[] = {
@@ -86,7 +86,7 @@ u8 int_ike_tent_bike_chiar2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_bike_frame1_tex_txt[0x400];
 #else
 u8 int_ike_tent_bike_frame1_tex_txt[] = {
@@ -94,7 +94,7 @@ u8 int_ike_tent_bike_frame1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_tent_bike01_v[0x690 / sizeof(Vtx)];
 #else
 Vtx int_ike_tent_bike01_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx act_mus_kaseki_a1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_sum_kaseki_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_sum_kaseki_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_sum_kaseki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_mus_kaseki_body_txt[0x400];
 #else
 u8 act_mus_kaseki_body_txt[] = {
@@ -22,7 +22,7 @@ u8 act_mus_kaseki_body_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_mus_kaseki_a1_v[0x590 / sizeof(Vtx)];
 #else
 Vtx act_mus_kaseki_a1_v[] = {
@@ -91,7 +91,7 @@ cKF_Joint_R_c cKF_je_r_act_mus_kaseki_a1_tbl[] = {
 cKF_Skeleton_R_c cKF_bs_r_act_mus_kaseki_a1 = { ARRAY_COUNT(cKF_je_r_act_mus_kaseki_a1_tbl), 3,
                                                 cKF_je_r_act_mus_kaseki_a1_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_mus_kaseki_a1_c(void) {
     pc_load_asset("assets/act_mus_kaseki_a1/int_sum_kaseki_pal.bin", int_sum_kaseki_pal, 0x20, 0x9606E0, 0, 1);

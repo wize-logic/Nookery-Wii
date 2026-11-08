@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_tri_chair01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_nog_tri_chair01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_nog_tri_chair01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_nog_tri_chair01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_nog_tri_chair01_tex[0x800];
 #else
 u8 obj_nog_tri_chair01_tex[] = {
@@ -22,7 +22,7 @@ u8 obj_nog_tri_chair01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_tri_chair01_v[0x400 / sizeof(Vtx)];
 #else
 Vtx int_nog_tri_chair01_v[] = {

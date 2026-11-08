@@ -7,7 +7,7 @@
 
 extern Vtx ef_wipe2_v[];
 extern u8 ef_wape_tex[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_wipe2_v[0x460 / sizeof(Vtx)];
 #else
 Vtx ef_wipe2_v[] = {

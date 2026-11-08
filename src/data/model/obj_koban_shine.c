@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_koban_shine_1[0x80];
 #else
 u8 obj_koban_shine_1[]  = {
@@ -13,7 +13,7 @@ u8 obj_koban_shine_1[]  = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_koban_shine_2[0x200];
 #else
 u8 obj_koban_shine_2[] = {
@@ -21,7 +21,7 @@ u8 obj_koban_shine_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_koban_shine_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx obj_koban_shine_v[] = {

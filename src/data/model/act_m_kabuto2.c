@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx act_m_kabuto_v[0xE0 / sizeof(Vtx)];
 #else
 static Vtx act_m_kabuto_v[] = {
@@ -13,7 +13,7 @@ static Vtx act_m_kabuto_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 act_m_kabuto_pal[0x20 / sizeof(u16)];
 #else
 static u16 act_m_kabuto_pal[] = {
@@ -21,7 +21,7 @@ static u16 act_m_kabuto_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 act_m_kabuto[0x200];
 #else
 static u8 act_m_kabuto[] = {
@@ -61,7 +61,7 @@ Gfx act_m_mu_kabuto1T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_m_kabuto2_c(void) {
     pc_load_asset("assets/act_m_kabuto2/act_m_kabuto_v.bin", act_m_kabuto_v, 0xE0, 0xB4D6C8, 0, 2);

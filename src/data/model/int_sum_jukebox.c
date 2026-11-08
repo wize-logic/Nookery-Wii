@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_jukebox_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_jukebox_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_jukebox_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_jukebox_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sum_jukebox_glass_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sum_jukebox_glass_tex_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sum_jukebox_glass_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_jukebox_front_tex[0x300];
 #else
 u8 int_sum_jukebox_front_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_jukebox_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_jukebox_back_tex[0x180];
 #else
 u8 int_sum_jukebox_back_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_jukebox_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_jukebox_in_tex[0x100];
 #else
 u8 int_sum_jukebox_in_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_jukebox_in_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_jukebox_reco_tex[0x100];
 #else
 u8 int_sum_jukebox_reco_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_jukebox_reco_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_jukebox_glass_tex[0x80];
 #else
 u8 int_sum_jukebox_glass_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_jukebox_glass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_jukebox_v[0x2A0 / sizeof(Vtx)];
 #else
 Vtx int_sum_jukebox_v[] = {

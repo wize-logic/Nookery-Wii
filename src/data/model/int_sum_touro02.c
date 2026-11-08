@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_touro02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_touro02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_touro02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_touro02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_mado_tex[0x100];
 #else
 u8 int_sum_touro02_mado_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_touro02_mado_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_madoyoko_tex[0x100];
 #else
 u8 int_sum_touro02_madoyoko_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_touro02_madoyoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_madosita_tex[0x80];
 #else
 u8 int_sum_touro02_madosita_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_touro02_madosita_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_madomaru_tex[0x100];
 #else
 u8 int_sum_touro02_madomaru_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_touro02_madomaru_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_madotop_tex[0x80];
 #else
 u8 int_sum_touro02_madotop_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_touro02_madotop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_topside_tex[0x100];
 #else
 u8 int_sum_touro02_topside_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_touro02_topside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_topout_tex[0x80];
 #else
 u8 int_sum_touro02_topout_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_touro02_topout_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_stand_tex[0x100];
 #else
 u8 int_sum_touro02_stand_tex[] = {
@@ -78,7 +78,7 @@ u8 int_sum_touro02_stand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_dai_tex[0x100];
 #else
 u8 int_sum_touro02_dai_tex[] = {
@@ -86,7 +86,7 @@ u8 int_sum_touro02_dai_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_touro02_kazari_tex[0x80];
 #else
 u8 int_sum_touro02_kazari_tex[] = {
@@ -94,7 +94,7 @@ u8 int_sum_touro02_kazari_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_touro02_v[0x500 / sizeof(Vtx)];
 #else
 Vtx int_sum_touro02_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iid_newdiary_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_iid_newdiary[0x20];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_iid_newdiary[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_iid_newdiary[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_olddiary[0x20];
 #else
 u8 int_iid_olddiary[] = {
@@ -22,7 +22,7 @@ u8 int_iid_olddiary[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_newdiary_mae_tex[0x80];
 #else
 u8 int_iid_newdiary_mae_tex[] = {
@@ -30,7 +30,7 @@ u8 int_iid_newdiary_mae_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_newdiary_hyoushi_tex[0x200];
 #else
 u8 int_iid_newdiary_hyoushi_tex[] = {
@@ -38,7 +38,7 @@ u8 int_iid_newdiary_hyoushi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_newdiary_soko_tex[0x20];
 #else
 u8 int_iid_newdiary_soko_tex[] = {
@@ -46,7 +46,7 @@ u8 int_iid_newdiary_soko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_newdiary_ue_tex[0x20];
 #else
 u8 int_iid_newdiary_ue_tex[] = {
@@ -54,7 +54,7 @@ u8 int_iid_newdiary_ue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_newdiary_esaki_tex[0x20];
 #else
 u8 int_iid_newdiary_esaki_tex[] = {
@@ -62,7 +62,7 @@ u8 int_iid_newdiary_esaki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_newdiary_ebody_tex[0x20];
 #else
 u8 int_iid_newdiary_ebody_tex[] = {
@@ -70,7 +70,7 @@ u8 int_iid_newdiary_ebody_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iid_newdiary_v[0x380 / sizeof(Vtx)];
 #else
 Vtx int_iid_newdiary_v[] = {

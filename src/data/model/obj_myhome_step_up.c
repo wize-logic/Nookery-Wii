@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_myhome_step_tex[0x800];
 #else
 u8 rom_myhome_step_tex[] = {
@@ -21,7 +21,7 @@ u8 rom_myhome_step_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome_step_up_v[0x140 / sizeof(Vtx)];
 #else
 Vtx obj_myhome_step_up_v[] = {
@@ -46,7 +46,7 @@ Gfx obj_myhome_step_up_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_myhome_step_up_c(void) {
     pc_load_asset("assets/obj_myhome_step_up/rom_myhome_pal.bin", rom_myhome_pal, 0x20, 0xBB86C0, 0, 1);

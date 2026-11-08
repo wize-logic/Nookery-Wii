@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_guitar01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_guitar01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_guitar01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_guitar01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_guitar01_front[0x400];
 #else
 u8 int_sum_guitar01_front[] = {
@@ -22,7 +22,7 @@ u8 int_sum_guitar01_front[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_guitar01_back[0x100];
 #else
 u8 int_sum_guitar01_back[] = {
@@ -30,7 +30,7 @@ u8 int_sum_guitar01_back[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_guitar01_side[0x80];
 #else
 u8 int_sum_guitar01_side[] = {
@@ -38,7 +38,7 @@ u8 int_sum_guitar01_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_guitar01_neck[0x80];
 #else
 u8 int_sum_guitar01_neck[] = {
@@ -46,7 +46,7 @@ u8 int_sum_guitar01_neck[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_guitar01_headstock[0x80];
 #else
 u8 int_sum_guitar01_headstock[] = {
@@ -54,7 +54,7 @@ u8 int_sum_guitar01_headstock[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_guitar01_hand[0x80];
 #else
 u8 int_sum_guitar01_hand[] = {
@@ -62,7 +62,7 @@ u8 int_sum_guitar01_hand[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_guitar01_chest[0x100];
 #else
 u8 int_sum_guitar01_chest[] = {
@@ -70,7 +70,7 @@ u8 int_sum_guitar01_chest[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_guitar01_v[0x3C0 / sizeof(Vtx)];
 #else
 Vtx int_sum_guitar01_v[] = {

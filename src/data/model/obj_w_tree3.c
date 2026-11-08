@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_tree_leaf_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_tree_leaf_tex[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_tree_leaf_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_tree3_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx obj_w_tree3_v[] = {

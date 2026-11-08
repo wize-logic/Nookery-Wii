@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_snowtv_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kon_snowtv_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kon_snowtv_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kon_snowtv_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv07a_TA_tex_txt[0x80];
 #else
 u8 int_kon_snowtv07a_TA_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_kon_snowtv07a_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv07b_TA_tex_txt[0x80];
 #else
 u8 int_kon_snowtv07b_TA_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_kon_snowtv07b_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv07c_TA_tex_txt[0x80];
 #else
 u8 int_kon_snowtv07c_TA_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_kon_snowtv07c_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv07d_TA_tex_txt[0x80];
 #else
 u8 int_kon_snowtv07d_TA_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_kon_snowtv07d_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv03_tex_txt[0x100];
 #else
 u8 int_kon_snowtv03_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_kon_snowtv03_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv02_tex_txt[0x100];
 #else
 u8 int_kon_snowtv02_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_kon_snowtv02_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv01_tex_txt[0x200];
 #else
 u8 int_kon_snowtv01_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_kon_snowtv01_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv04_tex_txt[0x80];
 #else
 u8 int_kon_snowtv04_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 int_kon_snowtv04_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv06_tex_txt[0x80];
 #else
 u8 int_kon_snowtv06_tex_txt[] = {
@@ -86,7 +86,7 @@ u8 int_kon_snowtv06_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv05_tex_txt[0x80];
 #else
 u8 int_kon_snowtv05_tex_txt[] = {
@@ -94,7 +94,7 @@ u8 int_kon_snowtv05_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtv08_tex_txt[0x100];
 #else
 u8 int_kon_snowtv08_tex_txt[] = {
@@ -102,7 +102,7 @@ u8 int_kon_snowtv08_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_snowtv_v[0x420 / sizeof(Vtx)];
 #else
 Vtx int_kon_snowtv_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_tent_knap01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_tent_knap01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_tent_knap01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_tent_knap01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_knap_frontside_txt[0x80];
 #else
 u8 int_ike_tent_knap_frontside_txt[] = {
@@ -22,7 +22,7 @@ u8 int_ike_tent_knap_frontside_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_knap_top_txt[0x100];
 #else
 u8 int_ike_tent_knap_top_txt[] = {
@@ -30,7 +30,7 @@ u8 int_ike_tent_knap_top_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_knap_base_txt[0x100];
 #else
 u8 int_ike_tent_knap_base_txt[] = {
@@ -38,7 +38,7 @@ u8 int_ike_tent_knap_base_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_knap_topback_txt[0x100];
 #else
 u8 int_ike_tent_knap_topback_txt[] = {
@@ -46,7 +46,7 @@ u8 int_ike_tent_knap_topback_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_knap_side_txt[0x80];
 #else
 u8 int_ike_tent_knap_side_txt[] = {
@@ -54,7 +54,7 @@ u8 int_ike_tent_knap_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_knap_back_txt[0x100];
 #else
 u8 int_ike_tent_knap_back_txt[] = {
@@ -62,7 +62,7 @@ u8 int_ike_tent_knap_back_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_knap_front_txt[0x100];
 #else
 u8 int_ike_tent_knap_front_txt[] = {
@@ -70,7 +70,7 @@ u8 int_ike_tent_knap_front_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_knap_topside_txt[0x80];
 #else
 u8 int_ike_tent_knap_topside_txt[] = {
@@ -78,7 +78,7 @@ u8 int_ike_tent_knap_topside_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_tent_knap01_v[0x640 / sizeof(Vtx)];
 #else
 Vtx int_ike_tent_knap01_v[] = {

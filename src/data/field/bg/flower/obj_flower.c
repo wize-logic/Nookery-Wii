@@ -2,7 +2,7 @@
 
 // clang-format off
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 obj_flower_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 obj_flower_tex[] = {
@@ -10,7 +10,7 @@ ATTRIBUTE_ALIGN(32) static u8 obj_flower_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx obj_flower_a_v[0x80 / sizeof(Vtx)];
 #else
 static Vtx obj_flower_a_v[] = {
@@ -18,7 +18,7 @@ static Vtx obj_flower_a_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx obj_flower_b_v[0x80 / sizeof(Vtx)];
 #else
 static Vtx obj_flower_b_v[] = {
@@ -26,7 +26,7 @@ static Vtx obj_flower_b_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx obj_flower_c_v[0x80 / sizeof(Vtx)];
 #else
 static Vtx obj_flower_c_v[] = {
@@ -105,7 +105,7 @@ extern Gfx obj_flower_cT_gfx_model[] = {
 
 // clang-format on
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_flower_obj_flower_c(void) {
     pc_load_asset("assets/flower/obj_flower_tex.bin", obj_flower_tex, 0x800, 0x3DFCC0, 0, 0);

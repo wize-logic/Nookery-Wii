@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 lat_letter01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 lat_letter01_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 lat_letter01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 dia_win_entry_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 dia_win_entry_tex[] = {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 dia_win_entry_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 lat_letter01_04_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 lat_letter01_04_tex[] = {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) static u8 lat_letter01_04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 lat_tegami_fusen_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 lat_tegami_fusen_tex[] = {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) static u8 lat_tegami_fusen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_april_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_april_tex_rgb_ia8[] = {
@@ -45,7 +45,7 @@ u8 dia_win_april_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_august_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_august_tex_rgb_ia8[] = {
@@ -53,7 +53,7 @@ u8 dia_win_august_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_december_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_december_tex_rgb_ia8[] = {
@@ -61,7 +61,7 @@ u8 dia_win_december_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_february_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_february_tex_rgb_ia8[] = {
@@ -69,7 +69,7 @@ u8 dia_win_february_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_january_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_january_tex_rgb_ia8[] = {
@@ -77,7 +77,7 @@ u8 dia_win_january_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_july_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_july_tex_rgb_ia8[] = {
@@ -85,7 +85,7 @@ u8 dia_win_july_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_june_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_june_tex_rgb_ia8[] = {
@@ -93,7 +93,7 @@ u8 dia_win_june_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_march_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_march_tex_rgb_ia8[] = {
@@ -101,7 +101,7 @@ u8 dia_win_march_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_may_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_may_tex_rgb_ia8[] = {
@@ -109,7 +109,7 @@ u8 dia_win_may_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_november_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_november_tex_rgb_ia8[] = {
@@ -117,7 +117,7 @@ u8 dia_win_november_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_october_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_october_tex_rgb_ia8[] = {
@@ -125,7 +125,7 @@ u8 dia_win_october_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 dia_win_september_tex_rgb_ia8[0x400];
 #else
 u8 dia_win_september_tex_rgb_ia8[] = {
@@ -133,7 +133,7 @@ u8 dia_win_september_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx dia_win_v[0x1B0 / sizeof(Vtx)];
 #else
 Vtx dia_win_v[] = {
@@ -184,7 +184,7 @@ Gfx dia_win_tukiT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_dia_win_c(void) {
     pc_load_asset("assets/dia_win/lat_letter01_pal.bin", lat_letter01_pal, 0x20, 0x6E7EE0, 0, 1);

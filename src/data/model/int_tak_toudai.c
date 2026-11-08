@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_toudai_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_toudai_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_toudai_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_toudai_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_toudai_evw_tex_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_toudai_evw_tex_pic_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_tak_toudai_evw_tex_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_toudai_right_tex_txt[0x80];
 #else
 u8 int_tak_toudai_right_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_tak_toudai_right_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_toudai_dai_tex_txt[0x40];
 #else
 u8 int_tak_toudai_dai_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_tak_toudai_dai_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_toudai_grass_tex_txt[0x80];
 #else
 u8 int_tak_toudai_grass_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_tak_toudai_grass_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_toudai_tesuri_tex_txt[0x40];
 #else
 u8 int_tak_toudai_tesuri_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_tak_toudai_tesuri_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_toudai_body2_tex_txt[0x100];
 #else
 u8 int_tak_toudai_body2_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_tak_toudai_body2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_toudai_body_tex_txt[0x80];
 #else
 u8 int_tak_toudai_body_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_tak_toudai_body_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_toudai_evw_tex_txt[0x20];
 #else
 u8 int_tak_toudai_evw_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 int_tak_toudai_evw_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_toudai_v[0x710 / sizeof(Vtx)];
 #else
 Vtx int_tak_toudai_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_yaz_tub_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_yaz_tub_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_yaz_tub_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_yaz_tub_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_tub_wood2_txt[0x200];
 #else
 u8 int_yaz_tub_wood2_txt[] = {
@@ -22,7 +22,7 @@ u8 int_yaz_tub_wood2_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_tub_wood_txt[0x400];
 #else
 u8 int_yaz_tub_wood_txt[] = {
@@ -30,7 +30,7 @@ u8 int_yaz_tub_wood_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_tub_water_4i4_pic_i4[0x100];
 #else
 u8 int_yaz_tub_water_4i4_pic_i4[] = {
@@ -38,7 +38,7 @@ u8 int_yaz_tub_water_4i4_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_yaz_tub_v[0x580 / sizeof(Vtx)];
 #else
 Vtx int_yaz_tub_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx mCL_rom_myhome1_wall_v[0x100 / sizeof(Vtx)];
 #else
 Vtx mCL_rom_myhome1_wall_v[] = {

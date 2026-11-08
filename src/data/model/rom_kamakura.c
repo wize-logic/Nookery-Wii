@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx rom_kamakura_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 rom_kamakura_carp_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 rom_kamakura_carp_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 rom_kamakura_carp_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_kamakura_goza_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_kamakura_goza_pal[] = {
@@ -22,7 +22,7 @@ u16 rom_kamakura_goza_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_kamakura_yuki_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_kamakura_yuki_pal[] = {
@@ -30,7 +30,7 @@ u16 rom_kamakura_yuki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_kamakura_rou_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_kamakura_rou_pal[] = {
@@ -38,7 +38,7 @@ u16 rom_kamakura_rou_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_kamakura_a1_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_kamakura_a1_pal[] = {
@@ -46,7 +46,7 @@ u16 rom_kamakura_a1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_kamakura_nabe_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_kamakura_nabe_pal[] = {
@@ -54,7 +54,7 @@ u16 rom_kamakura_nabe_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_carp[0x800];
 #else
 u8 rom_kamakura_carp[] = {
@@ -62,7 +62,7 @@ u8 rom_kamakura_carp[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_goza[0x200];
 #else
 u8 rom_kamakura_goza[] = {
@@ -70,7 +70,7 @@ u8 rom_kamakura_goza[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_yuki1[0x400];
 #else
 u8 rom_kamakura_yuki1[] = {
@@ -78,7 +78,7 @@ u8 rom_kamakura_yuki1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_yuki2[0x800];
 #else
 u8 rom_kamakura_yuki2[] = {
@@ -86,7 +86,7 @@ u8 rom_kamakura_yuki2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_yuki3[0x400];
 #else
 u8 rom_kamakura_yuki3[] = {
@@ -94,7 +94,7 @@ u8 rom_kamakura_yuki3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_yuki4[0x200];
 #else
 u8 rom_kamakura_yuki4[] = {
@@ -102,7 +102,7 @@ u8 rom_kamakura_yuki4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_rou[0x100];
 #else
 u8 rom_kamakura_rou[] = {
@@ -110,7 +110,7 @@ u8 rom_kamakura_rou[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_a1[0x200];
 #else
 u8 rom_kamakura_a1[] = {
@@ -118,7 +118,7 @@ u8 rom_kamakura_a1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_wa[0x80];
 #else
 u8 rom_kamakura_wa[] = {
@@ -126,7 +126,7 @@ u8 rom_kamakura_wa[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_nabe1[0x80];
 #else
 u8 rom_kamakura_nabe1[] = {
@@ -134,7 +134,7 @@ u8 rom_kamakura_nabe1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_etc[0x800];
 #else
 u8 rom_kamakura_etc[] = {
@@ -142,7 +142,7 @@ u8 rom_kamakura_etc[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_kage_us[0x80];
 #else
 u8 rom_kamakura_kage_us[] = {
@@ -150,7 +150,7 @@ u8 rom_kamakura_kage_us[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_a2_rgb_ci4[0x200];
 #else
 u8 rom_kamakura_a2_rgb_ci4[] = {
@@ -158,7 +158,7 @@ u8 rom_kamakura_a2_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura__takibi1_int_i4[0x100];
 #else
 u8 rom_kamakura__takibi1_int_i4[] = {
@@ -166,7 +166,7 @@ u8 rom_kamakura__takibi1_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura__takibi2_int_i4[0x100];
 #else
 u8 rom_kamakura__takibi2_int_i4[] = {
@@ -174,7 +174,7 @@ u8 rom_kamakura__takibi2_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_fire1_rgb_i4[0x80];
 #else
 u8 rom_kamakura_fire1_rgb_i4[] = {
@@ -182,7 +182,7 @@ u8 rom_kamakura_fire1_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_fire2_rgb_i4[0x80];
 #else
 u8 rom_kamakura_fire2_rgb_i4[] = {
@@ -190,7 +190,7 @@ u8 rom_kamakura_fire2_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_fire3_rgb_i4[0x80];
 #else
 u8 rom_kamakura_fire3_rgb_i4[] = {
@@ -198,7 +198,7 @@ u8 rom_kamakura_fire3_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_kamakura_v[0x1390 / sizeof(Vtx)];
 #else
 Vtx rom_kamakura_v[] = {
@@ -370,7 +370,7 @@ Gfx rom_kamakura_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_kamakura_ring1[0x100];
 #else
 u8 rom_kamakura_ring1[] = {
@@ -378,7 +378,7 @@ u8 rom_kamakura_ring1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_kamakura_ring_v[0x40 / sizeof(Vtx)];
 #else
 Vtx rom_kamakura_ring_v[] = {

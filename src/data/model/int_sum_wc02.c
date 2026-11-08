@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_wc02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_wc02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_wc02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_wc02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sum_wc02_mizu_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sum_wc02_mizu_tex_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sum_wc02_mizu_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_huta_tex[0x80];
 #else
 u8 int_sum_wc02_huta_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_wc02_huta_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_washside_tex[0x80];
 #else
 u8 int_sum_wc02_washside_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_wc02_washside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_tankfront_tex[0x100];
 #else
 u8 int_sum_wc02_tankfront_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_wc02_tankfront_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_benzaside_tex[0x100];
 #else
 u8 int_sum_wc02_benzaside_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_wc02_benzaside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_base_tex[0x80];
 #else
 u8 int_sum_wc02_base_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_wc02_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_paipside_tex[0x40];
 #else
 u8 int_sum_wc02_paipside_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_wc02_paipside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_paip_tex[0x40];
 #else
 u8 int_sum_wc02_paip_tex[] = {
@@ -78,7 +78,7 @@ u8 int_sum_wc02_paip_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_tankrevar_tex[0x40];
 #else
 u8 int_sum_wc02_tankrevar_tex[] = {
@@ -86,7 +86,7 @@ u8 int_sum_wc02_tankrevar_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_shawer_tex[0x40];
 #else
 u8 int_sum_wc02_shawer_tex[] = {
@@ -94,7 +94,7 @@ u8 int_sum_wc02_shawer_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_washtop_tex[0x80];
 #else
 u8 int_sum_wc02_washtop_tex[] = {
@@ -102,7 +102,7 @@ u8 int_sum_wc02_washtop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_tanktop_tex[0x40];
 #else
 u8 int_sum_wc02_tanktop_tex[] = {
@@ -110,7 +110,7 @@ u8 int_sum_wc02_tanktop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_benza_tex[0x100];
 #else
 u8 int_sum_wc02_benza_tex[] = {
@@ -118,7 +118,7 @@ u8 int_sum_wc02_benza_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_boxtop_tex[0x80];
 #else
 u8 int_sum_wc02_boxtop_tex[] = {
@@ -126,7 +126,7 @@ u8 int_sum_wc02_boxtop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_wc02_mizu_tex[0x40];
 #else
 u8 int_sum_wc02_mizu_tex[] = {
@@ -134,7 +134,7 @@ u8 int_sum_wc02_mizu_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_wc02_v[0x580 / sizeof(Vtx)];
 #else
 Vtx int_sum_wc02_v[] = {

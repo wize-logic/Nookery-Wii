@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao1_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao1_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_kao1_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao2_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao2_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_kao2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao3_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao3_tex[]= {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_kao3_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao4_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao4_tex[]= {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_kao4_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao5_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_kao5_tex[]= {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_kao5_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx des_cursor2_v[0x140 / sizeof(Vtx)];
 #else
 Vtx des_cursor2_v[] = {

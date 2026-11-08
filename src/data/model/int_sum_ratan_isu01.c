@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_ratan_isu01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_ratan_isu01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_ratan_isu01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_ratan_isu01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_isu01_seat_tax[0x100];
 #else
 u8 int_sum_ratan_isu01_seat_tax[] = {
@@ -22,7 +22,7 @@ u8 int_sum_ratan_isu01_seat_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_isu01_back_tax[0x100];
 #else
 u8 int_sum_ratan_isu01_back_tax[] = {
@@ -30,7 +30,7 @@ u8 int_sum_ratan_isu01_back_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_isu01_board_tax[0x100];
 #else
 u8 int_sum_ratan_isu01_board_tax[] = {
@@ -38,7 +38,7 @@ u8 int_sum_ratan_isu01_board_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_isu01_side_tax[0x100];
 #else
 u8 int_sum_ratan_isu01_side_tax[] = {
@@ -46,7 +46,7 @@ u8 int_sum_ratan_isu01_side_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_isu01_outside_tax[0x100];
 #else
 u8 int_sum_ratan_isu01_outside_tax[] = {
@@ -54,7 +54,7 @@ u8 int_sum_ratan_isu01_outside_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_isu01_sidein_tax[0x100];
 #else
 u8 int_sum_ratan_isu01_sidein_tax[] = {
@@ -62,7 +62,7 @@ u8 int_sum_ratan_isu01_sidein_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_isu01_foot_tax[0x80];
 #else
 u8 int_sum_ratan_isu01_foot_tax[] = {
@@ -70,7 +70,7 @@ u8 int_sum_ratan_isu01_foot_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_ratan_isu01_v[0x460 / sizeof(Vtx)];
 #else
 Vtx int_sum_ratan_isu01_v[] = {

@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 act_f09_gill_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 act_f09_gill_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u16 act_f09_gill_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_f09_gill_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_f09_gill_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 act_f09_gill_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f09_gill_a_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f09_gill_a_v[] = {
@@ -43,7 +43,7 @@ Gfx act_f09_gill_aT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f09_gill_b_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f09_gill_b_v[] = {
@@ -67,7 +67,7 @@ Gfx act_f09_gill_bT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f09_gill_c_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f09_gill_c_v[] = {

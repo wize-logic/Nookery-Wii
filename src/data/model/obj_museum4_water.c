@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum4_water1_tex_rgb_i4[0x200];
 #else
 u8 obj_museum4_water1_tex_rgb_i4[] = {
@@ -13,7 +13,7 @@ u8 obj_museum4_water1_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum4_water2_tex_rgb_i4[0x200];
 #else
 u8 obj_museum4_water2_tex_rgb_i4[] = {
@@ -21,7 +21,7 @@ u8 obj_museum4_water2_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_museum4_water_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_museum4_water_v[] = {

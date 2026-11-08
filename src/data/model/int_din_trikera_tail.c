@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_din_trikera_tail_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_din_trikera_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_din_trikera_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_din_trikera_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_trikera_baceC_tex[0x200];
 #else
 u8 int_din_trikera_baceC_tex[] = {
@@ -22,7 +22,7 @@ u8 int_din_trikera_baceC_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_trikera_poleC_tex[0x80];
 #else
 u8 int_din_trikera_poleC_tex[] = {
@@ -30,7 +30,7 @@ u8 int_din_trikera_poleC_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_trikera_tail_tex[0x400];
 #else
 u8 int_din_trikera_tail_tex[] = {
@@ -38,7 +38,7 @@ u8 int_din_trikera_tail_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_din_trikera_tail_v[0x2A0 / sizeof(Vtx)];
 #else
 Vtx int_din_trikera_tail_v[] = {
@@ -84,7 +84,7 @@ Gfx int_din_trikera_tailT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_din_trikera_tail_c(void) {
     pc_load_asset("assets/int_din_trikera_tail/int_din_trikera_pal.bin", int_din_trikera_pal, 0x20, 0x91EAC0, 0, 1);

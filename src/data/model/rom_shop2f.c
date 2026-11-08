@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx rom_shop2f_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_shop2f_v[0x3D0 / sizeof(Vtx)];
 #else
 Vtx rom_shop2f_v[] = {

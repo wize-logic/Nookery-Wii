@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_item_omikuji[0x20];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_item_omikuji[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_item_omikuji[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_item_omikuji_tex[0x200];
 #else
 u8 obj_item_omikuji_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_item_omikuji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_item_omikuji_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_item_omikuji_v[] = {

@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 obj_pstump_shadow_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 obj_pstump_shadow_tex[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) static u8 obj_pstump_shadow_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_pstump3_shadow_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_pstump3_shadow_v[] = {
@@ -31,7 +31,7 @@ Gfx obj_pstump3_shadowT_gfx_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_pstump3_c(void) {
     pc_load_asset("assets/obj_pstump3/obj_pstump_shadow_tex.bin", obj_pstump_shadow_tex, 0x200, 0x3E3FA0, 0, 0);

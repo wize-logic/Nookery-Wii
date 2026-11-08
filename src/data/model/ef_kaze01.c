@@ -9,7 +9,7 @@ ATTRIBUTE_ALIGN(32) EVW_ANIME_SCROLL ef_kaze01_evw_anime_2[] = { { 0, 0, 16, 16 
 
 EVW_ANIME_DATA ef_kaze01_evw_anime[] = { { -1, EVW_ANIME_TYPE_SCROLL2, ef_kaze01_evw_anime_2 } };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_kaze01_0_int_i4[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_kaze01_0_int_i4[] = {
@@ -17,7 +17,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_kaze01_0_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_kaze01_1_int_i4[0x80];
 #else
 u8 ef_kaze01_1_int_i4[] = {
@@ -25,7 +25,7 @@ u8 ef_kaze01_1_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_kaze01_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_kaze01_v[] = {
@@ -33,7 +33,7 @@ Vtx ef_kaze01_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_kaze01_v2[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_kaze01_v2[] = {
@@ -77,7 +77,7 @@ Gfx ef_kaze01_modelT2[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_kaze01_2[0x100];
 #else
 u8 ef_kaze01_2[] = {
@@ -85,7 +85,7 @@ u8 ef_kaze01_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_kaze01_happa_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_kaze01_happa_v[] = {

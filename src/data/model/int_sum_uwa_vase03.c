@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_uwa_vase03_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_vase03_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_vase03_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_vase03_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_vase03_side[0x100];
 #else
 u8 int_sum_uwa_vase03_side[] = {
@@ -22,7 +22,7 @@ u8 int_sum_uwa_vase03_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_vase03_kuki[0x100];
 #else
 u8 int_sum_uwa_vase03_kuki[] = {
@@ -30,7 +30,7 @@ u8 int_sum_uwa_vase03_kuki[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_vase03_leaf[0x100];
 #else
 u8 int_sum_uwa_vase03_leaf[] = {
@@ -38,7 +38,7 @@ u8 int_sum_uwa_vase03_leaf[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_vase03_flawer[0x100];
 #else
 u8 int_sum_uwa_vase03_flawer[] = {
@@ -46,7 +46,7 @@ u8 int_sum_uwa_vase03_flawer[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_vase03_naka[0x80];
 #else
 u8 int_sum_uwa_vase03_naka[] = {
@@ -54,7 +54,7 @@ u8 int_sum_uwa_vase03_naka[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_vase03_base[0x80];
 #else
 u8 int_sum_uwa_vase03_base[] = {
@@ -62,7 +62,7 @@ u8 int_sum_uwa_vase03_base[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_uwa_vase03_v[0x330 / sizeof(Vtx)];
 #else
 Vtx int_sum_uwa_vase03_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cal_win_pick_tex[0x500];
 #else
 ATTRIBUTE_ALIGN(32) u8 cal_win_pick_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 cal_win_pick_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cal_win_view_tex[0x500];
 #else
 ATTRIBUTE_ALIGN(32) u8 cal_win_view_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 cal_win_view_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 lat_sousa_2b1_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 lat_sousa_2b1_tex[]= {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) static u8 lat_sousa_2b1_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 lat_sousa_b1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 lat_sousa_b1_tex[]= {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u8 lat_sousa_b1_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 lat_tegami_b3_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 lat_tegami_b3_tex[]= {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) static u8 lat_tegami_b3_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_hyouji2_2b1_tex_rgb_i4[0x200];
 #else
 u8 cal_hyouji2_2b1_tex_rgb_i4[] = {
@@ -53,7 +53,7 @@ u8 cal_hyouji2_2b1_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx cal_hyouji2_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx cal_hyouji2_v[] = {
@@ -129,7 +129,7 @@ gsSPEndDisplayList(),
 };
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_cal_hyouji2_c(void) {
     pc_load_asset("assets/cal_hyouji2/lat_sousa_2b1_tex.bin", lat_sousa_2b1_tex, 0x200, 0x6ACF00, 0, 0);

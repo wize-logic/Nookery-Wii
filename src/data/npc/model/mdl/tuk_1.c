@@ -1,7 +1,7 @@
 #include "c_keyframe.h"
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx tuk_1_v[0x1D50 / sizeof(Vtx)];
 #else
 static Vtx tuk_1_v[] = {
@@ -853,7 +853,7 @@ static cKF_Joint_R_c cKF_je_r_tuk_1_tbl[] = {
 
 extern cKF_Skeleton_R_c cKF_bs_r_tuk_1 = { 26, 15, cKF_je_r_tuk_1_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_npc_model_mdl_tuk_1_c(void) {
     pc_load_asset("assets/npc/mdl/tuk_1_v.bin", tuk_1_v, 0x1D50, 0x8DB550, 0, 2);

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_cake2_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_cake2_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_cake2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_star_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_star_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_star_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw1_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_sw1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw2_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_sw2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw3_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_sw3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw4_tex_rgb_ci4_pal[] = {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_sw4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw5_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw5_tex_rgb_ci4_pal[] = {
@@ -61,7 +61,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_sw5_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw6_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw6_tex_rgb_ci4_pal[] = {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_sw6_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw7_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 brt_win_sw7_tex_rgb_ci4_pal[] = {
@@ -77,7 +77,7 @@ ATTRIBUTE_ALIGN(32) u16 brt_win_sw7_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 brt_win_cake2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 brt_win_cake2_tex[] = {
@@ -85,7 +85,7 @@ ATTRIBUTE_ALIGN(32) u8 brt_win_cake2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue1_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue1_tex[] = {
@@ -93,7 +93,7 @@ ATTRIBUTE_ALIGN(32) u8 brt_win_ue1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue2_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue2_tex[] = {
@@ -101,7 +101,7 @@ ATTRIBUTE_ALIGN(32) u8 brt_win_ue2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue3_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue3_tex[] = {
@@ -109,7 +109,7 @@ ATTRIBUTE_ALIGN(32) u8 brt_win_ue3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue4_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue4_tex[] = {
@@ -117,7 +117,7 @@ ATTRIBUTE_ALIGN(32) u8 brt_win_ue4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue5_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 brt_win_ue5_tex[] = {
@@ -125,7 +125,7 @@ ATTRIBUTE_ALIGN(32) u8 brt_win_ue5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 mra_win_fuki_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 mra_win_fuki_tex[] = {
@@ -133,7 +133,7 @@ ATTRIBUTE_ALIGN(32) static u8 mra_win_fuki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 brt_win_star_tex_rgb_ci4[0x200];
 #else
 u8 brt_win_star_tex_rgb_ci4[] = {
@@ -141,7 +141,7 @@ u8 brt_win_star_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 brt_win_sw1_tex_rgb_ci4[0x400];
 #else
 u8 brt_win_sw1_tex_rgb_ci4[] = {
@@ -149,7 +149,7 @@ u8 brt_win_sw1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 brt_win_sw2_tex_rgb_ci4[0x400];
 #else
 u8 brt_win_sw2_tex_rgb_ci4[] = {
@@ -157,7 +157,7 @@ u8 brt_win_sw2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 brt_win_sw3_tex_rgb_ci4[0x400];
 #else
 u8 brt_win_sw3_tex_rgb_ci4[] = {
@@ -165,7 +165,7 @@ u8 brt_win_sw3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 brt_win_sw4_tex_rgb_ci4[0x400];
 #else
 u8 brt_win_sw4_tex_rgb_ci4[] = {
@@ -173,7 +173,7 @@ u8 brt_win_sw4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 brt_win_sw5_tex_rgb_ci4[0x400];
 #else
 u8 brt_win_sw5_tex_rgb_ci4[] = {
@@ -181,7 +181,7 @@ u8 brt_win_sw5_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 brt_win_sw6_tex_rgb_ci4[0x400];
 #else
 u8 brt_win_sw6_tex_rgb_ci4[] = {
@@ -189,7 +189,7 @@ u8 brt_win_sw6_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 brt_win_sw7_tex_rgb_ci4[0x400];
 #else
 u8 brt_win_sw7_tex_rgb_ci4[] = {
@@ -197,7 +197,7 @@ u8 brt_win_sw7_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx bir_win_v[0x700 / sizeof(Vtx)];
 #else
 Vtx bir_win_v[] = {
@@ -428,7 +428,7 @@ Gfx birthday_win_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_bir_win_c(void) {
     pc_load_asset("assets/bir_win/mra_win_fuki_tex.bin", mra_win_fuki_tex, 0x800, 0x69A8A0, 0, 0);

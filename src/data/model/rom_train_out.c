@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx rom_train_out_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 rom_train_4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 rom_train_4_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 rom_train_4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_train_3_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_train_3_pal[] = {
@@ -22,7 +22,7 @@ static u16 rom_train_3_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_train_bgtree_tex[0x800];
 #else
 u8 rom_train_bgtree_tex[] = {
@@ -30,7 +30,7 @@ u8 rom_train_bgtree_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_train_bgsky_tex[0x80];
 #else
 u8 rom_train_bgsky_tex[] = {
@@ -38,7 +38,7 @@ u8 rom_train_bgsky_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_train_tunnel_tex[0x400];
 #else
 u8 rom_train_tunnel_tex[] = {
@@ -46,7 +46,7 @@ u8 rom_train_tunnel_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_train_bgcloud_tex_rgb_i4[0x800];
 #else
 u8 rom_train_bgcloud_tex_rgb_i4[] = {
@@ -54,7 +54,7 @@ u8 rom_train_bgcloud_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_train_glass_tex_rgb_i4[0x80];
 #else
 u8 rom_train_glass_tex_rgb_i4[] = {
@@ -62,7 +62,7 @@ u8 rom_train_glass_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_train_shine_tex_rgb_i4[0x100];
 #else
 u8 rom_train_shine_tex_rgb_i4[] = {
@@ -70,7 +70,7 @@ u8 rom_train_shine_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_train_out_v[0x300 / sizeof(Vtx)];
 #else
 Vtx rom_train_out_v[] = {
@@ -158,7 +158,7 @@ Gfx rom_train_out_bgsky_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_rom_train_out_c(void) {
     pc_load_asset("assets/rom_train_out/rom_train_3_pal.bin", rom_train_3_pal, 0x20, 0x8D9A40, 0, 1);

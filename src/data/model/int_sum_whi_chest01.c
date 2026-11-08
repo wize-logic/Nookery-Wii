@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_whi_chest01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_whi_chest01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_whi_chest01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_whi_chest01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_whi_chest01_top_tex_txt[0x100];
 #else
 u8 int_sum_whi_chest01_top_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_whi_chest01_top_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_whi_chest01_hiki_tex_txt[0x100];
 #else
 u8 int_sum_whi_chest01_hiki_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_whi_chest01_hiki_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_whi_chest01_back_tex_txt[0x180];
 #else
 u8 int_sum_whi_chest01_back_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_whi_chest01_back_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_whi_chest01_front_tex_txt[0x300];
 #else
 u8 int_sum_whi_chest01_front_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_whi_chest01_front_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_whi_chest01_v[0x3A0 / sizeof(Vtx)];
 #else
 Vtx int_sum_whi_chest01_v[] = {

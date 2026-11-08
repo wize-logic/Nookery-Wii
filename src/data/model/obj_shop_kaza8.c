@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_kaza_8_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_kaza_8_pal[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_kaza_8_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_kaza_8_d_tex_txt[0x80];
 #else
 static u8 tol_kaza_8_d_tex_txt[] = {
@@ -21,7 +21,7 @@ static u8 tol_kaza_8_d_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_kaza_8_a_tex_txt[0x200];
 #else
 static u8 tol_kaza_8_a_tex_txt[] = {
@@ -29,7 +29,7 @@ static u8 tol_kaza_8_a_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_kaza_8_c_tex_txt[0x200];
 #else
 static u8 tol_kaza_8_c_tex_txt[] = {
@@ -37,7 +37,7 @@ static u8 tol_kaza_8_c_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_kaza_8_e_tex_txt[0x80];
 #else
 static u8 tol_kaza_8_e_tex_txt[] = {
@@ -45,7 +45,7 @@ static u8 tol_kaza_8_e_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_kaza_8_b_tex_txt[0x100];
 #else
 static u8 tol_kaza_8_b_tex_txt[] = {
@@ -53,7 +53,7 @@ static u8 tol_kaza_8_b_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_kaza8_v[0x7E0 / sizeof(Vtx)];
 #else
 Vtx obj_shop_kaza8_v[] = {
@@ -131,7 +131,7 @@ gsSPEndDisplayList(),
 };
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_shop_kaza8_c(void) {
     pc_load_asset("assets/obj_shop_kaza8/tol_kaza_8_pal.bin", tol_kaza_8_pal, 0x20, 0x4622A0, 0, 1);

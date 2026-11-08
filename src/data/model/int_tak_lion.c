@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_lion_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_lion_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_lion_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_lion_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_lion_water_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_lion_water_tex_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_tak_lion_water_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_lion_back_tex[0x200];
 #else
 u8 int_tak_lion_back_tex[] = {
@@ -30,7 +30,7 @@ u8 int_tak_lion_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_lion_body_tex[0x20];
 #else
 u8 int_tak_lion_body_tex[] = {
@@ -38,7 +38,7 @@ u8 int_tak_lion_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_lion_face_tex[0x400];
 #else
 u8 int_tak_lion_face_tex[] = {
@@ -46,7 +46,7 @@ u8 int_tak_lion_face_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_lion_tail2_tex[0x180];
 #else
 u8 int_tak_lion_tail2_tex[] = {
@@ -54,7 +54,7 @@ u8 int_tak_lion_tail2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_lion_water_tex[0x20];
 #else
 u8 int_tak_lion_water_tex[] = {
@@ -62,7 +62,7 @@ u8 int_tak_lion_water_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_lion_v[0x520 / sizeof(Vtx)];
 #else
 Vtx int_tak_lion_v[] = {

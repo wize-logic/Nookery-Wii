@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_log_chest03_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_log_chest03_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_log_chest03_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_log_chest03_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_back_tex[0x100];
 #else
 u8 int_sum_log_chest03_back_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_log_chest03_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_front_tex[0x200];
 #else
 u8 int_sum_log_chest03_front_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_log_chest03_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_top_tex[0x100];
 #else
 u8 int_sum_log_chest03_top_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_log_chest03_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_top2_tex[0x80];
 #else
 u8 int_sum_log_chest03_top2_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_log_chest03_top2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_draw_tex[0x80];
 #else
 u8 int_sum_log_chest03_draw_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_log_chest03_draw_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_side_tex[0x100];
 #else
 u8 int_sum_log_chest03_side_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_log_chest03_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_foot_tex[0x100];
 #else
 u8 int_sum_log_chest03_foot_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_log_chest03_foot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_book_tex[0x80];
 #else
 u8 int_sum_log_chest03_book_tex[] = {
@@ -78,7 +78,7 @@ u8 int_sum_log_chest03_book_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chest03_book2_tex[0x80];
 #else
 u8 int_sum_log_chest03_book2_tex[] = {
@@ -86,7 +86,7 @@ u8 int_sum_log_chest03_book2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_log_chest03_v[0x4C0 / sizeof(Vtx)];
 #else
 Vtx int_sum_log_chest03_v[] = {

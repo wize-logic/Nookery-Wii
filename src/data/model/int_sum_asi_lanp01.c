@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_asi_lanp01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_asi_lanp01_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_asi_lanp01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_asi_lanp01_shade_tex_txt[0x100];
 #else
 u8 int_sum_asi_lanp01_shade_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 int_sum_asi_lanp01_shade_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_asi_lanp01_bin_tex_txt[0x200];
 #else
 u8 int_sum_asi_lanp01_bin_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 int_sum_asi_lanp01_bin_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_asi_lanp01_v[0x180 / sizeof(Vtx)];
 #else
 Vtx int_sum_asi_lanp01_v[] = {

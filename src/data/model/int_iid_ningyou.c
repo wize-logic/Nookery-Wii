@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iid_ningyou_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_iid_ningyou_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_iid_ningyou_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_iid_ningyou_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_ningyou_hada_tex[0x80];
 #else
 u8 int_iid_ningyou_hada_tex[] = {
@@ -22,7 +22,7 @@ u8 int_iid_ningyou_hada_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_ningyou_boushi_tex[0x80];
 #else
 u8 int_iid_ningyou_boushi_tex[] = {
@@ -30,7 +30,7 @@ u8 int_iid_ningyou_boushi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_ningyou_kao_tex[0x200];
 #else
 u8 int_iid_ningyou_kao_tex[] = {
@@ -38,7 +38,7 @@ u8 int_iid_ningyou_kao_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_ningyou_kutushita_tex[0x80];
 #else
 u8 int_iid_ningyou_kutushita_tex[] = {
@@ -46,7 +46,7 @@ u8 int_iid_ningyou_kutushita_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_ningyou_futi_tex[0x20];
 #else
 u8 int_iid_ningyou_futi_tex[] = {
@@ -54,7 +54,7 @@ u8 int_iid_ningyou_futi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_ningyou_fuku_tex[0x20];
 #else
 u8 int_iid_ningyou_fuku_tex[] = {
@@ -62,7 +62,7 @@ u8 int_iid_ningyou_fuku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_ningyou_ribbon_tex[0x80];
 #else
 u8 int_iid_ningyou_ribbon_tex[] = {
@@ -70,7 +70,7 @@ u8 int_iid_ningyou_ribbon_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_ningyou_ashi_tex[0x40];
 #else
 u8 int_iid_ningyou_ashi_tex[] = {
@@ -78,7 +78,7 @@ u8 int_iid_ningyou_ashi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iid_ningyou_v[0x1070 / sizeof(Vtx)];
 #else
 Vtx int_iid_ningyou_v[] = {

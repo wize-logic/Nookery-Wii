@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_sprinkler_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_noga_sprinkler[0x20];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_noga_sprinkler[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_noga_sprinkler[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_sprinkler_tex[0x800];
 #else
 u8 int_nog_sprinkler_tex[] = {
@@ -22,7 +22,7 @@ u8 int_nog_sprinkler_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_sprinkler_fade_tex_rgb_i4[0x80];
 #else
 u8 int_nog_sprinkler_fade_tex_rgb_i4[] = {
@@ -30,7 +30,7 @@ u8 int_nog_sprinkler_fade_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_sprinkler_water_tex_rgb_i4[0x80];
 #else
 u8 int_nog_sprinkler_water_tex_rgb_i4[] = {
@@ -38,7 +38,7 @@ u8 int_nog_sprinkler_water_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_sprinkler_v[0x630 / sizeof(Vtx)];
 #else
 Vtx int_nog_sprinkler_v[] = {

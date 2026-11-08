@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_neko_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_neko_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_neko_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_neko_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_neko_asi_tex[0x200];
 #else
 u8 int_tak_neko_asi_tex[] = {
@@ -22,7 +22,7 @@ u8 int_tak_neko_asi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_neko_body_tex[0x80];
 #else
 u8 int_tak_neko_body_tex[] = {
@@ -30,7 +30,7 @@ u8 int_tak_neko_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_neko_hand_tex[0x80];
 #else
 u8 int_tak_neko_hand_tex[] = {
@@ -38,7 +38,7 @@ u8 int_tak_neko_hand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_neko_scop_tex[0x80];
 #else
 u8 int_tak_neko_scop_tex[] = {
@@ -46,7 +46,7 @@ u8 int_tak_neko_scop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_neko_tire_tex[0x80];
 #else
 u8 int_tak_neko_tire_tex[] = {
@@ -54,7 +54,7 @@ u8 int_tak_neko_tire_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_neko_tuti_tex[0x80];
 #else
 u8 int_tak_neko_tuti_tex[] = {
@@ -62,7 +62,7 @@ u8 int_tak_neko_tuti_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_neko_ude_tex[0x200];
 #else
 u8 int_tak_neko_ude_tex[] = {
@@ -70,7 +70,7 @@ u8 int_tak_neko_ude_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_neko_side_tex[0x100];
 #else
 u8 int_tak_neko_side_tex[] = {
@@ -78,7 +78,7 @@ u8 int_tak_neko_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_neko_v[0x4A0 / sizeof(Vtx)];
 #else
 Vtx int_tak_neko_v[] = {

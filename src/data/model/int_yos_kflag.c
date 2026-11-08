@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_yos_kflag_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_yos_kflag_pat[0x20];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_yos_kflag_pat[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_yos_kflag_pat[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_kflag_pole_tex_txt[0x80];
 #else
 u8 int_yos_kflag_pole_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_yos_kflag_pole_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_kflag_flag_tex_txt[0x180];
 #else
 u8 int_yos_kflag_flag_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_yos_kflag_flag_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_yos_kflag_v[0x450 / sizeof(Vtx)];
 #else
 Vtx int_yos_kflag_v[] = {

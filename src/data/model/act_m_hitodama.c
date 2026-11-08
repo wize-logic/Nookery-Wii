@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_m_hitodama_h2_txt[0x200];
 #else
 u8 act_m_hitodama_h2_txt[] = {
@@ -12,7 +12,7 @@ u8 act_m_hitodama_h2_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_m_hitodama_h1_txt[0x200];
 #else
 u8 act_m_hitodama_h1_txt[] = {
@@ -20,7 +20,7 @@ u8 act_m_hitodama_h1_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_m_hitodama_v[0x80 / sizeof(Vtx)];
 #else
 Vtx act_m_hitodama_v[] = {

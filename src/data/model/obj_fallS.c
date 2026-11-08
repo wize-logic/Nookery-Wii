@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 obj_fall_rainbow_1_tex_rgb_rgba16[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 obj_fall_rainbow_1_tex_rgb_rgba16[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u8 obj_fall_rainbow_1_tex_rgb_rgba16[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_fall_rainbowA_tex_rgb_i4[0x80];
 #else
 static u8 obj_fall_rainbowA_tex_rgb_i4[] = {
@@ -21,7 +21,7 @@ static u8 obj_fall_rainbowA_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_fallCA1_tex_rgb_ia8[0x400];
 #else
 static u8 obj_fallCA1_tex_rgb_ia8[] = {
@@ -29,7 +29,7 @@ static u8 obj_fallCA1_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_fallA2_tex_rgb_i4[0x200];
 #else
 static u8 obj_fallA2_tex_rgb_i4[] = {
@@ -37,7 +37,7 @@ static u8 obj_fallA2_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_fallA3_tex_rgb_i4[0x80];
 #else
 static u8 obj_fallA3_tex_rgb_i4[] = {
@@ -45,7 +45,7 @@ static u8 obj_fallA3_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_fallC2_tex_rgb_i4[0x200];
 #else
 static u8 obj_fallC2_tex_rgb_i4[] = {
@@ -53,7 +53,7 @@ static u8 obj_fallC2_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_fallC3_tex_rgb_i4[0x80];
 #else
 static u8 obj_fallC3_tex_rgb_i4[] = {
@@ -61,7 +61,7 @@ static u8 obj_fallC3_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_fallS_v[0x550 / sizeof(Vtx)];
 #else
 Vtx obj_fallS_v[] = {
@@ -179,7 +179,7 @@ EVW_ANIME_DATA obj_fallS_evw_anime[] = { { 1, EVW_ANIME_TYPE_SCROLL2, obj_fallS_
                                          { 3, EVW_ANIME_TYPE_SCROLL2, obj_fallS_evw_anime_3 },
                                          { -4, EVW_ANIME_TYPE_SCROLL2, obj_fallS_evw_anime_4 } };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_fallS_c(void) {
     pc_load_asset("assets/obj_fallS/obj_fall_rainbow_1_tex_rgb_rgba16.bin", obj_fall_rainbow_1_tex_rgb_rgba16, 0x100, 0x8006A0, 0, 0);

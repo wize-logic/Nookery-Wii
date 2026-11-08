@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_e_hfes01_t1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_e_hfes01_t1_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_e_hfes01_t1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_hfes01_t4_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_hfes01_t4_pal[] = {
@@ -21,7 +21,7 @@ u16 obj_e_hfes01_t4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_hfes01_t2_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_hfes01_t2_pal[] = {
@@ -29,7 +29,7 @@ u16 obj_e_hfes01_t2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_hfes01_t3_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_hfes01_t3_pal[] = {
@@ -37,7 +37,7 @@ u16 obj_e_hfes01_t3_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hfes01_t1[0x800];
 #else
 u8 obj_e_hfes01_t1[] = {
@@ -45,7 +45,7 @@ u8 obj_e_hfes01_t1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hfes01_t6[0x80];
 #else
 u8 obj_e_hfes01_t6[] = {
@@ -53,7 +53,7 @@ u8 obj_e_hfes01_t6[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hfes01_t2[0x400];
 #else
 u8 obj_e_hfes01_t2[] = {
@@ -61,7 +61,7 @@ u8 obj_e_hfes01_t2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hfes01_t7[0x20];
 #else
 u8 obj_e_hfes01_t7[] = {
@@ -69,7 +69,7 @@ u8 obj_e_hfes01_t7[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hfes01_t3[0x400];
 #else
 u8 obj_e_hfes01_t3[] = {
@@ -77,7 +77,7 @@ u8 obj_e_hfes01_t3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hfes01_t4[0x40];
 #else
 u8 obj_e_hfes01_t4[] = {
@@ -85,7 +85,7 @@ u8 obj_e_hfes01_t4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_hfes_a_v[0xB40 / sizeof(Vtx)];
 #else
 Vtx obj_e_hfes_a_v[] = {
@@ -168,7 +168,7 @@ Gfx obj_e_hfes_a_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_hfes_b_v[0xAA0 / sizeof(Vtx)];
 #else
 Vtx obj_e_hfes_b_v[] = {
@@ -250,7 +250,7 @@ Gfx obj_e_hfes_b_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_e_hfes01_t5_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_e_hfes01_t5_pal[] = {
@@ -258,7 +258,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_e_hfes01_t5_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hfes01_t5[0x400];
 #else
 u8 obj_e_hfes01_t5[] = {
@@ -266,7 +266,7 @@ u8 obj_e_hfes01_t5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_hfes_c_v[0x1440 / sizeof(Vtx)];
 #else
 Vtx obj_e_hfes_c_v[] = {

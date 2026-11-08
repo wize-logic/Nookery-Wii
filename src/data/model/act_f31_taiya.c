@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 act_f31_taiya_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 act_f31_taiya_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u16 act_f31_taiya_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_f31_taiya_tex[0x300];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_f31_taiya_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 act_f31_taiya_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f31_taiya_v[0x50 / sizeof(Vtx)];
 #else
 Vtx act_f31_taiya_v[] = {

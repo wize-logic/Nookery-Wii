@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 inv_original_mark_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 inv_original_mark_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 inv_original_mark_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx sav_mark_v[0x40 / sizeof(Vtx)];
 #else
 Vtx sav_mark_v[] = {

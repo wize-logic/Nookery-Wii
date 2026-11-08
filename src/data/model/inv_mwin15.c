@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_39ari_pal[0x40 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_39ari_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_39ari_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_33maimai_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_33maimai_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_33maimai_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_34kera_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_34kera_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_34kera_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_35amenbo_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_35amenbo_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_35amenbo_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_36mino_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_36mino_pal[] = {
@@ -45,7 +45,7 @@ u16 inv_mwin_36mino_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_37dango_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_37dango_pal[] = {
@@ -53,7 +53,7 @@ u16 inv_mwin_37dango_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_38kumo_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_38kumo_pal[] = {
@@ -61,7 +61,7 @@ u16 inv_mwin_38kumo_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_40ka_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_40ka_pal[] = {
@@ -69,7 +69,7 @@ u16 inv_mwin_40ka_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_39ari_tex[0x200];
 #else
 u8 inv_mwin_39ari_tex[] = {
@@ -77,7 +77,7 @@ u8 inv_mwin_39ari_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_33maimai_tex[0x200];
 #else
 u8 inv_mwin_33maimai_tex[] = {
@@ -85,7 +85,7 @@ u8 inv_mwin_33maimai_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_34kera_tex[0x200];
 #else
 u8 inv_mwin_34kera_tex[] = {
@@ -93,7 +93,7 @@ u8 inv_mwin_34kera_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_35amenbo_tex[0x200];
 #else
 u8 inv_mwin_35amenbo_tex[] = {
@@ -101,7 +101,7 @@ u8 inv_mwin_35amenbo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_36mino_tex[0x200];
 #else
 u8 inv_mwin_36mino_tex[] = {
@@ -109,7 +109,7 @@ u8 inv_mwin_36mino_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_37dango_tex[0x200];
 #else
 u8 inv_mwin_37dango_tex[] = {
@@ -117,7 +117,7 @@ u8 inv_mwin_37dango_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_38kumo_tex[0x200];
 #else
 u8 inv_mwin_38kumo_tex[] = {
@@ -125,7 +125,7 @@ u8 inv_mwin_38kumo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_40ka_tex[0x200];
 #else
 u8 inv_mwin_40ka_tex[] = {

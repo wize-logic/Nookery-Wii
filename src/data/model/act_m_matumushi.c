@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 /* extern Vtx act_m_matumushi_v[]; */
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx act_m_matumushi_v[0xA0 / sizeof(Vtx)];
 #else
 static Vtx act_m_matumushi_v[] = {
@@ -14,7 +14,7 @@ static Vtx act_m_matumushi_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 act_m_matumushi_pal[0x20 / sizeof(u16)];
 #else
 static u16 act_m_matumushi_pal[] = {
@@ -22,7 +22,7 @@ static u16 act_m_matumushi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 act_m_matumushi[0x180];
 #else
 static u8 act_m_matumushi[] = {
@@ -91,7 +91,7 @@ Gfx act_m_mu_matumushi2_2T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_m_matumushi_c(void) {
     pc_load_asset("assets/act_m_matumushi/act_m_matumushi_v.bin", act_m_matumushi_v, 0xA0, 0xB4FBC0, 0, 2);

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_uwa_cup01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_cup01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_cup01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_cup01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_cup01_side[0x100];
 #else
 u8 int_sum_uwa_cup01_side[] = {
@@ -22,7 +22,7 @@ u8 int_sum_uwa_cup01_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_cup01_tote[0x100];
 #else
 u8 int_sum_uwa_cup01_tote[] = {
@@ -30,7 +30,7 @@ u8 int_sum_uwa_cup01_tote[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_cup01_kuchi[0x80];
 #else
 u8 int_sum_uwa_cup01_kuchi[] = {
@@ -38,7 +38,7 @@ u8 int_sum_uwa_cup01_kuchi[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_cup01_cup[0x80];
 #else
 u8 int_sum_uwa_cup01_cup[] = {
@@ -46,7 +46,7 @@ u8 int_sum_uwa_cup01_cup[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_cup01_top[0x80];
 #else
 u8 int_sum_uwa_cup01_top[] = {
@@ -54,7 +54,7 @@ u8 int_sum_uwa_cup01_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_cup01_cuptote[0x80];
 #else
 u8 int_sum_uwa_cup01_cuptote[] = {
@@ -62,7 +62,7 @@ u8 int_sum_uwa_cup01_cuptote[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_cup01_base[0x100];
 #else
 u8 int_sum_uwa_cup01_base[] = {
@@ -70,7 +70,7 @@ u8 int_sum_uwa_cup01_base[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_uwa_cup01_v[0x450 / sizeof(Vtx)];
 #else
 Vtx int_sum_uwa_cup01_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sugi_alchair_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sugi_alchair_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sugi_alchair_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sugi_alchair_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sugi_alchair_all_tex_txt[0x800];
 #else
 u8 int_sugi_alchair_all_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sugi_alchair_all_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sugi_alchair_v[0x340 / sizeof(Vtx)];
 #else
 Vtx int_sugi_alchair_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_ratan_chest03_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_ratan_chest03_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_ratan_chest03_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_ratan_chest03_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_chest03_front_tax[0x400];
 #else
 u8 int_sum_ratan_chest03_front_tax[] = {
@@ -22,7 +22,7 @@ u8 int_sum_ratan_chest03_front_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_chest03_side_tax[0x100];
 #else
 u8 int_sum_ratan_chest03_side_tax[] = {
@@ -30,7 +30,7 @@ u8 int_sum_ratan_chest03_side_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_chest03_top_tax[0x100];
 #else
 u8 int_sum_ratan_chest03_top_tax[] = {
@@ -38,7 +38,7 @@ u8 int_sum_ratan_chest03_top_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_chest03_book_tax[0x100];
 #else
 u8 int_sum_ratan_chest03_book_tax[] = {
@@ -46,7 +46,7 @@ u8 int_sum_ratan_chest03_book_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_ratan_chest03_book2_tax[0x80];
 #else
 u8 int_sum_ratan_chest03_book2_tax[] = {
@@ -54,7 +54,7 @@ u8 int_sum_ratan_chest03_book2_tax[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_ratan_chest03_v[0x3E0 / sizeof(Vtx)];
 #else
 Vtx int_sum_ratan_chest03_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 clg_music_pal[0x20 / sizeof(u16)];
 #else
 u16 clg_music_pal[] = {
@@ -13,7 +13,7 @@ u16 clg_music_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clg_music_tex[0x200];
 #else
 u8 clg_music_tex[] = {
@@ -21,7 +21,7 @@ u8 clg_music_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx clg_music_v[0x40 / sizeof(Vtx)];
 #else
 Vtx clg_music_v[] = {

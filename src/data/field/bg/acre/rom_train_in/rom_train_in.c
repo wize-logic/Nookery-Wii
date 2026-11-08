@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_train_1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_train_1_pal[] = {
@@ -8,7 +8,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_train_1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_train_2_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_train_2_pal[] = {
@@ -16,7 +16,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_train_2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_train_3_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_train_3_pal[] = {
@@ -24,7 +24,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_train_3_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_seat1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_seat1_tex[] = {
@@ -32,7 +32,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_seat1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_seat2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_seat2_tex[] = {
@@ -40,7 +40,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_seat2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_floor_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_floor_tex[] = {
@@ -48,7 +48,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_floor_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_wall1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_wall1_tex[] = {
@@ -56,7 +56,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_wall1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_roof_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_roof_tex[] = {
@@ -64,7 +64,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_roof_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_wall2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_wall2_tex[] = {
@@ -72,7 +72,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_wall2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_net_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_net_tex[] = {
@@ -80,7 +80,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_net_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_glass_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_glass_tex[] = {
@@ -88,7 +88,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_glass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_train_light_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_train_light_tex[] = {
@@ -96,7 +96,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_train_light_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx rom_train_in_v[0x20F0 / sizeof(Vtx)];
 #else
 static Vtx rom_train_in_v[] = {
@@ -672,7 +672,7 @@ extern Gfx rom_train_in_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_rom_train_in_rom_train_in_c(void) {
     pc_load_asset("assets/field/bg/rom_train_1_pal.bin", rom_train_1_pal, 0x20, 0xD96B80, 0, 1);

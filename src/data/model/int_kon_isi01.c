@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_kon_isi01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_kon_isi01_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_kon_isi01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_isi01_mae_tex[0x200];
 #else
 u8 int_kon_isi01_mae_tex[] = {
@@ -21,7 +21,7 @@ u8 int_kon_isi01_mae_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_isi01_teppen_tex[0x80];
 #else
 u8 int_kon_isi01_teppen_tex[] = {
@@ -29,7 +29,7 @@ u8 int_kon_isi01_teppen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_isi01_yoko_tex[0x200];
 #else
 u8 int_kon_isi01_yoko_tex[] = {
@@ -37,7 +37,7 @@ u8 int_kon_isi01_yoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_isi01_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx int_kon_isi01_v[] = {
@@ -70,7 +70,7 @@ Gfx int_kon_isi01_on_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_kon_isi01_c(void) {
     pc_load_asset("assets/int_kon_isi01/int_kon_isi01_pal.bin", int_kon_isi01_pal, 0x20, 0xB827C0, 0, 1);

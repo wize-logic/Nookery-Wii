@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_stew_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_stew_a1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_stew_a1_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_stew_a1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_stew_nabe_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_stew_nabe_pal[] = {
@@ -22,7 +22,7 @@ u16 int_tak_stew_nabe_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_stew_a1_tex[0x200];
 #else
 u8 int_tak_stew_a1_tex[] = {
@@ -30,7 +30,7 @@ u8 int_tak_stew_a1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_stew_nabe_tex[0x80];
 #else
 u8 int_tak_stew_nabe_tex[] = {
@@ -38,7 +38,7 @@ u8 int_tak_stew_nabe_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_stew_etc_tex[0x80];
 #else
 u8 int_tak_stew_etc_tex[] = {
@@ -46,7 +46,7 @@ u8 int_tak_stew_etc_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_stew_a2_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_stew_a2_tex_rgb_ci4[] = {
@@ -54,7 +54,7 @@ u8 int_tak_stew_a2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_stew_v[0x400 / sizeof(Vtx)];
 #else
 Vtx int_tak_stew_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_art_fel_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_art_fel_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_art_fel_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_art_fel_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_art_felgaku_tex[0x100];
 #else
 u8 int_ike_art_felgaku_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_art_felgaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_art_fel1_tex[0x480];
 #else
 u8 int_ike_art_fel1_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_art_fel1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_art_felstand_tex[0x200];
 #else
 u8 int_ike_art_felstand_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_art_felstand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_art_felfront_tex[0x200];
 #else
 u8 int_ike_art_felfront_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_art_felfront_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_art_fel_v[0x360 / sizeof(Vtx)];
 #else
 Vtx int_ike_art_fel_v[] = {

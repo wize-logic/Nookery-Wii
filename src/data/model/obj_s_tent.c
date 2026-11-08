@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_s_tent_mat_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_s_tent_mat_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_s_tent_mat_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_s_tent_main_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_s_tent_main_pal[] = {
@@ -21,7 +21,7 @@ u16 obj_s_tent_main_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_tent_mat[0x100];
 #else
 u8 obj_s_tent_mat[] = {
@@ -29,7 +29,7 @@ u8 obj_s_tent_mat[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_tent_wall1[0x400];
 #else
 u8 obj_s_tent_wall1[] = {
@@ -37,7 +37,7 @@ u8 obj_s_tent_wall1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_tent_wall2[0x800];
 #else
 u8 obj_s_tent_wall2[] = {
@@ -45,7 +45,7 @@ u8 obj_s_tent_wall2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_tent_wall3[0x400];
 #else
 u8 obj_s_tent_wall3[] = {
@@ -53,7 +53,7 @@ u8 obj_s_tent_wall3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_tent_v[0x690 / sizeof(Vtx)];
 #else
 Vtx obj_s_tent_v[] = {

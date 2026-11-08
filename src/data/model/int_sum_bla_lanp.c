@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_bla_lanp_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_bla_lanp_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_bla_lanp_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_bla_lanp_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_bla_lanp_shede_tex[0x100];
 #else
 u8 int_sum_bla_lanp_shede_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_bla_lanp_shede_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_bla_lanp_stand_tex[0x100];
 #else
 u8 int_sum_bla_lanp_stand_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_bla_lanp_stand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_bla_lanp_base_tex[0x80];
 #else
 u8 int_sum_bla_lanp_base_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_bla_lanp_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_bla_lanp_top_tex[0x80];
 #else
 u8 int_sum_bla_lanp_top_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_bla_lanp_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_bla_lanp_hand_tex[0x80];
 #else
 u8 int_sum_bla_lanp_hand_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_bla_lanp_hand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_bla_lanp_v[0x380 / sizeof(Vtx)];
 #else
 Vtx int_sum_bla_lanp_v[] = {

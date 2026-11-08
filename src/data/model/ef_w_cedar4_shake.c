@@ -7,7 +7,7 @@
 
 extern Vtx ef_w_cedar4_shake_v[];
 extern u8 ef_w_cedar_leaf_modeset[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_w_cedar4_shake_v[0x2F0 / sizeof(Vtx)];
 #else
 Vtx ef_w_cedar4_shake_v[] = {

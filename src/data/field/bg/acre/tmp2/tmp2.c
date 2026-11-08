@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 grd_s_cliff_pal[0x20 / sizeof(u16)];
 #else
 static u16 grd_s_cliff_pal[] = {
@@ -8,7 +8,7 @@ static u16 grd_s_cliff_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 grd_s_earth_pal[0x20 / sizeof(u16)];
 #else
 static u16 grd_s_earth_pal[] = {
@@ -16,7 +16,7 @@ static u16 grd_s_earth_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 grd_s_cliff_tex[0x800];
 #else
 static u8 grd_s_cliff_tex[] = {
@@ -24,7 +24,7 @@ static u8 grd_s_cliff_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 grd_s_earth_tex[0x800];
 #else
 static u8 grd_s_earth_tex[] = {
@@ -32,7 +32,7 @@ static u8 grd_s_earth_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 grd_s_grass_tex[0x200];
 #else
 static u8 grd_s_grass_tex[] = {
@@ -40,7 +40,7 @@ static u8 grd_s_grass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx tmp2_v[0xEC0 / sizeof(Vtx)];
 #else
 static Vtx tmp2_v[] = {
@@ -172,7 +172,7 @@ extern Gfx tmp2_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_tmp2_tmp2_c(void) {
     pc_load_asset("assets/field/bg/grd_s_cliff_pal.bin", grd_s_cliff_pal, 0x20, 0x8FA708, 0, 1);

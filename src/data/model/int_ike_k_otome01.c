@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_k_otome01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_k_otome01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_k_otome01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_k_otome01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_otomefront_tex[0x80];
 #else
 u8 int_ike_k_otomefront_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_k_otomefront_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_otomeleg_tex[0x200];
 #else
 u8 int_ike_k_otomeleg_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_k_otomeleg_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_otomeside_tex[0x80];
 #else
 u8 int_ike_k_otomeside_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_k_otomeside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_otometop_tex[0x80];
 #else
 u8 int_ike_k_otometop_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_k_otometop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_otometle1_tex[0x200];
 #else
 u8 int_ike_k_otometle1_tex[] = {
@@ -54,7 +54,7 @@ u8 int_ike_k_otometle1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_otometle2_tex[0x80];
 #else
 u8 int_ike_k_otometle2_tex[] = {
@@ -62,7 +62,7 @@ u8 int_ike_k_otometle2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_otometle3_tex[0x80];
 #else
 u8 int_ike_k_otometle3_tex[] = {
@@ -70,7 +70,7 @@ u8 int_ike_k_otometle3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_k_otome01_v[0x6E0 / sizeof(Vtx)];
 #else
 Vtx int_ike_k_otome01_v[] = {

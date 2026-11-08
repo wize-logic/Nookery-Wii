@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 rom_museum4_step_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 rom_museum4_step_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 rom_museum4_step_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_s_stone_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_s_stone_pal[] = {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_s_stone_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_01_zassou_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_01_zassou_pal[] = {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_01_zassou_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_c_01_flower_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_c_01_flower_pal[] = {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_c_01_flower_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_b_01_flower_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_b_01_flower_pal[] = {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_b_01_flower_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_a_01_flower_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_a_01_flower_pal[] = {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_a_01_flower_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_tree_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_tree_pal[] = {
@@ -61,7 +61,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_tree_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_tree_leaf_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_tree_leaf_tex[] = {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_tree_leaf_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_tree_trunk_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_tree_trunk_tex[] = {
@@ -77,7 +77,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_tree_trunk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_c_01_flower_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_c_01_flower_tex[] = {
@@ -85,7 +85,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_c_01_flower_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_b_01_flower_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_b_01_flower_tex[] = {
@@ -93,7 +93,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_b_01_flower_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_a_01_flower_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_a_01_flower_tex[] = {
@@ -101,7 +101,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_a_01_flower_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_zassou_01_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_zassou_01_tex[] = {
@@ -109,7 +109,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_zassou_01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_stone_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_stone_tex[] = {
@@ -117,7 +117,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_stone_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 rom_museum4_plate_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 rom_museum4_plate_tex[] = {
@@ -125,7 +125,7 @@ ATTRIBUTE_ALIGN(32) u8 rom_museum4_plate_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_museum4_ue_v[0x1650 / sizeof(Vtx)];
 #else
 Vtx rom_museum4_ue_v[] = {

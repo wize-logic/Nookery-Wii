@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_tai_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_nog_tai_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_nog_tai_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_nog_tai_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_nog_tai_glass_tex_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_nog_tai_glass_tex_pic_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_nog_tai_glass_tex_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_tai_body_tex_txt[0x300];
 #else
 u8 int_nog_tai_body_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_nog_tai_body_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_tai_top_tex_txt[0x100];
 #else
 u8 int_nog_tai_top_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_nog_tai_top_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_tai_side_tex_txt[0x200];
 #else
 u8 int_nog_tai_side_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_nog_tai_side_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_tai_base_tex_txt[0x80];
 #else
 u8 int_nog_tai_base_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_nog_tai_base_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_tai_glass_tex_txt[0x100];
 #else
 u8 int_nog_tai_glass_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_nog_tai_glass_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_tai_v[0x390 / sizeof(Vtx)];
 #else
 Vtx int_nog_tai_v[] = {
@@ -165,7 +165,7 @@ cKF_Joint_R_c cKF_je_r_int_nog_tai_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA,
 
 cKF_Skeleton_R_c cKF_bs_r_int_nog_tai = { ARRAY_COUNT(cKF_je_r_int_nog_tai_tbl), 4, cKF_je_r_int_nog_tai_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_nog_tai_c(void) {
     pc_load_asset("assets/int_nog_tai/int_nog_tai_pal.bin", int_nog_tai_pal, 0x20, 0xBFA1A0, 0, 1);

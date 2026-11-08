@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 museum_picture_actable[0x30];
 #else
 u8 museum_picture_actable[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kob_rika_desk_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kob_rika_desk_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kob_rika_desk_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kob_rika_desk_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_top_tex[0x200];
 #else
 u8 int_kob_rika_desk_top_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kob_rika_desk_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_side1_tex[0x200];
 #else
 u8 int_kob_rika_desk_side1_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kob_rika_desk_side1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_side2_tex[0x80];
 #else
 u8 int_kob_rika_desk_side2_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kob_rika_desk_side2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_side3_tex[0x80];
 #else
 u8 int_kob_rika_desk_side3_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kob_rika_desk_side3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_nagashi1_tex[0x80];
 #else
 u8 int_kob_rika_desk_nagashi1_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kob_rika_desk_nagashi1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_nagashi2_tex[0x80];
 #else
 u8 int_kob_rika_desk_nagashi2_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kob_rika_desk_nagashi2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_jyaguti1_tex[0x80];
 #else
 u8 int_kob_rika_desk_jyaguti1_tex[] = {
@@ -70,7 +70,7 @@ u8 int_kob_rika_desk_jyaguti1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_jyaguti2_tex[0x80];
 #else
 u8 int_kob_rika_desk_jyaguti2_tex[] = {
@@ -78,7 +78,7 @@ u8 int_kob_rika_desk_jyaguti2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_jikken1_tex[0x80];
 #else
 u8 int_kob_rika_desk_jikken1_tex[] = {
@@ -86,7 +86,7 @@ u8 int_kob_rika_desk_jikken1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_rika_desk_jikken2_tex[0x80];
 #else
 u8 int_kob_rika_desk_jikken2_tex[] = {
@@ -94,7 +94,7 @@ u8 int_kob_rika_desk_jikken2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kob_rika_desk_v[0x4E0 / sizeof(Vtx)];
 #else
 Vtx int_kob_rika_desk_v[] = {

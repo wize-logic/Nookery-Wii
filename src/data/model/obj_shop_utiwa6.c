@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_fan6_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_fan6_pal[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_fan6_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_fan6_tex_txt[0x400];
 #else
 static u8 tol_fan6_tex_txt[] = {
@@ -21,7 +21,7 @@ static u8 tol_fan6_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_utiwa6_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_shop_utiwa6_v[] = {
@@ -49,7 +49,7 @@ gsSPEndDisplayList(),
 };
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_shop_utiwa6_c(void) {
     pc_load_asset("assets/obj_shop_utiwa6/tol_fan6_pal.bin", tol_fan6_pal, 0x20, 0x464C60, 0, 1);

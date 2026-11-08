@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 onp_win_shiro_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 onp_win_shiro_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 onp_win_shiro_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ok_tex[0x100];
 #else
 u8 onp_win_ok_tex[] = {
@@ -21,7 +21,7 @@ u8 onp_win_ok_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ga_tex[0x100];
 #else
 u8 onp_win_ga_tex[] = {
@@ -29,7 +29,7 @@ u8 onp_win_ga_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ga4_tex[0x100];
 #else
 u8 onp_win_ga4_tex[] = {
@@ -37,7 +37,7 @@ u8 onp_win_ga4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ga3_tex[0x100];
 #else
 u8 onp_win_ga3_tex[] = {
@@ -45,7 +45,7 @@ u8 onp_win_ga3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ga2_tex[0x100];
 #else
 u8 onp_win_ga2_tex[] = {
@@ -53,7 +53,7 @@ u8 onp_win_ga2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ottpo_tex[0x200];
 #else
 u8 onp_win_ottpo_tex[] = {
@@ -61,7 +61,7 @@ u8 onp_win_ottpo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_tama1_tex[0x100];
 #else
 u8 onp_win_tama1_tex[] = {
@@ -69,7 +69,7 @@ u8 onp_win_tama1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_tama2_tex[0x400];
 #else
 u8 onp_win_tama2_tex[] = {
@@ -77,7 +77,7 @@ u8 onp_win_tama2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_tama5_tex[0x100];
 #else
 u8 onp_win_tama5_tex[] = {
@@ -85,7 +85,7 @@ u8 onp_win_tama5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_w1_tex[0x800];
 #else
 u8 onp_win_w1_tex[] = {
@@ -93,7 +93,7 @@ u8 onp_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_me_tex[0x100];
 #else
 u8 onp_win_me_tex[] = {
@@ -101,7 +101,7 @@ u8 onp_win_me_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ohana_tex[0x100];
 #else
 u8 onp_win_ohana_tex[] = {
@@ -109,7 +109,7 @@ u8 onp_win_ohana_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_w2_tex[0x800];
 #else
 u8 onp_win_w2_tex[] = {
@@ -117,7 +117,7 @@ u8 onp_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_w3_tex[0x400];
 #else
 u8 onp_win_w3_tex[] = {
@@ -125,7 +125,7 @@ u8 onp_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ha_tex[0x800];
 #else
 u8 onp_win_ha_tex[] = {
@@ -133,7 +133,7 @@ u8 onp_win_ha_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_ha2_tex[0x800];
 #else
 u8 onp_win_ha2_tex[] = {
@@ -141,7 +141,7 @@ u8 onp_win_ha2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_carde_tex[0x400];
 #else
 u8 onp_win_carde_tex[] = {
@@ -149,7 +149,7 @@ u8 onp_win_carde_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rmoji[0x80];
 #else
 u8 rmoji[] = {
@@ -157,7 +157,7 @@ u8 rmoji[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_rbutton2_tex_rgb_ia8[0x200];
 #else
 u8 onp_win_rbutton2_tex_rgb_ia8[] = {
@@ -165,7 +165,7 @@ u8 onp_win_rbutton2_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_rbutton_tex_rgb_ia8[0x200];
 #else
 u8 onp_win_rbutton_tex_rgb_ia8[] = {
@@ -173,7 +173,7 @@ u8 onp_win_rbutton_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx onp_win_v[0x9E0 / sizeof(Vtx)];
 #else
 Vtx onp_win_v[] = {
@@ -181,7 +181,7 @@ Vtx onp_win_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx onp_carde_v[0x100 / sizeof(Vtx)];
 #else
 Vtx onp_carde_v[] = {

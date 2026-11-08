@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_otiba01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_otiba01_pal[] = {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_otiba01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_otiba_0_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_otiba_0_tex[] = {
@@ -32,7 +32,7 @@ Gfx ef_otiba01_setmode[] = {
     // #include "assets/ef_otiba01_setmode.inc"
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_otiba01_00_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_otiba01_00_v[] = {
@@ -49,7 +49,7 @@ Gfx ef_otiba01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_otiba_1_tex[0x80];
 #else
 u8 ef_otiba_1_tex[] = {
@@ -57,7 +57,7 @@ u8 ef_otiba_1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_otiba01_01_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_otiba01_01_v[] = {
@@ -74,7 +74,7 @@ Gfx ef_otiba01_01_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_otiba_2_tex[0x80];
 #else
 u8 ef_otiba_2_tex[] = {
@@ -82,7 +82,7 @@ u8 ef_otiba_2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_otiba01_02_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_otiba01_02_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_bodyprint01_0[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_bodyprint01_0[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_bodyprint01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_bodyprint01_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_bodyprint01_00_v[] = {
@@ -33,7 +33,7 @@ Gfx ef_bodyprint01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_footprint01_0[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_footprint01_0[] = {
@@ -41,7 +41,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_footprint01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_footprint01_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_footprint01_00_v[] = {
@@ -61,7 +61,7 @@ Gfx ef_footprint01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_footprint01_1[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_footprint01_1[] = {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_footprint01_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_turn_footprint_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_turn_footprint_v[] = {
@@ -89,7 +89,7 @@ Gfx ef_turn_footprint_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_footprint01_2[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_footprint01_2[] = {
@@ -97,7 +97,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_footprint01_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_footprint01_02_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_footprint01_02_v[] = {

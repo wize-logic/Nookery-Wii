@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_sleep_z[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_sleep_z[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_sleep_z[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_sleep01_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_sleep01_v[] = {

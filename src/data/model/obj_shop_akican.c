@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_akican_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_akican_pal[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_shop_akican_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_shop_akican_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_shop_akican_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_shop_akican_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_akican_v[0x330 / sizeof(Vtx)];
 #else
 Vtx obj_shop_akican_v[] = {
@@ -57,7 +57,7 @@ gsSPEndDisplayList(),
 };
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_shop_akican_c(void) {
     pc_load_asset("assets/obj_shop_akican/obj_shop_akican_pal.bin", obj_shop_akican_pal, 0x20, 0x677C40, 0, 1);

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_e_hanami_t1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_e_hanami_t1_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_e_hanami_t1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_hanami_t2_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_hanami_t2_pal[] = {
@@ -21,7 +21,7 @@ u16 obj_e_hanami_t2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_hanami_t3_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_hanami_t3_pal[] = {
@@ -29,7 +29,7 @@ u16 obj_e_hanami_t3_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_hanami_t5_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_hanami_t5_pal[] = {
@@ -37,7 +37,7 @@ u16 obj_e_hanami_t5_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hanami_t1[0x800];
 #else
 u8 obj_e_hanami_t1[] = {
@@ -45,7 +45,7 @@ u8 obj_e_hanami_t1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hanami_t2[0x400];
 #else
 u8 obj_e_hanami_t2[] = {
@@ -53,7 +53,7 @@ u8 obj_e_hanami_t2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hanami_t3[0x200];
 #else
 u8 obj_e_hanami_t3[] = {
@@ -61,7 +61,7 @@ u8 obj_e_hanami_t3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hanami_t4[0x40];
 #else
 u8 obj_e_hanami_t4[] = {
@@ -69,7 +69,7 @@ u8 obj_e_hanami_t4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hanami_t5[0x80];
 #else
 u8 obj_e_hanami_t5[] = {
@@ -77,7 +77,7 @@ u8 obj_e_hanami_t5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_hanami_t6[0x20];
 #else
 u8 obj_e_hanami_t6[] = {
@@ -85,7 +85,7 @@ u8 obj_e_hanami_t6[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_hanami_a_v[0xB10 / sizeof(Vtx)];
 #else
 Vtx obj_e_hanami_a_v[] = {
@@ -170,7 +170,7 @@ Gfx obj_e_hanami_a_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_hanami_b_v[0xBE0 / sizeof(Vtx)];
 #else
 Vtx obj_e_hanami_b_v[] = {

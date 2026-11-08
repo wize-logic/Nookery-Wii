@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_myhome3_floor_v[0x5B0 / sizeof(Vtx)];
 #else
 Vtx rom_myhome3_floor_v[] = {

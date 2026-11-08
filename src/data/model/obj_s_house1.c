@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house1_t1_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house1_t1_tex_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house1_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house1_window_txt[0x80];
 #else
 u8 obj_s_house1_window_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_s_house1_window_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house1_t3_tex_txt[0x800];
 #else
 u8 obj_s_house1_t3_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 obj_s_house1_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house1_t2_tex_txt[0x800];
 #else
 u8 obj_s_house1_t2_tex_txt[] = {
@@ -37,7 +37,7 @@ u8 obj_s_house1_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house1_t4_tex_txt[0x200];
 #else
 u8 obj_s_house1_t4_tex_txt[] = {
@@ -45,7 +45,7 @@ u8 obj_s_house1_t4_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house1_v[0x730 / sizeof(Vtx)];
 #else
 Vtx obj_s_house1_v[] = {
@@ -217,7 +217,7 @@ cKF_Animation_R_c cKF_ba_r_obj_s_house1_out = { cKF_ckcb_r_obj_s_house1_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house2_t3_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house2_t3_tex_txt[] = {
@@ -225,7 +225,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house2_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house2_window_tex_txt[0x80];
 #else
 u8 obj_s_house2_window_tex_txt[] = {
@@ -233,7 +233,7 @@ u8 obj_s_house2_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house2_t2_tex_txt[0x800];
 #else
 u8 obj_s_house2_t2_tex_txt[] = {
@@ -241,7 +241,7 @@ u8 obj_s_house2_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house2_t1_tex_txt[0x800];
 #else
 u8 obj_s_house2_t1_tex_txt[] = {
@@ -249,7 +249,7 @@ u8 obj_s_house2_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house2_name_tex_txt[0x200];
 #else
 u8 obj_s_house2_name_tex_txt[] = {
@@ -257,7 +257,7 @@ u8 obj_s_house2_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house2_v[0x6D0 / sizeof(Vtx)];
 #else
 Vtx obj_s_house2_v[] = {
@@ -420,7 +420,7 @@ cKF_Animation_R_c cKF_ba_r_obj_s_house2_out = { cKF_ckcb_r_obj_s_house2_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house3_t3_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house3_t3_tex_txt[] = {
@@ -428,7 +428,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house3_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house3_t1_tex_txt[0x800];
 #else
 u8 obj_s_house3_t1_tex_txt[] = {
@@ -436,7 +436,7 @@ u8 obj_s_house3_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house3_t2_tex_txt[0x800];
 #else
 u8 obj_s_house3_t2_tex_txt[] = {
@@ -444,7 +444,7 @@ u8 obj_s_house3_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house3_window_tex_txt[0x80];
 #else
 u8 obj_s_house3_window_tex_txt[] = {
@@ -452,7 +452,7 @@ u8 obj_s_house3_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house3_name_tex_txt[0x200];
 #else
 u8 obj_s_house3_name_tex_txt[] = {
@@ -460,7 +460,7 @@ u8 obj_s_house3_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house3_v[0x640 / sizeof(Vtx)];
 #else
 Vtx obj_s_house3_v[] = {
@@ -633,7 +633,7 @@ cKF_Animation_R_c cKF_ba_r_obj_s_house3_out = { cKF_ckcb_r_obj_s_house3_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house4_t3_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house4_t3_tex_txt[] = {
@@ -641,7 +641,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house4_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house4_t1_tex_txt[0x800];
 #else
 u8 obj_s_house4_t1_tex_txt[] = {
@@ -649,7 +649,7 @@ u8 obj_s_house4_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house4_t2_tex_txt[0x800];
 #else
 u8 obj_s_house4_t2_tex_txt[] = {
@@ -657,7 +657,7 @@ u8 obj_s_house4_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house4_window_tex_txt[0x80];
 #else
 u8 obj_s_house4_window_tex_txt[] = {
@@ -665,7 +665,7 @@ u8 obj_s_house4_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house4_name_tex_txt[0x200];
 #else
 u8 obj_s_house4_name_tex_txt[] = {
@@ -673,7 +673,7 @@ u8 obj_s_house4_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house4_v[0x590 / sizeof(Vtx)];
 #else
 Vtx obj_s_house4_v[] = {
@@ -847,7 +847,7 @@ cKF_Animation_R_c cKF_ba_r_obj_s_house4_out = { cKF_ckcb_r_obj_s_house4_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house5_t3_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house5_t3_tex_txt[] = {
@@ -855,7 +855,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house5_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house5_t1_tex_txt[0x800];
 #else
 u8 obj_s_house5_t1_tex_txt[] = {
@@ -863,7 +863,7 @@ u8 obj_s_house5_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house5_window_tex_txt[0x80];
 #else
 u8 obj_s_house5_window_tex_txt[] = {
@@ -871,7 +871,7 @@ u8 obj_s_house5_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house5_t2_tex_txt[0x800];
 #else
 u8 obj_s_house5_t2_tex_txt[] = {
@@ -879,7 +879,7 @@ u8 obj_s_house5_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_house5_name_tex_txt[0x200];
 #else
 u8 obj_s_house5_name_tex_txt[] = {
@@ -887,7 +887,7 @@ u8 obj_s_house5_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house5_v[0x830 / sizeof(Vtx)];
 #else
 Vtx obj_s_house5_v[] = {
@@ -1064,7 +1064,7 @@ cKF_Animation_R_c cKF_ba_r_obj_s_house5_out = { cKF_ckcb_r_obj_s_house5_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_house1_t1_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_house1_t1_tex_txt[] = {
@@ -1072,7 +1072,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_house1_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house1_window_txt[0x80];
 #else
 u8 obj_w_house1_window_txt[] = {
@@ -1080,7 +1080,7 @@ u8 obj_w_house1_window_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house1_t3_tex_txt[0x800];
 #else
 u8 obj_w_house1_t3_tex_txt[] = {
@@ -1088,7 +1088,7 @@ u8 obj_w_house1_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house1_t2_tex_txt[0x800];
 #else
 u8 obj_w_house1_t2_tex_txt[] = {
@@ -1096,7 +1096,7 @@ u8 obj_w_house1_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house1_t4_tex_txt[0x200];
 #else
 u8 obj_w_house1_t4_tex_txt[] = {
@@ -1104,7 +1104,7 @@ u8 obj_w_house1_t4_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_house1_v[0x730 / sizeof(Vtx)];
 #else
 Vtx obj_w_house1_v[] = {
@@ -1276,7 +1276,7 @@ cKF_Animation_R_c cKF_ba_r_obj_w_house1_out = { cKF_ckcb_r_obj_w_house1_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_house2_t3_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_house2_t3_tex_txt[] = {
@@ -1284,7 +1284,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_house2_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house2_window_tex_txt[0x80];
 #else
 u8 obj_w_house2_window_tex_txt[] = {
@@ -1292,7 +1292,7 @@ u8 obj_w_house2_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house2_t2_tex_txt[0x800];
 #else
 u8 obj_w_house2_t2_tex_txt[] = {
@@ -1300,7 +1300,7 @@ u8 obj_w_house2_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house2_t1_tex_txt[0x800];
 #else
 u8 obj_w_house2_t1_tex_txt[] = {
@@ -1308,7 +1308,7 @@ u8 obj_w_house2_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house2_name_tex_txt[0x200];
 #else
 u8 obj_w_house2_name_tex_txt[] = {
@@ -1316,7 +1316,7 @@ u8 obj_w_house2_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_house2_v[0x6D0 / sizeof(Vtx)];
 #else
 Vtx obj_w_house2_v[] = {
@@ -1480,7 +1480,7 @@ cKF_Animation_R_c cKF_ba_r_obj_w_house2_out = { cKF_ckcb_r_obj_w_house2_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_w_house3_a_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_w_house3_a_pal[] = {
@@ -1488,7 +1488,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_w_house3_a_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house3_t3_tex_txt[0x800];
 #else
 u8 obj_w_house3_t3_tex_txt[] = {
@@ -1496,7 +1496,7 @@ u8 obj_w_house3_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house3_t1_tex_txt[0x800];
 #else
 u8 obj_w_house3_t1_tex_txt[] = {
@@ -1504,7 +1504,7 @@ u8 obj_w_house3_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house3_t2_tex_txt[0x800];
 #else
 u8 obj_w_house3_t2_tex_txt[] = {
@@ -1512,7 +1512,7 @@ u8 obj_w_house3_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house3_window_tex_txt[0x80];
 #else
 u8 obj_w_house3_window_tex_txt[] = {
@@ -1520,7 +1520,7 @@ u8 obj_w_house3_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house3_name_tex_txt[0x200];
 #else
 u8 obj_w_house3_name_tex_txt[] = {
@@ -1528,7 +1528,7 @@ u8 obj_w_house3_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_house3_v[0x640 / sizeof(Vtx)];
 #else
 Vtx obj_w_house3_v[] = {
@@ -1701,7 +1701,7 @@ cKF_Animation_R_c cKF_ba_r_obj_w_house3_out = { cKF_ckcb_r_obj_w_house3_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_house4_t3_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_house4_t3_tex_txt[] = {
@@ -1709,7 +1709,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_house4_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house4_t1_tex_txt[0x800];
 #else
 u8 obj_w_house4_t1_tex_txt[] = {
@@ -1717,7 +1717,7 @@ u8 obj_w_house4_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house4_t2_tex_txt[0x800];
 #else
 u8 obj_w_house4_t2_tex_txt[] = {
@@ -1725,7 +1725,7 @@ u8 obj_w_house4_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house4_window_tex_txt[0x80];
 #else
 u8 obj_w_house4_window_tex_txt[] = {
@@ -1733,7 +1733,7 @@ u8 obj_w_house4_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house4_name_tex_txt[0x200];
 #else
 u8 obj_w_house4_name_tex_txt[] = {
@@ -1741,7 +1741,7 @@ u8 obj_w_house4_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_house4_v[0x5D0 / sizeof(Vtx)];
 #else
 Vtx obj_w_house4_v[] = {
@@ -1912,7 +1912,7 @@ cKF_Animation_R_c cKF_ba_r_obj_w_house4_out = { cKF_ckcb_r_obj_w_house4_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_house5_t3_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_house5_t3_tex_txt[] = {
@@ -1920,7 +1920,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_house5_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house5_t1_tex_txt[0x800];
 #else
 u8 obj_w_house5_t1_tex_txt[] = {
@@ -1928,7 +1928,7 @@ u8 obj_w_house5_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house5_window_tex_txt[0x80];
 #else
 u8 obj_w_house5_window_tex_txt[] = {
@@ -1936,7 +1936,7 @@ u8 obj_w_house5_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house5_t2_tex_txt[0x800];
 #else
 u8 obj_w_house5_t2_tex_txt[] = {
@@ -1944,7 +1944,7 @@ u8 obj_w_house5_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_house5_name_tex_txt[0x200];
 #else
 u8 obj_w_house5_name_tex_txt[] = {
@@ -1952,7 +1952,7 @@ u8 obj_w_house5_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_house5_v[0x830 / sizeof(Vtx)];
 #else
 Vtx obj_w_house5_v[] = {
@@ -2129,7 +2129,7 @@ cKF_Animation_R_c cKF_ba_r_obj_w_house5_out = { cKF_ckcb_r_obj_w_house5_out_tbl,
                                                 -1,
                                                 51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_s_house1_c(void) {
     pc_load_asset("assets/obj_s_house1/obj_w_house3_a_pal.bin", obj_w_house3_a_pal, 0x20, 0x833420, 0, 1);

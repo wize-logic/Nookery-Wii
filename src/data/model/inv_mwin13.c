@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_hiougi_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_hiougi_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_hiougi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_hirako_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_hirako_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_hirako_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_hone_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_hone_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_hone_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_hora_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_hora_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_hora_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_hoshida_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_hoshida_pal[] = {
@@ -45,7 +45,7 @@ u16 inv_mwin_hoshida_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_sango_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_sango_pal[] = {
@@ -53,7 +53,7 @@ u16 inv_mwin_sango_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_syako_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_syako_pal[] = {
@@ -61,7 +61,7 @@ u16 inv_mwin_syako_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hiougi_tex[0x200];
 #else
 u8 inv_mwin_hiougi_tex[] = {
@@ -69,7 +69,7 @@ u8 inv_mwin_hiougi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hirako_tex[0x200];
 #else
 u8 inv_mwin_hirako_tex[] = {
@@ -77,7 +77,7 @@ u8 inv_mwin_hirako_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hone_tex[0x200];
 #else
 u8 inv_mwin_hone_tex[] = {
@@ -85,7 +85,7 @@ u8 inv_mwin_hone_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hora_tex[0x200];
 #else
 u8 inv_mwin_hora_tex[] = {
@@ -93,7 +93,7 @@ u8 inv_mwin_hora_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hoshida_tex[0x200];
 #else
 u8 inv_mwin_hoshida_tex[] = {
@@ -101,7 +101,7 @@ u8 inv_mwin_hoshida_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_sango_tex[0x200];
 #else
 u8 inv_mwin_sango_tex[] = {
@@ -109,7 +109,7 @@ u8 inv_mwin_sango_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_syako_tex[0x200];
 #else
 u8 inv_mwin_syako_tex[] = {

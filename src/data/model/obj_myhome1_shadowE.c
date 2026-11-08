@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_myhome1_shadowE[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_myhome1_shadowE[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_myhome1_shadowE[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome1_shadowE_v[0x120 / sizeof(Vtx)];
 #else
 Vtx obj_myhome1_shadowE_v[] = {
@@ -38,7 +38,7 @@ Gfx obj_myhome1_shadowET_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_myhome1_shadowW[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_myhome1_shadowW[] = {
@@ -46,7 +46,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_myhome1_shadowW[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome1_shadowW_v[0x120 / sizeof(Vtx)];
 #else
 Vtx obj_myhome1_shadowW_v[] = {
@@ -71,7 +71,7 @@ Gfx obj_myhome1_shadowWT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_myhome2_shadowE[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_myhome2_shadowE[] = {
@@ -79,7 +79,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_myhome2_shadowE[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome2_shadowE_v[0x120 / sizeof(Vtx)];
 #else
 Vtx obj_myhome2_shadowE_v[] = {
@@ -104,7 +104,7 @@ Gfx obj_myhome2_shadowET_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_myhome2_shadowW[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_myhome2_shadowW[] = {
@@ -112,7 +112,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_myhome2_shadowW[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome2_shadowW_v[0x120 / sizeof(Vtx)];
 #else
 Vtx obj_myhome2_shadowW_v[] = {
@@ -137,7 +137,7 @@ Gfx obj_myhome2_shadowWT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_myhome3_shadowE[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_myhome3_shadowE[] = {
@@ -145,7 +145,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_myhome3_shadowE[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome3_shadowE_v[0x120 / sizeof(Vtx)];
 #else
 Vtx obj_myhome3_shadowE_v[] = {
@@ -170,7 +170,7 @@ Gfx obj_myhome3_shadowET_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_myhome3_shadowW[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_myhome3_shadowW[] = {
@@ -178,7 +178,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_myhome3_shadowW[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome3_shadowW_v[0x120 / sizeof(Vtx)];
 #else
 Vtx obj_myhome3_shadowW_v[] = {
@@ -203,7 +203,7 @@ Gfx obj_myhome3_shadowWT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_myhome4_shadowE[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_myhome4_shadowE[] = {
@@ -211,7 +211,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_myhome4_shadowE[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome4_shadowE_v[0x120 / sizeof(Vtx)];
 #else
 Vtx obj_myhome4_shadowE_v[] = {
@@ -236,7 +236,7 @@ Gfx obj_myhome4_shadowET_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_myhome4_shadowW[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_myhome4_shadowW[] = {
@@ -244,7 +244,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_myhome4_shadowW[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome4_shadowW_v[0x120 / sizeof(Vtx)];
 #else
 Vtx obj_myhome4_shadowW_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 light_window[0x80];
 #else
 u8 light_window[] = {
@@ -13,7 +13,7 @@ u8 light_window[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx room_lightR_v[0xA0 / sizeof(Vtx)];
 #else
 Vtx room_lightR_v[] = {
@@ -21,7 +21,7 @@ Vtx room_lightR_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx room_lightL_v[0xA0 / sizeof(Vtx)];
 #else
 Vtx room_lightL_v[] = {

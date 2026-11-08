@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_pbox1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_pbox1_tex_rgb_ci4_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_pbox1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_pbox2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_pbox2_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_pbox2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_pbox3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_pbox3_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_pbox3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_pbox4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_pbox4_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_pbox4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_pbox5_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_pbox5_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ u16 inv_mwin_pbox5_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_pbox1_tex_rgb_ci4[0x200];
 #else
 u8 inv_mwin_pbox1_tex_rgb_ci4[] = {
@@ -53,7 +53,7 @@ u8 inv_mwin_pbox1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_pbox2_tex_rgb_ci4[0x200];
 #else
 u8 inv_mwin_pbox2_tex_rgb_ci4[] = {
@@ -61,7 +61,7 @@ u8 inv_mwin_pbox2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_pbox3_tex_rgb_ci4[0x200];
 #else
 u8 inv_mwin_pbox3_tex_rgb_ci4[] = {
@@ -69,7 +69,7 @@ u8 inv_mwin_pbox3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_pbox4_tex_rgb_ci4[0x200];
 #else
 u8 inv_mwin_pbox4_tex_rgb_ci4[] = {
@@ -77,7 +77,7 @@ u8 inv_mwin_pbox4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_pbox5_tex_rgb_ci4[0x200];
 #else
 u8 inv_mwin_pbox5_tex_rgb_ci4[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_hirameki01_0[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_hirameki01_0[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_hirameki01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_hirameki01_den_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_hirameki01_den_v[] = {
@@ -34,7 +34,7 @@ Gfx ef_hirameki01_den_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_hirameki01_1[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_hirameki01_1[] = {
@@ -42,7 +42,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_hirameki01_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_hirameki01_hikari_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_hirameki01_hikari_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 lat_atena_win_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 lat_atena_win_tex[] = {

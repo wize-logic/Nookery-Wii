@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_turi_l_shadow_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_turi_l_shadow_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_turi_l_shadow_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_turi_l_shadow_v[0x60 / sizeof(Vtx)];
 #else
 Vtx obj_e_turi_l_shadow_v[] = {
@@ -34,7 +34,7 @@ Gfx obj_e_turi_l_shadow_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_turi_r_shadow_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_turi_r_shadow_tex[] = {
@@ -42,7 +42,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_turi_r_shadow_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_turi_r_shadow_v[0x60 / sizeof(Vtx)];
 #else
 Vtx obj_e_turi_r_shadow_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_video_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_video_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_video_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_camera2_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_camera2_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_camera2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_GB_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_GB_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_GB_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_hankati_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_hankati_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_hankati_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_ehon_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_ehon_pal[] = {
@@ -45,7 +45,7 @@ u16 inv_mwin_ehon_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_manga_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_manga_pal[] = {
@@ -53,7 +53,7 @@ u16 inv_mwin_manga_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_glasses_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_glasses_pal[] = {
@@ -61,7 +61,7 @@ u16 inv_mwin_glasses_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_pokepi_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_pokepi_pal[] = {
@@ -69,7 +69,7 @@ u16 inv_mwin_pokepi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_tetyou_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_tetyou_pal[] = {
@@ -77,7 +77,7 @@ u16 inv_mwin_tetyou_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_tokei_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_tokei_pal[] = {
@@ -85,7 +85,7 @@ u16 inv_mwin_tokei_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_video_tex[0x200];
 #else
 u8 inv_mwin_video_tex[] = {
@@ -93,7 +93,7 @@ u8 inv_mwin_video_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_camera_tex[0x200];
 #else
 u8 inv_mwin_camera_tex[] = {
@@ -101,7 +101,7 @@ u8 inv_mwin_camera_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_GB_tex[0x200];
 #else
 u8 inv_mwin_GB_tex[] = {
@@ -109,7 +109,7 @@ u8 inv_mwin_GB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hankati_tex[0x200];
 #else
 u8 inv_mwin_hankati_tex[] = {
@@ -117,7 +117,7 @@ u8 inv_mwin_hankati_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_ehon_tex[0x200];
 #else
 u8 inv_mwin_ehon_tex[] = {
@@ -125,7 +125,7 @@ u8 inv_mwin_ehon_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_manga_tex[0x200];
 #else
 u8 inv_mwin_manga_tex[] = {
@@ -133,7 +133,7 @@ u8 inv_mwin_manga_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_glasses_tex[0x200];
 #else
 u8 inv_mwin_glasses_tex[] = {
@@ -141,7 +141,7 @@ u8 inv_mwin_glasses_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_pokepi_tex[0x200];
 #else
 u8 inv_mwin_pokepi_tex[] = {
@@ -149,7 +149,7 @@ u8 inv_mwin_pokepi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_tetyou_tex[0x200];
 #else
 u8 inv_mwin_tetyou_tex[] = {
@@ -157,7 +157,7 @@ u8 inv_mwin_tetyou_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_tokei_tex[0x200];
 #else
 u8 inv_mwin_tokei_tex[] = {

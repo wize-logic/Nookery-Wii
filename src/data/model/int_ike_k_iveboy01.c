@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_k_iveboy01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_k_iveboy01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_k_iveboy01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_k_iveboy01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboyseat2_tex[0x40];
 #else
 u8 int_ike_k_iveboyseat2_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_k_iveboyseat2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboymir1_tex[0x80];
 #else
 u8 int_ike_k_iveboymir1_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_k_iveboymir1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboylighttex[0x80];
 #else
 u8 int_ike_k_iveboylighttex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_k_iveboylighttex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboyhand_tex[0x80];
 #else
 u8 int_ike_k_iveboyhand_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_k_iveboyhand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboyback_tex[0x40];
 #else
 u8 int_ike_k_iveboyback_tex[] = {
@@ -54,7 +54,7 @@ u8 int_ike_k_iveboyback_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboybase1_tex[0x40];
 #else
 u8 int_ike_k_iveboybase1_tex[] = {
@@ -62,7 +62,7 @@ u8 int_ike_k_iveboybase1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboymir2_tex[0x40];
 #else
 u8 int_ike_k_iveboymir2_tex[] = {
@@ -70,7 +70,7 @@ u8 int_ike_k_iveboymir2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboyside1_tex[0x200];
 #else
 u8 int_ike_k_iveboyside1_tex[] = {
@@ -78,7 +78,7 @@ u8 int_ike_k_iveboyside1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboyseat_tex[0x100];
 #else
 u8 int_ike_k_iveboyseat_tex[] = {
@@ -86,7 +86,7 @@ u8 int_ike_k_iveboyseat_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboytire_tex[0x80];
 #else
 u8 int_ike_k_iveboytire_tex[] = {
@@ -94,7 +94,7 @@ u8 int_ike_k_iveboytire_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboysidein_tex[0x80];
 #else
 u8 int_ike_k_iveboysidein_tex[] = {
@@ -102,7 +102,7 @@ u8 int_ike_k_iveboysidein_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboyfront1_tex[0x200];
 #else
 u8 int_ike_k_iveboyfront1_tex[] = {
@@ -110,7 +110,7 @@ u8 int_ike_k_iveboyfront1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_iveboybase3_rgb_i4[0x200];
 #else
 u8 int_ike_k_iveboybase3_rgb_i4[] = {
@@ -118,7 +118,7 @@ u8 int_ike_k_iveboybase3_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_k_iveboy01_v[0xAA0 / sizeof(Vtx)];
 #else
 Vtx int_ike_k_iveboy01_v[] = {

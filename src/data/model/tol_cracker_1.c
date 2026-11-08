@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tol_cracker_1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tol_cracker_1_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 tol_cracker_1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_cracker_1_tex[0x200];
 #else
 u8 tol_cracker_1_tex[] = {
@@ -21,7 +21,7 @@ u8 tol_cracker_1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_cracker_1_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx tol_cracker_1_v[] = {

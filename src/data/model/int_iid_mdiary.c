@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iid_mdiary_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_iid_mdiary[0x20];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_iid_mdiary[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_iid_mdiary[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_diary[0x20];
 #else
 static u8 int_iid_diary[] = {
@@ -22,7 +22,7 @@ static u8 int_iid_diary[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_mdiary_mae_tex[0x20];
 #else
 u8 int_iid_mdiary_mae_tex[] = {
@@ -30,7 +30,7 @@ u8 int_iid_mdiary_mae_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_mdiary_hyoushi_tex[0x200];
 #else
 u8 int_iid_mdiary_hyoushi_tex[] = {
@@ -38,7 +38,7 @@ u8 int_iid_mdiary_hyoushi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_mdiary_soko_tex[0x20];
 #else
 u8 int_iid_mdiary_soko_tex[] = {
@@ -46,7 +46,7 @@ u8 int_iid_mdiary_soko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_mdiary_ue_tex[0x20];
 #else
 u8 int_iid_mdiary_ue_tex[] = {
@@ -54,7 +54,7 @@ u8 int_iid_mdiary_ue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 int_iid_diary_esaki_tex[0x20];
 #else
 static u8 int_iid_diary_esaki_tex[] = {
@@ -62,7 +62,7 @@ static u8 int_iid_diary_esaki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_mdiary_ebody_tex[0x20];
 #else
 u8 int_iid_mdiary_ebody_tex[] = {
@@ -70,7 +70,7 @@ u8 int_iid_mdiary_ebody_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iid_mdiary_v[0x380 / sizeof(Vtx)];
 #else
 Vtx int_iid_mdiary_v[] = {
@@ -118,7 +118,7 @@ Gfx int_iid_mdiary_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_iid_mdiary_c(void) {
     pc_load_asset("assets/int_iid_mdiary/int_iid_diary.bin", int_iid_diary, 0x20, 0xAF2280, 0, 1);

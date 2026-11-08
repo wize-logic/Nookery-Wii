@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_tent_box_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_tent_box_pal[] = {
@@ -8,7 +8,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_tent_box_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_tent_can_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_tent_can_pal[] = {
@@ -16,7 +16,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_tent_can_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_tent_mono1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_tent_mono1_pal[] = {
@@ -24,7 +24,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_tent_mono1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_tent_gas_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_tent_gas_pal[] = {
@@ -32,7 +32,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_tent_gas_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_enter[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_enter[] = {
@@ -40,7 +40,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_enter[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_floor[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_floor[] = {
@@ -48,7 +48,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_floor[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_wall1[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_wall1[] = {
@@ -56,7 +56,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_wall1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_wall2[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_wall2[] = {
@@ -64,7 +64,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_wall2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_bou[0x20];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_bou[] = {
@@ -72,7 +72,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_bou[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_mono1[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_mono1[] = {
@@ -80,7 +80,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_mono1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_can[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_can[] = {
@@ -88,7 +88,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_can[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_conpas[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_conpas[] = {
@@ -96,7 +96,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_conpas[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_box[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_box[] = {
@@ -104,7 +104,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_box[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_m[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_m[] = {
@@ -112,7 +112,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_m[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_gas[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_gas[] = {
@@ -120,7 +120,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_gas[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_s[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_s[] = {
@@ -128,7 +128,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_s[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_b[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_b[] = {
@@ -136,7 +136,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_tent_kage_b[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx rom_tent_v[0x15D0 / sizeof(Vtx)];
 #else
 static Vtx rom_tent_v[] = {
@@ -595,7 +595,7 @@ extern Gfx rom_tent_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_rom_tent_rom_tent_c(void) {
     pc_load_asset("assets/field/bg/rom_tent_box_pal.bin", rom_tent_box_pal, 0x20, 0xD905E0, 0, 1);

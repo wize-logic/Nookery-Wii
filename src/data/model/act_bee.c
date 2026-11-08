@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_bee_tex_txt[0x200];
 #else
 u8 act_bee_tex_txt[] = {
@@ -11,7 +11,7 @@ u8 act_bee_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_bee_v[0x3A0 / sizeof(Vtx)];
 #else
 Vtx act_bee_v[] = {

@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_uranai_floor_tex_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_uranai_floor_tex_pal[] = {
@@ -8,7 +8,7 @@ static u16 rom_uranai_floor_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_uranai_wall_tex_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_uranai_wall_tex_pal[] = {
@@ -16,7 +16,7 @@ static u16 rom_uranai_wall_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_uranai_table_tex_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_uranai_table_tex_pal[] = {
@@ -24,7 +24,7 @@ static u16 rom_uranai_table_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_uranai_tubo_tex_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_uranai_tubo_tex_pal[] = {
@@ -32,7 +32,7 @@ static u16 rom_uranai_tubo_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_uranai_stand_tex_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_uranai_stand_tex_pal[] = {
@@ -40,7 +40,7 @@ static u16 rom_uranai_stand_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_uranai_tex_nuno_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_uranai_tex_nuno_pal[] = {
@@ -48,7 +48,7 @@ static u16 rom_uranai_tex_nuno_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_uranai_tex_bace_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_uranai_tex_bace_pal[] = {
@@ -56,7 +56,7 @@ static u16 rom_uranai_tex_bace_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_uranai_card_tex_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_uranai_card_tex_pal[] = {
@@ -64,7 +64,7 @@ static u16 rom_uranai_card_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_floor_tex[0x800];
 #else
 static u8 rom_uranai_floor_tex[] = {
@@ -72,7 +72,7 @@ static u8 rom_uranai_floor_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_wall01_tex[0x600];
 #else
 static u8 rom_uranai_wall01_tex[] = {
@@ -80,7 +80,7 @@ static u8 rom_uranai_wall01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_wall02_tex[0x400];
 #else
 static u8 rom_uranai_wall02_tex[] = {
@@ -88,7 +88,7 @@ static u8 rom_uranai_wall02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_wall03_tex[0x400];
 #else
 static u8 rom_uranai_wall03_tex[] = {
@@ -96,7 +96,7 @@ static u8 rom_uranai_wall03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_table01_tex[0x80];
 #else
 static u8 rom_uranai_table01_tex[] = {
@@ -104,7 +104,7 @@ static u8 rom_uranai_table01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_table02_tex[0x80];
 #else
 static u8 rom_uranai_table02_tex[] = {
@@ -112,7 +112,7 @@ static u8 rom_uranai_table02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_tubo_tex[0x200];
 #else
 static u8 rom_uranai_tubo_tex[] = {
@@ -120,7 +120,7 @@ static u8 rom_uranai_tubo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_shadow01_tex[0x100];
 #else
 static u8 rom_uranai_shadow01_tex[] = {
@@ -128,7 +128,7 @@ static u8 rom_uranai_shadow01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_vell_tex[0x400];
 #else
 static u8 rom_uranai_vell_tex[] = {
@@ -136,7 +136,7 @@ static u8 rom_uranai_vell_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_vell02_tex[0x400];
 #else
 static u8 rom_uranai_vell02_tex[] = {
@@ -144,7 +144,7 @@ static u8 rom_uranai_vell02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_stand01_tex[0x200];
 #else
 static u8 rom_uranai_stand01_tex[] = {
@@ -152,7 +152,7 @@ static u8 rom_uranai_stand01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_nuno01_tex[0x80];
 #else
 static u8 rom_uranai_nuno01_tex[] = {
@@ -160,7 +160,7 @@ static u8 rom_uranai_nuno01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_nuno02_tex[0x80];
 #else
 static u8 rom_uranai_nuno02_tex[] = {
@@ -168,7 +168,7 @@ static u8 rom_uranai_nuno02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_bace_tex[0x200];
 #else
 static u8 rom_uranai_bace_tex[] = {
@@ -176,7 +176,7 @@ static u8 rom_uranai_bace_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_card01_tex[0x200];
 #else
 static u8 rom_uranai_card01_tex[] = {
@@ -184,7 +184,7 @@ static u8 rom_uranai_card01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_shadow02_tex[0x100];
 #else
 static u8 rom_uranai_shadow02_tex[] = {
@@ -192,7 +192,7 @@ static u8 rom_uranai_shadow02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_card02_tex[0x480];
 #else
 static u8 rom_uranai_card02_tex[] = {
@@ -200,7 +200,7 @@ static u8 rom_uranai_card02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_cris02_tex[0x800];
 #else
 static u8 rom_uranai_cris02_tex[] = {
@@ -208,7 +208,7 @@ static u8 rom_uranai_cris02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_cris01_tex_rgb_ia8[0x400];
 #else
 static u8 rom_uranai_cris01_tex_rgb_ia8[] = {
@@ -216,7 +216,7 @@ static u8 rom_uranai_cris01_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_hi02_tex_rgb_i4[0x200];
 #else
 static u8 rom_uranai_hi02_tex_rgb_i4[] = {
@@ -224,7 +224,7 @@ static u8 rom_uranai_hi02_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_uranai_hi03_tex_rgb_i4[0x200];
 #else
 static u8 rom_uranai_hi03_tex_rgb_i4[] = {
@@ -232,7 +232,7 @@ static u8 rom_uranai_hi03_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx rom_uranai_v[0x14E0 / sizeof(Vtx)];
 #else
 static Vtx rom_uranai_v[] = {
@@ -518,7 +518,7 @@ extern Gfx rom_uranai_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_rom_uranai_rom_uranai_c(void) {
     pc_load_asset("assets/field/bg/rom_uranai_floor_tex_pal.bin", rom_uranai_floor_tex_pal, 0x20, 0xD9F460, 0, 1);

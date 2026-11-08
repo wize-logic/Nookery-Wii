@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mMP_house_pos_list[0x978];
 #else
 u8 mMP_house_pos_list[] = {

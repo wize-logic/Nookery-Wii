@@ -17,7 +17,7 @@ Gfx lat_sousa_mode[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_sousa_sp_tex[0x80];
 #else
 u8 lat_sousa_sp_tex[] = {
@@ -25,7 +25,7 @@ u8 lat_sousa_sp_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx lat_sp_v[0x40 / sizeof(Vtx)];
 #else
 Vtx lat_sp_v[] = {
@@ -53,7 +53,7 @@ Gfx lat_sousa_spT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_tegami_end_tex[0x400];
 #else
 u8 lat_tegami_end_tex[] = {
@@ -61,7 +61,7 @@ u8 lat_tegami_end_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx lat_end_v[0x40 / sizeof(Vtx)];
 #else
 Vtx lat_end_v[] = {

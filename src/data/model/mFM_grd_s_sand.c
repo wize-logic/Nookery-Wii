@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 mFM_grd_s_sand_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 mFM_grd_s_sand_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 mFM_grd_s_sand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mFM_grd_s_sand_2_tex[0x400];
 #else
 u8 mFM_grd_s_sand_2_tex[] = {
@@ -21,7 +21,7 @@ u8 mFM_grd_s_sand_2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mFM_grd_s_sand_3_tex[0x400];
 #else
 u8 mFM_grd_s_sand_3_tex[] = {

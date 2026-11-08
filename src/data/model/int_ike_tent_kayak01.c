@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_tent_kayak01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_tent_kayak01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_tent_kayak01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_tent_kayak01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_kayak_pab[0x200];
 #else
 u8 int_ike_tent_kayak_pab[] = {
@@ -22,7 +22,7 @@ u8 int_ike_tent_kayak_pab[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_kayak_under[0x80];
 #else
 u8 int_ike_tent_kayak_under[] = {
@@ -30,7 +30,7 @@ u8 int_ike_tent_kayak_under[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_kayak_chair[0x100];
 #else
 u8 int_ike_tent_kayak_chair[] = {
@@ -38,7 +38,7 @@ u8 int_ike_tent_kayak_chair[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_kayak_topf[0x180];
 #else
 u8 int_ike_tent_kayak_topf[] = {
@@ -46,7 +46,7 @@ u8 int_ike_tent_kayak_topf[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_kayak_topr[0x180];
 #else
 u8 int_ike_tent_kayak_topr[] = {
@@ -54,7 +54,7 @@ u8 int_ike_tent_kayak_topr[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_tent_kayak01_v[0x2E0 / sizeof(Vtx)];
 #else
 Vtx int_ike_tent_kayak01_v[] = {

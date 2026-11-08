@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_monshiro_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_monshiro_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_monshiro_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_monshiro_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sum_monshiro_hand_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sum_monshiro_hand_pic_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sum_monshiro_hand_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_monshiro_body_txt[0x80];
 #else
 u8 int_sum_monshiro_body_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_monshiro_body_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_monshiro_base_txt[0x80];
 #else
 u8 int_sum_monshiro_base_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_monshiro_base_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_monshiro_top_txt[0x200];
 #else
 u8 int_sum_monshiro_top_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_monshiro_top_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_monshiro_side_txt[0x200];
 #else
 u8 int_sum_monshiro_side_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_monshiro_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_monshiro_hand_txt[0x100];
 #else
 u8 int_sum_monshiro_hand_txt[] = {
@@ -62,7 +62,7 @@ u8 int_sum_monshiro_hand_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_monshiro_v[0x3D0 / sizeof(Vtx)];
 #else
 Vtx int_sum_monshiro_v[] = {

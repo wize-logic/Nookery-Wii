@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 act_m_kumo_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 act_m_kumo_pal[] = {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) static u16 act_m_kumo_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 act_m_kumo_tex[0x180];
 #else
 ATTRIBUTE_ALIGN(32) static u8 act_m_kumo_tex[] = {
@@ -20,7 +20,7 @@ ATTRIBUTE_ALIGN(32) static u8 act_m_kumo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx act_m_kumo_v[0x100 / sizeof(Vtx)];
 #else
 static Vtx act_m_kumo_v[] = {
@@ -72,7 +72,7 @@ Gfx act_m_kumo2T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_m_kumo_c(void) {
     pc_load_asset("assets/act_m_kumo/act_m_kumo_pal.bin", act_m_kumo_pal, 0x20, 0x544220, 0, 1);

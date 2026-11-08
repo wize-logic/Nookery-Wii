@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_hera_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_sum_hera_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_sum_hera_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_sum_hera_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sum_hera_glass_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sum_hera_glass_pic_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sum_hera_glass_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_hera_body_txt[0x300];
 #else
 u8 int_sum_hera_body_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_hera_body_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_hera_top_txt[0x100];
 #else
 u8 int_sum_hera_top_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_hera_top_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_hera_side_txt[0x200];
 #else
 u8 int_sum_hera_side_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_hera_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_hera_base_txt[0x80];
 #else
 u8 int_sum_hera_base_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_hera_base_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_hera_glass_txt[0x200];
 #else
 u8 int_sum_hera_glass_txt[] = {
@@ -62,7 +62,7 @@ u8 int_sum_hera_glass_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_hera_v[0x2D0 / sizeof(Vtx)];
 #else
 Vtx int_sum_hera_v[] = {
@@ -165,7 +165,7 @@ cKF_Joint_R_c cKF_je_r_int_sum_hera_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_hera = { ARRAY_COUNT(cKF_je_r_int_sum_hera_tbl), 4, cKF_je_r_int_sum_hera_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_sum_hera_c(void) {
     pc_load_asset("assets/int_sum_hera/int_sum_hera_pal.bin", int_sum_hera_pal, 0x20, 0xCE1D60, 0, 1);

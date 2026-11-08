@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_harp_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_harp_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_harp_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_harp_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_stand_tex[0x100];
 #else
 u8 int_sum_harp_stand_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_harp_stand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_standdown_tex[0x100];
 #else
 u8 int_sum_harp_standdown_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_harp_standdown_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_borad_tex[0x100];
 #else
 u8 int_sum_harp_borad_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_harp_borad_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_boraddown_tex[0x100];
 #else
 u8 int_sum_harp_boraddown_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_harp_boraddown_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_gen_tex[0x100];
 #else
 u8 int_sum_harp_gen_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_harp_gen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_kata_tex[0x80];
 #else
 u8 int_sum_harp_kata_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_harp_kata_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_pedal_tex[0x100];
 #else
 u8 int_sum_harp_pedal_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_harp_pedal_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_base_tex[0x80];
 #else
 u8 int_sum_harp_base_tex[] = {
@@ -78,7 +78,7 @@ u8 int_sum_harp_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_harp_baseside_tex[0x80];
 #else
 u8 int_sum_harp_baseside_tex[] = {
@@ -86,7 +86,7 @@ u8 int_sum_harp_baseside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_harp_v[0x3F0 / sizeof(Vtx)];
 #else
 Vtx int_sum_harp_v[] = {

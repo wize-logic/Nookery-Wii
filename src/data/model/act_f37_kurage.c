@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 act_f37_kurage_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 act_f37_kurage_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) static u16 act_f37_kurage_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_f37_kurage_head_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_f37_kurage_head_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 act_f37_kurage_head_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_f37_kurage_foot_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_f37_kurage_foot_tex[] = {
@@ -27,7 +27,7 @@ ATTRIBUTE_ALIGN(32) u8 act_f37_kurage_foot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f37_kurage_a_v[0xD0 / sizeof(Vtx)];
 #else
 Vtx act_f37_kurage_a_v[] = {
@@ -54,7 +54,7 @@ Gfx act_f37_kurage_aT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f37_kurage_b_v[0xD0 / sizeof(Vtx)];
 #else
 Vtx act_f37_kurage_b_v[] = {
@@ -81,7 +81,7 @@ Gfx act_f37_kurage_bT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f37_kurage_c_v[0xD0 / sizeof(Vtx)];
 #else
 Vtx act_f37_kurage_c_v[] = {
@@ -108,7 +108,7 @@ Gfx act_f37_kurage_cT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_f37_kurage_c(void) {
     pc_load_asset("assets/act_f37_kurage/act_f37_kurage_pal.bin", act_f37_kurage_pal, 0x20, 0x51C700, 0, 1);

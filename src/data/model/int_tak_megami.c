@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_megami_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_magami_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_magami_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_magami_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_fire_tex[0x20];
 #else
 u8 int_tak_megami_fire_tex[] = {
@@ -22,7 +22,7 @@ u8 int_tak_megami_fire_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_ita_tex[0x80];
 #else
 u8 int_tak_megami_ita_tex[] = {
@@ -30,7 +30,7 @@ u8 int_tak_megami_ita_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_totte_tex[0x40];
 #else
 u8 int_tak_megami_totte_tex[] = {
@@ -38,7 +38,7 @@ u8 int_tak_megami_totte_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_face_tex[0x80];
 #else
 u8 int_tak_megami_face_tex[] = {
@@ -46,7 +46,7 @@ u8 int_tak_megami_face_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_body_tex[0x400];
 #else
 u8 int_tak_megami_body_tex[] = {
@@ -54,7 +54,7 @@ u8 int_tak_megami_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_suso_tex[0x80];
 #else
 u8 int_tak_megami_suso_tex[] = {
@@ -62,7 +62,7 @@ u8 int_tak_megami_suso_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_hand_tex[0x80];
 #else
 u8 int_tak_megami_hand_tex[] = {
@@ -70,7 +70,7 @@ u8 int_tak_megami_hand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_sode_tex[0x80];
 #else
 u8 int_tak_megami_sode_tex[] = {
@@ -78,7 +78,7 @@ u8 int_tak_megami_sode_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_asi_tex[0x80];
 #else
 u8 int_tak_megami_asi_tex[] = {
@@ -86,7 +86,7 @@ u8 int_tak_megami_asi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_dai_tex[0x40];
 #else
 u8 int_tak_megami_dai_tex[] = {
@@ -94,7 +94,7 @@ u8 int_tak_megami_dai_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_megami_top_tex[0x20];
 #else
 u8 int_tak_megami_top_tex[] = {
@@ -102,7 +102,7 @@ u8 int_tak_megami_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_megami_v[0xB50 / sizeof(Vtx)];
 #else
 Vtx int_tak_megami_v[] = {

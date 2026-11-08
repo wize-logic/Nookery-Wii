@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_star_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_star_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_star_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx clg_hoshi_v[0x40 / sizeof(Vtx)];
 #else
 Vtx clg_hoshi_v[] = {

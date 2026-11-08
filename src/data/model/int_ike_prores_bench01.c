@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_prores_bench01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_prores_bench01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_prores_bench01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_prores_bench01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_pole1_tex[0x40];
 #else
 u8 int_ike_prores_bench01_pole1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_prores_bench01_pole1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_pole2_tex[0xC0];
 #else
 u8 int_ike_prores_bench01_pole2_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_prores_bench01_pole2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_top1_tex[0x100];
 #else
 u8 int_ike_prores_bench01_top1_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_prores_bench01_top1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_side1_tex[0x80];
 #else
 u8 int_ike_prores_bench01_side1_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_prores_bench01_side1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_pole3_tex[0x100];
 #else
 u8 int_ike_prores_bench01_pole3_tex[] = {
@@ -54,7 +54,7 @@ u8 int_ike_prores_bench01_pole3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_bar3_tex[0x40];
 #else
 u8 int_ike_prores_bench01_bar3_tex[] = {
@@ -62,7 +62,7 @@ u8 int_ike_prores_bench01_bar3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_arei1_tex[0x80];
 #else
 u8 int_ike_prores_bench01_arei1_tex[] = {
@@ -70,7 +70,7 @@ u8 int_ike_prores_bench01_arei1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_arei2_tex[0x100];
 #else
 u8 int_ike_prores_bench01_arei2_tex[] = {
@@ -78,7 +78,7 @@ u8 int_ike_prores_bench01_arei2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_bench01_pole4_tex[0x40];
 #else
 u8 int_ike_prores_bench01_pole4_tex[] = {
@@ -86,7 +86,7 @@ u8 int_ike_prores_bench01_pole4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_prores_bench01_v[0x730 / sizeof(Vtx)];
 #else
 Vtx int_ike_prores_bench01_v[] = {

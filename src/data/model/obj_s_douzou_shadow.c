@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_douzou_kage_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_douzou_kage_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_douzou_kage_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_douzou_shadow_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_s_douzou_shadow_v[] = {

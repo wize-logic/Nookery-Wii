@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 act_f16_dojyo_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 act_f16_dojyo_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u16 act_f16_dojyo_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_f16_dojyo_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_f16_dojyo_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 act_f16_dojyo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f16_dojyo_a_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f16_dojyo_a_v[] = {
@@ -43,7 +43,7 @@ Gfx act_f16_dojyo_aT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f16_dojyo_b_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f16_dojyo_b_v[] = {
@@ -67,7 +67,7 @@ Gfx act_f16_dojyo_bT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f16_dojyo_c_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f16_dojyo_c_v[] = {

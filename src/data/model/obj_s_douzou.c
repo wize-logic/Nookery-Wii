@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_douzou_dai_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_douzou_dai_tex_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_douzou_dai_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_name_tex_txt[0x80];
 #else
 u8 obj_s_douzou_name_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_s_douzou_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_b1_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_b1_tex_pic_i4[] = {
@@ -29,7 +29,7 @@ u8 obj_s_douzou_b1_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_b2_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_b2_tex_pic_i4[] = {
@@ -37,7 +37,7 @@ u8 obj_s_douzou_b2_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_b3_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_b3_tex_pic_i4[] = {
@@ -45,7 +45,7 @@ u8 obj_s_douzou_b3_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_b4_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_b4_tex_pic_i4[] = {
@@ -53,7 +53,7 @@ u8 obj_s_douzou_b4_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_b5_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_b5_tex_pic_i4[] = {
@@ -61,7 +61,7 @@ u8 obj_s_douzou_b5_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_b6_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_b6_tex_pic_i4[] = {
@@ -69,7 +69,7 @@ u8 obj_s_douzou_b6_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_b7_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_b7_tex_pic_i4[] = {
@@ -77,7 +77,7 @@ u8 obj_s_douzou_b7_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_b8_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_b8_tex_pic_i4[] = {
@@ -85,7 +85,7 @@ u8 obj_s_douzou_b8_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_bm1_tex_pic_i4[0x80];
 #else
 u8 obj_s_douzou_bm1_tex_pic_i4[] = {
@@ -93,7 +93,7 @@ u8 obj_s_douzou_bm1_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_bm2_tex_pic_i4[0x80];
 #else
 u8 obj_s_douzou_bm2_tex_pic_i4[] = {
@@ -101,7 +101,7 @@ u8 obj_s_douzou_bm2_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_g1_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_g1_tex_pic_i4[] = {
@@ -109,7 +109,7 @@ u8 obj_s_douzou_g1_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_g2_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_g2_tex_pic_i4[] = {
@@ -117,7 +117,7 @@ u8 obj_s_douzou_g2_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_g3_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_g3_tex_pic_i4[] = {
@@ -125,7 +125,7 @@ u8 obj_s_douzou_g3_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_g4_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_g4_tex_pic_i4[] = {
@@ -133,7 +133,7 @@ u8 obj_s_douzou_g4_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_g5_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_g5_tex_pic_i4[] = {
@@ -141,7 +141,7 @@ u8 obj_s_douzou_g5_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_g6_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_g6_tex_pic_i4[] = {
@@ -149,7 +149,7 @@ u8 obj_s_douzou_g6_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_g8_tex_pic_i4[0x100];
 #else
 u8 obj_s_douzou_g8_tex_pic_i4[] = {
@@ -157,7 +157,7 @@ u8 obj_s_douzou_g8_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_gm1_tex_pic_i4[0x80];
 #else
 u8 obj_s_douzou_gm1_tex_pic_i4[] = {
@@ -165,7 +165,7 @@ u8 obj_s_douzou_gm1_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_gm2_tex_pic_i4[0x80];
 #else
 u8 obj_s_douzou_gm2_tex_pic_i4[] = {
@@ -173,7 +173,7 @@ u8 obj_s_douzou_gm2_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_douzou_metal_tex_pic_i4[0x40];
 #else
 u8 obj_s_douzou_metal_tex_pic_i4[] = {
@@ -181,7 +181,7 @@ u8 obj_s_douzou_metal_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_douzou_v[0x11B0 / sizeof(Vtx)];
 #else
 Vtx obj_s_douzou_v[] = {
@@ -381,7 +381,7 @@ cKF_Joint_R_c cKF_je_r_obj_s_douzou_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_obj_s_douzou = { ARRAY_COUNT(cKF_je_r_obj_s_douzou_tbl), 8, cKF_je_r_obj_s_douzou_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_douzou_dai_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_douzou_dai_tex_txt[] = {
@@ -389,7 +389,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_douzou_dai_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_name_tex_txt[0x80];
 #else
 u8 obj_w_douzou_name_tex_txt[] = {
@@ -397,7 +397,7 @@ u8 obj_w_douzou_name_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_b1_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_b1_tex_pic_i4[] = {
@@ -405,7 +405,7 @@ u8 obj_w_douzou_b1_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_b2_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_b2_tex_pic_i4[] = {
@@ -413,7 +413,7 @@ u8 obj_w_douzou_b2_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_b3_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_b3_tex_pic_i4[] = {
@@ -421,7 +421,7 @@ u8 obj_w_douzou_b3_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_b4_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_b4_tex_pic_i4[] = {
@@ -429,7 +429,7 @@ u8 obj_w_douzou_b4_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_b5_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_b5_tex_pic_i4[] = {
@@ -437,7 +437,7 @@ u8 obj_w_douzou_b5_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_b6_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_b6_tex_pic_i4[] = {
@@ -445,7 +445,7 @@ u8 obj_w_douzou_b6_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_b7_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_b7_tex_pic_i4[] = {
@@ -453,7 +453,7 @@ u8 obj_w_douzou_b7_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_b8_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_b8_tex_pic_i4[] = {
@@ -461,7 +461,7 @@ u8 obj_w_douzou_b8_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_bm1_tex_pic_i4[0x80];
 #else
 u8 obj_w_douzou_bm1_tex_pic_i4[] = {
@@ -469,7 +469,7 @@ u8 obj_w_douzou_bm1_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_bm2_tex_pic_i4[0x80];
 #else
 u8 obj_w_douzou_bm2_tex_pic_i4[] = {
@@ -477,7 +477,7 @@ u8 obj_w_douzou_bm2_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_g1_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_g1_tex_pic_i4[] = {
@@ -485,7 +485,7 @@ u8 obj_w_douzou_g1_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_g2_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_g2_tex_pic_i4[] = {
@@ -493,7 +493,7 @@ u8 obj_w_douzou_g2_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_g3_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_g3_tex_pic_i4[] = {
@@ -501,7 +501,7 @@ u8 obj_w_douzou_g3_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_g4_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_g4_tex_pic_i4[] = {
@@ -509,7 +509,7 @@ u8 obj_w_douzou_g4_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_g5_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_g5_tex_pic_i4[] = {
@@ -517,7 +517,7 @@ u8 obj_w_douzou_g5_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_g6_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_g6_tex_pic_i4[] = {
@@ -525,7 +525,7 @@ u8 obj_w_douzou_g6_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_g8_tex_pic_i4[0x100];
 #else
 u8 obj_w_douzou_g8_tex_pic_i4[] = {
@@ -533,7 +533,7 @@ u8 obj_w_douzou_g8_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_gm1_tex_pic_i4[0x80];
 #else
 u8 obj_w_douzou_gm1_tex_pic_i4[] = {
@@ -541,7 +541,7 @@ u8 obj_w_douzou_gm1_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_gm2_tex_pic_i4[0x80];
 #else
 u8 obj_w_douzou_gm2_tex_pic_i4[] = {
@@ -549,7 +549,7 @@ u8 obj_w_douzou_gm2_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_douzou_metal_tex_pic_i4[0x40];
 #else
 u8 obj_w_douzou_metal_tex_pic_i4[] = {
@@ -557,7 +557,7 @@ u8 obj_w_douzou_metal_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_douzou_v[0x11B0 / sizeof(Vtx)];
 #else
 Vtx obj_w_douzou_v[] = {

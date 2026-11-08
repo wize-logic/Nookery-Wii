@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_comp01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_comp01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_comp01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_comp01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_front_tex[0x100];
 #else
 u8 int_sum_comp01_front_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_comp01_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_side_tex[0x100];
 #else
 u8 int_sum_comp01_side_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_comp01_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_backtop_tex[0x40];
 #else
 u8 int_sum_comp01_backtop_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_comp01_backtop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_fronttop_tex[0x40];
 #else
 u8 int_sum_comp01_fronttop_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_comp01_fronttop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_mainfront[0x100];
 #else
 u8 int_sum_comp01_mainfront[] = {
@@ -54,7 +54,7 @@ u8 int_sum_comp01_mainfront[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_key_tex[0x100];
 #else
 u8 int_sum_comp01_key_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_comp01_key_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_deskfront_tex[0x80];
 #else
 u8 int_sum_comp01_deskfront_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_comp01_deskfront_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_deskside_tex[0x100];
 #else
 u8 int_sum_comp01_deskside_tex[] = {
@@ -78,7 +78,7 @@ u8 int_sum_comp01_deskside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_desktop_tex[0x80];
 #else
 u8 int_sum_comp01_desktop_tex[] = {
@@ -86,7 +86,7 @@ u8 int_sum_comp01_desktop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_mainback[0x80];
 #else
 u8 int_sum_comp01_mainback[] = {
@@ -94,7 +94,7 @@ u8 int_sum_comp01_mainback[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_comp01_back_tex[0x80];
 #else
 u8 int_sum_comp01_back_tex[] = {
@@ -102,7 +102,7 @@ u8 int_sum_comp01_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_comp01_v[0x5B0 / sizeof(Vtx)];
 #else
 Vtx int_sum_comp01_v[] = {

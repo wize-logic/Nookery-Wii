@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_col_chair02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_col_chair02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_col_chair02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_col_chair02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_col_chair02_backboard_tex[0x180];
 #else
 u8 int_sum_col_chair02_backboard_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_col_chair02_backboard_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_col_chair02_front_tex[0x40];
 #else
 u8 int_sum_col_chair02_front_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_col_chair02_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_col_chair02_seatside_tex[0x40];
 #else
 u8 int_sum_col_chair02_seatside_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_col_chair02_seatside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_col_chair02_top_tex[0x80];
 #else
 u8 int_sum_col_chair02_top_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_col_chair02_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_col_chair02_boardside_tex[0x80];
 #else
 u8 int_sum_col_chair02_boardside_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_col_chair02_boardside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_col_chair02_foot_tex[0x100];
 #else
 u8 int_sum_col_chair02_foot_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_col_chair02_foot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_col_chair02_v[0x390 / sizeof(Vtx)];
 #else
 Vtx int_sum_col_chair02_v[] = {

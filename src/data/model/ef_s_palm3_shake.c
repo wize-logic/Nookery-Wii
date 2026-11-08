@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern u8 ef_s_palm_leaf_modeset[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_palm3_shake_v[0x100 / sizeof(Vtx)];
 #else
 Vtx ef_s_palm3_shake_v[] = {

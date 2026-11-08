@@ -9,7 +9,7 @@ extern u8 ef_s_tree_leaf_modeset[];
 extern u8 obj_s_tree_cutS_tex_txt[];
 extern u8 ef_s_tree_trunk_modeset[];
 extern Vtx ef_s_tree3_cutL_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_tree3_cutL_v[0xB0 / sizeof(Vtx)];
 #else
 Vtx ef_s_tree3_cutL_v[] = {

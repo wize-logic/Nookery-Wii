@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 kai_sousa_button3_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 kai_sousa_button3_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u8 kai_sousa_button3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx pas_start_v[0xB0 / sizeof(Vtx)];
 #else
 Vtx pas_start_v[] = {
@@ -47,7 +47,7 @@ Gfx pas_start_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_pas_start_c(void) {
     pc_load_asset("assets/pas_start/kai_sousa_button3_tex.bin", kai_sousa_button3_tex, 0x100, 0x7B14C0, 0, 0);

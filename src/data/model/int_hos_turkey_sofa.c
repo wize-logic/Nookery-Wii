@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_hos_turkey_sofa_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_hos_turkey_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_hos_turkey_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_hos_turkey_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_turkey_sofa_se_txt[0x200];
 #else
 u8 int_hos_turkey_sofa_se_txt[] = {
@@ -22,7 +22,7 @@ u8 int_hos_turkey_sofa_se_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_turkey_sofa_asi_txt[0x80];
 #else
 u8 int_hos_turkey_sofa_asi_txt[] = {
@@ -30,7 +30,7 @@ u8 int_hos_turkey_sofa_asi_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_turkey_sofa_cov_txt[0x200];
 #else
 u8 int_hos_turkey_sofa_cov_txt[] = {
@@ -38,7 +38,7 @@ u8 int_hos_turkey_sofa_cov_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_turkey_sofa_yoko_txt[0x200];
 #else
 u8 int_hos_turkey_sofa_yoko_txt[] = {
@@ -46,7 +46,7 @@ u8 int_hos_turkey_sofa_yoko_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_hos_turkey_sofa_v[0x590 / sizeof(Vtx)];
 #else
 Vtx int_hos_turkey_sofa_v[] = {

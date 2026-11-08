@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_nes01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_nes01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_nes01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_nes01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_cl_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_cl_pal[] = {
@@ -22,7 +22,7 @@ u16 int_tak_nes_cl_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_af_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_af_tex_rgb_ci4_pal[] = {
@@ -30,7 +30,7 @@ u16 int_tak_nes_af_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_bb_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_bb_tex_rgb_ci4_pal[] = {
@@ -38,7 +38,7 @@ u16 int_tak_nes_bb_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_bf_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_bf_tex_rgb_ci4_pal[] = {
@@ -46,7 +46,7 @@ u16 int_tak_nes_bf_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_d2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_d2_tex_rgb_ci4_pal[] = {
@@ -54,7 +54,7 @@ u16 int_tak_nes_d2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_d3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_d3_tex_rgb_ci4_pal[] = {
@@ -62,7 +62,7 @@ u16 int_tak_nes_d3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_dk_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_dk_tex_rgb_ci4_pal[] = {
@@ -70,7 +70,7 @@ u16 int_tak_nes_dk_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_eb_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_eb_tex_rgb_ci4_pal[] = {
@@ -78,7 +78,7 @@ u16 int_tak_nes_eb_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_g_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_g_tex_rgb_ci4_pal[] = {
@@ -86,7 +86,7 @@ u16 int_tak_nes_g_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_ic_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_ic_tex_rgb_ci4_pal[] = {
@@ -94,7 +94,7 @@ u16 int_tak_nes_ic_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_mb_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_mb_tex_rgb_ci4_pal[] = {
@@ -102,7 +102,7 @@ u16 int_tak_nes_mb_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_pb_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_pb_tex_rgb_ci4_pal[] = {
@@ -110,7 +110,7 @@ u16 int_tak_nes_pb_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_po_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_po_tex_rgb_ci4_pal[] = {
@@ -118,7 +118,7 @@ u16 int_tak_nes_po_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_sa_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_sa_tex_rgb_ci4_pal[] = {
@@ -126,7 +126,7 @@ u16 int_tak_nes_sa_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_sm_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_sm_tex_rgb_ci4_pal[] = {
@@ -134,7 +134,7 @@ u16 int_tak_nes_sm_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_so_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_so_tex_rgb_ci4_pal[] = {
@@ -142,7 +142,7 @@ u16 int_tak_nes_so_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_t_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_t_tex_rgb_ci4_pal[] = {
@@ -150,7 +150,7 @@ u16 int_tak_nes_t_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_wm_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_wm_tex_rgb_ci4_pal[] = {
@@ -158,7 +158,7 @@ u16 int_tak_nes_wm_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_nes_zl_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_nes_zl_tex_rgb_ci4_pal[] = {
@@ -166,7 +166,7 @@ u16 int_tak_nes_zl_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes01_top_tex[0x200];
 #else
 u8 int_tak_nes01_top_tex[] = {
@@ -174,7 +174,7 @@ u8 int_tak_nes01_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes01_side_tex[0x400];
 #else
 u8 int_tak_nes01_side_tex[] = {
@@ -182,7 +182,7 @@ u8 int_tak_nes01_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes01_con_tex[0x40];
 #else
 u8 int_tak_nes01_con_tex[] = {
@@ -190,7 +190,7 @@ u8 int_tak_nes01_con_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes01_code_tex[0x80];
 #else
 u8 int_tak_nes01_code_tex[] = {
@@ -198,7 +198,7 @@ u8 int_tak_nes01_code_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_cl_tex[0x200];
 #else
 u8 int_tak_nes_cl_tex[] = {
@@ -206,7 +206,7 @@ u8 int_tak_nes_cl_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_af_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_af_tex_rgb_ci4[] = {
@@ -214,7 +214,7 @@ u8 int_tak_nes_af_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_bb_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_bb_tex_rgb_ci4[] = {
@@ -222,7 +222,7 @@ u8 int_tak_nes_bb_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_bf_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_bf_tex_rgb_ci4[] = {
@@ -230,7 +230,7 @@ u8 int_tak_nes_bf_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_d2_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_d2_tex_rgb_ci4[] = {
@@ -238,7 +238,7 @@ u8 int_tak_nes_d2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_d3_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_d3_tex_rgb_ci4[] = {
@@ -246,7 +246,7 @@ u8 int_tak_nes_d3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_dk_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_dk_tex_rgb_ci4[] = {
@@ -254,7 +254,7 @@ u8 int_tak_nes_dk_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_eb_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_eb_tex_rgb_ci4[] = {
@@ -262,7 +262,7 @@ u8 int_tak_nes_eb_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_g_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_g_tex_rgb_ci4[] = {
@@ -270,7 +270,7 @@ u8 int_tak_nes_g_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_ic_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_ic_tex_rgb_ci4[] = {
@@ -278,7 +278,7 @@ u8 int_tak_nes_ic_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_mb_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_mb_tex_rgb_ci4[] = {
@@ -286,7 +286,7 @@ u8 int_tak_nes_mb_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_pb_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_pb_tex_rgb_ci4[] = {
@@ -294,7 +294,7 @@ u8 int_tak_nes_pb_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_po_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_po_tex_rgb_ci4[] = {
@@ -302,7 +302,7 @@ u8 int_tak_nes_po_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_sa_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_sa_tex_rgb_ci4[] = {
@@ -310,7 +310,7 @@ u8 int_tak_nes_sa_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_sm_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_sm_tex_rgb_ci4[] = {
@@ -318,7 +318,7 @@ u8 int_tak_nes_sm_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_so_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_so_tex_rgb_ci4[] = {
@@ -326,7 +326,7 @@ u8 int_tak_nes_so_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_t_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_t_tex_rgb_ci4[] = {
@@ -334,7 +334,7 @@ u8 int_tak_nes_t_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_wm_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_wm_tex_rgb_ci4[] = {
@@ -342,7 +342,7 @@ u8 int_tak_nes_wm_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_zl_tex_rgb_ci4[0x200];
 #else
 u8 int_tak_nes_zl_tex_rgb_ci4[] = {
@@ -350,7 +350,7 @@ u8 int_tak_nes_zl_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_nes_ds_tex_rgb_i4[0x200];
 #else
 u8 int_tak_nes_ds_tex_rgb_i4[] = {
@@ -358,7 +358,7 @@ u8 int_tak_nes_ds_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_nes01_v[0x640 / sizeof(Vtx)];
 #else
 Vtx int_tak_nes01_v[] = {

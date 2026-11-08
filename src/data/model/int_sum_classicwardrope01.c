@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_classicwardrope01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_classicwardrope01_pal01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_classicwardrope01_pal01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_classicwardrope01_pal01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sum_classicwardrope01_mirror_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sum_classicwardrope01_mirror_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sum_classicwardrope01_mirror_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicwardrope01_back[0x200];
 #else
 u8 int_sum_classicwardrope01_back[] = {
@@ -30,7 +30,7 @@ u8 int_sum_classicwardrope01_back[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicwardrope01_front[0x200];
 #else
 u8 int_sum_classicwardrope01_front[] = {
@@ -38,7 +38,7 @@ u8 int_sum_classicwardrope01_front[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicwardrope01_side[0x200];
 #else
 u8 int_sum_classicwardrope01_side[] = {
@@ -46,7 +46,7 @@ u8 int_sum_classicwardrope01_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicwardrope01_top[0x80];
 #else
 u8 int_sum_classicwardrope01_top[] = {
@@ -54,7 +54,7 @@ u8 int_sum_classicwardrope01_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicwardrope01_dolls[0x100];
 #else
 u8 int_sum_classicwardrope01_dolls[] = {
@@ -62,7 +62,7 @@ u8 int_sum_classicwardrope01_dolls[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicwardrope01_mirror[0x80];
 #else
 u8 int_sum_classicwardrope01_mirror[] = {
@@ -70,7 +70,7 @@ u8 int_sum_classicwardrope01_mirror[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_classicwardrope01_v[0x3F0 / sizeof(Vtx)];
 #else
 Vtx int_sum_classicwardrope01_v[] = {

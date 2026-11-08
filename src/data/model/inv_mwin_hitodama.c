@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_hitodama_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_hitodama_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_hitodama_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hitodama1_tex[0x200];
 #else
 u8 inv_mwin_hitodama1_tex[] = {
@@ -21,7 +21,7 @@ u8 inv_mwin_hitodama1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hitodama2_tex[0x200];
 #else
 u8 inv_mwin_hitodama2_tex[] = {
@@ -29,7 +29,7 @@ u8 inv_mwin_hitodama2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hitodama3_tex[0x200];
 #else
 u8 inv_mwin_hitodama3_tex[] = {
@@ -37,7 +37,7 @@ u8 inv_mwin_hitodama3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hitodama4_tex[0x200];
 #else
 u8 inv_mwin_hitodama4_tex[] = {
@@ -45,7 +45,7 @@ u8 inv_mwin_hitodama4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_hitodama5_tex[0x200];
 #else
 u8 inv_mwin_hitodama5_tex[] = {

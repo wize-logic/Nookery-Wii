@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_musya_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kon_musya_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kon_musya_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kon_musya_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_a_tex[0x100];
 #else
 u8 int_kon_musya_a_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kon_musya_a_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_b_tex[0x100];
 #else
 u8 int_kon_musya_b_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kon_musya_b_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_c_tex[0x80];
 #else
 u8 int_kon_musya_c_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kon_musya_c_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_d_tex[0x80];
 #else
 u8 int_kon_musya_d_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kon_musya_d_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_e_tex[0x80];
 #else
 u8 int_kon_musya_e_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kon_musya_e_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_f_tex[0x100];
 #else
 u8 int_kon_musya_f_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kon_musya_f_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_g_tex[0x80];
 #else
 u8 int_kon_musya_g_tex[] = {
@@ -70,7 +70,7 @@ u8 int_kon_musya_g_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_h_tex[0x80];
 #else
 u8 int_kon_musya_h_tex[] = {
@@ -78,7 +78,7 @@ u8 int_kon_musya_h_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_i_tex[0x100];
 #else
 u8 int_kon_musya_i_tex[] = {
@@ -86,7 +86,7 @@ u8 int_kon_musya_i_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_j_tex[0x80];
 #else
 u8 int_kon_musya_j_tex[] = {
@@ -94,7 +94,7 @@ u8 int_kon_musya_j_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_musya_k_tex[0x100];
 #else
 u8 int_kon_musya_k_tex[] = {
@@ -102,7 +102,7 @@ u8 int_kon_musya_k_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_musya_v[0x520 / sizeof(Vtx)];
 #else
 Vtx int_kon_musya_v[] = {

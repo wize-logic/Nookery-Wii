@@ -8,7 +8,7 @@
 extern u8 lat_letter59_sn_tex[];
 extern u8 lat_letter59_xk_tex[];
 extern u16 lat_letter59_pal[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx lat_letter59_v[0xA0 / sizeof(Vtx)];
 #else
 Vtx lat_letter59_v[] = {

@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_gara_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_gara_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_gara_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_gara_tex_txt[0x800];
 #else
 u8 obj_gara_tex_txt[] = {
@@ -19,7 +19,7 @@ u8 obj_gara_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_gara_v[0x420 / sizeof(Vtx)];
 #else
 Vtx obj_gara_v[] = {
@@ -123,7 +123,7 @@ cKF_Animation_R_c cKF_ba_r_obj_gara = {
     cKF_ckcb_r_obj_gara_tbl, cKF_ds_obj_gara_tbl, cKF_kn_obj_gara_tbl, cKF_c_obj_gara_tbl, -1, 48
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 act_fukuball_pal[0x20 / sizeof(u16)];
 #else
 u16 act_fukuball_pal[] = {
@@ -131,7 +131,7 @@ u16 act_fukuball_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_fukutama1_tex[0x80];
 #else
 u8 act_fukutama1_tex[] = {
@@ -139,7 +139,7 @@ u8 act_fukutama1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_fukutama2_tex[0x80];
 #else
 u8 act_fukutama2_tex[] = {
@@ -147,7 +147,7 @@ u8 act_fukutama2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_fukutama3_tex[0x80];
 #else
 u8 act_fukutama3_tex[] = {
@@ -155,7 +155,7 @@ u8 act_fukutama3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_fukutama4_tex[0x80];
 #else
 u8 act_fukutama4_tex[] = {
@@ -163,7 +163,7 @@ u8 act_fukutama4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_fukutama_v[0x50 / sizeof(Vtx)];
 #else
 Vtx act_fukutama_v[] = {

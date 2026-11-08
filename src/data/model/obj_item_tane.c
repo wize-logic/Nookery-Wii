@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_item_tane_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_item_tane_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_item_tane_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 obj_item_tane_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 obj_item_tane_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) static u8 obj_item_tane_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx obj_item_tane_v[0x40 / sizeof(Vtx)];
 #else
 static Vtx obj_item_tane_v[] = {
@@ -41,7 +41,7 @@ Gfx obj_taneT_gfx_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_item_tane_c(void) {
     pc_load_asset("assets/obj_item_tane/obj_item_tane_pal.bin", obj_item_tane_pal, 0x20, 0x3ECA40, 0, 1);

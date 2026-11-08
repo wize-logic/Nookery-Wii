@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx obj_clock_museum1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_museum1_hari_tex_txt[0x400];
 #else
 u8 obj_clock_museum1_hari_tex_txt[] = {
@@ -14,7 +14,7 @@ u8 obj_clock_museum1_hari_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_museum1_dai_tex_txt[0x200];
 #else
 u8 obj_clock_museum1_dai_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 obj_clock_museum1_dai_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_museum1_side_tex_txt[0x800];
 #else
 u8 obj_clock_museum1_side_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 obj_clock_museum1_side_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_museum1_front_tex_txt[0xC00];
 #else
 u8 obj_clock_museum1_front_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 obj_clock_museum1_front_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_clock_museum1_v[0x2B0 / sizeof(Vtx)];
 #else
 Vtx obj_clock_museum1_v[] = {

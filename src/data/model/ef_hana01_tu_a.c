@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_hana01_tu_a_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_hana01_tu_a_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_hana01_tu_a_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_hana01_tu_a_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_hana01_tu_a_v[] = {
@@ -35,7 +35,7 @@ Gfx ef_hana01_tu_a_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_hana01_co_a_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_hana01_co_a_tex[] = {
@@ -43,7 +43,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_hana01_co_a_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_hana01_co_a_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_hana01_co_a_v[] = {
@@ -65,7 +65,7 @@ Gfx ef_hana01_co_a_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_hana01_pa_a_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_hana01_pa_a_tex[] = {
@@ -73,7 +73,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_hana01_pa_a_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_hana01_pa_a_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_hana01_pa_a_v[] = {
@@ -95,7 +95,7 @@ Gfx ef_hana01_pa_a_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_hana01_ha_a_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_hana01_ha_a_tex[] = {
@@ -103,7 +103,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_hana01_ha_a_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_hana01_ha_a_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_hana01_ha_a_v[] = {

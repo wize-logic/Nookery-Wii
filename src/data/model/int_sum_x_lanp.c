@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_x_lanp_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_x_lanp_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_x_lanp_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_x_lanp_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_lanp_base[0x400];
 #else
 u8 int_sum_x_lanp_base[] = {
@@ -22,7 +22,7 @@ u8 int_sum_x_lanp_base[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_lanp_head[0x80];
 #else
 u8 int_sum_x_lanp_head[] = {
@@ -30,7 +30,7 @@ u8 int_sum_x_lanp_head[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_lanp_top[0x100];
 #else
 u8 int_sum_x_lanp_top[] = {
@@ -38,7 +38,7 @@ u8 int_sum_x_lanp_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_lanp_shade[0x100];
 #else
 u8 int_sum_x_lanp_shade[] = {
@@ -46,7 +46,7 @@ u8 int_sum_x_lanp_shade[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_lanp_stand[0x100];
 #else
 u8 int_sum_x_lanp_stand[] = {
@@ -54,7 +54,7 @@ u8 int_sum_x_lanp_stand[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_lanp_hiki[0x80];
 #else
 u8 int_sum_x_lanp_hiki[] = {
@@ -62,7 +62,7 @@ u8 int_sum_x_lanp_hiki[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_x_lanp_v[0x3B0 / sizeof(Vtx)];
 #else
 Vtx int_sum_x_lanp_v[] = {

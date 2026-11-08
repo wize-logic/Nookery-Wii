@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_item_fish_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_item_fish_v[] = {
@@ -13,7 +13,7 @@ Vtx obj_item_fish_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 obj_item_fish_pal[0x20 / sizeof(u16)];
 #else
 static u16 obj_item_fish_pal[] = {
@@ -21,7 +21,7 @@ static u16 obj_item_fish_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_item_fish_tex[0x200];
 #else
 static u8 obj_item_fish_tex[] = {
@@ -64,7 +64,7 @@ Gfx fish_DL_vtx[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_item_fish_c(void) {
     pc_load_asset("assets/obj_item_fish/obj_item_fish_pal.bin", obj_item_fish_pal, 0x20, 0x66BCF8, 0, 1);

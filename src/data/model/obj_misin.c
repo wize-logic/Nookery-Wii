@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_misin_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_misin_pal[] = {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_misin_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_misin_belt_tex_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_misin_belt_tex_pic_ci4_pal[] = {
@@ -20,7 +20,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_misin_belt_tex_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_misin_ito1_tex_txt[0x20];
 #else
 u8 obj_misin_ito1_tex_txt[] = {
@@ -28,7 +28,7 @@ u8 obj_misin_ito1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_misin_ito2_tex_txt[0x40];
 #else
 u8 obj_misin_ito2_tex_txt[] = {
@@ -36,7 +36,7 @@ u8 obj_misin_ito2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_misin_maru_tex_txt[0x80];
 #else
 u8 obj_misin_maru_tex_txt[] = {
@@ -44,7 +44,7 @@ u8 obj_misin_maru_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_misin_jiku_tex_txt[0x20];
 #else
 u8 obj_misin_jiku_tex_txt[] = {
@@ -52,7 +52,7 @@ u8 obj_misin_jiku_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_misin_ana_tex_txt[0x80];
 #else
 u8 obj_misin_ana_tex_txt[] = {
@@ -60,7 +60,7 @@ u8 obj_misin_ana_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_misin_hari_tex_txt[0x80];
 #else
 u8 obj_misin_hari_tex_txt[] = {
@@ -68,7 +68,7 @@ u8 obj_misin_hari_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_misin_ito3_tex_txt[0x100];
 #else
 u8 obj_misin_ito3_tex_txt[] = {
@@ -76,7 +76,7 @@ u8 obj_misin_ito3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_misin_belt_tex_txt[0x80];
 #else
 u8 obj_misin_belt_tex_txt[] = {
@@ -84,7 +84,7 @@ u8 obj_misin_belt_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_misin_v[0x4C0 / sizeof(Vtx)];
 #else
 Vtx obj_misin_v[] = {

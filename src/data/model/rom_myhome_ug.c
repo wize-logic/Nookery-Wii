@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 rom_myhome_ug_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 rom_myhome_ug_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u16 rom_myhome_ug_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugf1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugf1_tex[] = {
@@ -27,7 +27,7 @@ ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugf1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_myhome_enter2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_myhome_enter2_tex[] = {
@@ -35,7 +35,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_myhome_enter2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugw1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugw1_tex[] = {
@@ -43,7 +43,7 @@ ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugw1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugw2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugw2_tex[] = {
@@ -51,7 +51,7 @@ ATTRIBUTE_ALIGN(32) u8 rom_myhome_ugw2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_myhome_ug_v[0x980 / sizeof(Vtx)];
 #else
 Vtx rom_myhome_ug_v[] = {
@@ -120,7 +120,7 @@ Gfx rom_myhome_ug_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_rom_myhome_ug_c(void) {
     pc_load_asset("assets/rom_myhome_ug/rom_myhome_pal.bin", rom_myhome_pal, 0x20, 0x59EDA0, 0, 1);

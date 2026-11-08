@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_yaz_fish_trophy_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_yaz_fish_trophy_fish_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_yaz_fish_trophy_fish_txt[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_yaz_fish_trophy_fish_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_fish_trophy_grip_txt[0x100];
 #else
 u8 int_yaz_fish_trophy_grip_txt[] = {
@@ -22,7 +22,7 @@ u8 int_yaz_fish_trophy_grip_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_fish_trophy_base_txt[0x200];
 #else
 u8 int_yaz_fish_trophy_base_txt[] = {
@@ -30,7 +30,7 @@ u8 int_yaz_fish_trophy_base_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_fish_trophy_body_txt[0x100];
 #else
 u8 int_yaz_fish_trophy_body_txt[] = {
@@ -38,7 +38,7 @@ u8 int_yaz_fish_trophy_body_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_yaz_fish_trophy_v[0x650 / sizeof(Vtx)];
 #else
 Vtx int_yaz_fish_trophy_v[] = {

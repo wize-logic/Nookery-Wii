@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_x_piano_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_x_piano_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_x_piano_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_x_piano_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_piano_back_tex[0x180];
 #else
 u8 int_sum_x_piano_back_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_x_piano_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_piano_side_tex[0x200];
 #else
 u8 int_sum_x_piano_side_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_x_piano_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_piano_front_tex[0x180];
 #else
 u8 int_sum_x_piano_front_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_x_piano_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_piano_head_tex[0x80];
 #else
 u8 int_sum_x_piano_head_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_x_piano_head_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_piano_key_tex[0x100];
 #else
 u8 int_sum_x_piano_key_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_x_piano_key_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_piano_down_tex[0x100];
 #else
 u8 int_sum_x_piano_down_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_x_piano_down_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_piano_foot_tex[0x80];
 #else
 u8 int_sum_x_piano_foot_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_x_piano_foot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_x_piano_v[0x560 / sizeof(Vtx)];
 #else
 Vtx int_sum_x_piano_v[] = {

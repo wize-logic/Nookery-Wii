@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 /* extern Vtx act_m_ka_v[]; */
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx act_m_ka_v[0x180 / sizeof(Vtx)];
 #else
 static Vtx act_m_ka_v[] = {
@@ -14,7 +14,7 @@ static Vtx act_m_ka_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 act_m_ka_pal[0x20 / sizeof(u16)];
 #else
 static u16 act_m_ka_pal[] = {
@@ -22,7 +22,7 @@ static u16 act_m_ka_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 act_m_ka_tex[0x180];
 #else
 static u8 act_m_ka_tex[] = {
@@ -123,7 +123,7 @@ Gfx act_m_mu_ka2_2T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_m_ka2_c(void) {
     pc_load_asset("assets/act_m_ka2/act_m_ka_v.bin", act_m_ka_v, 0x180, 0xB4D150, 0, 2);

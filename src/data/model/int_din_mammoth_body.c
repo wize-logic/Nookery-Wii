@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_din_mammoth_body_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_din_mammoth_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_din_mammoth_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_din_mammoth_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_mammoth_body_tex[0x300];
 #else
 u8 int_din_mammoth_body_tex[] = {
@@ -22,7 +22,7 @@ u8 int_din_mammoth_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_mammoth_leg_tex[0x80];
 #else
 u8 int_din_mammoth_leg_tex[] = {
@@ -30,7 +30,7 @@ u8 int_din_mammoth_leg_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_mammoth_shin_tex[0x100];
 #else
 u8 int_din_mammoth_shin_tex[] = {
@@ -38,7 +38,7 @@ u8 int_din_mammoth_shin_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_mammoth_thigh_tex[0x100];
 #else
 u8 int_din_mammoth_thigh_tex[] = {
@@ -46,7 +46,7 @@ u8 int_din_mammoth_thigh_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_mammoth_kubi_tex[0x80];
 #else
 u8 int_din_mammoth_kubi_tex[] = {
@@ -54,7 +54,7 @@ u8 int_din_mammoth_kubi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_mammoth_baceB_tex[0x200];
 #else
 u8 int_din_mammoth_baceB_tex[] = {
@@ -62,7 +62,7 @@ u8 int_din_mammoth_baceB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_din_mammoth_body_v[0x4D0 / sizeof(Vtx)];
 #else
 Vtx int_din_mammoth_body_v[] = {
@@ -124,7 +124,7 @@ Gfx int_din_mammoth_bodyT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_din_mammoth_body_c(void) {
     pc_load_asset("assets/int_din_mammoth_body/int_din_mammoth_pal.bin", int_din_mammoth_pal, 0x20, 0x913500, 0, 1);

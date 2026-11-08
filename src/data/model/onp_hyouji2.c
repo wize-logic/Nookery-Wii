@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 onp_win_play_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 onp_win_play_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 onp_win_play_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp_win_erase_tex[0x400];
 #else
 u8 onp_win_erase_tex[] = {
@@ -21,7 +21,7 @@ u8 onp_win_erase_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 x[0x80];
 #else
 u8 x[] = {
@@ -29,7 +29,7 @@ u8 x[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 y[0x80];
 #else
 u8 y[] = {
@@ -37,7 +37,7 @@ u8 y[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 start2_tex_rgb_ia8[0x400];
 #else
 u8 start2_tex_rgb_ia8[] = {
@@ -45,7 +45,7 @@ u8 start2_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 start_tex_rgb_ia8[0x400];
 #else
 u8 start_tex_rgb_ia8[] = {
@@ -53,7 +53,7 @@ u8 start_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp__x2_tex_rgb_ia8[0x200];
 #else
 u8 onp__x2_tex_rgb_ia8[] = {
@@ -61,7 +61,7 @@ u8 onp__x2_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp__x_tex_rgb_ia8[0x200];
 #else
 u8 onp__x_tex_rgb_ia8[] = {
@@ -69,7 +69,7 @@ u8 onp__x_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp__y2_tex_rgb_ia8[0x200];
 #else
 u8 onp__y2_tex_rgb_ia8[] = {
@@ -77,7 +77,7 @@ u8 onp__y2_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 onp__y_tex_rgb_ia8[0x200];
 #else
 u8 onp__y_tex_rgb_ia8[] = {
@@ -85,7 +85,7 @@ u8 onp__y_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx onp_hyouji2_v[0x1C0 / sizeof(Vtx)];
 #else
 static Vtx onp_hyouji2_v[] = {
@@ -167,7 +167,7 @@ Gfx onp_win_sT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_onp_hyouji2_c(void) {
     pc_load_asset("assets/onp_hyouji2/onp_hyouji_v.bin", onp_hyouji2_v, 0x1C0, 0x781140, 0, 2);

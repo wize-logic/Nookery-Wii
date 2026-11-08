@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 grl_1_skin_tex_txt[0x80];
 #else
 u8 grl_1_skin_tex_txt[] = {
@@ -11,7 +11,7 @@ u8 grl_1_skin_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 grl_1_hair_tex_txt[0x80];
 #else
 u8 grl_1_hair_tex_txt[] = {
@@ -19,7 +19,7 @@ u8 grl_1_hair_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 grl_1_shoe_tex_txt[0x80];
 #else
 u8 grl_1_shoe_tex_txt[] = {
@@ -27,7 +27,7 @@ u8 grl_1_shoe_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 grl_1_bottom_tex_txt[0x80];
 #else
 u8 grl_1_bottom_tex_txt[] = {
@@ -35,7 +35,7 @@ u8 grl_1_bottom_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 grl_1_foot_tex_txt[0x80];
 #else
 u8 grl_1_foot_tex_txt[] = {
@@ -43,7 +43,7 @@ u8 grl_1_foot_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 grl_1_hole_tex_txt[0x80];
 #else
 u8 grl_1_hole_tex_txt[] = {
@@ -51,7 +51,7 @@ u8 grl_1_hole_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx grl_1_v[0x18C0 / sizeof(Vtx)];
 #else
 Vtx grl_1_v[] = {

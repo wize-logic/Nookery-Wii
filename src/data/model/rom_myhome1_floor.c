@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) Vtx rom_myhome1_floor_v[0x560 / sizeof(Vtx)];
 #else
 ATTRIBUTE_ALIGN(32) Vtx rom_myhome1_floor_v[] = {

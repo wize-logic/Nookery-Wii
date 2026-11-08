@@ -1,7 +1,7 @@
 #include "c_keyframe.h"
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx hgh_1_v[0x1CA0 / sizeof(Vtx)];
 #else
 static Vtx hgh_1_v[] = {
@@ -774,7 +774,7 @@ static cKF_Joint_R_c cKF_je_r_hgh_1_tbl[] = {
 
 extern cKF_Skeleton_R_c cKF_bs_r_hgh_1 = { 26, 14, cKF_je_r_hgh_1_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_npc_model_mdl_hgh_1_c(void) {
     pc_load_asset("assets/npc/mdl/hgh_1_v.bin", hgh_1_v, 0x1CA0, 0x5A1CB0, 0, 2);

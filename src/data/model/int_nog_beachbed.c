@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_beachbed_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_nog_beachbed_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_nog_beachbed_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_nog_beachbed_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_beachbed_body_tex[0x400];
 #else
 u8 int_nog_beachbed_body_tex[] = {
@@ -22,7 +22,7 @@ u8 int_nog_beachbed_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_beachbed_side_tex[0x200];
 #else
 u8 int_nog_beachbed_side_tex[] = {
@@ -30,7 +30,7 @@ u8 int_nog_beachbed_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_beachbed_v[0x340 / sizeof(Vtx)];
 #else
 Vtx int_nog_beachbed_v[] = {

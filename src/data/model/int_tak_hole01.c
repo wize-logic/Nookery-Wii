@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_hole01_ue_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_hole01_ue_tex_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_hole01_ue_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_hole01_ue_tex[0x200];
 #else
 u8 int_tak_hole01_ue_tex[] = {
@@ -21,7 +21,7 @@ u8 int_tak_hole01_ue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_hole01_v[0x50 / sizeof(Vtx)];
 #else
 Vtx int_tak_hole01_v[] = {

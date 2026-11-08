@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_clbed02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_clbed02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_clbed02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_clbed02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clbed02_foot[0x100];
 #else
 u8 int_sum_clbed02_foot[] = {
@@ -22,7 +22,7 @@ u8 int_sum_clbed02_foot[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clbed02_head[0x100];
 #else
 u8 int_sum_clbed02_head[] = {
@@ -30,7 +30,7 @@ u8 int_sum_clbed02_head[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clbed02_mat[0x400];
 #else
 u8 int_sum_clbed02_mat[] = {
@@ -38,7 +38,7 @@ u8 int_sum_clbed02_mat[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clbed02_pillow[0x200];
 #else
 u8 int_sum_clbed02_pillow[] = {
@@ -46,7 +46,7 @@ u8 int_sum_clbed02_pillow[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_clbed02_v[0x300 / sizeof(Vtx)];
 #else
 Vtx int_sum_clbed02_v[] = {

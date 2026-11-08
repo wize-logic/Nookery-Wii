@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx obj_clock_shop4_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_clock_shop4_2_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_clock_shop4_2_pal[] = {
@@ -14,7 +14,7 @@ u16 obj_clock_shop4_2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_shop4_2_t4_tex_txt[0x200];
 #else
 u8 obj_clock_shop4_2_t4_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 obj_clock_shop4_2_t4_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_shop4_2_t3_tex_txt[0x180];
 #else
 u8 obj_clock_shop4_2_t3_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 obj_clock_shop4_2_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_shop4_2_t2_tex_txt[0x300];
 #else
 u8 obj_clock_shop4_2_t2_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 obj_clock_shop4_2_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_clock_shop4_2_t1_tex_txt[0x480];
 #else
 u8 obj_clock_shop4_2_t1_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 obj_clock_shop4_2_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_clock_shop4_v[0x100 / sizeof(Vtx)];
 #else
 Vtx obj_clock_shop4_v[] = {

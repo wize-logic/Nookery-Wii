@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_honegai_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_honegai_pal[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_honegai_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_shop_honegai_tex[0xC0];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_shop_honegai_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_shop_honegai_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_honegai_v[0x70 / sizeof(Vtx)];
 #else
 Vtx obj_shop_honegai_v[] = {

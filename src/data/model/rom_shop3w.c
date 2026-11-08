@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx rom_shop3w_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop3_ent_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop3_ent_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop3_ent_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop3_tana_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop3_tana_pal[] = {
@@ -22,7 +22,7 @@ static u16 rom_shop3_tana_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop3_leji_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop3_leji_pal[] = {
@@ -30,7 +30,7 @@ static u16 rom_shop3_leji_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop3_desk_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop3_desk_pal[] = {
@@ -38,7 +38,7 @@ static u16 rom_shop3_desk_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop3_mat_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop3_mat_pal[] = {
@@ -46,7 +46,7 @@ static u16 rom_shop3_mat_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop3_bini_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop3_bini_pal[] = {
@@ -54,7 +54,7 @@ static u16 rom_shop3_bini_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop3_wallC_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop3_wallC_pal[] = {
@@ -62,7 +62,7 @@ static u16 rom_shop3_wallC_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_ent[0x200];
 #else
 static u8 rom_shop3_ent[] = {
@@ -70,7 +70,7 @@ static u8 rom_shop3_ent[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop3_tana[0x100];
 #else
 u8 rom_shop3_tana[] = {
@@ -78,7 +78,7 @@ u8 rom_shop3_tana[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_kago_b[0x100];
 #else
 static u8 rom_shop3_kago_b[] = {
@@ -86,7 +86,7 @@ static u8 rom_shop3_kago_b[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop3_kago_t[0x80];
 #else
 u8 rom_shop3_kago_t[] = {
@@ -94,7 +94,7 @@ u8 rom_shop3_kago_t[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_leji_f[0x80];
 #else
 static u8 rom_shop3_leji_f[] = {
@@ -102,7 +102,7 @@ static u8 rom_shop3_leji_f[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_leji_k[0x80];
 #else
 static u8 rom_shop3_leji_k[] = {
@@ -110,7 +110,7 @@ static u8 rom_shop3_leji_k[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_leji_b[0x80];
 #else
 static u8 rom_shop3_leji_b[] = {
@@ -118,7 +118,7 @@ static u8 rom_shop3_leji_b[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_desk_a[0x200];
 #else
 static u8 rom_shop3_desk_a[] = {
@@ -126,7 +126,7 @@ static u8 rom_shop3_desk_a[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_desk_b[0x80];
 #else
 static u8 rom_shop3_desk_b[] = {
@@ -134,7 +134,7 @@ static u8 rom_shop3_desk_b[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_desk_c[0x200];
 #else
 static u8 rom_shop3_desk_c[] = {
@@ -142,7 +142,7 @@ static u8 rom_shop3_desk_c[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_tana_t[0x80];
 #else
 static u8 rom_shop3_tana_t[] = {
@@ -150,7 +150,7 @@ static u8 rom_shop3_tana_t[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop3_mat_a[0x80];
 #else
 u8 rom_shop3_mat_a[] = {
@@ -158,7 +158,7 @@ u8 rom_shop3_mat_a[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop3_mat_b[0x100];
 #else
 u8 rom_shop3_mat_b[] = {
@@ -166,7 +166,7 @@ u8 rom_shop3_mat_b[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_bini[0x80];
 #else
 static u8 rom_shop3_bini[] = {
@@ -174,7 +174,7 @@ static u8 rom_shop3_bini[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_bini_b[0x80];
 #else
 static u8 rom_shop3_bini_b[] = {
@@ -182,7 +182,7 @@ static u8 rom_shop3_bini_b[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_car[0x100];
 #else
 static u8 rom_shop3_car[] = {
@@ -190,7 +190,7 @@ static u8 rom_shop3_car[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_bini_a[0x80];
 #else
 static u8 rom_shop3_bini_a[] = {
@@ -198,7 +198,7 @@ static u8 rom_shop3_bini_a[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_wallC[0x800];
 #else
 static u8 rom_shop3_wallC[] = {
@@ -206,7 +206,7 @@ static u8 rom_shop3_wallC[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_wallD[0x800];
 #else
 static u8 rom_shop3_wallD[] = {
@@ -214,7 +214,7 @@ static u8 rom_shop3_wallD[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_floorE[0x200];
 #else
 static u8 rom_shop3_floorE[] = {
@@ -222,7 +222,7 @@ static u8 rom_shop3_floorE[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop3_kage1[0x80];
 #else
 static u8 rom_shop3_kage1[] = {
@@ -230,7 +230,7 @@ static u8 rom_shop3_kage1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_shop3w_v[0x2320 / sizeof(Vtx)];
 #else
 Vtx rom_shop3w_v[] = {
@@ -500,7 +500,7 @@ Gfx rom_shop3w_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_rom_shop3w_c(void) {
     pc_load_asset("assets/rom_shop3w/rom_shop3_ent_pal.bin", rom_shop3_ent_pal, 0x20, 0xC470A0, 0, 1);

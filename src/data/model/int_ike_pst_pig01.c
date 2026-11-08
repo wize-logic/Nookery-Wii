@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_pst_pig01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_pst_pig01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_pst_pig01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_pst_pig01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_pst_pig01_base1_tex[0x80];
 #else
 u8 int_ike_pst_pig01_base1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_pst_pig01_base1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_pst_pig01_nose1_tex[0x80];
 #else
 u8 int_ike_pst_pig01_nose1_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_pst_pig01_nose1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_pst_pig01_ear1_tex[0x80];
 #else
 u8 int_ike_pst_pig01_ear1_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_pst_pig01_ear1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_pst_pig01_eye1_tex[0x80];
 #else
 u8 int_ike_pst_pig01_eye1_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_pst_pig01_eye1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_pst_pig01_hole1_tex[0x100];
 #else
 u8 int_ike_pst_pig01_hole1_tex[] = {
@@ -54,7 +54,7 @@ u8 int_ike_pst_pig01_hole1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_pst_pig01_hand1_tex[0x80];
 #else
 u8 int_ike_pst_pig01_hand1_tex[] = {
@@ -62,7 +62,7 @@ u8 int_ike_pst_pig01_hand1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_pst_pig01_tail1_tex[0x80];
 #else
 u8 int_ike_pst_pig01_tail1_tex[] = {
@@ -70,7 +70,7 @@ u8 int_ike_pst_pig01_tail1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_pst_pig01_mark1_tex[0x80];
 #else
 u8 int_ike_pst_pig01_mark1_tex[] = {
@@ -78,7 +78,7 @@ u8 int_ike_pst_pig01_mark1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_pst_pig01_v[0x500 / sizeof(Vtx)];
 #else
 Vtx int_ike_pst_pig01_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_sofe03_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_sofe03_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_sofe03_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_sofe03_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_sofe03_backside_txt[0x200];
 #else
 u8 int_sum_sofe03_backside_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_sofe03_backside_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_sofe03_front_txt[0x200];
 #else
 u8 int_sum_sofe03_front_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_sofe03_front_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_sofe03_side_txt[0x200];
 #else
 u8 int_sum_sofe03_side_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_sofe03_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_sofe03_hijikake_txt[0x100];
 #else
 u8 int_sum_sofe03_hijikake_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_sofe03_hijikake_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_sofe03_foot_txt[0x100];
 #else
 u8 int_sum_sofe03_foot_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_sofe03_foot_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_sofe03_v[0x3A0 / sizeof(Vtx)];
 #else
 Vtx int_sum_sofe03_v[] = {

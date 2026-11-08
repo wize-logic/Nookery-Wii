@@ -9,7 +9,7 @@ ATTRIBUTE_ALIGN(32) EVW_ANIME_SCROLL ef_siawase01_00_evw_anime_2[] = { { 1, -4, 
 
 EVW_ANIME_DATA ef_siawase01_00_evw_anime[] = { { -1, EVW_ANIME_TYPE_SCROLL2, ef_siawase01_00_evw_anime_2 } };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_siawase01_1[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_siawase01_1[] = {
@@ -17,7 +17,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_siawase01_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_siawase01_2_int_i4[0x80];
 #else
 u8 ef_siawase01_2_int_i4[] = {
@@ -25,7 +25,7 @@ u8 ef_siawase01_2_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_siawase01_00_v[0x110 / sizeof(Vtx)];
 #else
 Vtx ef_siawase01_00_v[] = {
@@ -52,7 +52,7 @@ Gfx ef_siawase01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_siawase01_0[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_siawase01_0[] = {
@@ -60,7 +60,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_siawase01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_siawase01_01_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_siawase01_01_v[] = {

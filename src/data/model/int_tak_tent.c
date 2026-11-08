@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_tent_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_tent_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_tent_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_tent_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_tent_1_tex[0x200];
 #else
 u8 int_tak_tent_1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_tak_tent_1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_tent_2_tex[0x80];
 #else
 u8 int_tak_tent_2_tex[] = {
@@ -30,7 +30,7 @@ u8 int_tak_tent_2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_tent_v[0x970 / sizeof(Vtx)];
 #else
 Vtx int_tak_tent_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kob_getabako2_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kob_getabako2_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kob_getabako2_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kob_getabako2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_naka1_tex[0x80];
 #else
 u8 int_kob_getabako2_naka1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kob_getabako2_naka1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_naka2_tex[0x80];
 #else
 u8 int_kob_getabako2_naka2_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kob_getabako2_naka2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_side_tex[0x100];
 #else
 u8 int_kob_getabako2_side_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kob_getabako2_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_top_tex[0x100];
 #else
 u8 int_kob_getabako2_top_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kob_getabako2_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_ura_tex[0x200];
 #else
 u8 int_kob_getabako2_ura_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kob_getabako2_ura_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_atumi_tex[0x200];
 #else
 u8 int_kob_getabako2_atumi_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kob_getabako2_atumi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_wear_tex[0x80];
 #else
 u8 int_kob_getabako2_wear_tex[] = {
@@ -70,7 +70,7 @@ u8 int_kob_getabako2_wear_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_book3_tex[0x80];
 #else
 u8 int_kob_getabako2_book3_tex[] = {
@@ -78,7 +78,7 @@ u8 int_kob_getabako2_book3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_book1_tex[0x80];
 #else
 u8 int_kob_getabako2_book1_tex[] = {
@@ -86,7 +86,7 @@ u8 int_kob_getabako2_book1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_getabako2_loveletter_tex[0x80];
 #else
 u8 int_kob_getabako2_loveletter_tex[] = {
@@ -94,7 +94,7 @@ u8 int_kob_getabako2_loveletter_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kob_getabako2_v[0x590 / sizeof(Vtx)];
 #else
 Vtx int_kob_getabako2_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tol_hata_e_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tol_hata_e_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 tol_hata_e_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_hata_e_tex[0x80];
 #else
 u8 tol_hata_e_tex[] = {
@@ -21,7 +21,7 @@ u8 tol_hata_e_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_hata_hata_tex_inta_ia8[0x100];
 #else
 u8 tol_hata_hata_tex_inta_ia8[] = {
@@ -29,7 +29,7 @@ u8 tol_hata_hata_tex_inta_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_hata_01_v[0xF0 / sizeof(Vtx)];
 #else
 Vtx tol_hata_01_v[] = {

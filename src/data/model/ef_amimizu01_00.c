@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_amimizu01_0[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_amimizu01_0[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_amimizu01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_amimizu01_00_v[0x180 / sizeof(Vtx)];
 #else
 Vtx ef_amimizu01_00_v[] = {

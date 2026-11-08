@@ -2,7 +2,7 @@
 #include "PR/gbi.h"
 #include "evw_anime.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 act_ball_d_pal[0x20 / sizeof(u16)];
 #else
 u16 act_ball_d_pal[] = {
@@ -10,7 +10,7 @@ u16 act_ball_d_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_ball_d_1_tex[0x80];
 #else
 u8 act_ball_d_1_tex[] = {
@@ -18,7 +18,7 @@ u8 act_ball_d_1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_ball_d_2_tex[0x80];
 #else
 u8 act_ball_d_2_tex[] = {
@@ -26,7 +26,7 @@ u8 act_ball_d_2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_ball_d_3_tex[0x80];
 #else
 u8 act_ball_d_3_tex[] = {
@@ -34,7 +34,7 @@ u8 act_ball_d_3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_ball_d_v[0x360 / sizeof(Vtx)];
 #else
 Vtx act_ball_d_v[] = {

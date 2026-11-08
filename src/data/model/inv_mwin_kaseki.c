@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_kaseki2_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_kaseki2_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_kaseki2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_kaseki_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_kaseki_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_kaseki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_kaseki2_tex[0x200];
 #else
 u8 inv_mwin_kaseki2_tex[] = {
@@ -29,7 +29,7 @@ u8 inv_mwin_kaseki2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_kaseki_tex[0x200];
 #else
 u8 inv_mwin_kaseki_tex[] = {

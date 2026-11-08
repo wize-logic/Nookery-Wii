@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_shop1_shadow[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_shop1_shadow[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_shop1_shadow[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop1_shadow_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_shop1_shadow_v[] = {
@@ -35,7 +35,7 @@ Gfx obj_shop1_shadowT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_shop2_shadow[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_shop2_shadow[] = {
@@ -43,7 +43,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_shop2_shadow[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop2_shadow_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx obj_shop2_shadow_v[] = {
@@ -65,7 +65,7 @@ Gfx obj_shop2_shadowT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_shop3_shadow[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_shop3_shadow[] = {
@@ -73,7 +73,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_shop3_shadow[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop3_shadow_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_shop3_shadow_v[] = {
@@ -95,7 +95,7 @@ Gfx obj_shop3_shadowT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_shop4_shadow_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_shop4_shadow_txt[] = {
@@ -103,7 +103,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_shop4_shadow_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop4_shadow_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx obj_shop4_shadow_v[] = {

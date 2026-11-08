@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx tol_uki_2_v[0x180 / sizeof(Vtx)];
 #else
 static Vtx tol_uki_2_v[] = {
@@ -13,7 +13,7 @@ static Vtx tol_uki_2_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 tol_sao_2_pal[0x20 / sizeof(u16)];
 #else
 static u16 tol_sao_2_pal[] = {
@@ -21,7 +21,7 @@ static u16 tol_sao_2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_sao_2_uki1_tex_txt[0x100];
 #else
 static u8 tol_sao_2_uki1_tex_txt[] = {
@@ -71,7 +71,7 @@ Gfx inv_uki2_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_tol_uki_2_c(void) {
     pc_load_asset("assets/tol_uki_2/tol_uki_2_v.bin", tol_uki_2_v, 0x180, 0x7217D0, 0, 2);

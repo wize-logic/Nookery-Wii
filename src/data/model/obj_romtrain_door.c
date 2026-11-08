@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx obj_romtrain_door_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_romtrain_door_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_romtrain_door_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_romtrain_door_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_romtrain_door_tex_txt[0x400];
 #else
 u8 obj_romtrain_door_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 obj_romtrain_door_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_romtrain_glass_tex_txt[0x100];
 #else
 u8 obj_romtrain_glass_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 obj_romtrain_glass_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_romtrain_door_v[0xF0 / sizeof(Vtx)];
 #else
 Vtx obj_romtrain_door_v[] = {

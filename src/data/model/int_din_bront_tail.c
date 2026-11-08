@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_din_bront_tail_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_din_bront_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_din_bront_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_din_bront_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_bront_kb2C_tex[0x80];
 #else
 u8 int_din_bront_kb2C_tex[] = {
@@ -22,7 +22,7 @@ u8 int_din_bront_kb2C_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_bront_baceC_tex[0x200];
 #else
 u8 int_din_bront_baceC_tex[] = {
@@ -30,7 +30,7 @@ u8 int_din_bront_baceC_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_bront_poleC_tex[0x80];
 #else
 u8 int_din_bront_poleC_tex[] = {
@@ -38,7 +38,7 @@ u8 int_din_bront_poleC_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_din_bront_tail_v[0x350 / sizeof(Vtx)];
 #else
 Vtx int_din_bront_tail_v[] = {
@@ -87,7 +87,7 @@ Gfx int_din_bront_tailT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_din_bront_tail_c(void) {
     pc_load_asset("assets/int_din_bront_tail/int_din_bront_pal.bin", int_din_bront_pal, 0x20, 0x90F460, 0, 1);

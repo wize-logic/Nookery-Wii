@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_k_sinnen01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_k_sinnen01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_k_sinnen01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_k_sinnen01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_oseti1_tex[0x200];
 #else
 u8 int_ike_k_oseti1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_k_oseti1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_osetiside_tex[0x100];
 #else
 u8 int_ike_k_osetiside_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_k_osetiside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_oseti2_tex[0x200];
 #else
 u8 int_ike_k_oseti2_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_k_oseti2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_k_sinnen01_v[0x280 / sizeof(Vtx)];
 #else
 Vtx int_ike_k_sinnen01_v[] = {

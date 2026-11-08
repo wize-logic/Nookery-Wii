@@ -9,7 +9,7 @@ extern Vtx ef_w_palm3_cutR_v[];
 extern u8 obj_w_palm_cutS_tex_txt[];
 extern u8 ef_w_palm_trunk_modeset[];
 extern u8 ef_w_palm_leaf_modeset[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_w_palm3_cutR_v[0x160 / sizeof(Vtx)];
 #else
 Vtx ef_w_palm3_cutR_v[] = {

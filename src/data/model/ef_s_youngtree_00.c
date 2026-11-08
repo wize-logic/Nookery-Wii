@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_s_yungtree_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_s_yungtree_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_s_yungtree_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_youngtree_00_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_s_youngtree_00_v[] = {
@@ -35,7 +35,7 @@ Gfx ef_s_youngtree_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_w_youngtree_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_w_youngtree_tex[] = {
@@ -43,7 +43,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_w_youngtree_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_w_youngtree_00_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_w_youngtree_00_v[] = {
@@ -65,7 +65,7 @@ Gfx ef_w_youngtree_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_f_youngtree_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_f_youngtree_tex[] = {
@@ -73,7 +73,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_f_youngtree_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_f_youngtree_00_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_f_youngtree_00_v[] = {
@@ -95,7 +95,7 @@ Gfx ef_f_youngtree_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_s_young_palm_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_s_young_palm_tex[] = {
@@ -103,7 +103,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_s_young_palm_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_young_palm_v[0x60 / sizeof(Vtx)];
 #else
 Vtx ef_s_young_palm_v[] = {
@@ -125,7 +125,7 @@ Gfx ef_s_young_palm_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_w_young_palm_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_w_young_palm_tex[] = {
@@ -133,7 +133,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_w_young_palm_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_w_young_palm_v[0x60 / sizeof(Vtx)];
 #else
 Vtx ef_w_young_palm_v[] = {
@@ -155,7 +155,7 @@ Gfx ef_w_young_palm_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_s_young_cedar_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_s_young_cedar_tex[] = {
@@ -163,7 +163,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_s_young_cedar_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_young_cedar_v[0x60 / sizeof(Vtx)];
 #else
 Vtx ef_s_young_cedar_v[] = {
@@ -185,7 +185,7 @@ Gfx ef_s_young_cedar_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_w_young_cedar_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_w_young_cedar_tex[] = {
@@ -193,7 +193,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_w_young_cedar_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_w_young_cedar_v[0x60 / sizeof(Vtx)];
 #else
 Vtx ef_w_young_cedar_v[] = {

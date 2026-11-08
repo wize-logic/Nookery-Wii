@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_tukimi_t2_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_tukimi_t2_tex_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_tukimi_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_tukimi_t3_tex_txt[0x800];
 #else
 u8 obj_e_tukimi_t3_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_e_tukimi_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_tukimi_t1_tex_txt[0x800];
 #else
 u8 obj_e_tukimi_t1_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 obj_e_tukimi_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_tukimi_r_v[0x480 / sizeof(Vtx)];
 #else
 Vtx obj_e_tukimi_r_v[] = {
@@ -203,7 +203,7 @@ cKF_Animation_R_c cKF_ba_r_obj_e_tukimi_r = { cKF_ckcb_r_obj_e_tukimi_r_tbl,
                                               -1,
                                               271 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_tukimi_l_t2_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_tukimi_l_t2_tex_txt[] = {
@@ -211,7 +211,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_tukimi_l_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_tukimi_l_t1_tex_txt[0x800];
 #else
 u8 obj_e_tukimi_l_t1_tex_txt[] = {
@@ -219,7 +219,7 @@ u8 obj_e_tukimi_l_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_tukimi_l_t3_tex_txt[0x800];
 #else
 u8 obj_e_tukimi_l_t3_tex_txt[] = {
@@ -227,7 +227,7 @@ u8 obj_e_tukimi_l_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_tukimi_l_v[0x480 / sizeof(Vtx)];
 #else
 Vtx obj_e_tukimi_l_v[] = {

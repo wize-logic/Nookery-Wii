@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_pl_hirasabo_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_pl_hirasabo_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_pl_hirasabo_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_pl_hirasabo_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_hirasabo_earth_tex[0x80];
 #else
 u8 int_sum_pl_hirasabo_earth_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_pl_hirasabo_earth_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_hirasabo_hachi_tex[0x100];
 #else
 u8 int_sum_pl_hirasabo_hachi_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_pl_hirasabo_hachi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_hirasabo_sabo1_tex[0x200];
 #else
 u8 int_sum_pl_hirasabo_sabo1_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_pl_hirasabo_sabo1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_hirasabo_sabo2_tex[0x300];
 #else
 u8 int_sum_pl_hirasabo_sabo2_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_pl_hirasabo_sabo2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_hirasabo_sabo3_tex[0x100];
 #else
 u8 int_sum_pl_hirasabo_sabo3_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_pl_hirasabo_sabo3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_pl_hirasabo_v[0x2F0 / sizeof(Vtx)];
 #else
 Vtx int_sum_pl_hirasabo_v[] = {

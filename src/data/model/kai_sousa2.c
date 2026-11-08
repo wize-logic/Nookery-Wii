@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 testbutton[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 testbutton[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 testbutton[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx kai_sousa2_v[0xA00 / sizeof(Vtx)];
 #else
 Vtx kai_sousa2_v[] = {

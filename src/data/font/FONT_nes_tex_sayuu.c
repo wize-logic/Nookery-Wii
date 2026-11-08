@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 FONT_nes_tex_sayuu[0x80];
 #else
 u8 FONT_nes_tex_sayuu[] = { 

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern u8 ef_w_tree_leaf_modeset[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_w_tree3_shake_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_w_tree3_shake_v[] = {

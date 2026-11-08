@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx ef_reset_hole_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 ef_reset_hole_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 ef_reset_hole_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 ef_reset_hole_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_reset_hole_tex[0x100];
 #else
 u8 ef_reset_hole_tex[] = {
@@ -22,7 +22,7 @@ u8 ef_reset_hole_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_reset_hole_v[0x620 / sizeof(Vtx)];
 #else
 Vtx ef_reset_hole_v[] = {

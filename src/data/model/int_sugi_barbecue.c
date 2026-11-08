@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sugi_barbecue_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sugi_barbecue_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sugi_barbecue_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sugi_barbecue_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sugi_barbecue2_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sugi_barbecue2_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sugi_barbecue2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sugi_barbecue_all_tex_txt[0x800];
 #else
 u8 int_sugi_barbecue_all_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sugi_barbecue_all_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sugi_barbecue2_bar_tex_txt[0x200];
 #else
 u8 int_sugi_barbecue2_bar_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sugi_barbecue2_bar_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sugi_barbecue_v[0x8A0 / sizeof(Vtx)];
 #else
 Vtx int_sugi_barbecue_v[] = {

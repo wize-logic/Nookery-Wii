@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_x_clk_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_x_clk_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_x_clk_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_x_clk_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sum_x_clk_glass_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sum_x_clk_glass_pic_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sum_x_clk_glass_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_clk_hari_txt[0x100];
 #else
 u8 int_sum_x_clk_hari_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_x_clk_hari_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_clk_into_txt[0x80];
 #else
 u8 int_sum_x_clk_into_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_x_clk_into_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_clk_front_txt[0x280];
 #else
 u8 int_sum_x_clk_front_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_x_clk_front_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_clk_head_txt[0x80];
 #else
 u8 int_sum_x_clk_head_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_x_clk_head_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_clk_side_txt[0x200];
 #else
 u8 int_sum_x_clk_side_txt[] = {
@@ -62,7 +62,7 @@ u8 int_sum_x_clk_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_clk_huriko_txt[0x80];
 #else
 u8 int_sum_x_clk_huriko_txt[] = {
@@ -70,7 +70,7 @@ u8 int_sum_x_clk_huriko_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_clk_glass_txt[0x80];
 #else
 u8 int_sum_x_clk_glass_txt[] = {
@@ -78,7 +78,7 @@ u8 int_sum_x_clk_glass_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_x_clk_v[0x420 / sizeof(Vtx)];
 #else
 Vtx int_sum_x_clk_v[] = {

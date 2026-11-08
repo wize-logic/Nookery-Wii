@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_doll10_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_doll10_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_doll10_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_doll10_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll10_face_txt_txt[0x400];
 #else
 u8 int_sum_doll10_face_txt_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_doll10_face_txt_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll10_front_txt_txt[0x300];
 #else
 u8 int_sum_doll10_front_txt_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_doll10_front_txt_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_doll10_v[0x210 / sizeof(Vtx)];
 #else
 Vtx int_sum_doll10_v[] = {

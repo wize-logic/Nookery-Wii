@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_kanban_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_kanban_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_kanban_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hakushi_pal[0x20 / sizeof(u16)];
 #else
 u16 hakushi_pal[] = {
@@ -21,7 +21,7 @@ u16 hakushi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hakushi_tex[0x200];
 #else
 u8 hakushi_tex[] = {
@@ -29,7 +29,7 @@ u8 hakushi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_kanban_base_tex[0x300];
 #else
 u8 obj_s_kanban_base_tex[] = {
@@ -37,7 +37,7 @@ u8 obj_s_kanban_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_kanban_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_s_kanban_v[] = {
@@ -45,7 +45,7 @@ Vtx obj_s_kanban_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_kanban_base_tex[0x300];
 #else
 u8 obj_w_kanban_base_tex[] = {
@@ -53,7 +53,7 @@ u8 obj_w_kanban_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_kanban_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_w_kanban_v[] = {
@@ -103,7 +103,7 @@ Gfx obj_sign_w_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_kanban_shadow_tex[0x200];
 #else
 u8 obj_kanban_shadow_tex[] = {
@@ -111,7 +111,7 @@ u8 obj_kanban_shadow_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_kanban_shadow_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_kanban_shadow_v[] = {

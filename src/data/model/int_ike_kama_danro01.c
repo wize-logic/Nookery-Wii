@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_kama_danro01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_ike_kama_danro01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_ike_kama_danro01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_ike_kama_danro01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_kama_danrounder1_tex_txt[0x80];
 #else
 u8 int_ike_kama_danrounder1_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_ike_kama_danrounder1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_kama_danrounder2_tex_txt[0x100];
 #else
 u8 int_ike_kama_danrounder2_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_ike_kama_danrounder2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_kama_danrotop1_tex_txt[0x80];
 #else
 u8 int_ike_kama_danrotop1_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_ike_kama_danrotop1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_kama_danrorenga2_tex_txt[0x100];
 #else
 u8 int_ike_kama_danrorenga2_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_ike_kama_danrorenga2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_kama_danrorenga1_tex_txt[0x200];
 #else
 u8 int_ike_kama_danrorenga1_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_ike_kama_danrorenga1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_kama_danrotop2_tex_txt[0x80];
 #else
 u8 int_ike_kama_danrotop2_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_ike_kama_danrotop2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_kama_danrorenga3_tex_txt[0x100];
 #else
 u8 int_ike_kama_danrorenga3_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_ike_kama_danrorenga3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 int_ike_kama_danrotree1_tex_txt[0x80];
 #else
 static u8 int_ike_kama_danrotree1_tex_txt[] = {
@@ -78,7 +78,7 @@ static u8 int_ike_kama_danrotree1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fire06_int_i4[0x400];
 #else
 u8 fire06_int_i4[] = {
@@ -86,7 +86,7 @@ u8 fire06_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fire08_int_i4[0x200];
 #else
 u8 fire08_int_i4[] = {
@@ -94,7 +94,7 @@ u8 fire08_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_kama_danro01_v[0x970 / sizeof(Vtx)];
 #else
 Vtx int_ike_kama_danro01_v[] = {
@@ -208,7 +208,7 @@ Gfx int_ike_kama_danro01_on_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_ike_kama_danro01_c(void) {
     pc_load_asset("assets/int_ike_kama_danro01/int_ike_kama_danro01_pal.bin", int_ike_kama_danro01_pal, 0x20, 0xB270E0, 0, 1);

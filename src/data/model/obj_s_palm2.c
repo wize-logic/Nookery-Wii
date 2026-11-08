@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 obj_s_palm_young_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 obj_s_palm_young_tex[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) static u8 obj_s_palm_young_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_palm2_v[0x70 / sizeof(Vtx)];
 #else
 Vtx obj_s_palm2_v[] = {
@@ -33,7 +33,7 @@ Gfx obj_s_palm2T_gfx_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_s_palm2_c(void) {
     pc_load_asset("assets/obj_s_palm2/obj_s_palm_young_tex.bin", obj_s_palm_young_tex, 0x800, 0x3E4AA0, 0, 0);

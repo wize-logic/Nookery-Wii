@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_kamihubuki01_00_v[0x60 / sizeof(Vtx)];
 #else
 Vtx ef_kamihubuki01_00_v[] = {
@@ -24,7 +24,7 @@ Gfx ef_kamihubuki01_00_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_tape01_01_v[0x160 / sizeof(Vtx)];
 #else
 Vtx ef_tape01_01_v[] = {

@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) Vtx obj_s_palm5_coco_v[0x80 / sizeof(Vtx)];
 #else
 ATTRIBUTE_ALIGN(32) Vtx obj_s_palm5_coco_v[] = {

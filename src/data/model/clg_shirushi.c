@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 dlt_win_yajirushi_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 dlt_win_yajirushi_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 dlt_win_yajirushi_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx clg_shirushi_v[0x40 / sizeof(Vtx)];
 #else
 Vtx clg_shirushi_v[] = {

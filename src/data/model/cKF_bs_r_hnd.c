@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 hnd_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 hnd_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 hnd_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hnd_white_txt[0x20];
 #else
 u8 hnd_white_txt[] = {
@@ -21,7 +21,7 @@ u8 hnd_white_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hnd_fin_txt[0x80];
 #else
 u8 hnd_fin_txt[] = {
@@ -29,7 +29,7 @@ u8 hnd_fin_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hnd_back_txt[0x200];
 #else
 u8 hnd_back_txt[] = {
@@ -37,7 +37,7 @@ u8 hnd_back_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hnd_neck_txt[0x80];
 #else
 u8 hnd_neck_txt[] = {
@@ -45,7 +45,7 @@ u8 hnd_neck_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hnd_front_txt[0x200];
 #else
 u8 hnd_front_txt[] = {
@@ -53,7 +53,7 @@ u8 hnd_front_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx hnd_v[0x1320 / sizeof(Vtx)];
 #else
 Vtx hnd_v[] = {

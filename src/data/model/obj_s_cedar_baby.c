@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_cedar_baby_tex[0x180];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_cedar_baby_tex[]= {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_cedar_baby_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_cedar1_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_s_cedar1_v[] = { 

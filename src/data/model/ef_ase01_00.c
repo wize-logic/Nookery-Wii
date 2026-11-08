@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ef_ase01_0[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ef_ase01_0[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u8 ef_ase01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_ase01_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_ase01_00_v[] = {
@@ -36,7 +36,7 @@ Gfx ef_ase01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_ef_ase01_00_c(void) {
     pc_load_asset("assets/ef_ase01_00/ef_ase01_0.bin", ef_ase01_0, 0x100, 0x93D2E0, 0, 0);

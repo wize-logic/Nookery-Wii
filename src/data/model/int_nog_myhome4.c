@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_myhome4_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_nog_myhome4_body_tex[0x600];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_nog_myhome4_body_tex[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_nog_myhome4_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_myhome4_chimney_tex[0x80];
 #else
 u8 int_nog_myhome4_chimney_tex[] = {
@@ -22,7 +22,7 @@ u8 int_nog_myhome4_chimney_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_myhome4_grass_tex[0x80];
 #else
 u8 int_nog_myhome4_grass_tex[] = {
@@ -30,7 +30,7 @@ u8 int_nog_myhome4_grass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_myhome4_v[0x630 / sizeof(Vtx)];
 #else
 Vtx int_nog_myhome4_v[] = {

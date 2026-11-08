@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 pwd_win_kagi2_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 pwd_win_kagi2_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 pwd_win_kagi2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pwd_win_nuno_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pwd_win_nuno_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ u16 pwd_win_nuno_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pwd_win_w4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pwd_win_w4_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ u16 pwd_win_w4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pwd_win_w1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pwd_win_w1_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ u16 pwd_win_w1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pwd_win_w2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pwd_win_w2_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ u16 pwd_win_w2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pwd_win_w3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pwd_win_w3_tex_rgb_ci4_pal[] = {
@@ -53,7 +53,7 @@ u16 pwd_win_w3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_moji_tex[0x80];
 #else
 u8 pwd_win_moji_tex[] = {
@@ -61,7 +61,7 @@ u8 pwd_win_moji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_fuki2_tex[0x800];
 #else
 static u8 fkm_win_fuki2_tex[] = {
@@ -69,7 +69,7 @@ static u8 fkm_win_fuki2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_sw1_tex[0x400];
 #else
 u8 pwd_win_sw1_tex[] = {
@@ -77,7 +77,7 @@ u8 pwd_win_sw1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_sw2_tex[0x400];
 #else
 u8 pwd_win_sw2_tex[] = {
@@ -85,7 +85,7 @@ u8 pwd_win_sw2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_sw3_tex[0x200];
 #else
 u8 pwd_win_sw3_tex[] = {
@@ -93,7 +93,7 @@ u8 pwd_win_sw3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_sw4_tex[0x80];
 #else
 u8 pwd_win_sw4_tex[] = {
@@ -101,7 +101,7 @@ u8 pwd_win_sw4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_icon_tex[0x800];
 #else
 u8 pwd_win_icon_tex[] = {
@@ -109,7 +109,7 @@ u8 pwd_win_icon_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_nuno_tex_rgb_ci4[0x200];
 #else
 u8 pwd_win_nuno_tex_rgb_ci4[] = {
@@ -117,7 +117,7 @@ u8 pwd_win_nuno_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_w4_tex_rgb_ci4[0x80];
 #else
 u8 pwd_win_w4_tex_rgb_ci4[] = {
@@ -125,7 +125,7 @@ u8 pwd_win_w4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_w1_tex_rgb_ci4[0x400];
 #else
 u8 pwd_win_w1_tex_rgb_ci4[] = {
@@ -133,7 +133,7 @@ u8 pwd_win_w1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_w2_tex_rgb_ci4[0x400];
 #else
 u8 pwd_win_w2_tex_rgb_ci4[] = {
@@ -141,7 +141,7 @@ u8 pwd_win_w2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pwd_win_w3_tex_rgb_ci4[0x200];
 #else
 u8 pwd_win_w3_tex_rgb_ci4[] = {
@@ -149,7 +149,7 @@ u8 pwd_win_w3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx pwd_win_v[0xE80 / sizeof(Vtx)];
 #else
 Vtx pwd_win_v[] = {
@@ -394,7 +394,7 @@ Gfx pwd_win_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_pwd_win_c(void) {
     pc_load_asset("assets/pwd_win/fkm_win_fuki2_tex.bin", fkm_win_fuki2_tex, 0x800, 0x7AD9C0, 0, 0);

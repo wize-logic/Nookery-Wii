@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 kan_win_map_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 kan_win_map_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 kan_win_map_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_waku2a_tex[0x1000];
 #else
 u8 kan_win_waku2a_tex[] = {
@@ -21,7 +21,7 @@ u8 kan_win_waku2a_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 testa[0x100];
 #else
 u8 testa[] = {
@@ -29,7 +29,7 @@ u8 testa[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_b_tex[0x100];
 #else
 u8 kan_win_b_tex[] = {
@@ -37,7 +37,7 @@ u8 kan_win_b_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_c_tex[0x100];
 #else
 u8 kan_win_c_tex[] = {
@@ -45,7 +45,7 @@ u8 kan_win_c_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_w1_tex[0x1000];
 #else
 u8 kan_win_w1_tex[] = {
@@ -53,7 +53,7 @@ u8 kan_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_w2_tex[0x800];
 #else
 u8 kan_win_w2_tex[] = {
@@ -61,7 +61,7 @@ u8 kan_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_w3_tex[0x400];
 #else
 u8 kan_win_w3_tex[] = {
@@ -69,7 +69,7 @@ u8 kan_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_d_tex[0x100];
 #else
 u8 kan_win_d_tex[] = {
@@ -77,7 +77,7 @@ u8 kan_win_d_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_e_tex[0x100];
 #else
 u8 kan_win_e_tex[] = {
@@ -85,7 +85,7 @@ u8 kan_win_e_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_f_tex[0x100];
 #else
 u8 kan_win_f_tex[] = {
@@ -93,7 +93,7 @@ u8 kan_win_f_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji1_tex[0x100];
 #else
 u8 kan_win_suuji1_tex[] = {
@@ -101,7 +101,7 @@ u8 kan_win_suuji1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_saki_tex[0x400];
 #else
 u8 kan_win_saki_tex[] = {
@@ -109,7 +109,7 @@ u8 kan_win_saki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_acre_tex[0x100];
 #else
 u8 kan_win_acre_tex[] = {
@@ -117,7 +117,7 @@ u8 kan_win_acre_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_ga_tex[0x100];
 #else
 u8 kan_win_ga_tex[] = {
@@ -125,7 +125,7 @@ u8 kan_win_ga_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_ga2_tex[0x100];
 #else
 u8 kan_win_ga2_tex[] = {
@@ -133,7 +133,7 @@ u8 kan_win_ga2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji2_tex[0x100];
 #else
 u8 kan_win_suuji2_tex[] = {
@@ -141,7 +141,7 @@ u8 kan_win_suuji2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji3_tex[0x100];
 #else
 u8 kan_win_suuji3_tex[] = {
@@ -149,7 +149,7 @@ u8 kan_win_suuji3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji4_tex[0x100];
 #else
 u8 kan_win_suuji4_tex[] = {
@@ -157,7 +157,7 @@ u8 kan_win_suuji4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji5_tex[0x100];
 #else
 u8 kan_win_suuji5_tex[] = {
@@ -165,7 +165,7 @@ u8 kan_win_suuji5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_ga3_tex[0x100];
 #else
 u8 kan_win_ga3_tex[] = {
@@ -173,7 +173,7 @@ u8 kan_win_ga3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_ga4_tex[0x100];
 #else
 u8 kan_win_ga4_tex[] = {
@@ -181,7 +181,7 @@ u8 kan_win_ga4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_a_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_a_tex_rgb_ia8[] = {
@@ -189,7 +189,7 @@ u8 kan_win_a_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_b_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_b_tex_rgb_ia8[] = {
@@ -197,7 +197,7 @@ u8 kan_win_b_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_c_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_c_tex_rgb_ia8[] = {
@@ -205,7 +205,7 @@ u8 kan_win_c_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_d_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_d_tex_rgb_ia8[] = {
@@ -213,7 +213,7 @@ u8 kan_win_d_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_e_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_e_tex_rgb_ia8[] = {
@@ -221,7 +221,7 @@ u8 kan_win_e_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_f_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_f_tex_rgb_ia8[] = {
@@ -229,7 +229,7 @@ u8 kan_win_f_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji1_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_suuji1_tex_rgb_ia8[] = {
@@ -237,7 +237,7 @@ u8 kan_win_suuji1_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji2_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_suuji2_tex_rgb_ia8[] = {
@@ -245,7 +245,7 @@ u8 kan_win_suuji2_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji3_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_suuji3_tex_rgb_ia8[] = {
@@ -253,7 +253,7 @@ u8 kan_win_suuji3_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji4_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_suuji4_tex_rgb_ia8[] = {
@@ -261,7 +261,7 @@ u8 kan_win_suuji4_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_suuji5_tex_rgb_ia8[0x100];
 #else
 u8 kan_win_suuji5_tex_rgb_ia8[] = {
@@ -269,7 +269,7 @@ u8 kan_win_suuji5_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx kan_win_v[0x830 / sizeof(Vtx)];
 #else
 Vtx kan_win_v[] = {

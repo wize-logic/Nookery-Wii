@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iku_jersey_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_iku_jersey_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_iku_jersey_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_iku_jersey_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_jersey_mae_tex_txt[0x200];
 #else
 u8 int_iku_jersey_mae_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_iku_jersey_mae_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_jersey_yoko_tex_txt[0x100];
 #else
 u8 int_iku_jersey_yoko_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_iku_jersey_yoko_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iku_jersey_v[0x2C0 / sizeof(Vtx)];
 #else
 Vtx int_iku_jersey_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_kago_r_t1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_kago_r_t1_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_kago_r_t1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_kago_r_t2_tex[0x800];
 #else
 u8 obj_e_kago_r_t2_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_e_kago_r_t2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_kago_r_v[0x290 / sizeof(Vtx)];
 #else
 Vtx obj_e_kago_r_v[] = {
@@ -70,7 +70,7 @@ Gfx kago_r_DL_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 zobj_e_kago_r_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 zobj_e_kago_r_pal[] = {
@@ -78,7 +78,7 @@ ATTRIBUTE_ALIGN(32) u16 zobj_e_kago_r_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_kago_r_ball_t1_tex[0x800];
 #else
 u8 obj_e_kago_r_ball_t1_tex[] = {
@@ -86,7 +86,7 @@ u8 obj_e_kago_r_ball_t1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_kago_r_ball_v[0x270 / sizeof(Vtx)];
 #else
 Vtx obj_e_kago_r_ball_v[] = {
@@ -112,7 +112,7 @@ Gfx kago_r_ball_DL_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_kago_w_t1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_kago_w_t1_tex[] = {
@@ -120,7 +120,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_kago_w_t1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_kago_w_t2_tex[0x800];
 #else
 u8 obj_e_kago_w_t2_tex[] = {
@@ -128,7 +128,7 @@ u8 obj_e_kago_w_t2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_kago_w_v[0x290 / sizeof(Vtx)];
 #else
 Vtx obj_e_kago_w_v[] = {
@@ -177,7 +177,7 @@ Gfx kago_w_DL_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 zobj_e_kago_w_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 zobj_e_kago_w_pal[] = {
@@ -185,7 +185,7 @@ ATTRIBUTE_ALIGN(32) u16 zobj_e_kago_w_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_kago_w_ball_t1_tex[0x800];
 #else
 u8 obj_e_kago_w_ball_t1_tex[] = {
@@ -193,7 +193,7 @@ u8 obj_e_kago_w_ball_t1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_kago_w_ball_v[0x240 / sizeof(Vtx)];
 #else
 Vtx obj_e_kago_w_ball_v[] = {

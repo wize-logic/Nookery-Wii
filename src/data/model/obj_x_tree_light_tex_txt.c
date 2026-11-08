@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_tree_light_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_tree_light_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_tree_light_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_tree_leaf_tex_txt[0x800];
 #else
 u8 obj_w_tree_leaf_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_w_tree_leaf_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_tree_cutS_tex_txt[0x200];
 #else
 u8 obj_w_tree_cutS_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 obj_w_tree_cutS_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_tree_cutL_tex_txt[0x600];
 #else
 u8 obj_w_tree_cutL_tex_txt[] = {
@@ -37,7 +37,7 @@ u8 obj_w_tree_cutL_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_x_tree_light_tex_txt[0x200];
 #else
 u8 obj_x_tree_light_tex_txt[] = {

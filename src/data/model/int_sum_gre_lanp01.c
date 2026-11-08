@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_gre_lanp01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_gre_lanp01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_gre_lanp01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_gre_lanp01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_gre_lanp01_kasa_tex[0x100];
 #else
 u8 int_sum_gre_lanp01_kasa_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_gre_lanp01_kasa_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_gre_lanp01_stand_tex[0x100];
 #else
 u8 int_sum_gre_lanp01_stand_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_gre_lanp01_stand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_gre_lanp01_topshade_tex[0x80];
 #else
 u8 int_sum_gre_lanp01_topshade_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_gre_lanp01_topshade_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_gre_lanp01_front_tex[0x200];
 #else
 u8 int_sum_gre_lanp01_front_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_gre_lanp01_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_gre_lanp01_side_tex[0x100];
 #else
 u8 int_sum_gre_lanp01_side_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_gre_lanp01_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_gre_lanp01_top_tex[0x80];
 #else
 u8 int_sum_gre_lanp01_top_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_gre_lanp01_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_gre_lanp01_swich_tex[0x80];
 #else
 u8 int_sum_gre_lanp01_swich_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_gre_lanp01_swich_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_gre_lanp01_back_tex[0x100];
 #else
 u8 int_sum_gre_lanp01_back_tex[] = {
@@ -78,7 +78,7 @@ u8 int_sum_gre_lanp01_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_gre_lanp01_v[0x320 / sizeof(Vtx)];
 #else
 Vtx int_sum_gre_lanp01_v[] = {

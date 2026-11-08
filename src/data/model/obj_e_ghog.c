@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_e_ghog_m_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_e_ghog_m_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_e_ghog_m_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_ghog_n_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_ghog_n_pal[] = {
@@ -21,7 +21,7 @@ u16 obj_e_ghog_n_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_ghog_m1[0x40];
 #else
 u8 obj_e_ghog_m1[] = {
@@ -29,7 +29,7 @@ u8 obj_e_ghog_m1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_ghog_m2[0x40];
 #else
 u8 obj_e_ghog_m2[] = {
@@ -37,7 +37,7 @@ u8 obj_e_ghog_m2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_ghog_m3[0x100];
 #else
 u8 obj_e_ghog_m3[] = {
@@ -45,7 +45,7 @@ u8 obj_e_ghog_m3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_ghog_m4[0x80];
 #else
 u8 obj_e_ghog_m4[] = {
@@ -53,7 +53,7 @@ u8 obj_e_ghog_m4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_ghog_m5[0x80];
 #else
 u8 obj_e_ghog_m5[] = {
@@ -61,7 +61,7 @@ u8 obj_e_ghog_m5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_ghog_n2[0x80];
 #else
 u8 obj_e_ghog_n2[] = {
@@ -69,7 +69,7 @@ u8 obj_e_ghog_n2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_ghog_n1[0x200];
 #else
 u8 obj_e_ghog_n1[] = {
@@ -77,7 +77,7 @@ u8 obj_e_ghog_n1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_ghog_v[0x450 / sizeof(Vtx)];
 #else
 Vtx obj_e_ghog_v[] = {

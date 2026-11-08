@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx tol_umb_26_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tol_umb_26_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tol_umb_26_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 tol_umb_26_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_umb_26_kasa1_tex_txt[0x100];
 #else
 u8 tol_umb_26_kasa1_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 tol_umb_26_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_umb_26_kasa2_tex_txt[0x200];
 #else
 u8 tol_umb_26_kasa2_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 tol_umb_26_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_umb_26_tuka_tex_txt[0x200];
 #else
 u8 tol_umb_26_tuka_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 tol_umb_26_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_umb_26_v[0x3C0 / sizeof(Vtx)];
 #else
 Vtx tol_umb_26_v[] = {

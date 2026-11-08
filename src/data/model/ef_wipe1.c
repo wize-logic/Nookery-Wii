@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx ef_wipe1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_wape_tex[0x40];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_wape_tex[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_wape_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_wipe1_v[0x440 / sizeof(Vtx)];
 #else
 Vtx ef_wipe1_v[] = {

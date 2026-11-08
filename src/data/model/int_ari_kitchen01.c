@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ari_kitchen01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ari_kitchen01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ari_kitchen01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ari_kitchen01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_kitchen01_00_tex[0x200];
 #else
 u8 int_ari_kitchen01_00_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ari_kitchen01_00_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_kitchen01_01_tex[0x100];
 #else
 u8 int_ari_kitchen01_01_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ari_kitchen01_01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_kitchen01_02_tex[0x100];
 #else
 u8 int_ari_kitchen01_02_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ari_kitchen01_02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_kitchen01_03_tex[0x100];
 #else
 u8 int_ari_kitchen01_03_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ari_kitchen01_03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_kitchen01_04_tex[0x80];
 #else
 u8 int_ari_kitchen01_04_tex[] = {
@@ -54,7 +54,7 @@ u8 int_ari_kitchen01_04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_kitchen01_05_tex[0x80];
 #else
 u8 int_ari_kitchen01_05_tex[] = {
@@ -62,7 +62,7 @@ u8 int_ari_kitchen01_05_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_kitchen01_06_tex[0x80];
 #else
 u8 int_ari_kitchen01_06_tex[] = {
@@ -70,7 +70,7 @@ u8 int_ari_kitchen01_06_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ari_kitchen01_v[0x2A0 / sizeof(Vtx)];
 #else
 Vtx int_ari_kitchen01_v[] = {

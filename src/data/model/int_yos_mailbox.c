@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_yos_mailbox_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_yos_mailbox_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_yos_mailbox_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_yos_mailbox_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_mailbox_mae_tex_txt[0x300];
 #else
 u8 int_yos_mailbox_mae_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_yos_mailbox_mae_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_mailbox_ana_tex_txt[0x100];
 #else
 u8 int_yos_mailbox_ana_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_yos_mailbox_ana_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_mailbox_sokumen_tex_txt[0x300];
 #else
 u8 int_yos_mailbox_sokumen_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_yos_mailbox_sokumen_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_mailbox_rabel_tex_txt[0x100];
 #else
 u8 int_yos_mailbox_rabel_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_yos_mailbox_rabel_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_yos_mailbox_v[0x340 / sizeof(Vtx)];
 #else
 Vtx int_yos_mailbox_v[] = {

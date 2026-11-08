@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_taru02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 it_sum_taru02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 it_sum_taru02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 it_sum_taru02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_taru02_side_tex[0x200];
 #else
 u8 int_sum_taru02_side_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_taru02_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_taru02_top_tex[0x400];
 #else
 u8 int_sum_taru02_top_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_taru02_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_taru02_sentop_tex[0x80];
 #else
 u8 int_sum_taru02_sentop_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_taru02_sentop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_taru02_v[0x320 / sizeof(Vtx)];
 #else
 Vtx int_sum_taru02_v[] = {

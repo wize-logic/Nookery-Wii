@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_liccakitchen_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccakitchen_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccakitchen_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_liccakitchen_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccakitchen_side_tex[0x100];
 #else
 u8 int_sum_liccakitchen_side_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_liccakitchen_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccakitchen_tail_tex[0x80];
 #else
 u8 int_sum_liccakitchen_tail_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_liccakitchen_tail_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccakitchen_top_tex[0x100];
 #else
 u8 int_sum_liccakitchen_top_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_liccakitchen_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccakitchen_back_tex[0x180];
 #else
 u8 int_sum_liccakitchen_back_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_liccakitchen_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccakitchen_jyagu_tex[0x80];
 #else
 u8 int_sum_liccakitchen_jyagu_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_liccakitchen_jyagu_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccakitchen_etc_tex[0x100];
 #else
 u8 int_sum_liccakitchen_etc_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_liccakitchen_etc_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccakitchen_front_tex[0x200];
 #else
 u8 int_sum_liccakitchen_front_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_liccakitchen_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_liccakitchen_v[0x3A0 / sizeof(Vtx)];
 #else
 Vtx int_sum_liccakitchen_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx obj_tent_lamp_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_tent_lamp1_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_tent_lamp1_rgb_ci4_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_tent_lamp1_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_tent_lamp2_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_tent_lamp2_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 obj_tent_lamp2_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_tent_lamp1[0x400];
 #else
 u8 obj_tent_lamp1[] = {
@@ -30,7 +30,7 @@ u8 obj_tent_lamp1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_tent_lamp2_rgb_ci4[0x400];
 #else
 u8 obj_tent_lamp2_rgb_ci4[] = {
@@ -38,7 +38,7 @@ u8 obj_tent_lamp2_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_tent_lamp_v[0x2D0 / sizeof(Vtx)];
 #else
 Vtx obj_tent_lamp_v[] = {

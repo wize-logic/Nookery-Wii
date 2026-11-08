@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iid_yuki_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_iid_yuki_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_iid_yuki_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_iid_yuki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_yuki_ha_tex[0x100];
 #else
 u8 int_iid_yuki_ha_tex[] = {
@@ -22,7 +22,7 @@ u8 int_iid_yuki_ha_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_yuki_body_tex[0x400];
 #else
 u8 int_iid_yuki_body_tex[] = {
@@ -30,7 +30,7 @@ u8 int_iid_yuki_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_yuki_eye_tex[0x20];
 #else
 u8 int_iid_yuki_eye_tex[] = {
@@ -38,7 +38,7 @@ u8 int_iid_yuki_eye_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_yuki_bonyoko_tex[0x80];
 #else
 u8 int_iid_yuki_bonyoko_tex[] = {
@@ -46,7 +46,7 @@ u8 int_iid_yuki_bonyoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_yuki_bonue_tex[0x80];
 #else
 u8 int_iid_yuki_bonue_tex[] = {
@@ -54,7 +54,7 @@ u8 int_iid_yuki_bonue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iid_yuki_v[0x4D0 / sizeof(Vtx)];
 #else
 Vtx int_iid_yuki_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_clchest03_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_clchest03_pal01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_clchest03_pal01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_clchest03_pal01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchest03_hiki_txt[0x100];
 #else
 u8 int_sum_clchest03_hiki_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_clchest03_hiki_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchest03_hikiura_txt[0x100];
 #else
 u8 int_sum_clchest03_hikiura_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_clchest03_hikiura_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchest03_top_txt[0x100];
 #else
 u8 int_sum_clchest03_top_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_clchest03_top_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchest03_stand_txt[0x80];
 #else
 u8 int_sum_clchest03_stand_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_clchest03_stand_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchest03_front_txt[0x180];
 #else
 u8 int_sum_clchest03_front_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_clchest03_front_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchest03_side_txt[0x180];
 #else
 u8 int_sum_clchest03_side_txt[] = {
@@ -62,7 +62,7 @@ u8 int_sum_clchest03_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchest03_hisasi_txt[0x80];
 #else
 u8 int_sum_clchest03_hisasi_txt[] = {
@@ -70,7 +70,7 @@ u8 int_sum_clchest03_hisasi_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_clchest03_v[0x480 / sizeof(Vtx)];
 #else
 Vtx int_sum_clchest03_v[] = {

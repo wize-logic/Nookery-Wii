@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx obj_art14_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_art14_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_art14_pal[] = {
@@ -14,7 +14,7 @@ u16 obj_art14_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_art14_gaku_tex[0x80];
 #else
 u8 obj_art14_gaku_tex[] = {
@@ -22,7 +22,7 @@ u8 obj_art14_gaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_art14_art_tex[0x300];
 #else
 u8 obj_art14_art_tex[] = {
@@ -30,7 +30,7 @@ u8 obj_art14_art_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_art14_name_tex[0x80];
 #else
 u8 obj_art14_name_tex[] = {
@@ -38,7 +38,7 @@ u8 obj_art14_name_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_art14_v[0x1E0 / sizeof(Vtx)];
 #else
 Vtx obj_art14_v[] = {

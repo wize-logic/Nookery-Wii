@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_mooncar_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_mooncar_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_mooncar_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_mooncar_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_bou1_tex[0x80];
 #else
 u8 int_tak_mooncar_bou1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_tak_mooncar_bou1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_base_tex[0x100];
 #else
 u8 int_tak_mooncar_base_tex[] = {
@@ -30,7 +30,7 @@ u8 int_tak_mooncar_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_body_tex[0x100];
 #else
 u8 int_tak_mooncar_body_tex[] = {
@@ -38,7 +38,7 @@ u8 int_tak_mooncar_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_kasa_tex[0x80];
 #else
 u8 int_tak_mooncar_kasa_tex[] = {
@@ -46,7 +46,7 @@ u8 int_tak_mooncar_kasa_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_se_tex[0x80];
 #else
 u8 int_tak_mooncar_se_tex[] = {
@@ -54,7 +54,7 @@ u8 int_tak_mooncar_se_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_cover2_tex[0x80];
 #else
 u8 int_tak_mooncar_cover2_tex[] = {
@@ -62,7 +62,7 @@ u8 int_tak_mooncar_cover2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_ant_tex[0x80];
 #else
 u8 int_tak_mooncar_ant_tex[] = {
@@ -70,7 +70,7 @@ u8 int_tak_mooncar_ant_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_bodyside_tex[0x80];
 #else
 u8 int_tak_mooncar_bodyside_tex[] = {
@@ -78,7 +78,7 @@ u8 int_tak_mooncar_bodyside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_tire2_tex[0x80];
 #else
 u8 int_tak_mooncar_tire2_tex[] = {
@@ -86,7 +86,7 @@ u8 int_tak_mooncar_tire2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_bou2_tex[0x80];
 #else
 u8 int_tak_mooncar_bou2_tex[] = {
@@ -94,7 +94,7 @@ u8 int_tak_mooncar_bou2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_mooncar_kasa2_tex[0x80];
 #else
 u8 int_tak_mooncar_kasa2_tex[] = {
@@ -102,7 +102,7 @@ u8 int_tak_mooncar_kasa2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_mooncar_v[0x510 / sizeof(Vtx)];
 #else
 Vtx int_tak_mooncar_v[] = {

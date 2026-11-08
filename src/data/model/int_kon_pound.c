@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_pound_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kon_pound_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kon_pound_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kon_pound_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_kon_pound_suimen_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_kon_pound_suimen_tex_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_kon_pound_suimen_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_pound_rock_tex[0x200];
 #else
 u8 int_kon_pound_rock_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kon_pound_rock_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_pound_gl_tex[0x200];
 #else
 u8 int_kon_pound_gl_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kon_pound_gl_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_pound_soko_tex[0x80];
 #else
 u8 int_kon_pound_soko_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kon_pound_soko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_pound_flo_tex[0x200];
 #else
 u8 int_kon_pound_flo_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kon_pound_flo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_pound_suimen_tex[0x80];
 #else
 u8 int_kon_pound_suimen_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kon_pound_suimen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_pound_v[0x420 / sizeof(Vtx)];
 #else
 Vtx int_kon_pound_v[] = {

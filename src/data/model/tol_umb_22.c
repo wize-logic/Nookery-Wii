@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx tol_umb_22_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_22_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_22_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb_22_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_umb_22_kasa_tex_txt[0x200];
 #else
 u8 tol_umb_22_kasa_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 tol_umb_22_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_umb_22_e_tex_txt[0x100];
 #else
 u8 tol_umb_22_e_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 tol_umb_22_e_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_umb_22_v[0x480 / sizeof(Vtx)];
 #else
 Vtx tol_umb_22_v[] = {
@@ -77,7 +77,7 @@ Gfx e_umb22_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_tol_umb_22_c(void) {
     pc_load_asset("assets/tol_umb_22/tol_umb_22_pal.bin", tol_umb_22_pal, 0x20, 0x8B4500, 0, 1);

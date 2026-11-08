@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mushi_nuno_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mushi_nuno_tex_rgb_ci4_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mushi_nuno_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 inv_mushi_w5_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 static u16 inv_mushi_w5_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ static u16 inv_mushi_w5_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 inv_mushi_w1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 static u16 inv_mushi_w1_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ static u16 inv_mushi_w1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 inv_mushi_w2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 static u16 inv_mushi_w2_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ static u16 inv_mushi_w2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 inv_mushi_w3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 static u16 inv_mushi_w3_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ static u16 inv_mushi_w3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 inv_mushi_w4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 static u16 inv_mushi_w4_tex_rgb_ci4_pal[] = {
@@ -53,7 +53,7 @@ static u16 inv_mushi_w4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 inv_mushi_w6_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 static u16 inv_mushi_w6_tex_rgb_ci4_pal[] = {
@@ -61,7 +61,7 @@ static u16 inv_mushi_w6_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 inv_mushi_w7_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 static u16 inv_mushi_w7_tex_rgb_ci4_pal[] = {
@@ -69,7 +69,7 @@ static u16 inv_mushi_w7_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mwin_nwaku_tex[0x400];
 #else
 static u8 inv_mwin_nwaku_tex[] = {
@@ -77,7 +77,7 @@ static u8 inv_mwin_nwaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_shirushi1_tex[0x200];
 #else
 u8 inv_mwin_shirushi1_tex[] = {
@@ -85,7 +85,7 @@ u8 inv_mwin_shirushi1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mwin_shirushi_tex[0x400];
 #else
 static u8 inv_mwin_shirushi_tex[] = {
@@ -93,7 +93,7 @@ static u8 inv_mwin_shirushi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_aw1_tex[0x200];
 #else
 static u8 inv_mushi_aw1_tex[] = {
@@ -101,7 +101,7 @@ static u8 inv_mushi_aw1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_aw2_tex[0x400];
 #else
 static u8 inv_mushi_aw2_tex[] = {
@@ -109,7 +109,7 @@ static u8 inv_mushi_aw2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_aw3_tex[0x400];
 #else
 static u8 inv_mushi_aw3_tex[] = {
@@ -117,7 +117,7 @@ static u8 inv_mushi_aw3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_aw4_tex[0x200];
 #else
 static u8 inv_mushi_aw4_tex[] = {
@@ -125,7 +125,7 @@ static u8 inv_mushi_aw4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mushi_waku2_tex[0x800];
 #else
 u8 inv_mushi_waku2_tex[] = {
@@ -133,7 +133,7 @@ u8 inv_mushi_waku2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_aw7_tex[0x400];
 #else
 static u8 inv_mushi_aw7_tex[] = {
@@ -141,7 +141,7 @@ static u8 inv_mushi_aw7_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mushi_moji_tex[0x280];
 #else
 u8 inv_mushi_moji_tex[] = {
@@ -149,7 +149,7 @@ u8 inv_mushi_moji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mushi_aw5_tex[0x80];
 #else
 u8 inv_mushi_aw5_tex[] = {
@@ -157,7 +157,7 @@ u8 inv_mushi_aw5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mushi_nuno_tex_rgb_ci4[0x200];
 #else
 u8 inv_mushi_nuno_tex_rgb_ci4[] = {
@@ -165,7 +165,7 @@ u8 inv_mushi_nuno_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_w5_tex_rgb_ci4[0x80];
 #else
 static u8 inv_mushi_w5_tex_rgb_ci4[] = {
@@ -173,7 +173,7 @@ static u8 inv_mushi_w5_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_w1_tex_rgb_ci4[0x200];
 #else
 static u8 inv_mushi_w1_tex_rgb_ci4[] = {
@@ -181,7 +181,7 @@ static u8 inv_mushi_w1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_w2_tex_rgb_ci4[0x400];
 #else
 static u8 inv_mushi_w2_tex_rgb_ci4[] = {
@@ -189,7 +189,7 @@ static u8 inv_mushi_w2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_w3_tex_rgb_ci4[0x400];
 #else
 static u8 inv_mushi_w3_tex_rgb_ci4[] = {
@@ -197,7 +197,7 @@ static u8 inv_mushi_w3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_w4_tex_rgb_ci4[0x200];
 #else
 static u8 inv_mushi_w4_tex_rgb_ci4[] = {
@@ -205,7 +205,7 @@ static u8 inv_mushi_w4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_w6_tex_rgb_ci4[0x400];
 #else
 static u8 inv_mushi_w6_tex_rgb_ci4[] = {
@@ -213,7 +213,7 @@ static u8 inv_mushi_w6_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mushi_w7_tex_rgb_ci4[0x400];
 #else
 static u8 inv_mushi_w7_tex_rgb_ci4[] = {
@@ -221,7 +221,7 @@ static u8 inv_mushi_w7_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx inv_mushi_v[0x920 / sizeof(Vtx)];
 #else
 Vtx inv_mushi_v[] = {
@@ -484,7 +484,7 @@ Gfx inv_mushi_part_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_inv_mushi_c(void) {
     pc_load_asset("assets/inv_mushi/inv_mushi_w5_tex_rgb_ci4_pal.bin", inv_mushi_w5_tex_rgb_ci4_pal, 0x20, 0x71C0C0, 0, 1);

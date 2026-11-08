@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ctl_win_tagu3_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ctl_win_tagu3_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u8 ctl_win_tagu3_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx sav_sentaku_v[0x40 / sizeof(Vtx)];
 #else
 Vtx sav_sentaku_v[] = {
@@ -32,7 +32,7 @@ gsSPEndDisplayList(),
 };
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_sav_sentaku_c(void) {
     pc_load_asset("assets/sav_sentaku/ctl_win_tagu3_tex.bin", ctl_win_tagu3_tex, 0x200, 0x6CCF60, 0, 0);

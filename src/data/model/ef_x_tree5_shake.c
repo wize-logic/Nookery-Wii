@@ -8,7 +8,7 @@
 extern u8 ef_w_tree_light_modeset[];
 extern Vtx ef_x_tree5_shake_v[];
 extern u8 ef_w_tree_leaf_modeset[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_x_tree5_shake_v[0x1B0 / sizeof(Vtx)];
 #else
 Vtx ef_x_tree5_shake_v[] = {

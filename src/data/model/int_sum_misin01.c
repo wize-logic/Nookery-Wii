@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_misin01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_misin01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_misin01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_misin01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_sidefoot_tex[0x100];
 #else
 u8 int_sum_misin01_sidefoot_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_misin01_sidefoot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_desktop_tex[0x80];
 #else
 u8 int_sum_misin01_desktop_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_misin01_desktop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_deskfront_tex[0x100];
 #else
 u8 int_sum_misin01_deskfront_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_misin01_deskfront_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_deskback_tex[0x100];
 #else
 u8 int_sum_misin01_deskback_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_misin01_deskback_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_deskside_tex[0x40];
 #else
 u8 int_sum_misin01_deskside_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_misin01_deskside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_misiside_tex[0x100];
 #else
 u8 int_sum_misin01_misiside_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_misin01_misiside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_pedal_tex[0x80];
 #else
 u8 int_sum_misin01_pedal_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_misin01_pedal_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_kaiten_tex[0x80];
 #else
 u8 int_sum_misin01_kaiten_tex[] = {
@@ -78,7 +78,7 @@ u8 int_sum_misin01_kaiten_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_harigane_tex[0x80];
 #else
 u8 int_sum_misin01_harigane_tex[] = {
@@ -86,7 +86,7 @@ u8 int_sum_misin01_harigane_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_misibase_tex[0x40];
 #else
 u8 int_sum_misin01_misibase_tex[] = {
@@ -94,7 +94,7 @@ u8 int_sum_misin01_misibase_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_top_tex[0x100];
 #else
 u8 int_sum_misin01_top_tex[] = {
@@ -102,7 +102,7 @@ u8 int_sum_misin01_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_misin01_temaki_tex[0x80];
 #else
 u8 int_sum_misin01_temaki_tex[] = {
@@ -110,7 +110,7 @@ u8 int_sum_misin01_temaki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_misin01_v[0x560 / sizeof(Vtx)];
 #else
 Vtx int_sum_misin01_v[] = {

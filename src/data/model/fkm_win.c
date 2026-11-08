@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 fkm_win_house_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 fkm_win_house_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 fkm_win_house_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 fkm_win_ie_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 fkm_win_ie_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ u16 fkm_win_ie_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 fkm_win_sw1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 fkm_win_sw1_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ u16 fkm_win_sw1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 fkm_win_sw2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 fkm_win_sw2_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ u16 fkm_win_sw2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 fkm_win_sw3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 fkm_win_sw3_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ u16 fkm_win_sw3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fri_win_owe_tex[0x300];
 #else
 u8 fri_win_owe_tex[] = {
@@ -53,7 +53,7 @@ u8 fri_win_owe_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_fuki2_tex[0x800];
 #else
 static u8 fkm_win_fuki2_tex[] = {
@@ -61,7 +61,7 @@ static u8 fkm_win_fuki2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fri_win_payment_tex[0x200];
 #else
 u8 fri_win_payment_tex[] = {
@@ -69,7 +69,7 @@ u8 fri_win_payment_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fri_win_cash_tex[0x200];
 #else
 static u8 fri_win_cash_tex[] = {
@@ -77,7 +77,7 @@ static u8 fri_win_cash_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fri_win_bell_tex[0x100];
 #else
 static u8 fri_win_bell_tex[] = {
@@ -85,7 +85,7 @@ static u8 fri_win_bell_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fkm_win_house_tex[0x800];
 #else
 u8 fkm_win_house_tex[] = {
@@ -93,7 +93,7 @@ u8 fkm_win_house_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fkm_win_sen_tex[0x80];
 #else
 u8 fkm_win_sen_tex[] = {
@@ -101,7 +101,7 @@ u8 fkm_win_sen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_w4_tex[0x80];
 #else
 static u8 fkm_win_w4_tex[] = {
@@ -109,7 +109,7 @@ static u8 fkm_win_w4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_w3_tex[0x200];
 #else
 static u8 fkm_win_w3_tex[] = {
@@ -117,7 +117,7 @@ static u8 fkm_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_w2_tex[0x200];
 #else
 static u8 fkm_win_w2_tex[] = {
@@ -125,7 +125,7 @@ static u8 fkm_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_w1_tex[0x400];
 #else
 static u8 fkm_win_w1_tex[] = {
@@ -133,7 +133,7 @@ static u8 fkm_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fkm_win_ie_tex_rgb_ci4[0x200];
 #else
 u8 fkm_win_ie_tex_rgb_ci4[] = {
@@ -141,7 +141,7 @@ u8 fkm_win_ie_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fkm_win_sw1_tex_rgb_ci4[0x400];
 #else
 u8 fkm_win_sw1_tex_rgb_ci4[] = {
@@ -149,7 +149,7 @@ u8 fkm_win_sw1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fkm_win_sw2_tex_rgb_ci4[0x400];
 #else
 u8 fkm_win_sw2_tex_rgb_ci4[] = {
@@ -157,7 +157,7 @@ u8 fkm_win_sw2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fkm_win_sw3_tex_rgb_ci4[0x400];
 #else
 u8 fkm_win_sw3_tex_rgb_ci4[] = {
@@ -165,7 +165,7 @@ u8 fkm_win_sw3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx fkm_win_v[0x740 / sizeof(Vtx)];
 #else
 Vtx fkm_win_v[] = {
@@ -364,7 +364,7 @@ Gfx fkm_win_model[] = {
     gsSPDisplayList(fkm_win_senT_model),  gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_fkm_win_c(void) {
     pc_load_asset("assets/fkm_win/fkm_win_fuki2_tex.bin", fkm_win_fuki2_tex, 0x800, 0x7B5540, 0, 0);

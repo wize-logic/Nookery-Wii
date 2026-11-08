@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx crw_bag1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 crw_bag1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 crw_bag1_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 crw_bag1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 crw_bag1_tex_txt[0x400];
 #else
 u8 crw_bag1_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 crw_bag1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 crw_bagpikke1_tex_txt[0x40];
 #else
 u8 crw_bagpikke1_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 crw_bagpikke1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 crw_bagpikke2_tex_txt[0x40];
 #else
 u8 crw_bagpikke2_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 crw_bagpikke2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx crw_bag1_v[0x310 / sizeof(Vtx)];
 #else
 Vtx crw_bag1_v[] = {

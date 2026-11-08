@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_tukue_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kon_tukue_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kon_tukue_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kon_tukue_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_kon_tukue_glass_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_kon_tukue_glass_tex_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_kon_tukue_glass_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_tukue_ue_tex[0x100];
 #else
 u8 int_kon_tukue_ue_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kon_tukue_ue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_tukue_ue2_tex[0x100];
 #else
 u8 int_kon_tukue_ue2_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kon_tukue_ue2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_tukue_tate_tex[0x100];
 #else
 u8 int_kon_tukue_tate_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kon_tukue_tate_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_tukue_yoko_tex[0x80];
 #else
 u8 int_kon_tukue_yoko_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kon_tukue_yoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_tukue_glass2_tex[0x100];
 #else
 u8 int_kon_tukue_glass2_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kon_tukue_glass2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_tukue_glass_tex[0x200];
 #else
 u8 int_kon_tukue_glass_tex[] = {
@@ -70,7 +70,7 @@ u8 int_kon_tukue_glass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_tukue_v[0x200 / sizeof(Vtx)];
 #else
 Vtx int_kon_tukue_v[] = {

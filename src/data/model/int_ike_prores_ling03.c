@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_prores_ling03_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_prores_ling03_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_prores_ling03_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_prores_ling03_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_lope2_tex[0x80];
 #else
 u8 int_ike_prores_ling03_lope2_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_prores_ling03_lope2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_lope_tex[0x80];
 #else
 u8 int_ike_prores_ling03_lope_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_prores_ling03_lope_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_mat2_tex[0x80];
 #else
 u8 int_ike_prores_ling03_mat2_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_prores_ling03_mat2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_pole_tex[0x80];
 #else
 u8 int_ike_prores_ling03_pole_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_prores_ling03_pole_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_floor_tex[0x200];
 #else
 u8 int_ike_prores_ling03_floor_tex[] = {
@@ -54,7 +54,7 @@ u8 int_ike_prores_ling03_floor_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_floorside_tex[0x80];
 #else
 u8 int_ike_prores_ling03_floorside_tex[] = {
@@ -62,7 +62,7 @@ u8 int_ike_prores_ling03_floorside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_pole2_tex[0x80];
 #else
 u8 int_ike_prores_ling03_pole2_tex[] = {
@@ -70,7 +70,7 @@ u8 int_ike_prores_ling03_pole2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_base_tex[0x80];
 #else
 u8 int_ike_prores_ling03_base_tex[] = {
@@ -78,7 +78,7 @@ u8 int_ike_prores_ling03_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_prores_ling03_pole3_tex[0x80];
 #else
 u8 int_ike_prores_ling03_pole3_tex[] = {
@@ -86,7 +86,7 @@ u8 int_ike_prores_ling03_pole3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_prores_ling03_v[0x4C0 / sizeof(Vtx)];
 #else
 Vtx int_ike_prores_ling03_v[] = {

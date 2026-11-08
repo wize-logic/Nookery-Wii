@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_cornucopia_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_nog_cornucopia_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_nog_cornucopia_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_nog_cornucopia_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cornucopia_pampB_tex[0x80];
 #else
 u8 int_nog_cornucopia_pampB_tex[] = {
@@ -22,7 +22,7 @@ u8 int_nog_cornucopia_pampB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cornucopia_pampC_tex[0x80];
 #else
 u8 int_nog_cornucopia_pampC_tex[] = {
@@ -30,7 +30,7 @@ u8 int_nog_cornucopia_pampC_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cornucopia_pampD_tex[0x80];
 #else
 u8 int_nog_cornucopia_pampD_tex[] = {
@@ -38,7 +38,7 @@ u8 int_nog_cornucopia_pampD_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cornucopia_runner_tex[0x100];
 #else
 u8 int_nog_cornucopia_runner_tex[] = {
@@ -46,7 +46,7 @@ u8 int_nog_cornucopia_runner_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cornucopia_horn_tex[0x100];
 #else
 u8 int_nog_cornucopia_horn_tex[] = {
@@ -54,7 +54,7 @@ u8 int_nog_cornucopia_horn_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cornucopia_leafA_tex[0x80];
 #else
 u8 int_nog_cornucopia_leafA_tex[] = {
@@ -62,7 +62,7 @@ u8 int_nog_cornucopia_leafA_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cornucopia_leafB_tex[0x80];
 #else
 u8 int_nog_cornucopia_leafB_tex[] = {
@@ -70,7 +70,7 @@ u8 int_nog_cornucopia_leafB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cornucopia_ear_tex[0x100];
 #else
 u8 int_nog_cornucopia_ear_tex[] = {
@@ -78,7 +78,7 @@ u8 int_nog_cornucopia_ear_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_cornucopia_v[0x500 / sizeof(Vtx)];
 #else
 Vtx int_nog_cornucopia_v[] = {

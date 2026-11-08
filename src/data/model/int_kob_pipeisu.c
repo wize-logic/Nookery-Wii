@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kob_pipeisu_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kob_pipeisu_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kob_pipeisu_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kob_pipeisu_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_pipeisu_se1_tex[0x80];
 #else
 u8 int_kob_pipeisu_se1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kob_pipeisu_se1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_pipeisu_main1_tex[0x100];
 #else
 u8 int_kob_pipeisu_main1_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kob_pipeisu_main1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_pipeisu_ashi1_tex[0x100];
 #else
 u8 int_kob_pipeisu_ashi1_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kob_pipeisu_ashi1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_pipeisu_pipe1_tex[0x80];
 #else
 u8 int_kob_pipeisu_pipe1_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kob_pipeisu_pipe1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_pipeisu_se2_tex[0x80];
 #else
 u8 int_kob_pipeisu_se2_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kob_pipeisu_se2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_pipeisu_pipe2_tex[0x180];
 #else
 u8 int_kob_pipeisu_pipe2_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kob_pipeisu_pipe2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kob_pipeisu_v[0x330 / sizeof(Vtx)];
 #else
 Vtx int_kob_pipeisu_v[] = {

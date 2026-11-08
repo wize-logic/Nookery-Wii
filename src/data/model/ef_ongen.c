@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ut_mike[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ut_mike[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ut_mike[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 utPal_mike[0x20];
 #else
 u8 utPal_mike[] = {
@@ -21,7 +21,7 @@ u8 utPal_mike[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ut_mouth[0x80];
 #else
 u8 ut_mouth[] = {
@@ -29,7 +29,7 @@ u8 ut_mouth[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 utPal_mouth[0x20];
 #else
 u8 utPal_mouth[] = {
@@ -37,7 +37,7 @@ u8 utPal_mouth[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_ongen_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_ongen_v[] = {

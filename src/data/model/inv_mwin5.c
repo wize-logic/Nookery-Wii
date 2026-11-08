@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_2fukubiki_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_2fukubiki_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_2fukubiki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_3fukubiki_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_3fukubiki_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_3fukubiki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_4fukubiki_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_4fukubiki_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_4fukubiki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_5fukubiki_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_5fukubiki_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_5fukubiki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_6fukubiki_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_6fukubiki_pal[] = {
@@ -45,7 +45,7 @@ u16 inv_mwin_6fukubiki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_1fukubiki_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_1fukubiki_pal[] = {
@@ -53,7 +53,7 @@ u16 inv_mwin_1fukubiki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_1biki3_tex[0x200];
 #else
 u8 inv_mwin_1biki3_tex[] = {
@@ -61,7 +61,7 @@ u8 inv_mwin_1biki3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_1biki5_tex[0x200];
 #else
 u8 inv_mwin_1biki5_tex[] = {
@@ -69,7 +69,7 @@ u8 inv_mwin_1biki5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_1biki4_tex[0x200];
 #else
 u8 inv_mwin_1biki4_tex[] = {
@@ -77,7 +77,7 @@ u8 inv_mwin_1biki4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_1biki2_tex[0x200];
 #else
 u8 inv_mwin_1biki2_tex[] = {
@@ -85,7 +85,7 @@ u8 inv_mwin_1biki2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_1biki1_tex[0x200];
 #else
 u8 inv_mwin_1biki1_tex[] = {

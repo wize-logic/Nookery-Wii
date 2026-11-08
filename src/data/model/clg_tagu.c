@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ctl_win_tagu2_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ctl_win_tagu2_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u8 ctl_win_tagu2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_ha2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_ha2_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_ha2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_jyuutan2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_jyuutan2_tex[]= {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_jyuutan2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_kabe2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_kabe2_tex[]= {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_kabe2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_fuku2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_fuku2_tex[]= {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_fuku2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_hone2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_hone2_tex[]= {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_hone2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_tegami2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_tegami2_tex[]= {
@@ -61,7 +61,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_tegami2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_onpu2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_onpu2_tex[]= {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_onpu2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_hani2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_hani2_tex[]= {
@@ -77,7 +77,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_hani2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_kasa2_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_kasa2_tex[]= {
@@ -85,7 +85,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_kasa2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx clg_tagu_v[0x480 / sizeof(Vtx)];
 #else
 Vtx clg_tagu_v[] = {
@@ -236,7 +236,7 @@ gsSPEndDisplayList(),
 };
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_clg_tagu_c(void) {
     pc_load_asset("assets/clg_tagu/ctl_win_tagu2_tex.bin", ctl_win_tagu2_tex, 0x200, 0x6C32A0, 0, 0);

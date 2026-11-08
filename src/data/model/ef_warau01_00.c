@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_warau01us[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_warau01us[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_warau01us[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_warau01_00_v[0x80 / sizeof(Vtx)];
 #else
 Vtx ef_warau01_00_v[] = {
@@ -37,7 +37,7 @@ Gfx ef_warau01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_warau01_01_v[0x80 / sizeof(Vtx)];
 #else
 Vtx ef_warau01_01_v[] = {
@@ -61,7 +61,7 @@ Gfx ef_warau01_01_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_warau01_02_v[0x80 / sizeof(Vtx)];
 #else
 Vtx ef_warau01_02_v[] = {
@@ -85,7 +85,7 @@ Gfx ef_warau01_02_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_warau01_03_v[0x80 / sizeof(Vtx)];
 #else
 Vtx ef_warau01_03_v[] = {

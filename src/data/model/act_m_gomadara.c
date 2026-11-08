@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 act_m_gomadara_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 act_m_gomadara_pal[] = {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) static u16 act_m_gomadara_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 act_m_gomadara[0x200];
 #else
 static u8 act_m_gomadara[] = {
@@ -20,7 +20,7 @@ static u8 act_m_gomadara[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx act_m_gomadara_v[0xC0 / sizeof(Vtx)];
 #else
 static Vtx act_m_gomadara_v[] = {
@@ -58,7 +58,7 @@ Gfx act_m_gomadara2T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_m_gomadara_c(void) {
     pc_load_asset("assets/act_m_gomadara/act_m_gomadara_pal.bin", act_m_gomadara_pal, 0x20, 0x5410A0, 0, 1);

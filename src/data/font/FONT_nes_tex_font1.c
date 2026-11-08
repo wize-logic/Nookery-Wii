@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 FONT_nes_tex_font1[0x6000];
 #else
 u8 FONT_nes_tex_font1[] = { 

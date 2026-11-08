@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kob_jimudesk_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kob_jimudesk_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kob_jimudesk_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kob_jimudesk_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_jimudesk_ashi1_tex[0x100];
 #else
 u8 int_kob_jimudesk_ashi1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kob_jimudesk_ashi1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_jimudesk_ashi2_tex[0x200];
 #else
 u8 int_kob_jimudesk_ashi2_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kob_jimudesk_ashi2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_jimudesk_ashi3_tex[0x80];
 #else
 u8 int_kob_jimudesk_ashi3_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kob_jimudesk_ashi3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_jimudesk_ashioki_tex[0x80];
 #else
 u8 int_kob_jimudesk_ashioki_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kob_jimudesk_ashioki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_jimudesk_hikidashi2_tex[0x80];
 #else
 u8 int_kob_jimudesk_hikidashi2_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kob_jimudesk_hikidashi2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_jimudesk_hikidashi1_tex[0x100];
 #else
 u8 int_kob_jimudesk_hikidashi1_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kob_jimudesk_hikidashi1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_jimudesk_side_tex[0x100];
 #else
 u8 int_kob_jimudesk_side_tex[] = {
@@ -70,7 +70,7 @@ u8 int_kob_jimudesk_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_jimudesk_tenban_tex[0x100];
 #else
 u8 int_kob_jimudesk_tenban_tex[] = {
@@ -78,7 +78,7 @@ u8 int_kob_jimudesk_tenban_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kob_jimudesk_v[0x460 / sizeof(Vtx)];
 #else
 Vtx int_kob_jimudesk_v[] = {

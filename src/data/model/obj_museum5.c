@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx obj_museum5_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_museum5_on_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_museum5_on_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_museum5_on_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_museum5_wallB_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_museum5_wallB_pal[] = {
@@ -22,7 +22,7 @@ u16 obj_museum5_wallB_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_museum5_soko_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_museum5_soko_pal[] = {
@@ -30,7 +30,7 @@ u16 obj_museum5_soko_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_museum5_hitode_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_museum5_hitode_pal[] = {
@@ -38,7 +38,7 @@ u16 obj_museum5_hitode_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_museum5_evw_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_museum5_evw_tex_rgb_ci4_pal[] = {
@@ -46,7 +46,7 @@ u16 obj_museum5_evw_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_isi_tex[0x800];
 #else
 u8 obj_museum5_isi_tex[] = {
@@ -54,7 +54,7 @@ u8 obj_museum5_isi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_pink_tex[0x800];
 #else
 u8 obj_museum5_pink_tex[] = {
@@ -62,7 +62,7 @@ u8 obj_museum5_pink_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_inside_tex[0x80];
 #else
 u8 obj_museum5_inside_tex[] = {
@@ -70,7 +70,7 @@ u8 obj_museum5_inside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_soko_tex[0x400];
 #else
 u8 obj_museum5_soko_tex[] = {
@@ -78,7 +78,7 @@ u8 obj_museum5_soko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_hitode1_tex[0x100];
 #else
 u8 obj_museum5_hitode1_tex[] = {
@@ -86,7 +86,7 @@ u8 obj_museum5_hitode1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_wallB_tex[0x400];
 #else
 u8 obj_museum5_wallB_tex[] = {
@@ -94,7 +94,7 @@ u8 obj_museum5_wallB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_hitode2_tex[0x100];
 #else
 u8 obj_museum5_hitode2_tex[] = {
@@ -102,7 +102,7 @@ u8 obj_museum5_hitode2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_fuji_tex[0x80];
 #else
 u8 obj_museum5_fuji_tex[] = {
@@ -110,7 +110,7 @@ u8 obj_museum5_fuji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_evw_tex[0x80];
 #else
 u8 obj_museum5_evw_tex[] = {
@@ -118,7 +118,7 @@ u8 obj_museum5_evw_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_water1_tex_rgb_i4[0x200];
 #else
 u8 obj_museum5_water1_tex_rgb_i4[] = {
@@ -126,7 +126,7 @@ u8 obj_museum5_water1_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum5_water2_tex_rgb_i4[0x200];
 #else
 u8 obj_museum5_water2_tex_rgb_i4[] = {
@@ -134,7 +134,7 @@ u8 obj_museum5_water2_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_museum5_v[0x18D0 / sizeof(Vtx)];
 #else
 Vtx obj_museum5_v[] = {

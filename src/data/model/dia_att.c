@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w1_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w1_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ctl_att_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w2_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w2_tex[] = {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 ctl_att_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w3_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w3_tex[] = {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u8 ctl_att_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w4_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w4_tex[] = {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u8 ctl_att_w4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w5_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w5_tex[] = {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u8 ctl_att_w5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w6_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ctl_att_w6_tex[] = {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) u8 ctl_att_w6_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx dia_att_v[0x2F0 / sizeof(Vtx)];
 #else
 Vtx dia_att_v[] = {

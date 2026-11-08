@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_notice_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_notice_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_notice_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_notice_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_notice_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_notice_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_notice_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_w_notice_v[] = {
@@ -42,7 +42,7 @@ Gfx obj_w_noticeT_gfx_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_w_notice_c(void) {
     pc_load_asset("assets/obj_w_notice/obj_notice_pal.bin", obj_notice_pal, 0x20, 0x3F36A0, 0, 1);

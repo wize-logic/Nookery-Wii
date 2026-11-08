@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_mikanbox_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_mikanbox_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_mikanbox_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx obj_e_mikanbox_v[0x1C0 / sizeof(Vtx)];
 #else
 static Vtx obj_e_mikanbox_v[] = {
@@ -34,7 +34,7 @@ Gfx obj_e_mikanbox_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 copyright_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 copyright_tex[] = {
@@ -53,7 +53,7 @@ Gfx obj_e_mikanbox_copyrightT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 end_notice2_tex[0x800];
 #else
 u8 end_notice2_tex[] = {
@@ -61,7 +61,7 @@ u8 end_notice2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 end_notice1_tex[0x800];
 #else
 u8 end_notice1_tex[] = {
@@ -69,7 +69,7 @@ u8 end_notice1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 end_notice3_tex[0x800];
 #else
 u8 end_notice3_tex[] = {
@@ -77,7 +77,7 @@ u8 end_notice3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx end_notice_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx end_notice_v[] = {
@@ -103,7 +103,7 @@ Gfx obj_e_mikanbox_copyrightT_model2[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_e_mikanbox_c(void) {
     pc_load_asset("assets/obj_e_mikanbox/obj_e_mikanbox_v.bin", obj_e_mikanbox_v, 0x1C0, 0x818B40, 0, 2);

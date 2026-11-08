@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 ef_axe_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 ef_axe_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 ef_axe_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_axe_tuka1_tex_txt[0x200];
 #else
 u8 ef_axe_tuka1_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 ef_axe_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_axe_edge1_tex_txt[0x200];
 #else
 u8 ef_axe_edge1_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 ef_axe_edge1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_axe1_v[0x1D0 / sizeof(Vtx)];
 #else
 Vtx ef_axe1_v[] = {
@@ -59,7 +59,7 @@ Gfx ef_axe1_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_axe_tuka2_tex_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_axe_tuka2_tex_txt[] = {
@@ -67,7 +67,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_axe_tuka2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_axe_edge2_tex_txt[0x200];
 #else
 u8 ef_axe_edge2_tex_txt[] = {
@@ -75,7 +75,7 @@ u8 ef_axe_edge2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_axe2_v[0x1B0 / sizeof(Vtx)];
 #else
 Vtx ef_axe2_v[] = {
@@ -105,7 +105,7 @@ Gfx ef_axe2_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_axe_edge3_tex_txt[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_axe_edge3_tex_txt[] = {
@@ -113,7 +113,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_axe_edge3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_axe3_v[0xB0 / sizeof(Vtx)];
 #else
 Vtx ef_axe3_v[] = {

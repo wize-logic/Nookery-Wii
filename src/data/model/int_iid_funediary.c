@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iid_funediary_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_iid_funediary[0x20];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_iid_funediary[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_iid_funediary[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_funediary_mae_tex[0x20];
 #else
 u8 int_iid_funediary_mae_tex[] = {
@@ -22,7 +22,7 @@ u8 int_iid_funediary_mae_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_funediary_hyoushi_tex[0x200];
 #else
 u8 int_iid_funediary_hyoushi_tex[] = {
@@ -30,7 +30,7 @@ u8 int_iid_funediary_hyoushi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_funediary_soko_tex[0x20];
 #else
 u8 int_iid_funediary_soko_tex[] = {
@@ -38,7 +38,7 @@ u8 int_iid_funediary_soko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_funediary_ue_tex[0x20];
 #else
 u8 int_iid_funediary_ue_tex[] = {
@@ -46,7 +46,7 @@ u8 int_iid_funediary_ue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_funediary_esaki_tex[0x20];
 #else
 u8 int_iid_funediary_esaki_tex[] = {
@@ -54,7 +54,7 @@ u8 int_iid_funediary_esaki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_funediary_ebody_tex[0x20];
 #else
 u8 int_iid_funediary_ebody_tex[] = {
@@ -62,7 +62,7 @@ u8 int_iid_funediary_ebody_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iid_funediary_v[0x380 / sizeof(Vtx)];
 #else
 Vtx int_iid_funediary_v[] = {

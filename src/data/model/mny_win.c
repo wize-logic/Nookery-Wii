@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx mny_win_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 mny_win_money_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 mny_win_money_tex[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 mny_win_money_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fri_win_bell_tex[0x100];
 #else
 static u8 fri_win_bell_tex[] = {
@@ -22,7 +22,7 @@ static u8 fri_win_bell_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mny_win_u_tex[0x800];
 #else
 u8 mny_win_u_tex[] = {
@@ -30,7 +30,7 @@ u8 mny_win_u_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx mny_win_v[0x100 / sizeof(Vtx)];
 #else
 Vtx mny_win_v[] = {
@@ -66,7 +66,7 @@ Gfx mny_win_ueT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_mny_win_c(void) {
     pc_load_asset("assets/mny_win/fri_win_bell_tex.bin", fri_win_bell_tex, 0x100, 0xB73BE0, 0, 0);

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_snowtansu_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_kon_snowtansu_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_kon_snowtansu_tex_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_kon_snowtansu_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtansu04_tex_txt[0x80];
 #else
 u8 int_kon_snowtansu04_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_kon_snowtansu04_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtansu06_tex_txt[0x80];
 #else
 u8 int_kon_snowtansu06_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_kon_snowtansu06_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtansu05_tex_txt[0x80];
 #else
 u8 int_kon_snowtansu05_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_kon_snowtansu05_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtansu01_tex_txt[0x180];
 #else
 u8 int_kon_snowtansu01_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_kon_snowtansu01_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtansu02_tex_txt[0x180];
 #else
 u8 int_kon_snowtansu02_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_kon_snowtansu02_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtansu07_tex_txt[0x100];
 #else
 u8 int_kon_snowtansu07_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_kon_snowtansu07_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowtansu03_tex_txt[0x80];
 #else
 u8 int_kon_snowtansu03_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_kon_snowtansu03_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_snowtansu_v[0x400 / sizeof(Vtx)];
 #else
 Vtx int_kon_snowtansu_v[] = {
@@ -161,7 +161,7 @@ cKF_Joint_R_c cKF_je_r_int_kon_snowtansu_tbl[] = {
 cKF_Skeleton_R_c cKF_bs_r_int_kon_snowtansu = { ARRAY_COUNT(cKF_je_r_int_kon_snowtansu_tbl), 2,
                                                 cKF_je_r_int_kon_snowtansu_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_kon_snowtansu_c(void) {
     pc_load_asset("assets/int_kon_snowtansu/int_kon_snowtansu_tex_pal.bin", int_kon_snowtansu_tex_pal, 0x20, 0xB91220, 0, 1);

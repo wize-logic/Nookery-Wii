@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 logo_us_tm_tex_4i4_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 logo_us_tm_tex_4i4_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 logo_us_tm_tex_4i4_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx logo_us_tm_v[0x40 / sizeof(Vtx)];
 #else
 Vtx logo_us_tm_v[] = {

@@ -18,7 +18,7 @@ extern u8 bush_b_tex_dummy[];
 extern u8 bush_a_tex_dummy[];
 extern u8 earth_tex_dummy[];
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx grd_s_m_wf_2_v[0x1810 / sizeof(Vtx)];
 #else
 static Vtx grd_s_m_wf_2_v[] = {
@@ -567,7 +567,7 @@ extern Gfx grd_s_m_wf_2_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_grd_s_m_wf_2_grd_s_m_wf_2_c(void) {
     pc_load_asset("assets/field/bg/grd_s_m_wf_2_v.bin", grd_s_m_wf_2_v, 0x1810, 0xA0F190, 0, 2);

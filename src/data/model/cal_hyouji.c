@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cal_win_choose_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 cal_win_choose_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 cal_win_choose_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 lat_sousa_2b1_tex[0x200];
 #else
 static u8 lat_sousa_2b1_tex[] = {
@@ -21,7 +21,7 @@ static u8 lat_sousa_2b1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_hyouji_yaji2_tex[0x400];
 #else
 u8 cal_hyouji_yaji2_tex[] = {
@@ -29,7 +29,7 @@ u8 cal_hyouji_yaji2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 std_tex[0x800];
 #else
 static u8 std_tex[] = {
@@ -37,7 +37,7 @@ static u8 std_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_hyouji_st1_tex_rgb_ia8[0x1000];
 #else
 u8 cal_hyouji_st1_tex_rgb_ia8[] = {
@@ -45,7 +45,7 @@ u8 cal_hyouji_st1_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_hyouji_st5_tex_rgb_ia8[0x1000];
 #else
 u8 cal_hyouji_st5_tex_rgb_ia8[] = {
@@ -53,7 +53,7 @@ u8 cal_hyouji_st5_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 lat_tegami_b3_tex[0x800];
 #else
 static u8 lat_tegami_b3_tex[] = {
@@ -61,7 +61,7 @@ static u8 lat_tegami_b3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_hyouji_2b1_tex_rgb_i4[0x200];
 #else
 u8 cal_hyouji_2b1_tex_rgb_i4[] = {
@@ -69,7 +69,7 @@ u8 cal_hyouji_2b1_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx cal_hyouji_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx cal_hyouji_v[] = {
@@ -166,7 +166,7 @@ Gfx cal_hyoji_yajiB_gfx[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_cal_hyouji_c(void) {
     pc_load_asset("assets/cal_hyouji/lat_sousa_2b1_tex.bin", lat_sousa_2b1_tex, 0x200, 0x6A8940, 0, 0);

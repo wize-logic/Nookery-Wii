@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_yatai_shadow_tex[0x40];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_yatai_shadow_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_yatai_shadow_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_yatai_shadow_l_v[0x70 / sizeof(Vtx)];
 #else
 Vtx obj_e_yatai_shadow_l_v[] = {
@@ -34,7 +34,7 @@ Gfx obj_e_yatai_shadow_l_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_yatai_shadow_r_v[0x70 / sizeof(Vtx)];
 #else
 Vtx obj_e_yatai_shadow_r_v[] = {

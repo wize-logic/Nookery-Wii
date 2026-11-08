@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iku_mario_dokan_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_iku_mario_dokan_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_iku_mario_dokan_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_iku_mario_dokan_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_iku_mario_dokan_b_tex_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_iku_mario_dokan_b_tex_pic_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_iku_mario_dokan_b_tex_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_mario_dokan_a_tex_txt[0x200];
 #else
 u8 int_iku_mario_dokan_a_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_iku_mario_dokan_a_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_mario_dokan_c_tex_txt[0x40];
 #else
 u8 int_iku_mario_dokan_c_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_iku_mario_dokan_c_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_mario_dokan_b_tex_txt[0x100];
 #else
 u8 int_iku_mario_dokan_b_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_iku_mario_dokan_b_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iku_mario_dokan_v[0x2F0 / sizeof(Vtx)];
 #else
 Vtx int_iku_mario_dokan_v[] = {

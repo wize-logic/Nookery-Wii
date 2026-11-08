@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx hnw_v[0x1140 / sizeof(Vtx)];
 #else
 Vtx hnw_v[] = {

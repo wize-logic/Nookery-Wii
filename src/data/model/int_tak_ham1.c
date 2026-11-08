@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_ham1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_ham1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_ham1_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_ham1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_tak_ham1_a1_tex_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_tak_ham1_a1_tex_pic_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_tak_ham1_a1_tex_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ham1_maru_tex_txt[0x80];
 #else
 u8 int_tak_ham1_maru_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_tak_ham1_maru_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ham1_wa_tex_txt[0x20];
 #else
 u8 int_tak_ham1_wa_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_tak_ham1_wa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ham1_kuzu_tex_txt[0x80];
 #else
 u8 int_tak_ham1_kuzu_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_tak_ham1_kuzu_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ham1_cage_tex_txt[0x100];
 #else
 u8 int_tak_ham1_cage_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_tak_ham1_cage_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ham1_a1_tex_txt[0x80];
 #else
 u8 int_tak_ham1_a1_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_tak_ham1_a1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ham1_a2_tex_pic_ci4[0x80];
 #else
 u8 int_tak_ham1_a2_tex_pic_ci4[] = {
@@ -70,7 +70,7 @@ u8 int_tak_ham1_a2_tex_pic_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_ham1_v[0x640 / sizeof(Vtx)];
 #else
 Vtx int_tak_ham1_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_train1_t6_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_train1_t6_tex_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_train1_t6_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_train1_t5_tex_txt[0x800];
 #else
 u8 obj_train1_t5_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_train1_t5_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_train1_t4_tex_txt[0x800];
 #else
 u8 obj_train1_t4_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 obj_train1_t4_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_train_3_v[0x650 / sizeof(Vtx)];
 #else
 Vtx obj_train_3_v[] = {

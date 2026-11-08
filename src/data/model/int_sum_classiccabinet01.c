@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_classiccabinet01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_classiccabinet01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_classiccabinet01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_classiccabinet01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classiccabinet01_front[0x400];
 #else
 u8 int_sum_classiccabinet01_front[] = {
@@ -22,7 +22,7 @@ u8 int_sum_classiccabinet01_front[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classiccabinet01_in[0x80];
 #else
 u8 int_sum_classiccabinet01_in[] = {
@@ -30,7 +30,7 @@ u8 int_sum_classiccabinet01_in[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classiccabinet01_rack[0x80];
 #else
 u8 int_sum_classiccabinet01_rack[] = {
@@ -38,7 +38,7 @@ u8 int_sum_classiccabinet01_rack[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classiccabinet01_back[0x200];
 #else
 u8 int_sum_classiccabinet01_back[] = {
@@ -46,7 +46,7 @@ u8 int_sum_classiccabinet01_back[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classiccabinet01_saucer[0x80];
 #else
 u8 int_sum_classiccabinet01_saucer[] = {
@@ -54,7 +54,7 @@ u8 int_sum_classiccabinet01_saucer[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classiccabinet01_saucer2[0x80];
 #else
 u8 int_sum_classiccabinet01_saucer2[] = {
@@ -62,7 +62,7 @@ u8 int_sum_classiccabinet01_saucer2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_classiccabinet01_v[0x480 / sizeof(Vtx)];
 #else
 Vtx int_sum_classiccabinet01_v[] = {

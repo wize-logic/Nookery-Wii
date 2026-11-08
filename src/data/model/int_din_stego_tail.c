@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_din_stego_tail_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_din_stego_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_din_stego_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_din_stego_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 int_din_stego_fin_tex[0x200];
 #else
 static u8 int_din_stego_fin_tex[] = {
@@ -22,7 +22,7 @@ static u8 int_din_stego_fin_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_stego_kubi2C_tex[0x80];
 #else
 u8 int_din_stego_kubi2C_tex[] = {
@@ -30,7 +30,7 @@ u8 int_din_stego_kubi2C_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_stego_baceC_tex[0x200];
 #else
 u8 int_din_stego_baceC_tex[] = {
@@ -38,7 +38,7 @@ u8 int_din_stego_baceC_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_stego_poleC_tex[0x80];
 #else
 u8 int_din_stego_poleC_tex[] = {
@@ -46,7 +46,7 @@ u8 int_din_stego_poleC_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_din_stego_tail_v[0x3C0 / sizeof(Vtx)];
 #else
 Vtx int_din_stego_tail_v[] = {
@@ -98,7 +98,7 @@ Gfx int_din_stego_tailT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_din_stego_tail_c(void) {
     pc_load_asset("assets/int_din_stego_tail/int_din_stego_pal.bin", int_din_stego_pal, 0x20, 0x919260, 0, 1);

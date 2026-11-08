@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_totemp02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_totemp02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_totemp02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_totemp02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_totemp02_beak_txt[0x100];
 #else
 u8 int_sum_totemp02_beak_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_totemp02_beak_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_totemp02_front_txt[0x300];
 #else
 u8 int_sum_totemp02_front_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_totemp02_front_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_totemp02_wing_txt[0x80];
 #else
 u8 int_sum_totemp02_wing_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_totemp02_wing_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_totemp02_side_txt[0x300];
 #else
 u8 int_sum_totemp02_side_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_totemp02_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_totemp02_top_txt[0x80];
 #else
 u8 int_sum_totemp02_top_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_totemp02_top_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_totemp02_v[0x2A0 / sizeof(Vtx)];
 #else
 Vtx int_sum_totemp02_v[] = {

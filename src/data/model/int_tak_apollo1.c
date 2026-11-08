@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_apollo1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_apollo1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_apollo1_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_apollo1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_antena1_tex[0x80];
 #else
 u8 int_tak_apollo1_antena1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_tak_apollo1_antena1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_antena2_tex[0x80];
 #else
 u8 int_tak_apollo1_antena2_tex[] = {
@@ -30,7 +30,7 @@ u8 int_tak_apollo1_antena2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_asi2_tex[0x80];
 #else
 u8 int_tak_apollo1_asi2_tex[] = {
@@ -38,7 +38,7 @@ u8 int_tak_apollo1_asi2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_asi3_tex[0x80];
 #else
 u8 int_tak_apollo1_asi3_tex[] = {
@@ -46,7 +46,7 @@ u8 int_tak_apollo1_asi3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_asi_tex[0x80];
 #else
 u8 int_tak_apollo1_asi_tex[] = {
@@ -54,7 +54,7 @@ u8 int_tak_apollo1_asi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_atama_tex[0x80];
 #else
 u8 int_tak_apollo1_atama_tex[] = {
@@ -62,7 +62,7 @@ u8 int_tak_apollo1_atama_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_body_tex[0x100];
 #else
 u8 int_tak_apollo1_body_tex[] = {
@@ -70,7 +70,7 @@ u8 int_tak_apollo1_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_kosi_tex[0x80];
 #else
 u8 int_tak_apollo1_kosi_tex[] = {
@@ -78,7 +78,7 @@ u8 int_tak_apollo1_kosi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_kutu_tex[0x80];
 #else
 u8 int_tak_apollo1_kutu_tex[] = {
@@ -86,7 +86,7 @@ u8 int_tak_apollo1_kutu_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_apollo1_kao_tex[0x100];
 #else
 u8 int_tak_apollo1_kao_tex[] = {
@@ -94,7 +94,7 @@ u8 int_tak_apollo1_kao_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_apollo1_v[0x600 / sizeof(Vtx)];
 #else
 Vtx int_tak_apollo1_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 cad_win_ws4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 cad_win_ws4_tex_rgb_ci4_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 cad_win_ws4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 cad_win_ws1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 cad_win_ws1_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u16 cad_win_ws1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 cad_win_ws2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 cad_win_ws2_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u16 cad_win_ws2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 cad_win_ws3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 cad_win_ws3_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u16 cad_win_ws3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 cad_win_nuno_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 cad_win_nuno_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u16 cad_win_nuno_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cad_win_w1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 cad_win_w1_tex[] = {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) u8 cad_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cad_win_w2_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 cad_win_w2_tex[] = {
@@ -61,7 +61,7 @@ ATTRIBUTE_ALIGN(32) u8 cad_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cad_win_w3_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 cad_win_w3_tex[] = {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) u8 cad_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cad_win_w4_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 cad_win_w4_tex[] = {
@@ -77,7 +77,7 @@ ATTRIBUTE_ALIGN(32) u8 cad_win_w4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 inv_carde_waku_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 inv_carde_waku_tex[] = {
@@ -85,7 +85,7 @@ ATTRIBUTE_ALIGN(32) u8 inv_carde_waku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cad_win_ws4_tex_rgb_ci4[0x80];
 #else
 u8 cad_win_ws4_tex_rgb_ci4[] = {
@@ -93,7 +93,7 @@ u8 cad_win_ws4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cad_win_ws1_tex_rgb_ci4[0x400];
 #else
 u8 cad_win_ws1_tex_rgb_ci4[] = {
@@ -101,7 +101,7 @@ u8 cad_win_ws1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cad_win_ws2_tex_rgb_ci4[0x200];
 #else
 u8 cad_win_ws2_tex_rgb_ci4[] = {
@@ -109,7 +109,7 @@ u8 cad_win_ws2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cad_win_ws3_tex_rgb_ci4[0x200];
 #else
 u8 cad_win_ws3_tex_rgb_ci4[] = {
@@ -117,7 +117,7 @@ u8 cad_win_ws3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cad_win_nuno_tex_rgb_ci4[0x200];
 #else
 u8 cad_win_nuno_tex_rgb_ci4[] = {
@@ -125,7 +125,7 @@ u8 cad_win_nuno_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx cad_win_v[0x500 / sizeof(Vtx)];
 #else
 Vtx cad_win_v[] = {

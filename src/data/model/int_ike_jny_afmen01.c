@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_jny_afmen01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_jny_afmen_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_jny_afmen_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_jny_afmen_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_afmen01_face1_tex[0x200];
 #else
 u8 int_ike_jny_afmen01_face1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_jny_afmen01_face1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_afmen01_under1_tex[0x100];
 #else
 u8 int_ike_jny_afmen01_under1_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_jny_afmen01_under1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_afmen01_face2_tex[0x100];
 #else
 u8 int_ike_jny_afmen01_face2_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_jny_afmen01_face2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_afmen01_base1_tex[0x80];
 #else
 u8 int_ike_jny_afmen01_base1_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_jny_afmen01_base1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_afmen01_base2_tex[0x40];
 #else
 u8 int_ike_jny_afmen01_base2_tex[] = {
@@ -54,7 +54,7 @@ u8 int_ike_jny_afmen01_base2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_afmen01_base3_tex[0x40];
 #else
 u8 int_ike_jny_afmen01_base3_tex[] = {
@@ -62,7 +62,7 @@ u8 int_ike_jny_afmen01_base3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_jny_afmen01_v[0x4D0 / sizeof(Vtx)];
 #else
 Vtx int_ike_jny_afmen01_v[] = {

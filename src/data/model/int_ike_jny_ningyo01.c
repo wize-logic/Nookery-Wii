@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_jny_ningyo01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_jny_ningyo01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_jny_ningyo01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_jny_ningyo01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_ningyobody2_tex_txt[0x200];
 #else
 u8 int_ike_jny_ningyobody2_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_ike_jny_ningyobody2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_ningyoface_tex_txt[0x200];
 #else
 u8 int_ike_jny_ningyoface_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_ike_jny_ningyoface_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_ningyobody_tex_txt[0x200];
 #else
 u8 int_ike_jny_ningyobody_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_ike_jny_ningyobody_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_ningyoleg1_tex_txt[0x200];
 #else
 u8 int_ike_jny_ningyoleg1_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_ike_jny_ningyoleg1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_ningyohand_tex_txt[0x100];
 #else
 u8 int_ike_jny_ningyohand_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_ike_jny_ningyohand_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_jny_ningyo01_v[0x5B0 / sizeof(Vtx)];
 #else
 Vtx int_ike_jny_ningyo01_v[] = {

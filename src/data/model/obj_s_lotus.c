@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_lotus_flower_tex_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_lotus_flower_tex_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_lotus_flower_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_lotus_leaf_tex_txt[0x400];
 #else
 u8 obj_lotus_leaf_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_lotus_leaf_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_lotus_v[0x9C0 / sizeof(Vtx)];
 #else
 Vtx obj_s_lotus_v[] = {

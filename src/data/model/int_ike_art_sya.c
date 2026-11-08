@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_art_sya_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_art_sya_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_art_sya_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_art_sya_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_art_syafront_tex[0x200];
 #else
 u8 int_ike_art_syafront_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_art_syafront_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_art_syastand_tex[0x200];
 #else
 u8 int_ike_art_syastand_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_art_syastand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_art_sya_tex[0x300];
 #else
 u8 int_ike_art_sya_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_art_sya_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_art_syagaku_tex[0x100];
 #else
 u8 int_ike_art_syagaku_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_art_syagaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_art_sya_v[0x340 / sizeof(Vtx)];
 #else
 Vtx int_ike_art_sya_v[] = {

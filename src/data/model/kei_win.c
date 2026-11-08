@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 kei_win_pin_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 kei_win_pin_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 kei_win_pin_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_pin_tex[0x200];
 #else
 u8 kei_win_pin_tex[] = {
@@ -21,7 +21,7 @@ u8 kei_win_pin_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_w1_tex[0x1000];
 #else
 u8 kei_win_w1_tex[] = {
@@ -29,7 +29,7 @@ u8 kei_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_w2_tex[0x800];
 #else
 u8 kei_win_w2_tex[] = {
@@ -37,7 +37,7 @@ u8 kei_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_w3_tex[0x400];
 #else
 u8 kei_win_w3_tex[] = {
@@ -45,7 +45,7 @@ u8 kei_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_kage2_tex[0x800];
 #else
 u8 kei_win_kage2_tex[] = {
@@ -53,7 +53,7 @@ u8 kei_win_kage2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_kage3_tex[0x400];
 #else
 u8 kei_win_kage3_tex[] = {
@@ -61,7 +61,7 @@ u8 kei_win_kage3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_kage4_tex[0x400];
 #else
 u8 kei_win_kage4_tex[] = {
@@ -69,7 +69,7 @@ u8 kei_win_kage4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx kei_win_v[0x3B0 / sizeof(Vtx)];
 #else
 Vtx kei_win_v[] = {

@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_cedar_light_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_cedar_light_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_cedar_light_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_x_cedar_light_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_x_cedar_light_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_x_cedar_light_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_x_cedar5_light_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx obj_x_cedar5_light_v[] = {
@@ -50,7 +50,7 @@ Gfx obj_x_ceder5_lightT_gfx_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_x_cedar5_c(void) {
     pc_load_asset("assets/obj_x_cedar5/obj_cedar_light_pal.bin", obj_cedar_light_pal, 0x20, 0x3FD360, 0, 1);

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kob_mastersword_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kob_mastersword_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kob_mastersword_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kob_mastersword_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_kob_mastersword_kan_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_kob_mastersword_kan_tex_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_kob_mastersword_kan_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_mastersword_tuka_tex[0x180];
 #else
 u8 int_kob_mastersword_tuka_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kob_mastersword_tuka_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_mastersword_tuba_tex[0x100];
 #else
 u8 int_kob_mastersword_tuba_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kob_mastersword_tuba_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_mastersword_ishi1_tex[0x80];
 #else
 u8 int_kob_mastersword_ishi1_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kob_mastersword_ishi1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_mastersword_ishi2_tex[0x80];
 #else
 u8 int_kob_mastersword_ishi2_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kob_mastersword_ishi2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_mastersword_ishi3_tex[0x80];
 #else
 u8 int_kob_mastersword_ishi3_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kob_mastersword_ishi3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_mastersword_kan_tex[0x400];
 #else
 u8 int_kob_mastersword_kan_tex[] = {
@@ -70,7 +70,7 @@ u8 int_kob_mastersword_kan_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kob_mastersword_v[0x4C0 / sizeof(Vtx)];
 #else
 Vtx int_kob_mastersword_v[] = {

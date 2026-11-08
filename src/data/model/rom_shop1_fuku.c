@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx rom_shop1_fuku_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop1_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_shop1_w_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_shop1_w_pal[] = {
@@ -22,7 +22,7 @@ u16 rom_shop1_w_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_shop1_f_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_shop1_f_pal[] = {
@@ -30,7 +30,7 @@ u16 rom_shop1_f_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop_kouhaku_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop_kouhaku_pal[] = {
@@ -38,7 +38,7 @@ static u16 rom_shop_kouhaku_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop1_table_tex[0x600];
 #else
 static u8 rom_shop1_table_tex[] = {
@@ -46,7 +46,7 @@ static u8 rom_shop1_table_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop1_window_tex[0x800];
 #else
 static u8 rom_shop1_window_tex[] = {
@@ -54,7 +54,7 @@ static u8 rom_shop1_window_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop1_shadow_tex[0x400];
 #else
 static u8 rom_shop1_shadow_tex[] = {
@@ -62,7 +62,7 @@ static u8 rom_shop1_shadow_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop1_w1_tex[0x800];
 #else
 u8 rom_shop1_w1_tex[] = {
@@ -70,7 +70,7 @@ u8 rom_shop1_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop1_w2_tex[0x800];
 #else
 u8 rom_shop1_w2_tex[] = {
@@ -78,7 +78,7 @@ u8 rom_shop1_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop1_f1_tex[0x800];
 #else
 u8 rom_shop1_f1_tex[] = {
@@ -86,7 +86,7 @@ u8 rom_shop1_f1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop1_f2_tex[0x800];
 #else
 u8 rom_shop1_f2_tex[] = {
@@ -94,7 +94,7 @@ u8 rom_shop1_f2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop1_f3_tex[0x800];
 #else
 u8 rom_shop1_f3_tex[] = {
@@ -102,7 +102,7 @@ u8 rom_shop1_f3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop1_f4_tex[0x800];
 #else
 u8 rom_shop1_f4_tex[] = {
@@ -110,7 +110,7 @@ u8 rom_shop1_f4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop_kouhaku_tex[0x800];
 #else
 static u8 rom_shop_kouhaku_tex[] = {
@@ -118,7 +118,7 @@ static u8 rom_shop_kouhaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_shop1_fuku_v[0xE90 / sizeof(Vtx)];
 #else
 Vtx rom_shop1_fuku_v[] = {
@@ -250,7 +250,7 @@ Gfx rom_shop1_fuku_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_rom_shop1_fuku_c(void) {
     pc_load_asset("assets/rom_shop1_fuku/rom_shop1_pal.bin", rom_shop1_pal, 0x20, 0xC4F4C0, 0, 1);

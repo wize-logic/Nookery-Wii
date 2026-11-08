@@ -11,7 +11,7 @@ extern u8 lat_letter01_01_tex[];
 extern u8 lat_letter01_03_tex[];
 extern u8 lat_letter01_04_tex[];
 extern u8 lat_tegami_fusen_tex[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) Vtx lat_letter01_v[0x300 / sizeof(Vtx)];
 #else
 ATTRIBUTE_ALIGN(32) Vtx lat_letter01_v[] = {

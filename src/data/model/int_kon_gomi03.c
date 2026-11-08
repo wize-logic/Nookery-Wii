@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_gomi03_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kon_gomi03_gururi_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kon_gomi03_gururi_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kon_gomi03_gururi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_gomi03_gururi_tex[0x100];
 #else
 u8 int_kon_gomi03_gururi_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kon_gomi03_gururi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_gomi03_mawari_tex[0x80];
 #else
 u8 int_kon_gomi03_mawari_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kon_gomi03_mawari_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_gomi03_totte_tex[0x80];
 #else
 u8 int_kon_gomi03_totte_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kon_gomi03_totte_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_gomi03_ue_tex[0x200];
 #else
 u8 int_kon_gomi03_ue_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kon_gomi03_ue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_gomi03_v[0x2F0 / sizeof(Vtx)];
 #else
 Vtx int_kon_gomi03_v[] = {

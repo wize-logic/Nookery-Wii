@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_x_table01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_x_table01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_x_table01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_x_table01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_table01_top[0x400];
 #else
 u8 int_sum_x_table01_top[] = {
@@ -22,7 +22,7 @@ u8 int_sum_x_table01_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_table01_stand[0x80];
 #else
 u8 int_sum_x_table01_stand[] = {
@@ -30,7 +30,7 @@ u8 int_sum_x_table01_stand[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_x_table01_leg[0x300];
 #else
 u8 int_sum_x_table01_leg[] = {
@@ -38,7 +38,7 @@ u8 int_sum_x_table01_leg[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_x_table01_v[0x380 / sizeof(Vtx)];
 #else
 Vtx int_sum_x_table01_v[] = {

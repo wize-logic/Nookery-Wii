@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_zassou_b_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_zassou_b_v[] = { 

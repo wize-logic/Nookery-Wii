@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_pl_kuroton_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_sum_pl_kuroton_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_sum_pl_kuroton_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_sum_pl_kuroton_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_kuroton_leaf_tex[0x400];
 #else
 u8 int_sum_pl_kuroton_leaf_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_pl_kuroton_leaf_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_kuroton_kuki_tex[0x100];
 #else
 u8 int_sum_pl_kuroton_kuki_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_pl_kuroton_kuki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_kuroton_earth_tex[0x80];
 #else
 u8 int_sum_pl_kuroton_earth_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_pl_kuroton_earth_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_kuroton_hachi_tex[0x100];
 #else
 u8 int_sum_pl_kuroton_hachi_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_pl_kuroton_hachi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_pl_kuroton_v[0x5C0 / sizeof(Vtx)];
 #else
 Vtx int_sum_pl_kuroton_v[] = {
@@ -101,7 +101,7 @@ Gfx int_sum_pl_kuroton_onT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_sum_pl_kuroton_c(void) {
     pc_load_asset("assets/int_sum_pl_kuroton/int_sum_pl_kuroton_pal.bin", int_sum_pl_kuroton_pal, 0x20, 0xD21840, 0, 1);

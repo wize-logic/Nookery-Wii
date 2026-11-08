@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_jny_gojyu01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_jny_gojyu01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_jny_gojyu01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_jny_gojyu01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_gojyuname2_tex_txt[0x40];
 #else
 u8 int_ike_jny_gojyuname2_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_ike_jny_gojyuname2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_gojyuname1_tex_txt[0x100];
 #else
 u8 int_ike_jny_gojyuname1_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_ike_jny_gojyuname1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_gojyubase_tex_txt[0x40];
 #else
 u8 int_ike_jny_gojyubase_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_ike_jny_gojyubase_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_gojyuroof_tex_txt[0x100];
 #else
 u8 int_ike_jny_gojyuroof_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_ike_jny_gojyuroof_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_gojyuwall2_tex_txt[0x80];
 #else
 u8 int_ike_jny_gojyuwall2_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_ike_jny_gojyuwall2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_gojyuwall1_tex_txt[0x80];
 #else
 u8 int_ike_jny_gojyuwall1_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_ike_jny_gojyuwall1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_gojyutop_tex_txt[0x80];
 #else
 u8 int_ike_jny_gojyutop_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_ike_jny_gojyutop_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_jny_gojyu01_v[0x950 / sizeof(Vtx)];
 #else
 Vtx int_ike_jny_gojyu01_v[] = {

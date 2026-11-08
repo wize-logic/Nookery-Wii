@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_blue_chair01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_blue_chair01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_blue_chair01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_blue_chair01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_blue_chair01_back_tex[0x100];
 #else
 u8 int_sum_blue_chair01_back_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_blue_chair01_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_blue_chair01_seat_tex[0x180];
 #else
 u8 int_sum_blue_chair01_seat_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_blue_chair01_seat_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_blue_chair01_foot_tex[0x100];
 #else
 u8 int_sum_blue_chair01_foot_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_blue_chair01_foot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_blue_chair01_v[0x2A0 / sizeof(Vtx)];
 #else
 Vtx int_sum_blue_chair01_v[] = {

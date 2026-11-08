@@ -7,7 +7,7 @@
 
 extern Vtx camera_v[];
 extern Vtx darrow_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 no_txt[0x100];
 #else
 u8 no_txt[] = {
@@ -15,7 +15,7 @@ u8 no_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 np_txt[0x100];
 #else
 u8 np_txt[] = {
@@ -23,7 +23,7 @@ u8 np_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 nt_txt[0x100];
 #else
 u8 nt_txt[] = {
@@ -31,7 +31,7 @@ u8 nt_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 nx_txt[0x100];
 #else
 u8 nx_txt[] = {
@@ -54,7 +54,7 @@ Gfx darrow_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx darrow_v[0x240 / sizeof(Vtx)];
 #else
 Vtx darrow_v[] = {
@@ -80,7 +80,7 @@ Gfx camera_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx camera_v[0x280 / sizeof(Vtx)];
 #else
 Vtx camera_v[] = {
@@ -88,7 +88,7 @@ Vtx camera_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 v_debug_texture[0x40];
 #else
 u8 v_debug_texture[] = {

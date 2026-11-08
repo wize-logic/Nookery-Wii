@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_liccapiano_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccapiano_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccapiano_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_liccapiano_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccapiano_top_txt[0x300];
 #else
 u8 int_sum_liccapiano_top_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_liccapiano_top_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccapiano_side_txt[0x100];
 #else
 u8 int_sum_liccapiano_side_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_liccapiano_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccapiano_lid_txt[0x200];
 #else
 u8 int_sum_liccapiano_lid_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_liccapiano_lid_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccapiano_stand_txt[0x80];
 #else
 u8 int_sum_liccapiano_stand_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_liccapiano_stand_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccapiano_pedal_txt[0x40];
 #else
 u8 int_sum_liccapiano_pedal_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_liccapiano_pedal_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccapiano_pin_txt[0x40];
 #else
 u8 int_sum_liccapiano_pin_txt[] = {
@@ -62,7 +62,7 @@ u8 int_sum_liccapiano_pin_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccapiano_key_txt[0x100];
 #else
 u8 int_sum_liccapiano_key_txt[] = {
@@ -70,7 +70,7 @@ u8 int_sum_liccapiano_key_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_liccapiano_v[0x490 / sizeof(Vtx)];
 #else
 Vtx int_sum_liccapiano_v[] = {

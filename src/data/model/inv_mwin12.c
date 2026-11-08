@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_ono_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_ono_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_ono_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_scoop_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_scoop_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_scoop_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_turi_tex_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_turi_tex_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_turi_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_mushi_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_mushi_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_mushi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_ono_tex[0x200];
 #else
 u8 inv_mwin_ono_tex[] = {
@@ -45,7 +45,7 @@ u8 inv_mwin_ono_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_scoop_tex[0x200];
 #else
 u8 inv_mwin_scoop_tex[] = {
@@ -53,7 +53,7 @@ u8 inv_mwin_scoop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_turi_tex[0x200];
 #else
 u8 inv_mwin_turi_tex[] = {
@@ -61,7 +61,7 @@ u8 inv_mwin_turi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_mushi_tex[0x200];
 #else
 u8 inv_mwin_mushi_tex[] = {

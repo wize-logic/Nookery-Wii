@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 lat_fusen_TXT[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 lat_fusen_TXT[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u8 lat_fusen_TXT[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx lat_hani_v[0x40 / sizeof(Vtx)];
 #else
 Vtx lat_hani_v[] = {
@@ -30,7 +30,7 @@ Gfx lat_hani_senT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_lat_hani_c(void) {
     pc_load_asset("assets/lat_hani/lat_fusen_TXT.bin", lat_fusen_TXT, 0x80, 0x69DAC0, 0, 0);

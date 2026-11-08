@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_jny_tower01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_ike_jny_tower01[0x20];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_ike_jny_tower01[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_ike_jny_tower01[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_towerbase_tex_txt[0x80];
 #else
 u8 int_ike_jny_towerbase_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_ike_jny_towerbase_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_towertem1_tex_txt[0x40];
 #else
 u8 int_ike_jny_towertem1_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_ike_jny_towertem1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_towertem2_tex_txt[0x200];
 #else
 u8 int_ike_jny_towertem2_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_ike_jny_towertem2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_towertem3_tex_txt[0x40];
 #else
 u8 int_ike_jny_towertem3_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_ike_jny_towertem3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_towername_tex_txt[0x40];
 #else
 u8 int_ike_jny_towername_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_ike_jny_towername_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_towerbelt_tex_txt[0x40];
 #else
 u8 int_ike_jny_towerbelt_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_ike_jny_towerbelt_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_towerbottom_tex_txt[0x200];
 #else
 u8 int_ike_jny_towerbottom_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_ike_jny_towerbottom_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_jny_towermiddle_tex_txt[0x80];
 #else
 u8 int_ike_jny_towermiddle_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 int_ike_jny_towermiddle_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_jny_tower01_v[0x900 / sizeof(Vtx)];
 #else
 Vtx int_ike_jny_tower01_v[] = {

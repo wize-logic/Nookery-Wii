@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_ame02_0[0x200];
 #else
 u8 ef_ame02_0[] = {
@@ -13,7 +13,7 @@ u8 ef_ame02_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_ame02_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_ame02_00_v[] = {
@@ -39,7 +39,7 @@ Gfx ef_ame02_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_ame02_01_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_ame02_01_v[] = {
@@ -53,7 +53,7 @@ Gfx ef_ame02_01_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_ame02_02_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_ame02_02_v[] = {
@@ -67,7 +67,7 @@ Gfx ef_ame02_02_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_ame02_03_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_ame02_03_v[] = {
@@ -81,7 +81,7 @@ Gfx ef_ame02_03_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_ame02_04_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_ame02_04_v[] = {

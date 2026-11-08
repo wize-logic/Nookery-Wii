@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_floor_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_floor_tex_pal[] = {
@@ -8,7 +8,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_floor_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_lamp_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_lamp_tex_pal[] = {
@@ -16,7 +16,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_lamp_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_base_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_base_tex_pal[] = {
@@ -24,7 +24,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_base_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_stair_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_stair_tex_pal[] = {
@@ -32,7 +32,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_stair_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_table_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_table_tex_pal[] = {
@@ -40,7 +40,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_table_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_wall_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_wall_tex_pal[] = {
@@ -48,7 +48,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_wall_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_sign01_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_sign01_tex_pal[] = {
@@ -56,7 +56,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_sign01_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_kaunta_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_kaunta_tex_pal[] = {
@@ -64,7 +64,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_kaunta_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign01_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign01_tex_pal[] = {
@@ -72,7 +72,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign01_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign02_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign02_tex_pal[] = {
@@ -80,7 +80,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign02_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign03_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign03_tex_pal[] = {
@@ -88,7 +88,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_us_sign03_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_sign03_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_sign03_tex_pal[] = {
@@ -96,7 +96,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_sign03_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_reji_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_reji_tex_pal[] = {
@@ -104,7 +104,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_reji_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor01_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor01_tex[] = {
@@ -112,7 +112,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_lamp_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_lamp_tex[] = {
@@ -120,7 +120,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_lamp_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_base_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_base_tex[] = {
@@ -128,7 +128,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_stair01_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_stair01_tex[] = {
@@ -136,7 +136,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_stair01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_table01_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_table01_tex[] = {
@@ -144,7 +144,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_table01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_table02_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_table02_tex[] = {
@@ -152,7 +152,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_table02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_wall01_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_wall01_tex[] = {
@@ -160,7 +160,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_wall01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_wall02_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_wall02_tex[] = {
@@ -168,7 +168,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_wall02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_sign05_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_sign05_tex[] = {
@@ -176,7 +176,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_sign05_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_kaunta01_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_kaunta01_tex[] = {
@@ -184,7 +184,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_kaunta01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_kaunta02_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_kaunta02_tex[] = {
@@ -192,7 +192,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_kaunta02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign01_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign01_tex[] = {
@@ -200,7 +200,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign02_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign02_tex[] = {
@@ -208,7 +208,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign03_tex[0x600];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign03_tex[] = {
@@ -216,7 +216,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_us_sign03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_sign04_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_sign04_tex[] = {
@@ -224,7 +224,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_sign04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji01_tex[0x300];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji01_tex[] = {
@@ -232,7 +232,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji02_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji02_tex[] = {
@@ -240,7 +240,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji03_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji03_tex[] = {
@@ -248,7 +248,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_reji03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor02_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor02_tex[] = {
@@ -256,7 +256,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor03_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor03_tex[] = {
@@ -264,7 +264,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor04_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor04_tex[] = {
@@ -272,7 +272,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_floor04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow01_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow01_tex[] = {
@@ -280,7 +280,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow02_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow02_tex[] = {
@@ -288,7 +288,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_lamp02_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_lamp02_tex[] = {
@@ -296,7 +296,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_lamp02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow03_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow03_tex[] = {
@@ -304,7 +304,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_shop4_1_shadow03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx rom_shop4_1_v[0x1620 / sizeof(Vtx)];
 #else
 static Vtx rom_shop4_1_v[] = {
@@ -767,7 +767,7 @@ extern Gfx rom_shop4_1_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_rom_shop4_1_rom_shop4_1_c(void) {
     pc_load_asset("assets/field/bg/rom_shop4_1_floor_tex_pal.bin", rom_shop4_1_floor_tex_pal, 0x20, 0xC2FDC0, 0, 1);

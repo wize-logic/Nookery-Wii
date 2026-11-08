@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_yubinkyoku_t3_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_yubinkyoku_t3_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_yubinkyoku_t3_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_yubinkyoku_t1_txt[0x800];
 #else
 u8 obj_s_yubinkyoku_t1_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_s_yubinkyoku_t1_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_yubinkyoku_window_tex_txt[0x80];
 #else
 u8 obj_s_yubinkyoku_window_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 obj_s_yubinkyoku_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_yubinkyoku_t2_txt[0x800];
 #else
 u8 obj_s_yubinkyoku_t2_txt[] = {
@@ -37,7 +37,7 @@ u8 obj_s_yubinkyoku_t2_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_yubinkyoku_v[0x310 / sizeof(Vtx)];
 #else
 Vtx obj_s_yubinkyoku_v[] = {
@@ -196,7 +196,7 @@ cKF_Animation_R_c cKF_ba_r_obj_s_yubinkyoku_out = { cKF_ckcb_r_obj_s_yubinkyoku_
                                                     -1,
                                                     51 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_yubinkyoku_t3_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_yubinkyoku_t3_txt[] = {
@@ -204,7 +204,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_yubinkyoku_t3_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_yubinkyoku_t1_txt[0x800];
 #else
 u8 obj_w_yubinkyoku_t1_txt[] = {
@@ -212,7 +212,7 @@ u8 obj_w_yubinkyoku_t1_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_yubinkyoku_window_tex_txt[0x80];
 #else
 u8 obj_w_yubinkyoku_window_tex_txt[] = {
@@ -220,7 +220,7 @@ u8 obj_w_yubinkyoku_window_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_yubinkyoku_t2_txt[0x800];
 #else
 u8 obj_w_yubinkyoku_t2_txt[] = {
@@ -228,7 +228,7 @@ u8 obj_w_yubinkyoku_t2_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_yubinkyoku_v[0x340 / sizeof(Vtx)];
 #else
 Vtx obj_w_yubinkyoku_v[] = {

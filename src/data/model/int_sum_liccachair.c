@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_liccachair_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccachair_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccachair_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_liccachair_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccachair_seat_tex[0x100];
 #else
 u8 int_sum_liccachair_seat_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_liccachair_seat_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccachair_splat_tex[0x200];
 #else
 u8 int_sum_liccachair_splat_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_liccachair_splat_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccachair_leg_tex[0x200];
 #else
 u8 int_sum_liccachair_leg_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_liccachair_leg_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccachair_seatside_tex[0x100];
 #else
 u8 int_sum_liccachair_seatside_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_liccachair_seatside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_liccachair_v[0x3B0 / sizeof(Vtx)];
 #else
 Vtx int_sum_liccachair_v[] = {

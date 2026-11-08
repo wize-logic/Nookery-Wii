@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx ef_coin_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_coin_tex_txt[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_coin_tex_txt[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_coin_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_coin_v[0x3C0 / sizeof(Vtx)];
 #else
 Vtx ef_coin_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_undo_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_undo_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_undo_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_sp_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_sp_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_sp_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_sen_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_sen_tex[]= {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_sen_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_pen_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_pen_tex[]= {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_pen_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_nuri_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_nuri_tex[]= {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_nuri_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_mark1_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_mark1_tex[]= {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_mark1_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_mark2_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_mark2_tex[]= {
@@ -61,7 +61,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_mark2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_mark3_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_mark3_tex[]= {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_mark3_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_mark4_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_mark4_tex[]= {
@@ -77,7 +77,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_mark4_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_cursor_waku_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_cursor_waku_tex[]= {
@@ -85,7 +85,7 @@ ATTRIBUTE_ALIGN(32) u8 des_cursor_waku_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx des_cursor_v[0x2C0 / sizeof(Vtx)];
 #else
 Vtx des_cursor_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iku_turkey_lamp_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_iku_turkey_lamp_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_iku_turkey_lamp_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_iku_turkey_lamp_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_turkey_lamp_c_txt[0x100];
 #else
 u8 int_iku_turkey_lamp_c_txt[] = {
@@ -22,7 +22,7 @@ u8 int_iku_turkey_lamp_c_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_turkey_lamp_d_txt[0x100];
 #else
 u8 int_iku_turkey_lamp_d_txt[] = {
@@ -30,7 +30,7 @@ u8 int_iku_turkey_lamp_d_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_turkey_lamp_e_txt[0x200];
 #else
 u8 int_iku_turkey_lamp_e_txt[] = {
@@ -38,7 +38,7 @@ u8 int_iku_turkey_lamp_e_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_turkey_lamp_b_txt[0x200];
 #else
 u8 int_iku_turkey_lamp_b_txt[] = {
@@ -46,7 +46,7 @@ u8 int_iku_turkey_lamp_b_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_turkey_lamp_a_txt[0x200];
 #else
 u8 int_iku_turkey_lamp_a_txt[] = {
@@ -54,7 +54,7 @@ u8 int_iku_turkey_lamp_a_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iku_turkey_lamp_v[0x480 / sizeof(Vtx)];
 #else
 Vtx int_iku_turkey_lamp_v[] = {

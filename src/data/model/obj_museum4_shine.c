@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_museum4_shine_1[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_museum4_shine_1[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_museum4_shine_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum4_shine_2[0x400];
 #else
 u8 obj_museum4_shine_2[] = {
@@ -21,7 +21,7 @@ u8 obj_museum4_shine_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_museum4_shine_v[0x2F0 / sizeof(Vtx)];
 #else
 Vtx obj_museum4_shine_v[] = {

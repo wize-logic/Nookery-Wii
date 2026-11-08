@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_myhome_step_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_myhome_step_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_myhome_step_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_myhome_step_tex[0x800];
 #else
 u8 obj_myhome_step_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_myhome_step_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_myhome_step_down_v[0x180 / sizeof(Vtx)];
 #else
 Vtx obj_myhome_step_down_v[] = {

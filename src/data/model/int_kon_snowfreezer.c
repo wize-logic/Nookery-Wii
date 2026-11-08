@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_snowfreezer_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_kon_snowtansu_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_kon_snowtansu_tex_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_kon_snowtansu_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowfreezer01_tex[0x300];
 #else
 u8 int_kon_snowfreezer01_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kon_snowfreezer01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowfreezer02_tex[0x180];
 #else
 u8 int_kon_snowfreezer02_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kon_snowfreezer02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowfreezer04_tex[0x100];
 #else
 u8 int_kon_snowfreezer04_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kon_snowfreezer04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowfreezer03_tex[0x100];
 #else
 u8 int_kon_snowfreezer03_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kon_snowfreezer03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowfreezer05_tex[0x80];
 #else
 u8 int_kon_snowfreezer05_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kon_snowfreezer05_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_snowfreezer06_tex[0x80];
 #else
 u8 int_kon_snowfreezer06_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kon_snowfreezer06_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_snowfreezer_v[0x360 / sizeof(Vtx)];
 #else
 Vtx int_kon_snowfreezer_v[] = {
@@ -120,7 +120,7 @@ Gfx int_kon_snowfreezer01_bodyT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_kon_snowfreezer_c(void) {
     pc_load_asset("assets/int_kon_snowfreezer/int_kon_snowtansu_tex_pal.bin", int_kon_snowtansu_tex_pal, 0x20, 0xB8EE40, 0, 1);

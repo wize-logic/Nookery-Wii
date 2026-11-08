@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_hanabi_b_0_inta_ia8[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_hanabi_b_0_inta_ia8[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_hanabi_b_0_inta_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_hanabi_b_1_inta_ia8[0x400];
 #else
 u8 ef_hanabi_b_1_inta_ia8[] = {
@@ -21,7 +21,7 @@ u8 ef_hanabi_b_1_inta_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_hanabi_b_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_hanabi_b_00_v[] = {

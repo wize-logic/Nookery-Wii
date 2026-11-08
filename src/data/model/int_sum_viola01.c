@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_viola01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_viola01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_viola01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_viola01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_viola01_front_tex[0x300];
 #else
 u8 int_sum_viola01_front_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_viola01_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_viola01_back_tex[0x180];
 #else
 u8 int_sum_viola01_back_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_viola01_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_viola01_side_tex[0x80];
 #else
 u8 int_sum_viola01_side_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_viola01_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_viola01_neck_tex[0x100];
 #else
 u8 int_sum_viola01_neck_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_viola01_neck_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_viola01_neckback_tex[0x80];
 #else
 u8 int_sum_viola01_neckback_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_viola01_neckback_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_viola01_hand_tex[0x80];
 #else
 u8 int_sum_viola01_hand_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_viola01_hand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_viola01_stand_tex[0x100];
 #else
 u8 int_sum_viola01_stand_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_viola01_stand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_viola01_v[0x360 / sizeof(Vtx)];
 #else
 Vtx int_sum_viola01_v[] = {

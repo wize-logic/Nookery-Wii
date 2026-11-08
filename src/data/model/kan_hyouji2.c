@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 kan_win_yane_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 kan_win_yane_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 kan_win_yane_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_yashiro_tex[0x80];
 #else
 u8 kan_win_yashiro_tex[] = {
@@ -21,7 +21,7 @@ u8 kan_win_yashiro_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_yubin_tex[0x80];
 #else
 u8 kan_win_yubin_tex[] = {
@@ -29,7 +29,7 @@ u8 kan_win_yubin_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_kouban_tex[0x80];
 #else
 u8 kan_win_kouban_tex[] = {
@@ -37,7 +37,7 @@ u8 kan_win_kouban_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_omise_tex[0x80];
 #else
 u8 kan_win_omise_tex[] = {
@@ -45,7 +45,7 @@ u8 kan_win_omise_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_play_tex[0x100];
 #else
 u8 kan_win_play_tex[] = {
@@ -53,7 +53,7 @@ u8 kan_win_play_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_ply_tex[0x100];
 #else
 u8 kan_win_ply_tex[] = {
@@ -61,7 +61,7 @@ u8 kan_win_ply_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx kan_hyouji2_v[0x240 / sizeof(Vtx)];
 #else
 Vtx kan_hyouji2_v[] = {

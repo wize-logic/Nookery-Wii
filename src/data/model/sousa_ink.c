@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 kai_sousa_ink_tex[0x1000];
 #else
 ATTRIBUTE_ALIGN(32) u8 kai_sousa_ink_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 kai_sousa_ink_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 kai_sousa_inkmoji_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 kai_sousa_inkmoji_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 kai_sousa_inkmoji_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kai_sousa_ink2_tex_rgb_i4[0x200];
 #else
 u8 kai_sousa_ink2_tex_rgb_i4[] = {
@@ -29,7 +29,7 @@ u8 kai_sousa_ink2_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kai_sousa_ink3_tex_rgb_i4[0x200];
 #else
 u8 kai_sousa_ink3_tex_rgb_i4[] = {
@@ -37,7 +37,7 @@ u8 kai_sousa_ink3_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx sousa_ink_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx sousa_ink_v[] = {

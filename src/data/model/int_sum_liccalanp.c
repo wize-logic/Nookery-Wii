@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_liccalanp_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccalanp_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccalanp_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_liccalanp_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccalanp_shade_tex[0x100];
 #else
 u8 int_sum_liccalanp_shade_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_liccalanp_shade_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccalanp_stand_tex[0x180];
 #else
 u8 int_sum_liccalanp_stand_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_liccalanp_stand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccalanp_hiki_tex[0x80];
 #else
 u8 int_sum_liccalanp_hiki_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_liccalanp_hiki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccalanp_base_tex[0x100];
 #else
 u8 int_sum_liccalanp_base_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_liccalanp_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_liccalanp_v[0x3D0 / sizeof(Vtx)];
 #else
 Vtx int_sum_liccalanp_v[] = {

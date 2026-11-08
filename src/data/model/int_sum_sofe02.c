@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_sofe02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_sofe02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_sofe02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_sofe02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 int_sum_sofe01_pal[0x20 / sizeof(u16)];
 #else
 static u16 int_sum_sofe01_pal[] = {
@@ -22,7 +22,7 @@ static u16 int_sum_sofe01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 int_sofe01_pal[0x20 / sizeof(u16)];
 #else
 static u16 int_sofe01_pal[] = {
@@ -30,7 +30,7 @@ static u16 int_sofe01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_sofe02_back_txt[0x300];
 #else
 u8 int_sum_sofe02_back_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_sofe02_back_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 int_sum_sofe01_facet_txt[0x180];
 #else
 static u8 int_sum_sofe01_facet_txt[] = {
@@ -46,7 +46,7 @@ static u8 int_sum_sofe01_facet_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 int_sum_sofe01_side_txt[0x100];
 #else
 static u8 int_sum_sofe01_side_txt[] = {
@@ -54,7 +54,7 @@ static u8 int_sum_sofe01_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 int_sum_sofe01_backside_txt[0x80];
 #else
 static u8 int_sum_sofe01_backside_txt[] = {
@@ -62,7 +62,7 @@ static u8 int_sum_sofe01_backside_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_sofe02_front_txt[0x200];
 #else
 u8 int_sum_sofe02_front_txt[] = {
@@ -70,7 +70,7 @@ u8 int_sum_sofe02_front_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_sofe02_v[0x470 / sizeof(Vtx)];
 #else
 Vtx int_sum_sofe02_v[] = {
@@ -121,7 +121,7 @@ Gfx int_sum_sofe02_on_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_sum_sofe02_c(void) {
     pc_load_asset("assets/int_sum_sofe02/int_sum_sofe01_pal.bin", int_sum_sofe01_pal, 0x20, 0xD3ABC0, 0, 1);

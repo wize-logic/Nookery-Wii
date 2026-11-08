@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_train1_t3_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_train1_t3_tex_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_train1_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_train1_t1_tex_txt[0x800];
 #else
 u8 obj_train1_t1_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_train1_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_train1_t2_tex_txt[0x800];
 #else
 u8 obj_train1_t2_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 obj_train1_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_train1_1_v[0x860 / sizeof(Vtx)];
 #else
 Vtx obj_train1_1_v[] = {
@@ -123,7 +123,7 @@ Gfx obj_train1_1_wheel1_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_train1_t3_tex_txt_tansui[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_train1_t3_tex_txt_tansui[] = {
@@ -131,7 +131,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_train1_t3_tex_txt_tansui[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_train_2_v[0x310 / sizeof(Vtx)];
 #else
 Vtx obj_train_2_v[] = {

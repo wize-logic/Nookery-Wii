@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_tel_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_tel_pal[] = {
@@ -8,7 +8,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_koban_tel_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_win_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_win_pal[] = {
@@ -16,7 +16,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_koban_win_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_us_pos_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_us_pos_pal[] = {
@@ -24,7 +24,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_koban_us_pos_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_jim_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_jim_pal[] = {
@@ -32,7 +32,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_koban_jim_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_kabe_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_kabe_pal[] = {
@@ -40,7 +40,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_koban_kabe_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_roc_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_koban_roc_pal[] = {
@@ -48,7 +48,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_koban_roc_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_tel[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_tel[] = {
@@ -56,7 +56,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_tel[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_win[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_win[] = {
@@ -64,7 +64,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_win[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_front[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_front[] = {
@@ -72,7 +72,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_front[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_side[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_side[] = {
@@ -80,7 +80,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_top[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_top[] = {
@@ -88,7 +88,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_desk_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_yuka[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_yuka[] = {
@@ -96,7 +96,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_yuka[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_us_pos1[0x300];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_us_pos1[] = {
@@ -104,7 +104,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_us_pos1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_us_pos2[0x300];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_us_pos2[] = {
@@ -112,7 +112,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_us_pos2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_kage1[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_kage1[] = {
@@ -120,7 +120,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_kage1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_kage2[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_kage2[] = {
@@ -128,7 +128,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_kage2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_ent[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_ent[] = {
@@ -136,7 +136,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_ent[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_front[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_front[] = {
@@ -144,7 +144,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_front[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_side[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_side[] = {
@@ -152,7 +152,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_top[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_top[] = {
@@ -160,7 +160,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_jim_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_kabe1[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_kabe1[] = {
@@ -168,7 +168,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_kabe1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_telcode[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_telcode[] = {
@@ -176,7 +176,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_telcode[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_book[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_book[] = {
@@ -184,7 +184,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_book[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_s[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_s[] = {
@@ -192,7 +192,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_s[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_t[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_t[] = {
@@ -200,7 +200,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_t[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_kabe3[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_kabe3[] = {
@@ -208,7 +208,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_kabe3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_isu[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_isu[] = {
@@ -216,7 +216,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_isu[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_i[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_i[] = {
@@ -224,7 +224,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_i[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_f3[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_f3[] = {
@@ -232,7 +232,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_koban_roc_f3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx police_indoor_v[0x1A90 / sizeof(Vtx)];
 #else
 static Vtx police_indoor_v[] = {
@@ -762,7 +762,7 @@ extern Gfx police_indoor_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_police_indoor_police_indoor_c(void) {
     pc_load_asset("assets/field/bg/rom_koban_tel_pal.bin", rom_koban_tel_pal, 0x20, 0xC16DE0, 0, 1);

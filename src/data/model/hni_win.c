@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 hni_nwin2_hani_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 hni_nwin2_hani_tex_rgb_ci4_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 hni_nwin2_hani_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hni_win_shita7_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 hni_win_shita7_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ u16 hni_win_shita7_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hni_win_shita1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 hni_win_shita1_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ u16 hni_win_shita1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hni_win_shita2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 hni_win_shita2_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ u16 hni_win_shita2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hni_win_shita3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 hni_win_shita3_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ u16 hni_win_shita3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hni_win_shita4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 hni_win_shita4_tex_rgb_ci4_pal[] = {
@@ -53,7 +53,7 @@ u16 hni_win_shita4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hni_win_shita5_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 hni_win_shita5_tex_rgb_ci4_pal[] = {
@@ -61,7 +61,7 @@ u16 hni_win_shita5_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hni_win_shita6_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 hni_win_shita6_tex_rgb_ci4_pal[] = {
@@ -69,7 +69,7 @@ u16 hni_win_shita6_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mwin_nwaku_tex[0x400];
 #else
 static u8 inv_mwin_nwaku_tex[] = {
@@ -77,7 +77,7 @@ static u8 inv_mwin_nwaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_nwin2_w_tex[0xA00];
 #else
 u8 hni_nwin2_w_tex[] = {
@@ -85,7 +85,7 @@ u8 hni_nwin2_w_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_ue1_tex[0x800];
 #else
 u8 hni_win_ue1_tex[] = {
@@ -93,7 +93,7 @@ u8 hni_win_ue1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_ue2_tex[0x800];
 #else
 u8 hni_win_ue2_tex[] = {
@@ -101,7 +101,7 @@ u8 hni_win_ue2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_ue3_tex[0x400];
 #else
 u8 hni_win_ue3_tex[] = {
@@ -109,7 +109,7 @@ u8 hni_win_ue3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_ue4_tex[0x100];
 #else
 u8 hni_win_ue4_tex[] = {
@@ -117,7 +117,7 @@ u8 hni_win_ue4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_ue5_tex[0x800];
 #else
 u8 hni_win_ue5_tex[] = {
@@ -125,7 +125,7 @@ u8 hni_win_ue5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_ue6_tex[0x800];
 #else
 u8 hni_win_ue6_tex[] = {
@@ -133,7 +133,7 @@ u8 hni_win_ue6_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_ue7_tex[0x800];
 #else
 u8 hni_win_ue7_tex[] = {
@@ -141,7 +141,7 @@ u8 hni_win_ue7_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mwin_3Dma_tex[0x800];
 #else
 static u8 inv_mwin_3Dma_tex[] = {
@@ -149,7 +149,7 @@ static u8 inv_mwin_3Dma_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_nwin2_hani_tex_rgb_ci4[0x200];
 #else
 u8 hni_nwin2_hani_tex_rgb_ci4[] = {
@@ -157,7 +157,7 @@ u8 hni_nwin2_hani_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_shita7_tex_rgb_ci4[0x200];
 #else
 u8 hni_win_shita7_tex_rgb_ci4[] = {
@@ -165,7 +165,7 @@ u8 hni_win_shita7_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_shita1_tex_rgb_ci4[0x400];
 #else
 u8 hni_win_shita1_tex_rgb_ci4[] = {
@@ -173,7 +173,7 @@ u8 hni_win_shita1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_shita2_tex_rgb_ci4[0x400];
 #else
 u8 hni_win_shita2_tex_rgb_ci4[] = {
@@ -181,7 +181,7 @@ u8 hni_win_shita2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_shita3_tex_rgb_ci4[0x200];
 #else
 u8 hni_win_shita3_tex_rgb_ci4[] = {
@@ -189,7 +189,7 @@ u8 hni_win_shita3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_shita4_tex_rgb_ci4[0x400];
 #else
 u8 hni_win_shita4_tex_rgb_ci4[] = {
@@ -197,7 +197,7 @@ u8 hni_win_shita4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_shita5_tex_rgb_ci4[0x400];
 #else
 u8 hni_win_shita5_tex_rgb_ci4[] = {
@@ -205,7 +205,7 @@ u8 hni_win_shita5_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hni_win_shita6_tex_rgb_ci4[0x400];
 #else
 u8 hni_win_shita6_tex_rgb_ci4[] = {
@@ -213,7 +213,7 @@ u8 hni_win_shita6_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx hni_win_v[0x800 / sizeof(Vtx)];
 #else
 Vtx hni_win_v[] = {
@@ -469,7 +469,7 @@ Gfx hni_win_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_hni_win_c(void) {
     pc_load_asset("assets/hni_win/inv_mwin_nwaku_tex.bin", inv_mwin_nwaku_tex, 0x400, 0x70A840, 0, 0);

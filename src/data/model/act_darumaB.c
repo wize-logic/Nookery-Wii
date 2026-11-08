@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 act_daruma_pal[0x20 / sizeof(u16)];
 #else
 static u16 act_daruma_pal[] = {
@@ -13,7 +13,7 @@ static u16 act_daruma_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_darumaB_tex[0x200];
 #else
 u8 act_darumaB_tex[] = {
@@ -21,7 +21,7 @@ u8 act_darumaB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_darumaB_v[0x1E0 / sizeof(Vtx)];
 #else
 Vtx act_darumaB_v[] = {
@@ -74,7 +74,7 @@ Gfx act_darumaB_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_darumaB_c(void) {
     pc_load_asset("assets/act_darumaB/act_daruma_pal.bin", act_daruma_pal, 0x20, 0x7C88C8, 0, 1);

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iid_snow_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_iid_snow_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_iid_snow_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_iid_snow_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_ashiue_tex[0x80];
 #else
 u8 int_iid_snow_ashiue_tex[] = {
@@ -22,7 +22,7 @@ u8 int_iid_snow_ashiue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_ashiyoko_tex[0x100];
 #else
 u8 int_iid_snow_ashiyoko_tex[] = {
@@ -30,7 +30,7 @@ u8 int_iid_snow_ashiyoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_ashimae_tex[0x80];
 #else
 u8 int_iid_snow_ashimae_tex[] = {
@@ -38,7 +38,7 @@ u8 int_iid_snow_ashimae_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_ashisoko_tex[0x100];
 #else
 u8 int_iid_snow_ashisoko_tex[] = {
@@ -46,7 +46,7 @@ u8 int_iid_snow_ashisoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_ashiback_tex[0x80];
 #else
 u8 int_iid_snow_ashiback_tex[] = {
@@ -54,7 +54,7 @@ u8 int_iid_snow_ashiback_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_bordue_tex[0x100];
 #else
 u8 int_iid_snow_bordue_tex[] = {
@@ -62,7 +62,7 @@ u8 int_iid_snow_bordue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_bordshita_tex[0x80];
 #else
 u8 int_iid_snow_bordshita_tex[] = {
@@ -70,7 +70,7 @@ u8 int_iid_snow_bordshita_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_bordyoko_tex[0x20];
 #else
 u8 int_iid_snow_bordyoko_tex[] = {
@@ -78,7 +78,7 @@ u8 int_iid_snow_bordyoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_bordkakato_tex[0x100];
 #else
 u8 int_iid_snow_bordkakato_tex[] = {
@@ -86,7 +86,7 @@ u8 int_iid_snow_bordkakato_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_bordura_tex[0x80];
 #else
 u8 int_iid_snow_bordura_tex[] = {
@@ -94,7 +94,7 @@ u8 int_iid_snow_bordura_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_bordana_tex[0x20];
 #else
 u8 int_iid_snow_bordana_tex[] = {
@@ -102,7 +102,7 @@ u8 int_iid_snow_bordana_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_bordpin_tex[0x20];
 #else
 u8 int_iid_snow_bordpin_tex[] = {
@@ -110,7 +110,7 @@ u8 int_iid_snow_bordpin_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_snow_bordtate_tex[0x20];
 #else
 u8 int_iid_snow_bordtate_tex[] = {
@@ -118,7 +118,7 @@ u8 int_iid_snow_bordtate_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iid_snow_v[0x18D0 / sizeof(Vtx)];
 #else
 Vtx int_iid_snow_v[] = {

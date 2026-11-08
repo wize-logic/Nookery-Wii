@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_jihanki02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kon_jihanki02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kon_jihanki02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kon_jihanki02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_jihanki02_front_tex[0x180];
 #else
 u8 int_kon_jihanki02_front_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kon_jihanki02_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_jihanki02_yoko_tex[0x100];
 #else
 u8 int_kon_jihanki02_yoko_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kon_jihanki02_yoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_jihanki02_back_tex[0x80];
 #else
 u8 int_kon_jihanki02_back_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kon_jihanki02_back_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_jihanki02_can_tex[0x100];
 #else
 u8 int_kon_jihanki02_can_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kon_jihanki02_can_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_jihanki02_canback_tex[0x100];
 #else
 u8 int_kon_jihanki02_canback_tex[] = {
@@ -54,7 +54,7 @@ u8 int_kon_jihanki02_canback_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_jihanki02_naka_tex[0x80];
 #else
 u8 int_kon_jihanki02_naka_tex[] = {
@@ -62,7 +62,7 @@ u8 int_kon_jihanki02_naka_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_jihanki02_botan_tex[0x200];
 #else
 u8 int_kon_jihanki02_botan_tex[] = {
@@ -70,7 +70,7 @@ u8 int_kon_jihanki02_botan_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_jihanki02_sign_tex[0x80];
 #else
 u8 int_kon_jihanki02_sign_tex[] = {
@@ -78,7 +78,7 @@ u8 int_kon_jihanki02_sign_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_jihanki02_v[0x3C0 / sizeof(Vtx)];
 #else
 Vtx int_kon_jihanki02_v[] = {

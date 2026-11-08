@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx act_mus_angel_a1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_mus_angel_body_txt[0xC00];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_mus_angel_body_txt[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 act_mus_angel_body_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_mus_angel_a1_v[0x360 / sizeof(Vtx)];
 #else
 Vtx act_mus_angel_a1_v[] = {

@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 obj_w_palm_leaf_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 obj_w_palm_leaf_tex[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) static u8 obj_w_palm_leaf_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 obj_w_palm_trunk_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 obj_w_palm_trunk_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) static u8 obj_w_palm_trunk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_palm5_v[0x370 / sizeof(Vtx)];
 #else
 Vtx obj_w_palm5_v[] = {
@@ -62,7 +62,7 @@ Gfx obj_w_palm5_leafT_gfx_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_w_palm5_c(void) {
     pc_load_asset("assets/obj_w_palm5/obj_w_palm_leaf_tex.bin", obj_w_palm_leaf_tex, 0x800, 0x3F5DE0, 0, 0);

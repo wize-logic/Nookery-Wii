@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_clchair02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_clchair02_pal01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_clchair02_pal01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_clchair02_pal01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchair02_back[0x100];
 #else
 u8 int_sum_clchair02_back[] = {
@@ -22,7 +22,7 @@ u8 int_sum_clchair02_back[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchair02_seat[0x100];
 #else
 u8 int_sum_clchair02_seat[] = {
@@ -30,7 +30,7 @@ u8 int_sum_clchair02_seat[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchair02_foot[0x100];
 #else
 u8 int_sum_clchair02_foot[] = {
@@ -38,7 +38,7 @@ u8 int_sum_clchair02_foot[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchair02_foot2[0x100];
 #else
 u8 int_sum_clchair02_foot2[] = {
@@ -46,7 +46,7 @@ u8 int_sum_clchair02_foot2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchair02_foot3[0x100];
 #else
 u8 int_sum_clchair02_foot3[] = {
@@ -54,7 +54,7 @@ u8 int_sum_clchair02_foot3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchair02_hiji[0x200];
 #else
 u8 int_sum_clchair02_hiji[] = {
@@ -62,7 +62,7 @@ u8 int_sum_clchair02_hiji[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_clchair02_hiji2[0x80];
 #else
 u8 int_sum_clchair02_hiji2[] = {
@@ -70,7 +70,7 @@ u8 int_sum_clchair02_hiji2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_clchair02_v[0x3E0 / sizeof(Vtx)];
 #else
 Vtx int_sum_clchair02_v[] = {

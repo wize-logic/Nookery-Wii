@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_tent_fire01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_sum_ayu_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_sum_ayu_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_sum_ayu_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_ike_tent_fire01_pal[0x20 / sizeof(u16)];
 #else
 u16 int_ike_tent_fire01_pal[] = {
@@ -22,7 +22,7 @@ u16 int_ike_tent_fire01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 int_ike_kama_danro01_pal[0x20 / sizeof(u16)];
 #else
 static u16 int_ike_kama_danro01_pal[] = {
@@ -30,7 +30,7 @@ static u16 int_ike_kama_danro01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 act_mus_ayu_body_txt[0x300];
 #else
 static u8 act_mus_ayu_body_txt[] = {
@@ -38,7 +38,7 @@ static u8 act_mus_ayu_body_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_fire01_pole1_tex_txt[0x80];
 #else
 u8 int_ike_tent_fire01_pole1_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_ike_tent_fire01_pole1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_fire01_tree2_tex_txt[0x80];
 #else
 u8 int_ike_tent_fire01_tree2_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_ike_tent_fire01_tree2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_fire01_tree1_tex_txt[0x80];
 #else
 u8 int_ike_tent_fire01_tree1_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_ike_tent_fire01_tree1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 int_ike_kama_danrotree1_tex_txt[0x80];
 #else
 static u8 int_ike_kama_danrotree1_tex_txt[] = {
@@ -70,7 +70,7 @@ static u8 int_ike_kama_danrotree1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_fire01_fire_pic_i4[0x200];
 #else
 u8 int_ike_tent_fire01_fire_pic_i4[] = {
@@ -78,7 +78,7 @@ u8 int_ike_tent_fire01_fire_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_tent_fire01_fire2_pic_i4[0x400];
 #else
 u8 int_ike_tent_fire01_fire2_pic_i4[] = {
@@ -86,7 +86,7 @@ u8 int_ike_tent_fire01_fire2_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_tent_fire01_v[0x7E0 / sizeof(Vtx)];
 #else
 Vtx int_ike_tent_fire01_v[] = {
@@ -242,7 +242,7 @@ cKF_Joint_R_c cKF_je_r_int_ike_tent_fire01_tbl[] = {
 cKF_Skeleton_R_c cKF_bs_r_int_ike_tent_fire01 = { ARRAY_COUNT(cKF_je_r_int_ike_tent_fire01_tbl), 2,
                                                   cKF_je_r_int_ike_tent_fire01_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_ike_tent_fire01_c(void) {
     pc_load_asset("assets/int_ike_tent_fire01/int_sum_ayu_pal.bin", int_sum_ayu_pal, 0x20, 0xB270A0, 0, 1);

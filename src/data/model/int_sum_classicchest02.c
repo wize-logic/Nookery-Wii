@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_classicchest02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_classicchest02_pal01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_classicchest02_pal01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_classicchest02_pal01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_back[0x180];
 #else
 u8 int_sum_classicchest02_back[] = {
@@ -22,7 +22,7 @@ u8 int_sum_classicchest02_back[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_side[0x180];
 #else
 u8 int_sum_classicchest02_side[] = {
@@ -30,7 +30,7 @@ u8 int_sum_classicchest02_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_top[0x200];
 #else
 u8 int_sum_classicchest02_top[] = {
@@ -38,7 +38,7 @@ u8 int_sum_classicchest02_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_front[0x100];
 #else
 u8 int_sum_classicchest02_front[] = {
@@ -46,7 +46,7 @@ u8 int_sum_classicchest02_front[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_tablefront[0x40];
 #else
 u8 int_sum_classicchest02_tablefront[] = {
@@ -54,7 +54,7 @@ u8 int_sum_classicchest02_tablefront[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_tableside[0x40];
 #else
 u8 int_sum_classicchest02_tableside[] = {
@@ -62,7 +62,7 @@ u8 int_sum_classicchest02_tableside[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_uptop[0x80];
 #else
 u8 int_sum_classicchest02_uptop[] = {
@@ -70,7 +70,7 @@ u8 int_sum_classicchest02_uptop[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_ink[0x80];
 #else
 u8 int_sum_classicchest02_ink[] = {
@@ -78,7 +78,7 @@ u8 int_sum_classicchest02_ink[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_pensaki[0x40];
 #else
 u8 int_sum_classicchest02_pensaki[] = {
@@ -86,7 +86,7 @@ u8 int_sum_classicchest02_pensaki[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchest02_pen[0x40];
 #else
 u8 int_sum_classicchest02_pen[] = {
@@ -94,7 +94,7 @@ u8 int_sum_classicchest02_pen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_classicchest02_v[0x320 / sizeof(Vtx)];
 #else
 Vtx int_sum_classicchest02_v[] = {

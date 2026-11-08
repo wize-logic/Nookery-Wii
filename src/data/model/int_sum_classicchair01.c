@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_classicchair01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_classicchair01_pal01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_classicchair01_pal01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_classicchair01_pal01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchair01_seat[0x100];
 #else
 u8 int_sum_classicchair01_seat[] = {
@@ -22,7 +22,7 @@ u8 int_sum_classicchair01_seat[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchair01_back[0x200];
 #else
 u8 int_sum_classicchair01_back[] = {
@@ -30,7 +30,7 @@ u8 int_sum_classicchair01_back[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchair01_side[0x80];
 #else
 u8 int_sum_classicchair01_side[] = {
@@ -38,7 +38,7 @@ u8 int_sum_classicchair01_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchair01_foot[0x100];
 #else
 u8 int_sum_classicchair01_foot[] = {
@@ -46,7 +46,7 @@ u8 int_sum_classicchair01_foot[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchair01_frontseat[0x40];
 #else
 u8 int_sum_classicchair01_frontseat[] = {
@@ -54,7 +54,7 @@ u8 int_sum_classicchair01_frontseat[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchair01_backfoot[0x100];
 #else
 u8 int_sum_classicchair01_backfoot[] = {
@@ -62,7 +62,7 @@ u8 int_sum_classicchair01_backfoot[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchairspindle[0x40];
 #else
 u8 int_sum_classicchairspindle[] = {
@@ -70,7 +70,7 @@ u8 int_sum_classicchairspindle[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_classicchair01_backseat[0x40];
 #else
 u8 int_sum_classicchair01_backseat[] = {
@@ -78,7 +78,7 @@ u8 int_sum_classicchair01_backseat[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_classicchair01_v[0x430 / sizeof(Vtx)];
 #else
 Vtx int_sum_classicchair01_v[] = {

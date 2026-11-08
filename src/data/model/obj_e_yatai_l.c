@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_e_yatai_3_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_e_yatai_3_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_e_yatai_3_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_yatai_2_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_yatai_2_pal[] = {
@@ -21,7 +21,7 @@ u16 obj_e_yatai_2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_e_yatai_1_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_e_yatai_1_pal[] = {
@@ -29,7 +29,7 @@ u16 obj_e_yatai_1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_yatai_3[0x400];
 #else
 u8 obj_e_yatai_3[] = {
@@ -37,7 +37,7 @@ u8 obj_e_yatai_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_yatai_2[0x800];
 #else
 u8 obj_e_yatai_2[] = {
@@ -45,7 +45,7 @@ u8 obj_e_yatai_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_yatai_4[0x100];
 #else
 u8 obj_e_yatai_4[] = {
@@ -53,7 +53,7 @@ u8 obj_e_yatai_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_yatai_1[0x800];
 #else
 u8 obj_e_yatai_1[] = {
@@ -61,7 +61,7 @@ u8 obj_e_yatai_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_yatai_l_v[0xE20 / sizeof(Vtx)];
 #else
 Vtx obj_e_yatai_l_v[] = {
@@ -151,7 +151,7 @@ Gfx obj_e_yatai_l_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_yatai_r_v[0xE20 / sizeof(Vtx)];
 #else
 Vtx obj_e_yatai_r_v[] = {

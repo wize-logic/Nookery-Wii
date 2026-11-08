@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx rom_shop2_fuku_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_conveni_ent_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_conveni_ent_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_conveni_ent_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_conveni_cooler_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_conveni_cooler_pal[] = {
@@ -22,7 +22,7 @@ static u16 rom_conveni_cooler_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop_kouhaku_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop_kouhaku_pal[] = {
@@ -30,7 +30,7 @@ static u16 rom_shop_kouhaku_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_conveni_tana_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_conveni_tana_pal[] = {
@@ -38,7 +38,7 @@ static u16 rom_conveni_tana_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_conveni_floor_E_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_conveni_floor_E_pal[] = {
@@ -46,7 +46,7 @@ static u16 rom_conveni_floor_E_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_conveni_leji_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_conveni_leji_pal[] = {
@@ -54,7 +54,7 @@ static u16 rom_conveni_leji_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_conveni_mirror_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_conveni_mirror_rgb_ci4_pal[] = {
@@ -62,7 +62,7 @@ static u16 rom_conveni_mirror_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_ent[0x200];
 #else
 static u8 rom_conveni_ent[] = {
@@ -70,7 +70,7 @@ static u8 rom_conveni_ent[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_maruwaku[0x200];
 #else
 static u8 rom_conveni_maruwaku[] = {
@@ -78,7 +78,7 @@ static u8 rom_conveni_maruwaku[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop_kouhaku_tex[0x800];
 #else
 static u8 rom_shop_kouhaku_tex[] = {
@@ -86,7 +86,7 @@ static u8 rom_shop_kouhaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_counter[0x200];
 #else
 static u8 rom_conveni_counter[] = {
@@ -94,7 +94,7 @@ static u8 rom_conveni_counter[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_bou[0x80];
 #else
 static u8 rom_conveni_bou[] = {
@@ -102,7 +102,7 @@ static u8 rom_conveni_bou[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_tana_bf2[0x80];
 #else
 static u8 rom_conveni_tana_bf2[] = {
@@ -110,7 +110,7 @@ static u8 rom_conveni_tana_bf2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_floor_E[0x200];
 #else
 static u8 rom_conveni_floor_E[] = {
@@ -118,7 +118,7 @@ static u8 rom_conveni_floor_E[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_tana_f[0x80];
 #else
 static u8 rom_conveni_tana_f[] = {
@@ -126,7 +126,7 @@ static u8 rom_conveni_tana_f[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_convevi_kage1[0x100];
 #else
 static u8 rom_convevi_kage1[] = {
@@ -134,7 +134,7 @@ static u8 rom_convevi_kage1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_leji_e[0x80];
 #else
 static u8 rom_conveni_leji_e[] = {
@@ -142,7 +142,7 @@ static u8 rom_conveni_leji_e[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_leji_k[0x80];
 #else
 static u8 rom_conveni_leji_k[] = {
@@ -150,7 +150,7 @@ static u8 rom_conveni_leji_k[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_leji_s[0x80];
 #else
 static u8 rom_conveni_leji_s[] = {
@@ -158,7 +158,7 @@ static u8 rom_conveni_leji_s[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_leji_t[0x80];
 #else
 static u8 rom_conveni_leji_t[] = {
@@ -166,7 +166,7 @@ static u8 rom_conveni_leji_t[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_wall_C[0x400];
 #else
 static u8 rom_conveni_wall_C[] = {
@@ -174,7 +174,7 @@ static u8 rom_conveni_wall_C[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_door[0x300];
 #else
 static u8 rom_conveni_door[] = {
@@ -182,7 +182,7 @@ static u8 rom_conveni_door[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_tana_bf[0x80];
 #else
 static u8 rom_conveni_tana_bf[] = {
@@ -190,7 +190,7 @@ static u8 rom_conveni_tana_bf[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_conveni_mirror_rgb_ci4[0x80];
 #else
 static u8 rom_conveni_mirror_rgb_ci4[] = {
@@ -198,7 +198,7 @@ static u8 rom_conveni_mirror_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_shop2_fuku_v[0xFE0 / sizeof(Vtx)];
 #else
 Vtx rom_shop2_fuku_v[] = {
@@ -362,7 +362,7 @@ Gfx rom_shop2_fuku_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_rom_shop2_fuku_c(void) {
     pc_load_asset("assets/rom_shop2_fuku/rom_conveni_ent_pal.bin", rom_conveni_ent_pal, 0x20, 0xC2CBC0, 0, 1);

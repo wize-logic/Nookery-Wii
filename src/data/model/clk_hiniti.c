@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx clk_hiniti_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clk_win_suuji1_TA_tex_txt[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 clk_win_suuji1_TA_tex_txt[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 clk_win_suuji1_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji2_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji2_TA_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 clk_win_suuji2_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji3_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji3_TA_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 clk_win_suuji3_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji4_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji4_TA_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 clk_win_suuji4_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji5_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji5_TA_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 clk_win_suuji5_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji6_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji6_TA_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 clk_win_suuji6_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji7_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji7_TA_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 clk_win_suuji7_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji8_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji8_TA_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 clk_win_suuji8_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji9_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji9_TA_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 clk_win_suuji9_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji10_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji10_TA_tex_txt[] = {
@@ -86,7 +86,7 @@ u8 clk_win_suuji10_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji11_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji11_TA_tex_txt[] = {
@@ -94,7 +94,7 @@ u8 clk_win_suuji11_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji12_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji12_TA_tex_txt[] = {
@@ -102,7 +102,7 @@ u8 clk_win_suuji12_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji13_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji13_TA_tex_txt[] = {
@@ -110,7 +110,7 @@ u8 clk_win_suuji13_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji14_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji14_TA_tex_txt[] = {
@@ -118,7 +118,7 @@ u8 clk_win_suuji14_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji15_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji15_TA_tex_txt[] = {
@@ -126,7 +126,7 @@ u8 clk_win_suuji15_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji16_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji16_TA_tex_txt[] = {
@@ -134,7 +134,7 @@ u8 clk_win_suuji16_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji17_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji17_TA_tex_txt[] = {
@@ -142,7 +142,7 @@ u8 clk_win_suuji17_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji18_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji18_TA_tex_txt[] = {
@@ -150,7 +150,7 @@ u8 clk_win_suuji18_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji19_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji19_TA_tex_txt[] = {
@@ -158,7 +158,7 @@ u8 clk_win_suuji19_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji20_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji20_TA_tex_txt[] = {
@@ -166,7 +166,7 @@ u8 clk_win_suuji20_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji21_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji21_TA_tex_txt[] = {
@@ -174,7 +174,7 @@ u8 clk_win_suuji21_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji22_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji22_TA_tex_txt[] = {
@@ -182,7 +182,7 @@ u8 clk_win_suuji22_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji23_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji23_TA_tex_txt[] = {
@@ -190,7 +190,7 @@ u8 clk_win_suuji23_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji24_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji24_TA_tex_txt[] = {
@@ -198,7 +198,7 @@ u8 clk_win_suuji24_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji25_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji25_TA_tex_txt[] = {
@@ -206,7 +206,7 @@ u8 clk_win_suuji25_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji26_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji26_TA_tex_txt[] = {
@@ -214,7 +214,7 @@ u8 clk_win_suuji26_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji27_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji27_TA_tex_txt[] = {
@@ -222,7 +222,7 @@ u8 clk_win_suuji27_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji28_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji28_TA_tex_txt[] = {
@@ -230,7 +230,7 @@ u8 clk_win_suuji28_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji29_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji29_TA_tex_txt[] = {
@@ -238,7 +238,7 @@ u8 clk_win_suuji29_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji30_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji30_TA_tex_txt[] = {
@@ -246,7 +246,7 @@ u8 clk_win_suuji30_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_suuji31_TA_tex_txt[0x400];
 #else
 u8 clk_win_suuji31_TA_tex_txt[] = {
@@ -254,7 +254,7 @@ u8 clk_win_suuji31_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx clk_hiniti_v[0x100 / sizeof(Vtx)];
 #else
 Vtx clk_hiniti_v[] = {

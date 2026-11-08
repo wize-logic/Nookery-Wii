@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_balloon3_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_nog_balloon3_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_nog_balloon3_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_nog_balloon3_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_balloon1_wire_tex_txt[0x80];
 #else
 static u8 tol_balloon1_wire_tex_txt[] = {
@@ -22,7 +22,7 @@ static u8 tol_balloon1_wire_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_balloon3_weight_tex_txt[0x100];
 #else
 u8 int_nog_balloon3_weight_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_nog_balloon3_weight_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_balloon3_head_tex_rgb_ia8[0x400];
 #else
 u8 int_nog_balloon3_head_tex_rgb_ia8[] = {
@@ -38,7 +38,7 @@ u8 int_nog_balloon3_head_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_balloon3_v[0x620 / sizeof(Vtx)];
 #else
 Vtx int_nog_balloon3_v[] = {
@@ -182,7 +182,7 @@ cKF_Joint_R_c cKF_je_r_int_nog_balloon3_tbl[] = {
 cKF_Skeleton_R_c cKF_bs_r_int_nog_balloon3 = { ARRAY_COUNT(cKF_je_r_int_nog_balloon3_tbl), 5,
                                                cKF_je_r_int_nog_balloon3_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_nog_balloon3_c(void) {
     pc_load_asset("assets/int_nog_balloon3/tol_balloon1_wire_tex_txt.bin", tol_balloon1_wire_tex_txt, 0x80, 0xBCBD80, 0, 0);

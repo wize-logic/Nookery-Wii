@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_onpu01_0[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_onpu01_0[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_onpu01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_onpu01_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_onpu01_00_v[] = {
@@ -34,7 +34,7 @@ Gfx ef_onpu01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_onpu01_1[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_onpu01_1[] = {
@@ -42,7 +42,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_onpu01_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_onpu01_01_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_onpu01_01_v[] = {
@@ -64,7 +64,7 @@ Gfx ef_onpu01_01_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_onpu01_2[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_onpu01_2[] = {
@@ -72,7 +72,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_onpu01_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_onpu01_02_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_onpu01_02_v[] = {

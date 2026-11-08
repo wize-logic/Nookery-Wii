@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_din_trikera_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_din_trikera_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_din_trikera_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_trikera_dummy_tex[0x200];
 #else
 u8 int_din_trikera_dummy_tex[] = {
@@ -21,7 +21,7 @@ u8 int_din_trikera_dummy_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_din_trikera_dummy_v[0x80 / sizeof(Vtx)];
 #else
 Vtx int_din_trikera_dummy_v[] = {
@@ -45,7 +45,7 @@ Gfx int_din_trikera_dummy_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_din_trikera_dummy_c(void) {
     pc_load_asset("assets/int_din_trikera_dummy/int_din_trikera_pal.bin", int_din_trikera_pal, 0x20, 0x91DB80, 0, 1);

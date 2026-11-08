@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_sen_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_sen_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_sen_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_kirikae_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_kirikae_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_kirikae_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_cwaku_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_cwaku_tex[]= {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_cwaku_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_aw1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_aw1_tex[]= {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_aw1_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_aw2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_aw2_tex[]= {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_aw2_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_aw3_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_aw3_tex[]= {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_aw3_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_aw4_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_aw4_tex[]= {
@@ -61,7 +61,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_aw4_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_aw5_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_aw5_tex[]= {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_aw5_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_aw6_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_aw6_tex[]= {
@@ -77,7 +77,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_aw6_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_aw7_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_aw7_tex[]= {
@@ -85,7 +85,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_aw7_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_aw8_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_aw8_tex[]= {
@@ -93,7 +93,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_aw8_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_color_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_color_tex[]= {
@@ -101,7 +101,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_color_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 des_win_start_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 des_win_start_tex[]= {
@@ -109,7 +109,7 @@ ATTRIBUTE_ALIGN(32) u8 des_win_start_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 kei_win_quit_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 kei_win_quit_tex[]= {
@@ -117,7 +117,7 @@ ATTRIBUTE_ALIGN(32) static u8 kei_win_quit_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx des_win_v[0xD80 / sizeof(Vtx)];
 #else
 Vtx des_win_v[] = {
@@ -125,7 +125,7 @@ Vtx des_win_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Gfx des_win_before[4];
 #else
 u8 des_win_before[] = {
@@ -349,7 +349,7 @@ gsSPEndDisplayList(),
 };
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_des_win_c(void) {
     pc_load_asset("assets/des_win/kei_win_quit_tex.bin", kei_win_quit_tex, 0x200, 0x6E1840, 0, 0);

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_iku_mario_renga_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_iku_mario_renga_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 int_iku_mario_renga_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iku_mario_renga_tex[0x400];
 #else
 u8 int_iku_mario_renga_tex[] = {
@@ -21,7 +21,7 @@ u8 int_iku_mario_renga_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iku_mario_renga_v[0x140 / sizeof(Vtx)];
 #else
 Vtx int_iku_mario_renga_v[] = {

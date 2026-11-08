@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx rom_shop4_2w_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_floor_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_floor_tex_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_shop4_1_floor_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_shop4_2_stair_tex_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_shop4_2_stair_tex_pal[] = {
@@ -22,7 +22,7 @@ u16 rom_shop4_2_stair_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop4_1_table_tex_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop4_1_table_tex_pal[] = {
@@ -30,7 +30,7 @@ static u16 rom_shop4_1_table_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_shop4_2_wall_tex_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_shop4_2_wall_tex_pal[] = {
@@ -38,7 +38,7 @@ u16 rom_shop4_2_wall_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_shop4_2_sign01_tex_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_shop4_2_sign01_tex_pal[] = {
@@ -46,7 +46,7 @@ u16 rom_shop4_2_sign01_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 rom_shop4_2_sign01_us_tex_pal[0x20 / sizeof(u16)];
 #else
 static u16 rom_shop4_2_sign01_us_tex_pal[] = {
@@ -54,7 +54,7 @@ static u16 rom_shop4_2_sign01_us_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 rom_shop4_2_space_tex_pal[0x20 / sizeof(u16)];
 #else
 u16 rom_shop4_2_space_tex_pal[] = {
@@ -62,7 +62,7 @@ u16 rom_shop4_2_space_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_floor01_tex[0x800];
 #else
 u8 rom_shop4_2_floor01_tex[] = {
@@ -70,7 +70,7 @@ u8 rom_shop4_2_floor01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_stair01_tex[0x100];
 #else
 u8 rom_shop4_2_stair01_tex[] = {
@@ -78,7 +78,7 @@ u8 rom_shop4_2_stair01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_table01_tex[0x100];
 #else
 u8 rom_shop4_2_table01_tex[] = {
@@ -86,7 +86,7 @@ u8 rom_shop4_2_table01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_table02_tex[0x100];
 #else
 u8 rom_shop4_2_table02_tex[] = {
@@ -94,7 +94,7 @@ u8 rom_shop4_2_table02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_wall01_tex[0x800];
 #else
 u8 rom_shop4_2_wall01_tex[] = {
@@ -102,7 +102,7 @@ u8 rom_shop4_2_wall01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_sign05_tex[0x80];
 #else
 u8 rom_shop4_2_sign05_tex[] = {
@@ -110,7 +110,7 @@ u8 rom_shop4_2_sign05_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_shop4_2_us_sign01_tex[0x400];
 #else
 static u8 rom_shop4_2_us_sign01_tex[] = {
@@ -118,7 +118,7 @@ static u8 rom_shop4_2_us_sign01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_space_tex[0x400];
 #else
 u8 rom_shop4_2_space_tex[] = {
@@ -126,7 +126,7 @@ u8 rom_shop4_2_space_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_wall02_tex[0x800];
 #else
 u8 rom_shop4_2_wall02_tex[] = {
@@ -134,7 +134,7 @@ u8 rom_shop4_2_wall02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_floor02_tex[0x800];
 #else
 u8 rom_shop4_2_floor02_tex[] = {
@@ -142,7 +142,7 @@ u8 rom_shop4_2_floor02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_floor03_tex[0x800];
 #else
 u8 rom_shop4_2_floor03_tex[] = {
@@ -150,7 +150,7 @@ u8 rom_shop4_2_floor03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_floor04_tex[0x800];
 #else
 u8 rom_shop4_2_floor04_tex[] = {
@@ -158,7 +158,7 @@ u8 rom_shop4_2_floor04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_shop4_2_shadow02_tex[0x100];
 #else
 u8 rom_shop4_2_shadow02_tex[] = {
@@ -166,7 +166,7 @@ u8 rom_shop4_2_shadow02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_shop4_2w_v[0xE20 / sizeof(Vtx)];
 #else
 Vtx rom_shop4_2w_v[] = {
@@ -294,7 +294,7 @@ Gfx rom_shop4_2w_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_rom_shop4_2w_c(void) {
     pc_load_asset("assets/rom_shop4_2w/rom_shop4_1_floor_tex_pal.bin", rom_shop4_1_floor_tex_pal, 0x20, 0xC3CC60, 0, 1);

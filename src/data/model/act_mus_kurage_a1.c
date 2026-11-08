@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx act_mus_kurage_a1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 act_f37_kurage_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 act_f37_kurage_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 act_f37_kurage_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_mus_kurage_head_tex[0x100];
 #else
 u8 act_mus_kurage_head_tex[] = {
@@ -22,7 +22,7 @@ u8 act_mus_kurage_head_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_mus_kurage_foot_tex[0x100];
 #else
 u8 act_mus_kurage_foot_tex[] = {
@@ -30,7 +30,7 @@ u8 act_mus_kurage_foot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_mus_kurage_a1_v[0x320 / sizeof(Vtx)];
 #else
 Vtx act_mus_kurage_a1_v[] = {
@@ -80,7 +80,7 @@ Gfx act_mus_kurage_sakana_body_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_mus_kurage_a1_c(void) {
     pc_load_asset("assets/act_mus_kurage_a1/act_f37_kurage_pal.bin", act_f37_kurage_pal, 0x20, 0x9625A0, 0, 1);

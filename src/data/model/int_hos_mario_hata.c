@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_hos_mario_hata_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_hos_mario_hata_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_hos_mario_hata_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_hos_mario_hata_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_mario_hata_b_tex_txt[0x80];
 #else
 u8 int_hos_mario_hata_b_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_hos_mario_hata_b_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_mario_hata_c_tex_txt[0x80];
 #else
 u8 int_hos_mario_hata_c_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_hos_mario_hata_c_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_mario_hata_a_tex_txt[0x40];
 #else
 u8 int_hos_mario_hata_a_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_hos_mario_hata_a_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_hos_mario_hata_v[0x4E0 / sizeof(Vtx)];
 #else
 Vtx int_hos_mario_hata_v[] = {

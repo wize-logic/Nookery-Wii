@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx tol_umb_02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb02_kasa2_tex_txt[0x200];
 #else
 static u8 tol_umb02_kasa2_tex_txt[] = {
@@ -22,7 +22,7 @@ static u8 tol_umb02_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb02_kasa1_tex_txt[0x200];
 #else
 static u8 tol_umb02_kasa1_tex_txt[] = {
@@ -30,7 +30,7 @@ static u8 tol_umb02_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb02_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb02_tuka_tex_txt[] = {
@@ -38,7 +38,7 @@ static u8 tol_umb02_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_umb_02_v[0x3E0 / sizeof(Vtx)];
 #else
 Vtx tol_umb_02_v[] = {
@@ -86,7 +86,7 @@ Gfx e_umb02_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_tol_umb_02_c(void) {
     pc_load_asset("assets/tol_umb_02/tol_umb02_pal.bin", tol_umb02_pal, 0x20, 0x67CC00, 0, 1);

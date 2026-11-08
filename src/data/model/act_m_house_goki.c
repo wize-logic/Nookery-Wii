@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 act_m_house_goki_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 act_m_house_goki_pal[] = {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) u16 act_m_house_goki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_m_house_goki[0x200];
 #else
 u8 act_m_house_goki[] = {
@@ -20,7 +20,7 @@ u8 act_m_house_goki[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_m_house_goki_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx act_m_house_goki_v[] = {

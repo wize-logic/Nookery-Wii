@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_drum02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_drum02_body_tex_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_drum02_body_tex_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_drum02_body_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_drum02_body_tex[0x300];
 #else
 u8 int_tak_drum02_body_tex[] = {
@@ -22,7 +22,7 @@ u8 int_tak_drum02_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_drum02_top_tex[0x100];
 #else
 u8 int_tak_drum02_top_tex[] = {
@@ -30,7 +30,7 @@ u8 int_tak_drum02_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_drum02_futa_tex[0x80];
 #else
 u8 int_tak_drum02_futa_tex[] = {
@@ -38,7 +38,7 @@ u8 int_tak_drum02_futa_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_drum02_v[0x1D0 / sizeof(Vtx)];
 #else
 Vtx int_tak_drum02_v[] = {

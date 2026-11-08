@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx tol_umb_30_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_30_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_30_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_30_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_umb_30_kasa1_tex_txt[0x200];
 #else
 u8 tol_umb_30_kasa1_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 tol_umb_30_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_umb_30_tuka_tex_txt[0x200];
 #else
 u8 tol_umb_30_tuka_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 tol_umb_30_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_umb_30_v[0x380 / sizeof(Vtx)];
 #else
 Vtx tol_umb_30_v[] = {
@@ -74,7 +74,7 @@ Gfx e_umb30_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_tol_umb_30_c(void) {
     pc_load_asset("assets/tol_umb_30/obj_shop_umb_30_pal.bin", obj_shop_umb_30_pal, 0x20, 0x8B8FC0, 0, 1);

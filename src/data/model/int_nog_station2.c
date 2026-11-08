@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_station2_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_nog_station2_bese_tex_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_nog_station2_bese_tex_txt[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_nog_station2_bese_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_station2_grass_tex_txt[0x80];
 #else
 u8 int_nog_station2_grass_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_nog_station2_grass_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_station2_side_tex_txt[0x300];
 #else
 u8 int_nog_station2_side_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_nog_station2_side_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_station2_front_tex_txt[0x400];
 #else
 u8 int_nog_station2_front_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_nog_station2_front_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_station2_v[0x1090 / sizeof(Vtx)];
 #else
 Vtx int_nog_station2_v[] = {

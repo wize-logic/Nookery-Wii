@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_dump_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_nog_dump_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_nog_dump_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_nog_dump_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 obj_item_trash_pal[0x20 / sizeof(u16)];
 #else
 static u16 obj_item_trash_pal[] = {
@@ -22,7 +22,7 @@ static u16 obj_item_trash_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_dump_body_tex[0x200];
 #else
 u8 int_nog_dump_body_tex[] = {
@@ -30,7 +30,7 @@ u8 int_nog_dump_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_dump_grass_tex[0x200];
 #else
 u8 int_nog_dump_grass_tex[] = {
@@ -38,7 +38,7 @@ u8 int_nog_dump_grass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_dump_wire_tex[0x100];
 #else
 u8 int_nog_dump_wire_tex[] = {
@@ -46,7 +46,7 @@ u8 int_nog_dump_wire_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_dump_v[0xDC0 / sizeof(Vtx)];
 #else
 Vtx int_nog_dump_v[] = {
@@ -139,7 +139,7 @@ Gfx int_nog_dumpT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_nog_dump_c(void) {
     pc_load_asset("assets/int_nog_dump/obj_item_trash_pal.bin", obj_item_trash_pal, 0x20, 0xBD4080, 0, 1);

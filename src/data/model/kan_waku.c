@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 kan_win_waku4_tex[0x1000];
 #else
 ATTRIBUTE_ALIGN(32) u8 kan_win_waku4_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 kan_win_waku4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_waku3_tex[0x1000];
 #else
 u8 kan_win_waku3_tex[] = {
@@ -21,7 +21,7 @@ u8 kan_win_waku3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_waku5_tex[0x1000];
 #else
 u8 kan_win_waku5_tex[] = {
@@ -29,7 +29,7 @@ u8 kan_win_waku5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_waku1a_tex[0x1000];
 #else
 u8 kan_win_waku1a_tex[] = {
@@ -37,7 +37,7 @@ u8 kan_win_waku1a_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kan_win_waku1b_tex[0x1000];
 #else
 u8 kan_win_waku1b_tex[] = {
@@ -45,7 +45,7 @@ u8 kan_win_waku1b_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx kan_waku_v[0x140 / sizeof(Vtx)];
 #else
 Vtx kan_waku_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_uwa_poto01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_poto01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_poto01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_uwa_poto01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_poto01_back[0x100];
 #else
 u8 int_sum_uwa_poto01_back[] = {
@@ -22,7 +22,7 @@ u8 int_sum_uwa_poto01_back[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_poto01_front[0x300];
 #else
 u8 int_sum_uwa_poto01_front[] = {
@@ -30,7 +30,7 @@ u8 int_sum_uwa_poto01_front[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_uwa_poto01_stand[0x100];
 #else
 u8 int_sum_uwa_poto01_stand[] = {
@@ -38,7 +38,7 @@ u8 int_sum_uwa_poto01_stand[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_uwa_poto01_v[0x200 / sizeof(Vtx)];
 #else
 Vtx int_sum_uwa_poto01_v[] = {

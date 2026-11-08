@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_liccachest_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccachest_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_liccachest_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_liccachest_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccachest_hiki_tex_txt[0x180];
 #else
 u8 int_sum_liccachest_hiki_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_liccachest_hiki_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccachest_side_tex_txt[0x200];
 #else
 u8 int_sum_liccachest_side_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_liccachest_side_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccachest_top_tex_txt[0x80];
 #else
 u8 int_sum_liccachest_top_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_liccachest_top_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_liccachest_front_tex_txt[0x400];
 #else
 u8 int_sum_liccachest_front_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_liccachest_front_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_liccachest_v[0x460 / sizeof(Vtx)];
 #else
 Vtx int_sum_liccachest_v[] = {

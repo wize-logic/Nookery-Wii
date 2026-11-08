@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_turi_hane01_0_int_i4[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_turi_hane01_0_int_i4[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_turi_hane01_0_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_turi_hane01_1_int_i4[0x200];
 #else
 u8 ef_turi_hane01_1_int_i4[] = {
@@ -21,7 +21,7 @@ u8 ef_turi_hane01_1_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_turi_hane01_2_int_i4[0x200];
 #else
 u8 ef_turi_hane01_2_int_i4[] = {
@@ -29,7 +29,7 @@ u8 ef_turi_hane01_2_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_turi_hane01_3_int_i4[0x200];
 #else
 u8 ef_turi_hane01_3_int_i4[] = {
@@ -37,7 +37,7 @@ u8 ef_turi_hane01_3_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_turi_hane01_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_turi_hane01_00_v[] = {

@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_toudai_switch_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_toudai_switch_pal[] = {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_toudai_switch_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_toudai_switch_tex_txt[0x80];
 #else
 u8 obj_toudai_switch_tex_txt[] = {
@@ -20,7 +20,7 @@ u8 obj_toudai_switch_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_toudai_switch_v[0xB0 / sizeof(Vtx)];
 #else
 Vtx obj_toudai_switch_v[] = {

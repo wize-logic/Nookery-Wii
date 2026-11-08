@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tyo_win_icon2_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tyo_win_icon2_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 tyo_win_icon2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tyo_win_nuno_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tyo_win_nuno_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u16 tyo_win_nuno_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tyo_win_sw1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tyo_win_sw1_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u16 tyo_win_sw1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tyo_win_sw2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tyo_win_sw2_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u16 tyo_win_sw2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tyo_win_sw3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tyo_win_sw3_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u16 tyo_win_sw3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_fuki2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_fuki2_tex[] = {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) static u8 fkm_win_fuki2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 tyo_win_balance_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 tyo_win_balance_tex[] = {
@@ -61,7 +61,7 @@ ATTRIBUTE_ALIGN(32) u8 tyo_win_balance_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 fri_win_bell_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 fri_win_bell_tex[] = {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) static u8 fri_win_bell_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 fri_win_cash_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 fri_win_cash_tex[] = {
@@ -77,7 +77,7 @@ ATTRIBUTE_ALIGN(32) static u8 fri_win_cash_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 tyo_win_icon_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 tyo_win_icon_tex[] = {
@@ -85,7 +85,7 @@ ATTRIBUTE_ALIGN(32) u8 tyo_win_icon_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_w4_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_w4_tex[] = {
@@ -93,7 +93,7 @@ ATTRIBUTE_ALIGN(32) static u8 fkm_win_w4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_w3_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_w3_tex[] = {
@@ -101,7 +101,7 @@ ATTRIBUTE_ALIGN(32) static u8 fkm_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_w2_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_w2_tex[] = {
@@ -109,7 +109,7 @@ ATTRIBUTE_ALIGN(32) static u8 fkm_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_w1_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 fkm_win_w1_tex[] = {
@@ -117,7 +117,7 @@ ATTRIBUTE_ALIGN(32) static u8 fkm_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tyo_win_deposit_tex_rgb_ia8[0x1000];
 #else
 u8 tyo_win_deposit_tex_rgb_ia8[] = {
@@ -125,7 +125,7 @@ u8 tyo_win_deposit_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 tyo_win_withdraw_tex[0x1000];
 #else
 ATTRIBUTE_ALIGN(32) u8 tyo_win_withdraw_tex[] = {
@@ -133,7 +133,7 @@ ATTRIBUTE_ALIGN(32) u8 tyo_win_withdraw_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tyo_win_nuno_tex_rgb_ci4[0x200];
 #else
 u8 tyo_win_nuno_tex_rgb_ci4[] = {
@@ -141,7 +141,7 @@ u8 tyo_win_nuno_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tyo_win_sw1_tex_rgb_ci4[0x400];
 #else
 u8 tyo_win_sw1_tex_rgb_ci4[] = {
@@ -149,7 +149,7 @@ u8 tyo_win_sw1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tyo_win_sw2_tex_rgb_ci4[0x400];
 #else
 u8 tyo_win_sw2_tex_rgb_ci4[] = {
@@ -157,7 +157,7 @@ u8 tyo_win_sw2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tyo_win_sw3_tex_rgb_ci4[0x400];
 #else
 u8 tyo_win_sw3_tex_rgb_ci4[] = {
@@ -165,7 +165,7 @@ u8 tyo_win_sw3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tyo_win_v[0x740 / sizeof(Vtx)];
 #else
 Vtx tyo_win_v[] = {
@@ -385,7 +385,7 @@ Gfx tyo_win_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_tyo_win_c(void) {
     pc_load_asset("assets/tyo_win/fkm_win_fuki2_tex.bin", fkm_win_fuki2_tex, 0x800, 0x6935E0, 0, 0);

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_doll01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_doll01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_doll01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_doll01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll01_byubu_txt[0x80];
 #else
 u8 int_sum_doll01_byubu_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_doll01_byubu_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll01_hinadan_txt[0x180];
 #else
 u8 int_sum_doll01_hinadan_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_doll01_hinadan_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll01_hina_txt[0x100];
 #else
 u8 int_sum_doll01_hina_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_doll01_hina_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll01_dairi_txt[0x100];
 #else
 u8 int_sum_doll01_dairi_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_doll01_dairi_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll01_kanjyo_txt[0x100];
 #else
 u8 int_sum_doll01_kanjyo_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_doll01_kanjyo_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll01_gonin_txt[0x100];
 #else
 u8 int_sum_doll01_gonin_txt[] = {
@@ -62,7 +62,7 @@ u8 int_sum_doll01_gonin_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll01_bonbori_txt[0x100];
 #else
 u8 int_sum_doll01_bonbori_txt[] = {
@@ -70,7 +70,7 @@ u8 int_sum_doll01_bonbori_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll01_side_txt[0x100];
 #else
 u8 int_sum_doll01_side_txt[] = {
@@ -78,7 +78,7 @@ u8 int_sum_doll01_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_doll01_v[0x580 / sizeof(Vtx)];
 #else
 Vtx int_sum_doll01_v[] = {

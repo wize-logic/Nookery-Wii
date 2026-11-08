@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_stump5_shadow_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_stump5_shadow_v[] = {

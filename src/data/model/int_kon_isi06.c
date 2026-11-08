@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kon_isi06_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kon_isi06_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kon_isi06_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kon_isi06_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_isi06_a_tex[0x480];
 #else
 u8 int_kon_isi06_a_tex[] = {
@@ -22,7 +22,7 @@ u8 int_kon_isi06_a_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_isi06_c_tex[0x100];
 #else
 u8 int_kon_isi06_c_tex[] = {
@@ -30,7 +30,7 @@ u8 int_kon_isi06_c_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_isi06_d_tex[0x180];
 #else
 u8 int_kon_isi06_d_tex[] = {
@@ -38,7 +38,7 @@ u8 int_kon_isi06_d_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kon_isi06_b_tex[0x100];
 #else
 u8 int_kon_isi06_b_tex[] = {
@@ -46,7 +46,7 @@ u8 int_kon_isi06_b_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kon_isi06_v[0x350 / sizeof(Vtx)];
 #else
 Vtx int_kon_isi06_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_w1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_w1_tex_rgb_ci4_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_w1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_w2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_w2_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_w2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_w3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_w3_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_w3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_w4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_w4_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_w4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_w6_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_w6_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ u16 inv_mwin_w6_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mwin_nwaku_tex[0x400];
 #else
 static u8 inv_mwin_nwaku_tex[] = {
@@ -53,7 +53,7 @@ static u8 inv_mwin_nwaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_aw6_tex[0x400];
 #else
 u8 inv_mwin_aw6_tex[] = {
@@ -61,7 +61,7 @@ u8 inv_mwin_aw6_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_shirushi4_tex[0x200];
 #else
 u8 inv_mwin_shirushi4_tex[] = {
@@ -69,7 +69,7 @@ u8 inv_mwin_shirushi4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_sen_tex[0x80];
 #else
 u8 inv_mwin_sen_tex[] = {
@@ -77,7 +77,7 @@ u8 inv_mwin_sen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_sen2_tex[0x80];
 #else
 u8 inv_mwin_sen2_tex[] = {
@@ -85,7 +85,7 @@ u8 inv_mwin_sen2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_suujiwaku1_tex[0x200];
 #else
 u8 inv_mwin_suujiwaku1_tex[] = {
@@ -93,7 +93,7 @@ u8 inv_mwin_suujiwaku1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_original_shirushi_tex[0x200];
 #else
 u8 inv_original_shirushi_tex[] = {
@@ -101,7 +101,7 @@ u8 inv_original_shirushi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_suujiwaku2_tex[0x200];
 #else
 u8 inv_mwin_suujiwaku2_tex[] = {
@@ -109,7 +109,7 @@ u8 inv_mwin_suujiwaku2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_original_shirushi3_tex[0x800];
 #else
 u8 inv_original_shirushi3_tex[] = {
@@ -117,7 +117,7 @@ u8 inv_original_shirushi3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mwin_3Dma_tex[0x800];
 #else
 static u8 inv_mwin_3Dma_tex[] = {
@@ -125,7 +125,7 @@ static u8 inv_mwin_3Dma_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 originl[0x200];
 #else
 u8 originl[] = {
@@ -133,7 +133,7 @@ u8 originl[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 original2[0x400];
 #else
 u8 original2[] = {
@@ -141,7 +141,7 @@ u8 original2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_aw3_tex[0x400];
 #else
 u8 inv_mwin_aw3_tex[] = {
@@ -149,7 +149,7 @@ u8 inv_mwin_aw3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_aw4_tex[0x200];
 #else
 u8 inv_mwin_aw4_tex[] = {
@@ -157,7 +157,7 @@ u8 inv_mwin_aw4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mwin_aw5_tex[0x80];
 #else
 static u8 inv_mwin_aw5_tex[] = {
@@ -165,7 +165,7 @@ static u8 inv_mwin_aw5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_items_tex[0x200];
 #else
 u8 inv_mwin_items_tex[] = {
@@ -173,7 +173,7 @@ u8 inv_mwin_items_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_letters_tex[0x200];
 #else
 u8 inv_mwin_letters_tex[] = {
@@ -181,7 +181,7 @@ u8 inv_mwin_letters_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_bells_tex[0x200];
 #else
 u8 inv_mwin_bells_tex[] = {
@@ -189,7 +189,7 @@ u8 inv_mwin_bells_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_w5_tex_rgb_ci4[0x80];
 #else
 u8 inv_mwin_w5_tex_rgb_ci4[] = {
@@ -197,7 +197,7 @@ u8 inv_mwin_w5_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_w1_tex_rgb_ci4[0x200];
 #else
 u8 inv_mwin_w1_tex_rgb_ci4[] = {
@@ -205,7 +205,7 @@ u8 inv_mwin_w1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_w2_tex_rgb_ci4[0x400];
 #else
 u8 inv_mwin_w2_tex_rgb_ci4[] = {
@@ -213,7 +213,7 @@ u8 inv_mwin_w2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_w3_tex_rgb_ci4[0x400];
 #else
 u8 inv_mwin_w3_tex_rgb_ci4[] = {
@@ -221,7 +221,7 @@ u8 inv_mwin_w3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_w4_tex_rgb_ci4[0x200];
 #else
 u8 inv_mwin_w4_tex_rgb_ci4[] = {
@@ -229,7 +229,7 @@ u8 inv_mwin_w4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_w6_tex_rgb_ci4[0x400];
 #else
 u8 inv_mwin_w6_tex_rgb_ci4[] = {
@@ -237,7 +237,7 @@ u8 inv_mwin_w6_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx inv_mwin_v[0x1280 / sizeof(Vtx)];
 #else
 Vtx inv_mwin_v[] = {
@@ -762,7 +762,7 @@ Gfx inv_mwin_item_frame_mode[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_inv_mwin_c(void) {
     pc_load_asset("assets/inv_mwin/inv_mwin_nwaku_tex.bin", inv_mwin_nwaku_tex, 0x400, 0x7982E0, 0, 0);

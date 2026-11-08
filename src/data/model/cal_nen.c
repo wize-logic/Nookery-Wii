@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cal_win_nen0_tex_rgb_i4[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 cal_win_nen0_tex_rgb_i4[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 cal_win_nen0_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen1_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen1_tex_rgb_i4[] = {
@@ -21,7 +21,7 @@ u8 cal_win_nen1_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen2_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen2_tex_rgb_i4[] = {
@@ -29,7 +29,7 @@ u8 cal_win_nen2_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen3_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen3_tex_rgb_i4[] = {
@@ -37,7 +37,7 @@ u8 cal_win_nen3_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen4_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen4_tex_rgb_i4[] = {
@@ -45,7 +45,7 @@ u8 cal_win_nen4_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen5_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen5_tex_rgb_i4[] = {
@@ -53,7 +53,7 @@ u8 cal_win_nen5_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen6_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen6_tex_rgb_i4[] = {
@@ -61,7 +61,7 @@ u8 cal_win_nen6_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen7_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen7_tex_rgb_i4[] = {
@@ -69,7 +69,7 @@ u8 cal_win_nen7_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen8_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen8_tex_rgb_i4[] = {
@@ -77,7 +77,7 @@ u8 cal_win_nen8_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cal_win_nen9_tex_rgb_i4[0x80];
 #else
 u8 cal_win_nen9_tex_rgb_i4[] = {
@@ -85,7 +85,7 @@ u8 cal_win_nen9_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx cal_nen_v[0x100 / sizeof(Vtx)];
 #else
 Vtx cal_nen_v[] = {
@@ -93,7 +93,7 @@ Vtx cal_nen_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Gfx cal_win_nen_before[5];
 #else
 u8 cal_win_nen_before[] = {

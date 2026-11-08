@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_knightW_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_nog_knightW_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_nog_knightW_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_nog_knightW_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_knightW_head_tex[0x400];
 #else
 u8 int_nog_knightW_head_tex[] = {
@@ -22,7 +22,7 @@ u8 int_nog_knightW_head_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_knightW_top_tex[0x80];
 #else
 u8 int_nog_knightW_top_tex[] = {
@@ -30,7 +30,7 @@ u8 int_nog_knightW_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_knightW_v[0x3E0 / sizeof(Vtx)];
 #else
 Vtx int_nog_knightW_v[] = {

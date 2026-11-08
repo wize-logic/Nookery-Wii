@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_misin_cloth_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_misin_cloth_v[] = {

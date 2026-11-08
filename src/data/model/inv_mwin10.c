@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_apple_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_apple_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_apple_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_orange_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_orange_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_orange_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_peach_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_peach_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_peach_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_pear_pal[0x20 / sizeof(u16)];
 #else
 u16 inv_mwin_pear_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_pear_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_apple_tex[0x200];
 #else
 u8 inv_mwin_apple_tex[] = {
@@ -45,7 +45,7 @@ u8 inv_mwin_apple_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_orange_tex[0x200];
 #else
 u8 inv_mwin_orange_tex[] = {
@@ -53,7 +53,7 @@ u8 inv_mwin_orange_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_peach_tex[0x200];
 #else
 u8 inv_mwin_peach_tex[] = {
@@ -61,7 +61,7 @@ u8 inv_mwin_peach_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_pear_tex[0x200];
 #else
 u8 inv_mwin_pear_tex[] = {

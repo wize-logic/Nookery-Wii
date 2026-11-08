@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern u8 elf_layA0_txt[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx point_light_v[0x40 / sizeof(Vtx)];
 #else
 Vtx point_light_v[] = {
@@ -34,7 +34,7 @@ Gfx point_light_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 elf_layA0_txt[0x800];
 #else
 u8 elf_layA0_txt[] = {

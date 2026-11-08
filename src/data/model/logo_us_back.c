@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx logo_us_back_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 logo_us_back_4_tex_4i4_txt[0x1000];
 #else
 ATTRIBUTE_ALIGN(32) u8 logo_us_back_4_tex_4i4_txt[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 logo_us_back_4_tex_4i4_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_back_3_tex_4i4_txt[0x1000];
 #else
 u8 logo_us_back_3_tex_4i4_txt[] = {
@@ -22,7 +22,7 @@ u8 logo_us_back_3_tex_4i4_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_back_1_tex_4i4_txt[0x1000];
 #else
 u8 logo_us_back_1_tex_4i4_txt[] = {
@@ -30,7 +30,7 @@ u8 logo_us_back_1_tex_4i4_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_back_2_tex_4i4_txt[0x1000];
 #else
 u8 logo_us_back_2_tex_4i4_txt[] = {
@@ -38,7 +38,7 @@ u8 logo_us_back_2_tex_4i4_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx logo_us_back_v[0x100 / sizeof(Vtx)];
 #else
 Vtx logo_us_back_v[] = {

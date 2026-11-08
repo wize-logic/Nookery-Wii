@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx ef_car01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_car01_1_int_i4[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_car01_1_int_i4[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_car01_1_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_car01_v[0x250 / sizeof(Vtx)];
 #else
 Vtx ef_car01_v[] = {
@@ -60,7 +60,7 @@ Gfx ef_car01_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_carhosi01_01[0x400];
 #else
 u8 ef_carhosi01_01[] = {
@@ -68,7 +68,7 @@ u8 ef_carhosi01_01[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_carhosi01_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_carhosi01_00_v[] = {

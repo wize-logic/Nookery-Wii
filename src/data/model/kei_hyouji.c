@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 kei_win_latest_tex[0x500];
 #else
 ATTRIBUTE_ALIGN(32) u8 kei_win_latest_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 kei_win_latest_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_entry_tex[0x400];
 #else
 u8 kei_win_entry_tex[] = {
@@ -21,7 +21,7 @@ u8 kei_win_entry_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 kei_win_quit_tex[0x200];
 #else
 static u8 kei_win_quit_tex[] = {
@@ -29,7 +29,7 @@ static u8 kei_win_quit_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_writen_tex[0x400];
 #else
 u8 kei_win_writen_tex[] = {
@@ -37,7 +37,7 @@ u8 kei_win_writen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_yaji2_tex[0x400];
 #else
 u8 kei_win_yaji2_tex[] = {
@@ -45,7 +45,7 @@ u8 kei_win_yaji2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 std_tex[0x800];
 #else
 static u8 std_tex[] = {
@@ -53,7 +53,7 @@ static u8 std_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 yaji[0x80];
 #else
 static u8 yaji[] = {
@@ -61,7 +61,7 @@ static u8 yaji[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 ct_tex[0x400];
 #else
 static u8 ct_tex[] = {
@@ -69,7 +69,7 @@ static u8 ct_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_st1_tex_rgb_ia8[0x1000];
 #else
 u8 kei_win_st1_tex_rgb_ia8[] = {
@@ -77,7 +77,7 @@ u8 kei_win_st1_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_st2_tex_rgb_ia8[0x1000];
 #else
 u8 kei_win_st2_tex_rgb_ia8[] = {
@@ -85,7 +85,7 @@ u8 kei_win_st2_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_st3_tex_rgb_ia8[0x1000];
 #else
 u8 kei_win_st3_tex_rgb_ia8[] = {
@@ -93,7 +93,7 @@ u8 kei_win_st3_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_st4_tex_rgb_ia8[0x1000];
 #else
 u8 kei_win_st4_tex_rgb_ia8[] = {
@@ -101,7 +101,7 @@ u8 kei_win_st4_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_st5_tex_rgb_ia8[0x1000];
 #else
 u8 kei_win_st5_tex_rgb_ia8[] = {
@@ -109,7 +109,7 @@ u8 kei_win_st5_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 kei_win_st6_tex_rgb_ia8[0x1000];
 #else
 u8 kei_win_st6_tex_rgb_ia8[] = {
@@ -117,7 +117,7 @@ u8 kei_win_st6_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 lat_tegami_b2_tex[0x800];
 #else
 static u8 lat_tegami_b2_tex[] = {
@@ -125,7 +125,7 @@ static u8 lat_tegami_b2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 lat_tegami_b3_tex[0x800];
 #else
 static u8 lat_tegami_b3_tex[] = {
@@ -133,7 +133,7 @@ static u8 lat_tegami_b3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 kei_win_2b1_tex_rgb_i4[0x200];
 #else
 static u8 kei_win_2b1_tex_rgb_i4[] = {
@@ -141,7 +141,7 @@ static u8 kei_win_2b1_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx kei_hyouji_v[0x340 / sizeof(Vtx)];
 #else
 Vtx kei_hyouji_v[] = {
@@ -290,7 +290,7 @@ Gfx kei_hyouji_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_kei_hyouji_c(void) {
     pc_load_asset("assets/kei_hyouji/kei_win_quit_tex.bin", kei_win_quit_tex, 0x200, 0x7A1660, 0, 0);

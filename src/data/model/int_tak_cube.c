@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_cube_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_tak_cube_body_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_tak_cube_body_tex[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_tak_cube_body_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_cube_glass_tex[0x80];
 #else
 u8 int_tak_cube_glass_tex[] = {
@@ -22,7 +22,7 @@ u8 int_tak_cube_glass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_cube_evw_tex_rgb_i4[0x80];
 #else
 u8 int_tak_cube_evw_tex_rgb_i4[] = {
@@ -30,7 +30,7 @@ u8 int_tak_cube_evw_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_cube_v[0x8A0 / sizeof(Vtx)];
 #else
 Vtx int_tak_cube_v[] = {

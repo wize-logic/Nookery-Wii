@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 kan_win_cursor_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 kan_win_cursor_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 kan_win_cursor_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx kan_hyouji_v[0x80 / sizeof(Vtx)];
 #else
 static Vtx kan_hyouji_v[] = {
@@ -32,7 +32,7 @@ Gfx kan_win_cursorT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_kan_hyouji_c(void) {
     pc_load_asset("assets/kan_hyouji/kan_hyouji_v.bin", kan_hyouji_v, 0x40, 0x78B9A0, 0, 2);

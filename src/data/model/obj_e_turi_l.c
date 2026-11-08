@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_e_turi_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_e_turi_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_e_turi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_turi_t1_tex[0x800];
 #else
 u8 obj_e_turi_t1_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_e_turi_t1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_turi_t2_tex[0x800];
 #else
 u8 obj_e_turi_t2_tex[] = {
@@ -29,7 +29,7 @@ u8 obj_e_turi_t2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_turi_t3_tex[0x800];
 #else
 u8 obj_e_turi_t3_tex[] = {
@@ -37,7 +37,7 @@ u8 obj_e_turi_t3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_turi_l_v[0x5B0 / sizeof(Vtx)];
 #else
 Vtx obj_e_turi_l_v[] = {
@@ -83,7 +83,7 @@ Gfx obj_e_turi_l_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_turi_r_v[0x590 / sizeof(Vtx)];
 #else
 Vtx obj_e_turi_r_v[] = {
@@ -129,7 +129,7 @@ Gfx obj_e_turi_r_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_e_turi_l_c(void) {
     pc_load_asset("assets/obj_e_turi_l/obj_e_turi_pal.bin", obj_e_turi_pal, 0x20, 0x893D00, 0, 1);

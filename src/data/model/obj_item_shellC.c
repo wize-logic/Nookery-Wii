@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_item_shell_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_item_shell_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_item_shell_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_item_shellC_tex[0x80];
 #else
 u8 obj_item_shellC_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_item_shellC_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_item_shellC_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_item_shellC_v[] = {
@@ -47,7 +47,7 @@ Gfx obj_item_shellCT_gfx_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_item_shellC_c(void) {
     pc_load_asset("assets/obj_item_shellC/obj_item_shell_pal.bin", obj_item_shell_pal, 0x20, 0xB727C0, 0, 1);

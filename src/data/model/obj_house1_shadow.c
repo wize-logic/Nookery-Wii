@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_house1_shadow[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_house1_shadow[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_house1_shadow[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_house1_shadow_v[0x140 / sizeof(Vtx)];
 #else
 Vtx obj_house1_shadow_v[] = {
@@ -37,7 +37,7 @@ Gfx obj_house1_shadow_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house2_shadow_tex_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house2_shadow_tex_txt[] = {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house2_shadow_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house2_shadow_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx obj_s_house2_shadow_v[] = {
@@ -71,7 +71,7 @@ Gfx obj_s_house2_shadow_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house3_shadow_tex_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house3_shadow_tex_txt[] = {
@@ -79,7 +79,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house3_shadow_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house3_shadow_v[0x180 / sizeof(Vtx)];
 #else
 Vtx obj_s_house3_shadow_v[] = {
@@ -104,7 +104,7 @@ Gfx obj_s_house3_shadow_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house4_shadow_tex_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house4_shadow_tex_txt[] = {
@@ -112,7 +112,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house4_shadow_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house4_shadow_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx obj_s_house4_shadow_v[] = {
@@ -138,7 +138,7 @@ Gfx obj_s_house4_shadow_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_house5_shadow_tex_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_house5_shadow_tex_txt[] = {
@@ -146,7 +146,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_house5_shadow_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_house5_shadow_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx obj_s_house5_shadow_v[] = {

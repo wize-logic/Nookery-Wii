@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_08oonamazu_pal[0x40 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 inv_mwin_08oonamazu_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 inv_mwin_08oonamazu_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_01funa_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_01funa_pal[] = {
@@ -21,7 +21,7 @@ u16 inv_mwin_01funa_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_02masu_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_02masu_pal[] = {
@@ -29,7 +29,7 @@ u16 inv_mwin_02masu_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_03koi_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_03koi_pal[] = {
@@ -37,7 +37,7 @@ u16 inv_mwin_03koi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_04nishiki_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_04nishiki_pal[] = {
@@ -45,7 +45,7 @@ u16 inv_mwin_04nishiki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_05nigoi_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_05nigoi_pal[] = {
@@ -53,7 +53,7 @@ u16 inv_mwin_05nigoi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_06ugui_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_06ugui_pal[] = {
@@ -61,7 +61,7 @@ u16 inv_mwin_06ugui_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_07namazu_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_07namazu_pal[] = {
@@ -69,7 +69,7 @@ u16 inv_mwin_07namazu_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_09oikawa_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_09oikawa_pal[] = {
@@ -77,7 +77,7 @@ u16 inv_mwin_09oikawa_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_10tanago_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_10tanago_pal[] = {
@@ -85,7 +85,7 @@ u16 inv_mwin_10tanago_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_11dojyou_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_11dojyou_pal[] = {
@@ -93,7 +93,7 @@ u16 inv_mwin_11dojyou_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_12gill_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_12gill_pal[] = {
@@ -101,7 +101,7 @@ u16 inv_mwin_12gill_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_13bass_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_13bass_pal[] = {
@@ -109,7 +109,7 @@ u16 inv_mwin_13bass_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_14bassm_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_14bassm_pal[] = {
@@ -117,7 +117,7 @@ u16 inv_mwin_14bassm_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_15bassl_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_15bassl_pal[] = {
@@ -125,7 +125,7 @@ u16 inv_mwin_15bassl_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_16raigyo_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_16raigyo_pal[] = {
@@ -133,7 +133,7 @@ u16 inv_mwin_16raigyo_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_17unagi_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_17unagi_pal[] = {
@@ -141,7 +141,7 @@ u16 inv_mwin_17unagi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_18donko_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_18donko_pal[] = {
@@ -149,7 +149,7 @@ u16 inv_mwin_18donko_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_19wakasagi_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_19wakasagi_pal[] = {
@@ -157,7 +157,7 @@ u16 inv_mwin_19wakasagi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_20ayu_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_20ayu_pal[] = {
@@ -165,7 +165,7 @@ u16 inv_mwin_20ayu_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_21yamame_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_21yamame_pal[] = {
@@ -173,7 +173,7 @@ u16 inv_mwin_21yamame_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_22niji_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_22niji_pal[] = {
@@ -181,7 +181,7 @@ u16 inv_mwin_22niji_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_23iwana_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_23iwana_pal[] = {
@@ -189,7 +189,7 @@ u16 inv_mwin_23iwana_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_24itou_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_24itou_pal[] = {
@@ -197,7 +197,7 @@ u16 inv_mwin_24itou_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_25sake_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_25sake_pal[] = {
@@ -205,7 +205,7 @@ u16 inv_mwin_25sake_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_26kingyo_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_26kingyo_pal[] = {
@@ -213,7 +213,7 @@ u16 inv_mwin_26kingyo_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_27demekin_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_27demekin_pal[] = {
@@ -221,7 +221,7 @@ u16 inv_mwin_27demekin_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_28gupi_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_28gupi_pal[] = {
@@ -229,7 +229,7 @@ u16 inv_mwin_28gupi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_29angel_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_29angel_pal[] = {
@@ -237,7 +237,7 @@ u16 inv_mwin_29angel_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_30pirania_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_30pirania_pal[] = {
@@ -245,7 +245,7 @@ u16 inv_mwin_30pirania_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_31aroana_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_31aroana_pal[] = {
@@ -253,7 +253,7 @@ u16 inv_mwin_31aroana_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 inv_mwin_32kaseki_pal[0x40 / sizeof(u16)];
 #else
 u16 inv_mwin_32kaseki_pal[] = {
@@ -261,7 +261,7 @@ u16 inv_mwin_32kaseki_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_08oonamazu_tex[0x200];
 #else
 u8 inv_mwin_08oonamazu_tex[] = {
@@ -269,7 +269,7 @@ u8 inv_mwin_08oonamazu_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_01funa_tex[0x200];
 #else
 u8 inv_mwin_01funa_tex[] = {
@@ -277,7 +277,7 @@ u8 inv_mwin_01funa_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_02masu_tex[0x200];
 #else
 u8 inv_mwin_02masu_tex[] = {
@@ -285,7 +285,7 @@ u8 inv_mwin_02masu_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_03koi_tex[0x200];
 #else
 u8 inv_mwin_03koi_tex[] = {
@@ -293,7 +293,7 @@ u8 inv_mwin_03koi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_04nishiki_tex[0x200];
 #else
 u8 inv_mwin_04nishiki_tex[] = {
@@ -301,7 +301,7 @@ u8 inv_mwin_04nishiki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_05nigoi_tex[0x200];
 #else
 u8 inv_mwin_05nigoi_tex[] = {
@@ -309,7 +309,7 @@ u8 inv_mwin_05nigoi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_06ugui_tex[0x200];
 #else
 u8 inv_mwin_06ugui_tex[] = {
@@ -317,7 +317,7 @@ u8 inv_mwin_06ugui_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_07namazu_tex[0x200];
 #else
 u8 inv_mwin_07namazu_tex[] = {
@@ -325,7 +325,7 @@ u8 inv_mwin_07namazu_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_09oikawa_tex[0x200];
 #else
 u8 inv_mwin_09oikawa_tex[] = {
@@ -333,7 +333,7 @@ u8 inv_mwin_09oikawa_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_10tanago_tex[0x200];
 #else
 u8 inv_mwin_10tanago_tex[] = {
@@ -341,7 +341,7 @@ u8 inv_mwin_10tanago_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_11dojyou_tex[0x200];
 #else
 u8 inv_mwin_11dojyou_tex[] = {
@@ -349,7 +349,7 @@ u8 inv_mwin_11dojyou_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_12gill_tex[0x200];
 #else
 u8 inv_mwin_12gill_tex[] = {
@@ -357,7 +357,7 @@ u8 inv_mwin_12gill_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_13bass_tex[0x200];
 #else
 u8 inv_mwin_13bass_tex[] = {
@@ -365,7 +365,7 @@ u8 inv_mwin_13bass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_14bassm_tex[0x200];
 #else
 u8 inv_mwin_14bassm_tex[] = {
@@ -373,7 +373,7 @@ u8 inv_mwin_14bassm_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_15bassl_tex[0x200];
 #else
 u8 inv_mwin_15bassl_tex[] = {
@@ -381,7 +381,7 @@ u8 inv_mwin_15bassl_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_16raigyo_tex[0x200];
 #else
 u8 inv_mwin_16raigyo_tex[] = {
@@ -389,7 +389,7 @@ u8 inv_mwin_16raigyo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_17unagi_tex[0x200];
 #else
 u8 inv_mwin_17unagi_tex[] = {
@@ -397,7 +397,7 @@ u8 inv_mwin_17unagi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_18donko_tex[0x200];
 #else
 u8 inv_mwin_18donko_tex[] = {
@@ -405,7 +405,7 @@ u8 inv_mwin_18donko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_19wakasagi_tex[0x200];
 #else
 u8 inv_mwin_19wakasagi_tex[] = {
@@ -413,7 +413,7 @@ u8 inv_mwin_19wakasagi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_20ayu_tex[0x200];
 #else
 u8 inv_mwin_20ayu_tex[] = {
@@ -421,7 +421,7 @@ u8 inv_mwin_20ayu_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_21yamame_tex[0x200];
 #else
 u8 inv_mwin_21yamame_tex[] = {
@@ -429,7 +429,7 @@ u8 inv_mwin_21yamame_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_22niji_tex[0x200];
 #else
 u8 inv_mwin_22niji_tex[] = {
@@ -437,7 +437,7 @@ u8 inv_mwin_22niji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_23iwana_tex[0x200];
 #else
 u8 inv_mwin_23iwana_tex[] = {
@@ -445,7 +445,7 @@ u8 inv_mwin_23iwana_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_24itou_tex[0x200];
 #else
 u8 inv_mwin_24itou_tex[] = {
@@ -453,7 +453,7 @@ u8 inv_mwin_24itou_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_25sake_tex[0x200];
 #else
 u8 inv_mwin_25sake_tex[] = {
@@ -461,7 +461,7 @@ u8 inv_mwin_25sake_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_26kingyo_tex[0x200];
 #else
 u8 inv_mwin_26kingyo_tex[] = {
@@ -469,7 +469,7 @@ u8 inv_mwin_26kingyo_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_27demekin_tex[0x200];
 #else
 u8 inv_mwin_27demekin_tex[] = {
@@ -477,7 +477,7 @@ u8 inv_mwin_27demekin_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_28gupi_tex[0x200];
 #else
 u8 inv_mwin_28gupi_tex[] = {
@@ -485,7 +485,7 @@ u8 inv_mwin_28gupi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_29angel_tex[0x200];
 #else
 u8 inv_mwin_29angel_tex[] = {
@@ -493,7 +493,7 @@ u8 inv_mwin_29angel_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_30pirania_tex[0x200];
 #else
 u8 inv_mwin_30pirania_tex[] = {
@@ -501,7 +501,7 @@ u8 inv_mwin_30pirania_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_31aroana_tex[0x200];
 #else
 u8 inv_mwin_31aroana_tex[] = {
@@ -509,7 +509,7 @@ u8 inv_mwin_31aroana_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 inv_mwin_32kaseki_tex[0x200];
 #else
 u8 inv_mwin_32kaseki_tex[] = {

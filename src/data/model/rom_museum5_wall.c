@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_museum5_wall_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_museum5_wall_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_museum5_wall_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 rom_museum5_wallA_tex[0x800];
 #else
 static u8 rom_museum5_wallA_tex[] = {
@@ -21,7 +21,7 @@ static u8 rom_museum5_wallA_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_museum5_wall_v[0x70 / sizeof(Vtx)];
 #else
 Vtx rom_museum5_wall_v[] = {
@@ -43,7 +43,7 @@ Gfx rom_museum5_wall_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_rom_museum5_wall_c(void) {
     pc_load_asset("assets/rom_museum5_wall/rom_museum5_wall_pal.bin", rom_museum5_wall_pal, 0x20, 0xBACAE0, 0, 1);

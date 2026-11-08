@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_iid_benti_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_iid_benchi_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_iid_benchi_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_iid_benchi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_iid_benchi_se2_tex_pal[0x20 / sizeof(u16)];
 #else
 u16 int_iid_benchi_se2_tex_pal[] = {
@@ -22,7 +22,7 @@ u16 int_iid_benchi_se2_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_iid_benchi_se3_tex_pal[0x20 / sizeof(u16)];
 #else
 u16 int_iid_benchi_se3_tex_pal[] = {
@@ -30,7 +30,7 @@ u16 int_iid_benchi_se3_tex_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_benchi_se1_tex[0x200];
 #else
 u8 int_iid_benchi_se1_tex[] = {
@@ -38,7 +38,7 @@ u8 int_iid_benchi_se1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_benchi_se2_tex[0x200];
 #else
 u8 int_iid_benchi_se2_tex[] = {
@@ -46,7 +46,7 @@ u8 int_iid_benchi_se2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_benchi_se3_tex[0x200];
 #else
 u8 int_iid_benchi_se3_tex[] = {
@@ -54,7 +54,7 @@ u8 int_iid_benchi_se3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_benchi_ue_tex[0x20];
 #else
 u8 int_iid_benchi_ue_tex[] = {
@@ -62,7 +62,7 @@ u8 int_iid_benchi_ue_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_benchi_koshi_tex[0x40];
 #else
 u8 int_iid_benchi_koshi_tex[] = {
@@ -70,7 +70,7 @@ u8 int_iid_benchi_koshi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_benchi_koshi2_tex[0x40];
 #else
 u8 int_iid_benchi_koshi2_tex[] = {
@@ -78,7 +78,7 @@ u8 int_iid_benchi_koshi2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_benchi_shita_tex[0x20];
 #else
 u8 int_iid_benchi_shita_tex[] = {
@@ -86,7 +86,7 @@ u8 int_iid_benchi_shita_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_iid_benchi_ashi_tex[0x40];
 #else
 u8 int_iid_benchi_ashi_tex[] = {
@@ -94,7 +94,7 @@ u8 int_iid_benchi_ashi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_iid_benti_v[0x900 / sizeof(Vtx)];
 #else
 Vtx int_iid_benti_v[] = {

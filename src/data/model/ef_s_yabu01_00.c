@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern u8 bush_pal_dummy[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_s_yabu01_0[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_s_yabu01_0[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_s_yabu01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_yabu01_00_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_s_yabu01_00_v[] = {
@@ -36,7 +36,7 @@ Gfx ef_s_yabu01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_s_tree01_0[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_s_tree01_0[] = {
@@ -44,7 +44,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_s_tree01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_tree01_00_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_s_tree01_00_v[] = {
@@ -66,7 +66,7 @@ Gfx ef_s_tree01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 grd_bush_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 grd_bush_pal[] = {
@@ -74,7 +74,7 @@ ATTRIBUTE_ALIGN(32) u16 grd_bush_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_w_yabu01_0[0x80];
 #else
 u8 ef_w_yabu01_0[] = {
@@ -82,7 +82,7 @@ u8 ef_w_yabu01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_w_yabu01_00_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_w_yabu01_00_v[] = {
@@ -103,7 +103,7 @@ Gfx ef_w_yabu01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_f_tree01_0[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_f_tree01_0[] = {
@@ -111,7 +111,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_f_tree01_0[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_f_tree01_00_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_f_tree01_00_v[] = {
@@ -133,7 +133,7 @@ Gfx ef_f_tree01_00_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_s_cedar_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_s_cedar_tex[] = {
@@ -141,7 +141,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_s_cedar_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_cedar_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_s_cedar_v[] = {
@@ -163,7 +163,7 @@ Gfx ef_s_cedar_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_s_palm_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_s_palm_tex[] = {
@@ -171,7 +171,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_s_palm_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_s_palm_v[0x50 / sizeof(Vtx)];
 #else
 Vtx ef_s_palm_v[] = {

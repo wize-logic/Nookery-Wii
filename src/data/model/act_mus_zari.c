@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx act_mus_zari_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 act_mus_zari_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 act_mus_zari_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 act_mus_zari_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_mus_zari_tex_txt[0x400];
 #else
 u8 act_mus_zari_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 act_mus_zari_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_mus_zari_v[0x370 / sizeof(Vtx)];
 #else
 Vtx act_mus_zari_v[] = {

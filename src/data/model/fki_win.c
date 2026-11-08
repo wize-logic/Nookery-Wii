@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx fki_win_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 fki_win_w2_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 fki_win_w2_tex[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 fki_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fki_win_de3_tex[0x80];
 #else
 u8 fki_win_de3_tex[] = {
@@ -22,7 +22,7 @@ u8 fki_win_de3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fki_win_de4_tex[0x80];
 #else
 u8 fki_win_de4_tex[] = {
@@ -30,7 +30,7 @@ u8 fki_win_de4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 fki_win_wa_tex[0x200];
 #else
 u8 fki_win_wa_tex[] = {
@@ -38,7 +38,7 @@ u8 fki_win_wa_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx fki_win_v[0x100 / sizeof(Vtx)];
 #else
 Vtx fki_win_v[] = {

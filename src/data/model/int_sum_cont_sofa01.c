@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_cont_sofa01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_cont_sofa01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_cont_sofa01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_cont_sofa01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_sofa01_seat_tex[0x200];
 #else
 u8 int_sum_cont_sofa01_seat_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_cont_sofa01_seat_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_sofa01_board_tex[0x200];
 #else
 u8 int_sum_cont_sofa01_board_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_cont_sofa01_board_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_sofa01_outside_tex[0x100];
 #else
 u8 int_sum_cont_sofa01_outside_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_cont_sofa01_outside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_sofa01_topside_tex[0x40];
 #else
 u8 int_sum_cont_sofa01_topside_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_cont_sofa01_topside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_sofa01_frontside_tex[0x100];
 #else
 u8 int_sum_cont_sofa01_frontside_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_cont_sofa01_frontside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_sofa01_boardside_tex[0x100];
 #else
 u8 int_sum_cont_sofa01_boardside_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_cont_sofa01_boardside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_sofa01_seatside_tex[0x80];
 #else
 u8 int_sum_cont_sofa01_seatside_tex[] = {
@@ -70,7 +70,7 @@ u8 int_sum_cont_sofa01_seatside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_cont_sofa01_v[0x470 / sizeof(Vtx)];
 #else
 Vtx int_sum_cont_sofa01_v[] = {

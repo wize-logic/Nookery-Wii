@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_yubinkyoku_mado_tex[0x80];
 #else
 u8 rom_yubinkyoku_mado_tex[] = {
@@ -13,7 +13,7 @@ u8 rom_yubinkyoku_mado_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 rom_yubinkyoku_waku_tex[0x200];
 #else
 u8 rom_yubinkyoku_waku_tex[] = {
@@ -21,7 +21,7 @@ u8 rom_yubinkyoku_waku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_yubinkyoku_shine_v[0xF0 / sizeof(Vtx)];
 #else
 Vtx obj_yubinkyoku_shine_v[] = {

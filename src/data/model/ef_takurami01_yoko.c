@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern u8 ef_takurami01_1[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_takurami01_0us[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_takurami01_0us[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_takurami01_0us[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_takurami01_yoko_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_takurami01_yoko_v[] = {
@@ -22,7 +22,7 @@ Vtx ef_takurami01_yoko_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_takurami01_yoko_v2[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_takurami01_yoko_v2[] = {
@@ -58,7 +58,7 @@ Gfx ef_takurami01_yoko_modelT2[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_takurami01_kira_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_takurami01_kira_v[] = {
@@ -90,7 +90,7 @@ Gfx ef_takurami01_kira_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_takurami01_1[0x100];
 #else
 u8 ef_takurami01_1[] = {

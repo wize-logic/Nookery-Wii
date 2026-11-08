@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_doll09_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_sum_doll09_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_sum_doll09_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_sum_doll09_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll09_face_txt_txt[0x400];
 #else
 u8 int_sum_doll09_face_txt_txt[] = {
@@ -22,7 +22,7 @@ u8 int_sum_doll09_face_txt_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_doll09_front_txt_txt[0x300];
 #else
 u8 int_sum_doll09_front_txt_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_doll09_front_txt_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_doll09_v[0x210 / sizeof(Vtx)];
 #else
 Vtx int_sum_doll09_v[] = {
@@ -68,7 +68,7 @@ Gfx int_sum_doll09_on_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_sum_doll09_c(void) {
     pc_load_asset("assets/int_sum_doll09/int_sum_doll09_pal.bin", int_sum_doll09_pal, 0x20, 0xCB7860, 0, 1);

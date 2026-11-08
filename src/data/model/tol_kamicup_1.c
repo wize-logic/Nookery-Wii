@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx tol_kamicup_1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tol_kamicup_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tol_kamicup_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 tol_kamicup_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_kamicup_tex[0x200];
 #else
 u8 tol_kamicup_tex[] = {
@@ -22,7 +22,7 @@ u8 tol_kamicup_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_kamicup_1_v[0x330 / sizeof(Vtx)];
 #else
 Vtx tol_kamicup_1_v[] = {

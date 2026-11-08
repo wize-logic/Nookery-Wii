@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_w_kamakura_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_w_kamakura_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_w_kamakura_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_kamakura_t1_tex[0x800];
 #else
 u8 obj_w_kamakura_t1_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_w_kamakura_t1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_kamakura_t2_tex[0x800];
 #else
 u8 obj_w_kamakura_t2_tex[] = {
@@ -29,7 +29,7 @@ u8 obj_w_kamakura_t2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_kamakura_t3_tex[0x800];
 #else
 u8 obj_w_kamakura_t3_tex[] = {
@@ -37,7 +37,7 @@ u8 obj_w_kamakura_t3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_kamakura_light02_tex[0x80];
 #else
 u8 obj_w_kamakura_light02_tex[] = {
@@ -45,7 +45,7 @@ u8 obj_w_kamakura_light02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_kamakura_v[0x540 / sizeof(Vtx)];
 #else
 Vtx obj_w_kamakura_v[] = {
@@ -140,7 +140,7 @@ Gfx kamakura_DL_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_w_kamakura_c(void) {
     pc_load_asset("assets/obj_w_kamakura/obj_w_kamakura_pal.bin", obj_w_kamakura_pal, 0x20, 0x812A00, 0, 1);

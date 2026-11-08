@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_cedar_leaf_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_cedar_leaf_tex[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_cedar_leaf_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_cedar_young_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_cedar_young_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_cedar_young_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_cedar3_v[0x1E0 / sizeof(Vtx)];
 #else
 Vtx obj_w_cedar3_v[] = {

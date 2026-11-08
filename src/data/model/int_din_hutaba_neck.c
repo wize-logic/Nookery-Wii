@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_din_hutaba_neck_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_din_hutaba_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_din_hutaba_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_din_hutaba_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_hutaba_kubi2c_tex[0x80];
 #else
 u8 int_din_hutaba_kubi2c_tex[] = {
@@ -22,7 +22,7 @@ u8 int_din_hutaba_kubi2c_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_hutaba_baceB_tex[0x200];
 #else
 u8 int_din_hutaba_baceB_tex[] = {
@@ -30,7 +30,7 @@ u8 int_din_hutaba_baceB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_hutaba_poleB_tex[0x80];
 #else
 u8 int_din_hutaba_poleB_tex[] = {
@@ -38,7 +38,7 @@ u8 int_din_hutaba_poleB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_din_hutaba_kubic_tex[0x100];
 #else
 u8 int_din_hutaba_kubic_tex[] = {
@@ -46,7 +46,7 @@ u8 int_din_hutaba_kubic_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_din_hutaba_neck_v[0x320 / sizeof(Vtx)];
 #else
 Vtx int_din_hutaba_neck_v[] = {
@@ -98,7 +98,7 @@ Gfx int_din_hutaba_neckT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_din_hutaba_neck_c(void) {
     pc_load_asset("assets/int_din_hutaba_neck/int_din_hutaba_pal.bin", int_din_hutaba_pal, 0x20, 0x912C80, 0, 1);

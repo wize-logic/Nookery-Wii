@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_k_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_k_pal[] = {
@@ -8,7 +8,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_k_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_k2_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_k2_pal[] = {
@@ -16,7 +16,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_k2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_floor_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_floor_pal[] = {
@@ -24,7 +24,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_floor_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_hakari_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_hakari_pal[] = {
@@ -32,7 +32,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_hakari_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_wall_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_wall_pal[] = {
@@ -40,7 +40,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_wall_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_letter_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_letter_pal[] = {
@@ -48,7 +48,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_letter_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_us_bag_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_us_bag_pal[] = {
@@ -56,7 +56,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_us_bag_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 zzzyubin_tree_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 zzzyubin_tree_pal[] = {
@@ -64,7 +64,7 @@ ATTRIBUTE_ALIGN(32) static u16 zzzyubin_tree_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_t_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_t_pal[] = {
@@ -72,7 +72,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_t_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 yubin_us_card_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 yubin_us_card_pal[] = {
@@ -80,7 +80,7 @@ ATTRIBUTE_ALIGN(32) static u16 yubin_us_card_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta01_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta01_tex[] = {
@@ -88,7 +88,7 @@ ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta02_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta02_tex[] = {
@@ -96,7 +96,7 @@ ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yuibn_desk01_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yuibn_desk01_tex[] = {
@@ -104,7 +104,7 @@ ATTRIBUTE_ALIGN(32) static u8 yuibn_desk01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_ark01_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_ark01_tex[] = {
@@ -112,7 +112,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_ark01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta03_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta03_tex[] = {
@@ -120,7 +120,7 @@ ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta04_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta04_tex[] = {
@@ -128,7 +128,7 @@ ATTRIBUTE_ALIGN(32) static u8 yuibn_kaunta04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_floor01_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_floor01_tex[] = {
@@ -136,7 +136,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_floor01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_floor02_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_floor02_tex[] = {
@@ -144,7 +144,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_floor02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_floor03_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_floor03_tex[] = {
@@ -152,7 +152,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_floor03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_hakari01_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_hakari01_tex[] = {
@@ -160,7 +160,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_hakari01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_hakari02_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_hakari02_tex[] = {
@@ -168,7 +168,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_hakari02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_hakari03_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_hakari03_tex[] = {
@@ -176,7 +176,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_hakari03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_wall04_tex[0x300];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_wall04_tex[] = {
@@ -184,7 +184,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_wall04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_letter01_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_letter01_tex[] = {
@@ -192,7 +192,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_letter01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_window_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_window_tex[] = {
@@ -200,7 +200,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_window_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_us_bag_tex[0x480];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_us_bag_tex[] = {
@@ -208,7 +208,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_us_bag_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_tree2_tex[0x300];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_tree2_tex[] = {
@@ -216,7 +216,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_tree2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_tree_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_tree_tex[] = {
@@ -224,7 +224,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_tree_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_tree3_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_tree3_tex[] = {
@@ -232,7 +232,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_tree3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_tree4_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_tree4_tex[] = {
@@ -240,7 +240,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_tree4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_step_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_step_tex[] = {
@@ -248,7 +248,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_step_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_akril_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_akril_tex[] = {
@@ -256,7 +256,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_akril_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_shede_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_shede_tex[] = {
@@ -264,7 +264,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_shede_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_us_card_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_us_card_tex[] = {
@@ -272,7 +272,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_us_card_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_us_mat_tex[0x300];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_us_mat_tex[] = {
@@ -280,7 +280,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_us_mat_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_shadow_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_shadow_tex[] = {
@@ -288,7 +288,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_yubinkyoku_shadow_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 yubin_us_card2_tex[0x100];
 #else
 ATTRIBUTE_ALIGN(32) static u8 yubin_us_card2_tex[] = {
@@ -296,7 +296,7 @@ ATTRIBUTE_ALIGN(32) static u8 yubin_us_card2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx grd_post_office_v[0x1700 / sizeof(Vtx)];
 #else
 static Vtx grd_post_office_v[] = {
@@ -821,7 +821,7 @@ extern Gfx grd_post_office_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_grd_post_office_grd_post_office_c(void) {
     pc_load_asset("assets/field/bg/yubin_k_pal.bin", yubin_k_pal, 0x20, 0x8ED9E0, 0, 1);

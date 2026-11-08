@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_shrine_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_nog_shrine_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_nog_shrine_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_nog_shrine_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_shrine_figure_tex[0x200];
 #else
 u8 int_nog_shrine_figure_tex[] = {
@@ -22,7 +22,7 @@ u8 int_nog_shrine_figure_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_shrine_base_tex[0x200];
 #else
 u8 int_nog_shrine_base_tex[] = {
@@ -30,7 +30,7 @@ u8 int_nog_shrine_base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_shrine_grass_tex[0x80];
 #else
 u8 int_nog_shrine_grass_tex[] = {
@@ -38,7 +38,7 @@ u8 int_nog_shrine_grass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_shrine_water_tex[0x80];
 #else
 u8 int_nog_shrine_water_tex[] = {
@@ -46,7 +46,7 @@ u8 int_nog_shrine_water_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_shrine_v[0x9A0 / sizeof(Vtx)];
 #else
 Vtx int_nog_shrine_v[] = {

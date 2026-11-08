@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_yos_luigi_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_yos_luigi_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_yos_luigi_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_yos_luigi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_dai_tex_txt[0x40];
 #else
 u8 int_yos_luigi_dai_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_yos_luigi_dai_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_zubon_tex_txt[0x200];
 #else
 u8 int_yos_luigi_zubon_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_yos_luigi_zubon_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_kao_tex_txt[0x200];
 #else
 u8 int_yos_luigi_kao_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_yos_luigi_kao_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_hana_tex_txt[0x20];
 #else
 u8 int_yos_luigi_hana_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_yos_luigi_hana_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_mimi_tex_txt[0x80];
 #else
 u8 int_yos_luigi_mimi_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_yos_luigi_mimi_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_boushimae_tex_txt[0x100];
 #else
 u8 int_yos_luigi_boushimae_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_yos_luigi_boushimae_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_boushiushiro_tex_txt[0x80];
 #else
 u8 int_yos_luigi_boushiushiro_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_yos_luigi_boushiushiro_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_tuba_tex_txt[0x80];
 #else
 u8 int_yos_luigi_tuba_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 int_yos_luigi_tuba_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_ude_tex_txt[0x80];
 #else
 u8 int_yos_luigi_ude_tex_txt[] = {
@@ -86,7 +86,7 @@ u8 int_yos_luigi_ude_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_te_tex_txt[0x80];
 #else
 u8 int_yos_luigi_te_tex_txt[] = {
@@ -94,7 +94,7 @@ u8 int_yos_luigi_te_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_kutu_tex_txt[0x80];
 #else
 u8 int_yos_luigi_kutu_tex_txt[] = {
@@ -102,7 +102,7 @@ u8 int_yos_luigi_kutu_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yos_luigi_fuda_tex_txt[0x20];
 #else
 u8 int_yos_luigi_fuda_tex_txt[] = {
@@ -110,7 +110,7 @@ u8 int_yos_luigi_fuda_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_yos_luigi_v[0x590 / sizeof(Vtx)];
 #else
 Vtx int_yos_luigi_v[] = {

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 log_win_nintendo2_tex[0x400];
 #else
 u8 log_win_nintendo2_tex[] = {

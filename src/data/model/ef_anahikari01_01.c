@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_anahikari01_02_int_i4[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_anahikari01_02_int_i4[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_anahikari01_02_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_anahikari01_01_v[0x140 / sizeof(Vtx)];
 #else
 Vtx ef_anahikari01_01_v[] = {
@@ -42,7 +42,7 @@ Gfx ef_anahikari01_01_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_anahikari01_01_int_i4[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_anahikari01_01_int_i4[] = {
@@ -50,7 +50,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_anahikari01_01_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_anahikari01_02_v[0x140 / sizeof(Vtx)];
 #else
 Vtx ef_anahikari01_02_v[] = {

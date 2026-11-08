@@ -26,7 +26,7 @@ cKF_Animation_R_c cKF_ba_r_int_hnw004 = {
     cKF_ckcb_r_int_hnw004_tbl, cKF_ds_int_hnw004_tbl, cKF_kn_int_hnw004_tbl, cKF_c_int_hnw004_tbl, -1, 129
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_hnw004_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_hnw004_pal[] = {
@@ -34,7 +34,7 @@ ATTRIBUTE_ALIGN(32) u16 int_hnw004_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hnw004_c_front_tex_txt[0x300];
 #else
 u8 int_hnw004_c_front_tex_txt[] = {
@@ -42,7 +42,7 @@ u8 int_hnw004_c_front_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hnw004_c_back_tex_txt[0x180];
 #else
 u8 int_hnw004_c_back_tex_txt[] = {
@@ -50,7 +50,7 @@ u8 int_hnw004_c_back_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hnw004_arm_tex_txt[0x100];
 #else
 u8 int_hnw004_arm_tex_txt[] = {
@@ -58,7 +58,7 @@ u8 int_hnw004_arm_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hnw004_armtop_tex_txt[0x80];
 #else
 u8 int_hnw004_armtop_tex_txt[] = {
@@ -66,7 +66,7 @@ u8 int_hnw004_armtop_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hnw004_b_back_tex_txt[0x80];
 #else
 u8 int_hnw004_b_back_tex_txt[] = {
@@ -74,7 +74,7 @@ u8 int_hnw004_b_back_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hnw004_b_front_tex_txt[0x100];
 #else
 u8 int_hnw004_b_front_tex_txt[] = {
@@ -82,7 +82,7 @@ u8 int_hnw004_b_front_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_hnw004_v[0x470 / sizeof(Vtx)];
 #else
 Vtx int_hnw004_v[] = {

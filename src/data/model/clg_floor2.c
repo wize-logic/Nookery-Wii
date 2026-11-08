@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) Vtx clg_floor2_v[0x240 / sizeof(Vtx)];
 #else
 ATTRIBUTE_ALIGN(32) Vtx clg_floor2_v[] = {

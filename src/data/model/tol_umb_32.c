@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx tol_umb_32_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_32_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_32_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_32_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_shop_umb_32_kasa1_tex_txt[0x200];
 #else
 static u8 obj_shop_umb_32_kasa1_tex_txt[] = {
@@ -22,7 +22,7 @@ static u8 obj_shop_umb_32_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_shop_umb_32_tuka1_tex_txt[0x200];
 #else
 static u8 obj_shop_umb_32_tuka1_tex_txt[] = {
@@ -30,7 +30,7 @@ static u8 obj_shop_umb_32_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_umb_32_v[0x380 / sizeof(Vtx)];
 #else
 Vtx tol_umb_32_v[] = {
@@ -73,7 +73,7 @@ Gfx e_umb32_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_tol_umb_32_c(void) {
     pc_load_asset("assets/tol_umb_32/obj_shop_umb_32_pal.bin", obj_shop_umb_32_pal, 0x20, 0x8BA160, 0, 1);

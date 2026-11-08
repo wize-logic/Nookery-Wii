@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_stone_shadow_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_stone_shadow_tex[]= {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_stone_shadow_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_stoneA_shadow_v[0xA0 / sizeof(Vtx)];
 #else
 Vtx obj_stoneA_shadow_v[] = { 

@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_circle_light_tex_4i4[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_circle_light_tex_4i4[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_circle_light_tex_4i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_circle_light_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_circle_light_v[] = {

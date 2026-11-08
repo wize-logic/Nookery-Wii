@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 hnw_face[0x20 / sizeof(u16)];
 #else
 u16 hnw_face[] = {
@@ -12,7 +12,7 @@ u16 hnw_face[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 hnw_tmem_txt[0x800];
 #else
 u8 hnw_tmem_txt[] = {

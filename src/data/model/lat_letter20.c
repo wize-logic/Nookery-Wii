@@ -8,7 +8,7 @@
 extern u8 lat_letter20_1[];
 extern u8 lat_letter20_sen[];
 extern u16 lat_letter20_pal[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx lat_letter20_v[0x80 / sizeof(Vtx)];
 #else
 Vtx lat_letter20_v[] = {

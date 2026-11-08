@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx clk_win_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 maru[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 maru[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 maru[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_am_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_am_tex_rgb_ia8[] = {
@@ -22,7 +22,7 @@ u8 clk_win_am_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_pm_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_pm_tex_rgb_ia8[] = {
@@ -30,7 +30,7 @@ u8 clk_win_pm_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_fri_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_fri_tex_rgb_ia8[] = {
@@ -38,7 +38,7 @@ u8 clk_win_fri_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_mon_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_mon_tex_rgb_ia8[] = {
@@ -46,7 +46,7 @@ u8 clk_win_mon_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_sat_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_sat_tex_rgb_ia8[] = {
@@ -54,7 +54,7 @@ u8 clk_win_sat_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_sun_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_sun_tex_rgb_ia8[] = {
@@ -62,7 +62,7 @@ u8 clk_win_sun_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_thu_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_thu_tex_rgb_ia8[] = {
@@ -70,7 +70,7 @@ u8 clk_win_thu_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_tue_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_tue_tex_rgb_ia8[] = {
@@ -78,7 +78,7 @@ u8 clk_win_tue_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 clk_win_wed_tex_rgb_ia8[0x400];
 #else
 u8 clk_win_wed_tex_rgb_ia8[] = {
@@ -86,7 +86,7 @@ u8 clk_win_wed_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx clk_win_v[0x140 / sizeof(Vtx)];
 #else
 Vtx clk_win_v[] = {

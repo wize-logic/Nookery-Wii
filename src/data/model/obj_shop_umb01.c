@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_01_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_01_kasa1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_01_kasa1_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_shop_umb_01_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_01_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_01_tuka1_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 obj_shop_umb_01_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb01_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb01_v[] = {
@@ -66,7 +66,7 @@ Gfx obj_shop_umb01_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb02_pal[] = {
@@ -74,7 +74,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb02_kasa2_tex_txt[0x200];
 #else
 static u8 tol_umb02_kasa2_tex_txt[] = {
@@ -82,7 +82,7 @@ static u8 tol_umb02_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb02_kasa1_tex_txt[0x200];
 #else
 static u8 tol_umb02_kasa1_tex_txt[] = {
@@ -90,7 +90,7 @@ static u8 tol_umb02_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb02_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb02_tuka_tex_txt[] = {
@@ -98,7 +98,7 @@ static u8 tol_umb02_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb02_v[0x3E0 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb02_v[] = {
@@ -140,7 +140,7 @@ Gfx obj_shop_umb02_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_03_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_03_pal[] = {
@@ -148,7 +148,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_03_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_03_kasa1_tex_txt[0x400];
 #else
 u8 obj_shop_umb_03_kasa1_tex_txt[] = {
@@ -156,7 +156,7 @@ u8 obj_shop_umb_03_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_03_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_03_tuka1_tex_txt[] = {
@@ -164,7 +164,7 @@ u8 obj_shop_umb_03_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb03_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb03_v[] = {
@@ -202,7 +202,7 @@ Gfx obj_shop_umb03_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_04_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_04_pal[] = {
@@ -210,7 +210,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_04_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_04_kasa2_tex_txt[0x100];
 #else
 u8 obj_shop_umb_04_kasa2_tex_txt[] = {
@@ -218,7 +218,7 @@ u8 obj_shop_umb_04_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_04_kasa1_tex_txt[0x100];
 #else
 u8 obj_shop_umb_04_kasa1_tex_txt[] = {
@@ -226,7 +226,7 @@ u8 obj_shop_umb_04_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_04_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_04_tuka1_tex_txt[] = {
@@ -234,7 +234,7 @@ u8 obj_shop_umb_04_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb04_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb04_v[] = {
@@ -274,7 +274,7 @@ Gfx obj_shop_umb04_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_05_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_05_pal[] = {
@@ -282,7 +282,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb_05_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb_05_kasa_tex_txt[0x200];
 #else
 static u8 tol_umb_05_kasa_tex_txt[] = {
@@ -290,7 +290,7 @@ static u8 tol_umb_05_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb_05_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb_05_tuka_tex_txt[] = {
@@ -298,7 +298,7 @@ static u8 tol_umb_05_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb05_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb05_v[] = {
@@ -335,7 +335,7 @@ Gfx obj_shop_umb05_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_06_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_06_pal[] = {
@@ -343,7 +343,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_06_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_06_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_06_tuka1_tex_txt[] = {
@@ -351,7 +351,7 @@ u8 obj_shop_umb_06_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_06_kasa1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_06_kasa1_tex_txt[] = {
@@ -359,7 +359,7 @@ u8 obj_shop_umb_06_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb06_v[0x5E0 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb06_v[] = {
@@ -401,7 +401,7 @@ Gfx obj_shop_umb06_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb07_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb07_pal[] = {
@@ -409,7 +409,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb07_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb07_kasa2_tex_txt[0x100];
 #else
 static u8 tol_umb07_kasa2_tex_txt[] = {
@@ -417,7 +417,7 @@ static u8 tol_umb07_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb07_kasa1_tex_txt[0x400];
 #else
 static u8 tol_umb07_kasa1_tex_txt[] = {
@@ -425,7 +425,7 @@ static u8 tol_umb07_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb07_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb07_tuka_tex_txt[] = {
@@ -433,7 +433,7 @@ static u8 tol_umb07_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb07_v[0x260 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb07_v[] = {
@@ -476,7 +476,7 @@ Gfx obj_shop_umb07_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb08_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb08_pal[] = {
@@ -484,7 +484,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb08_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb08_kasa1_tex_txt[0x200];
 #else
 static u8 tol_umb08_kasa1_tex_txt[] = {
@@ -492,7 +492,7 @@ static u8 tol_umb08_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb08_kasa2_tex_txt[0x40];
 #else
 static u8 tol_umb08_kasa2_tex_txt[] = {
@@ -500,7 +500,7 @@ static u8 tol_umb08_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb08_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb08_tuka_tex_txt[] = {
@@ -508,7 +508,7 @@ static u8 tol_umb08_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb08_v[0x390 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb08_v[] = {
@@ -549,7 +549,7 @@ Gfx obj_shop_umb08_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb09_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb09_pal[] = {
@@ -557,7 +557,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb09_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb09_kasa1_tex_txt[0x200];
 #else
 static u8 tol_umb09_kasa1_tex_txt[] = {
@@ -565,7 +565,7 @@ static u8 tol_umb09_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb09_kasa2_tex_txt[0x40];
 #else
 static u8 tol_umb09_kasa2_tex_txt[] = {
@@ -573,7 +573,7 @@ static u8 tol_umb09_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb09_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb09_tuka_tex_txt[] = {
@@ -581,7 +581,7 @@ static u8 tol_umb09_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb09_v[0x390 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb09_v[] = {
@@ -622,7 +622,7 @@ Gfx obj_shop_umb09_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb10_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb10_pal[] = {
@@ -630,7 +630,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb10_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb10_kasa1_tex_txt[0x200];
 #else
 static u8 tol_umb10_kasa1_tex_txt[] = {
@@ -638,7 +638,7 @@ static u8 tol_umb10_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb10_kasa2_tex_txt[0x40];
 #else
 static u8 tol_umb10_kasa2_tex_txt[] = {
@@ -646,7 +646,7 @@ static u8 tol_umb10_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb10_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb10_tuka_tex_txt[] = {
@@ -654,7 +654,7 @@ static u8 tol_umb10_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb10_v[0x390 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb10_v[] = {
@@ -695,7 +695,7 @@ Gfx obj_shop_umb10_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb11_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb11_pal[] = {
@@ -703,7 +703,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb11_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb11_kasa1_tex_txt[0x200];
 #else
 static u8 tol_umb11_kasa1_tex_txt[] = {
@@ -711,7 +711,7 @@ static u8 tol_umb11_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb11_kasa2_tex_txt[0x40];
 #else
 static u8 tol_umb11_kasa2_tex_txt[] = {
@@ -719,7 +719,7 @@ static u8 tol_umb11_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb11_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb11_tuka_tex_txt[] = {
@@ -727,7 +727,7 @@ static u8 tol_umb11_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb11_v[0x390 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb11_v[] = {
@@ -768,7 +768,7 @@ Gfx obj_shop_umb11_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb12_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb12_pal[] = {
@@ -776,7 +776,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb12_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb12_kasa1_tex_txt[0x400];
 #else
 static u8 tol_umb12_kasa1_tex_txt[] = {
@@ -784,7 +784,7 @@ static u8 tol_umb12_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb12_kasa2_tex_txt[0x40];
 #else
 static u8 tol_umb12_kasa2_tex_txt[] = {
@@ -792,7 +792,7 @@ static u8 tol_umb12_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb12_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb12_tuka_tex_txt[] = {
@@ -800,7 +800,7 @@ static u8 tol_umb12_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb12_v[0x390 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb12_v[] = {
@@ -841,7 +841,7 @@ Gfx obj_shop_umb12_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb13_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb13_pal[] = {
@@ -849,7 +849,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb13_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb13_kasa1_tex_txt[0x200];
 #else
 static u8 tol_umb13_kasa1_tex_txt[] = {
@@ -857,7 +857,7 @@ static u8 tol_umb13_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb13_kasa2_tex_txt[0x40];
 #else
 static u8 tol_umb13_kasa2_tex_txt[] = {
@@ -865,7 +865,7 @@ static u8 tol_umb13_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb13_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb13_tuka_tex_txt[] = {
@@ -873,7 +873,7 @@ static u8 tol_umb13_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb13_v[0x390 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb13_v[] = {
@@ -914,7 +914,7 @@ Gfx obj_shop_umb13_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_14_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_14_pal[] = {
@@ -922,7 +922,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb_14_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb_14_kasa_tex_txt[0x200];
 #else
 static u8 tol_umb_14_kasa_tex_txt[] = {
@@ -930,7 +930,7 @@ static u8 tol_umb_14_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb_14_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb_14_tuka_tex_txt[] = {
@@ -938,7 +938,7 @@ static u8 tol_umb_14_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb14_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb14_v[] = {
@@ -975,7 +975,7 @@ Gfx obj_shop_umb14_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_15_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_15_pal[] = {
@@ -983,7 +983,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_15_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_15_kasa1_tex_txt[0x100];
 #else
 u8 obj_shop_umb_15_kasa1_tex_txt[] = {
@@ -991,7 +991,7 @@ u8 obj_shop_umb_15_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_15_kasa2_tex_txt[0x200];
 #else
 u8 obj_shop_umb_15_kasa2_tex_txt[] = {
@@ -999,7 +999,7 @@ u8 obj_shop_umb_15_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_15_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_15_tuka1_tex_txt[] = {
@@ -1007,7 +1007,7 @@ u8 obj_shop_umb_15_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb15_v[0x3C0 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb15_v[] = {
@@ -1046,7 +1046,7 @@ Gfx obj_shop_umb15_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_16_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_16_pal[] = {
@@ -1054,7 +1054,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_16_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_16_kasa1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_16_kasa1_tex_txt[] = {
@@ -1062,7 +1062,7 @@ u8 obj_shop_umb_16_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_16_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_16_tuka1_tex_txt[] = {
@@ -1070,7 +1070,7 @@ u8 obj_shop_umb_16_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb16_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb16_v[] = {
@@ -1107,7 +1107,7 @@ Gfx obj_shop_umb16_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_17_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_17_pal[] = {
@@ -1115,7 +1115,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_17_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_17_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_17_tuka1_tex_txt[] = {
@@ -1123,7 +1123,7 @@ u8 obj_shop_umb_17_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_17_kasa1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_17_kasa1_tex_txt[] = {
@@ -1131,7 +1131,7 @@ u8 obj_shop_umb_17_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb17_v[0x4D0 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb17_v[] = {
@@ -1173,7 +1173,7 @@ Gfx obj_shop_umb17_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb18_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb18_pal[] = {
@@ -1181,7 +1181,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb18_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb18_kasa1_tex_txt[0x100];
 #else
 static u8 tol_umb18_kasa1_tex_txt[] = {
@@ -1189,7 +1189,7 @@ static u8 tol_umb18_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb18_kasa2_tex_txt[0x80];
 #else
 static u8 tol_umb18_kasa2_tex_txt[] = {
@@ -1197,7 +1197,7 @@ static u8 tol_umb18_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb18_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb18_tuka_tex_txt[] = {
@@ -1205,7 +1205,7 @@ static u8 tol_umb18_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb18_v[0x390 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb18_v[] = {
@@ -1246,7 +1246,7 @@ Gfx obj_shop_umb18_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_19_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_19_pal[] = {
@@ -1254,7 +1254,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_19_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_19_e_tex_txt[0x80];
 #else
 u8 obj_shop_umb_19_e_tex_txt[] = {
@@ -1262,7 +1262,7 @@ u8 obj_shop_umb_19_e_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_19_kasa_tex_txt[0x200];
 #else
 u8 obj_shop_umb_19_kasa_tex_txt[] = {
@@ -1270,7 +1270,7 @@ u8 obj_shop_umb_19_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_19_tuka_tex_txt[0x200];
 #else
 u8 obj_shop_umb_19_tuka_tex_txt[] = {
@@ -1278,7 +1278,7 @@ u8 obj_shop_umb_19_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb19_v[0x400 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb19_v[] = {
@@ -1321,7 +1321,7 @@ Gfx obj_shop_umb19_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_20_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_20_pal[] = {
@@ -1329,7 +1329,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_20_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_20_e_tex_txt[0x80];
 #else
 u8 obj_shop_umb_20_e_tex_txt[] = {
@@ -1337,7 +1337,7 @@ u8 obj_shop_umb_20_e_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_20_kasa_tex_txt[0x400];
 #else
 u8 obj_shop_umb_20_kasa_tex_txt[] = {
@@ -1345,7 +1345,7 @@ u8 obj_shop_umb_20_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb20_v[0x270 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb20_v[] = {
@@ -1383,7 +1383,7 @@ Gfx obj_shop_umb20_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_21_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_21_pal[] = {
@@ -1391,7 +1391,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_21_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_21_kasa_tex_txt[0x400];
 #else
 u8 obj_shop_umb_21_kasa_tex_txt[] = {
@@ -1399,7 +1399,7 @@ u8 obj_shop_umb_21_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_21_tuka_tex_txt[0x200];
 #else
 u8 obj_shop_umb_21_tuka_tex_txt[] = {
@@ -1407,7 +1407,7 @@ u8 obj_shop_umb_21_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb21_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb21_v[] = {
@@ -1447,7 +1447,7 @@ Gfx obj_shop_umb21_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_22_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_22_pal[] = {
@@ -1455,7 +1455,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb_22_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_22_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_22_pal[] = {
@@ -1463,7 +1463,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_22_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_22_kasa_tex_txt[0x200];
 #else
 u8 obj_shop_umb_22_kasa_tex_txt[] = {
@@ -1471,7 +1471,7 @@ u8 obj_shop_umb_22_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_22_e_tex_txt[0x100];
 #else
 u8 obj_shop_umb_22_e_tex_txt[] = {
@@ -1479,7 +1479,7 @@ u8 obj_shop_umb_22_e_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb22_v[0x480 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb22_v[] = {
@@ -1521,7 +1521,7 @@ Gfx obj_shop_umb22_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_23_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_23_pal[] = {
@@ -1529,7 +1529,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_23_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_23_kasa_tex_txt[0x400];
 #else
 u8 obj_shop_umb_23_kasa_tex_txt[] = {
@@ -1537,7 +1537,7 @@ u8 obj_shop_umb_23_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_23_e_tex_txt[0x80];
 #else
 u8 obj_shop_umb_23_e_tex_txt[] = {
@@ -1545,7 +1545,7 @@ u8 obj_shop_umb_23_e_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_23_tuka_tex_txt[0x200];
 #else
 u8 obj_shop_umb_23_tuka_tex_txt[] = {
@@ -1553,7 +1553,7 @@ u8 obj_shop_umb_23_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb23_v[0x360 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb23_v[] = {
@@ -1593,7 +1593,7 @@ Gfx obj_shop_umb23_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_24_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_24_pal[] = {
@@ -1601,7 +1601,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_24_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_24_kasa1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_24_kasa1_tex_txt[] = {
@@ -1609,7 +1609,7 @@ u8 obj_shop_umb_24_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_24_kasa2_tex_txt[0x200];
 #else
 u8 obj_shop_umb_24_kasa2_tex_txt[] = {
@@ -1617,7 +1617,7 @@ u8 obj_shop_umb_24_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_24_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_24_tuka1_tex_txt[] = {
@@ -1625,7 +1625,7 @@ u8 obj_shop_umb_24_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb24_v[0x3C0 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb24_v[] = {
@@ -1664,7 +1664,7 @@ Gfx obj_shop_umb24_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_25_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_25_pal[] = {
@@ -1672,7 +1672,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb_25_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb_25_ya_tex_txt[0x200];
 #else
 static u8 tol_umb_25_ya_tex_txt[] = {
@@ -1680,7 +1680,7 @@ static u8 tol_umb_25_ya_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb_25_kasa_tex_txt[0x200];
 #else
 static u8 tol_umb_25_kasa_tex_txt[] = {
@@ -1688,7 +1688,7 @@ static u8 tol_umb_25_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb25_v[0x350 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb25_v[] = {
@@ -1725,7 +1725,7 @@ Gfx obj_shop_umb25_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_26_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_26_pal[] = {
@@ -1733,7 +1733,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_26_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_26_kasa1_tex_txt[0x100];
 #else
 u8 obj_shop_umb_26_kasa1_tex_txt[] = {
@@ -1741,7 +1741,7 @@ u8 obj_shop_umb_26_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_26_kasa2_tex_txt[0x200];
 #else
 u8 obj_shop_umb_26_kasa2_tex_txt[] = {
@@ -1749,7 +1749,7 @@ u8 obj_shop_umb_26_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_26_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_26_tuka1_tex_txt[] = {
@@ -1757,7 +1757,7 @@ u8 obj_shop_umb_26_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb26_v[0x3C0 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb26_v[] = {
@@ -1798,7 +1798,7 @@ Gfx obj_shop_umb26_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_27_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_27_pal[] = {
@@ -1806,7 +1806,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_27_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_27_kasa1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_27_kasa1_tex_txt[] = {
@@ -1814,7 +1814,7 @@ u8 obj_shop_umb_27_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_27_kasa2_tex_txt[0x200];
 #else
 u8 obj_shop_umb_27_kasa2_tex_txt[] = {
@@ -1822,7 +1822,7 @@ u8 obj_shop_umb_27_kasa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_27_e_tex_txt[0x100];
 #else
 u8 obj_shop_umb_27_e_tex_txt[] = {
@@ -1830,7 +1830,7 @@ u8 obj_shop_umb_27_e_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb27_v[0x480 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb27_v[] = {
@@ -1876,7 +1876,7 @@ Gfx obj_shop_umb27_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_28_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_28_pal[] = {
@@ -1884,7 +1884,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_28_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_28_kasa_tex_txt[0x200];
 #else
 u8 obj_shop_umb_28_kasa_tex_txt[] = {
@@ -1892,7 +1892,7 @@ u8 obj_shop_umb_28_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_28_tuka_tex_txt[0x200];
 #else
 u8 obj_shop_umb_28_tuka_tex_txt[] = {
@@ -1900,7 +1900,7 @@ u8 obj_shop_umb_28_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb28_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb28_v[] = {
@@ -1937,7 +1937,7 @@ Gfx obj_shop_umb28_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_29_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_29_pal[] = {
@@ -1945,7 +1945,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_29_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_29_kasa1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_29_kasa1_tex_txt[] = {
@@ -1953,7 +1953,7 @@ u8 obj_shop_umb_29_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_29_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_29_tuka1_tex_txt[] = {
@@ -1961,7 +1961,7 @@ u8 obj_shop_umb_29_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb29_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb29_v[] = {
@@ -1998,7 +1998,7 @@ Gfx obj_shop_umb29_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_30_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_30_pal[] = {
@@ -2006,7 +2006,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_30_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_30_kasa1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_30_kasa1_tex_txt[] = {
@@ -2014,7 +2014,7 @@ u8 obj_shop_umb_30_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_30_tuka1_tex_txt[0x200];
 #else
 u8 obj_shop_umb_30_tuka1_tex_txt[] = {
@@ -2022,7 +2022,7 @@ u8 obj_shop_umb_30_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb30_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb30_v[] = {
@@ -2060,7 +2060,7 @@ Gfx obj_shop_umb30_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_31_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_31_pal[] = {
@@ -2068,7 +2068,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_umb_31_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_31_e_tex_txt[0x80];
 #else
 u8 obj_shop_umb_31_e_tex_txt[] = {
@@ -2076,7 +2076,7 @@ u8 obj_shop_umb_31_e_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_31_kasa_tex_txt[0x200];
 #else
 u8 obj_shop_umb_31_kasa_tex_txt[] = {
@@ -2084,7 +2084,7 @@ u8 obj_shop_umb_31_kasa_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_shop_umb_31_tuka_tex_txt[0x200];
 #else
 u8 obj_shop_umb_31_tuka_tex_txt[] = {
@@ -2092,7 +2092,7 @@ u8 obj_shop_umb_31_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb31_v[0x360 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb31_v[] = {
@@ -2133,7 +2133,7 @@ Gfx obj_shop_umb31_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_32_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_32_pal[] = {
@@ -2141,7 +2141,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_shop_umb_32_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_shop_umb_32_tuka1_tex_txt[0x200];
 #else
 static u8 obj_shop_umb_32_tuka1_tex_txt[] = {
@@ -2149,7 +2149,7 @@ static u8 obj_shop_umb_32_tuka1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 obj_shop_umb_32_kasa1_tex_txt[0x200];
 #else
 static u8 obj_shop_umb_32_kasa1_tex_txt[] = {
@@ -2157,7 +2157,7 @@ static u8 obj_shop_umb_32_kasa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb32_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb32_v[] = {
@@ -2194,7 +2194,7 @@ Gfx obj_shop_umb32_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_w_tuka_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 tol_umb_w_tuka_pal[] = {
@@ -2202,7 +2202,7 @@ ATTRIBUTE_ALIGN(32) static u16 tol_umb_w_tuka_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 tol_umb_w_tuka_tex_txt[0x200];
 #else
 static u8 tol_umb_w_tuka_tex_txt[] = {
@@ -2210,7 +2210,7 @@ static u8 tol_umb_w_tuka_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_umb_w_v[0x380 / sizeof(Vtx)];
 #else
 Vtx obj_shop_umb_w_v[] = {
@@ -2245,7 +2245,7 @@ Gfx obj_shop_umbmy_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_shop_umb01_c(void) {
     pc_load_asset("assets/obj_shop_umb01/tol_umb02_pal.bin", tol_umb02_pal, 0x20, 0x8A86A0, 0, 1);

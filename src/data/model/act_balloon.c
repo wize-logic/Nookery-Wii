@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_balloon_wire_tex_txt[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_balloon_wire_tex_txt[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u8 act_balloon_wire_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_balloon_head_tex_rgb_ia8[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_balloon_head_tex_rgb_ia8[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 act_balloon_head_tex_rgb_ia8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_balloon_v[0x340 / sizeof(Vtx)];
 #else
 Vtx act_balloon_v[] = {

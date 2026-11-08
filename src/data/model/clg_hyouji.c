@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_top_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_top_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 clg_win_bottom_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 clg_win_bottom_tex[] = {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u8 clg_win_bottom_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 cat_c_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 cat_c_tex[] = {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u8 cat_c_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 yaji[0x80];
 #else
 static u8 yaji[] = {
@@ -37,7 +37,7 @@ static u8 yaji[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx clg_hyouji_v[0x140 / sizeof(Vtx)];
 #else
 Vtx clg_hyouji_v[] = {
@@ -75,7 +75,7 @@ Gfx clg_win_cbT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_clg_hyouji_c(void) {
     pc_load_asset("assets/clg_hyouji/yaji.bin", yaji, 0x80, 0x6C2BA0, 0, 0);

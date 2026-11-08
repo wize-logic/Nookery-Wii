@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_log_chair03_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_log_chair03_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_log_chair03_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_log_chair03_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chair03_seat_tex[0x100];
 #else
 u8 int_sum_log_chair03_seat_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_log_chair03_seat_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chair03_seatside_tex[0x80];
 #else
 u8 int_sum_log_chair03_seatside_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_log_chair03_seatside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chair03_head_tex[0x100];
 #else
 u8 int_sum_log_chair03_head_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_log_chair03_head_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chair03_headtop_tex[0x80];
 #else
 u8 int_sum_log_chair03_headtop_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_log_chair03_headtop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_log_chair03_foot_tex[0x100];
 #else
 u8 int_sum_log_chair03_foot_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_log_chair03_foot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_log_chair03_v[0x420 / sizeof(Vtx)];
 #else
 Vtx int_sum_log_chair03_v[] = {

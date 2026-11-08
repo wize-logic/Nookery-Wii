@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[] = {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_myhome_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_myhome_window_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_myhome_window_tex[] = {
@@ -20,7 +20,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_myhome_window_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_myhome_enter2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_myhome_enter2_tex[] = {
@@ -28,7 +28,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_myhome_enter2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx rom_myhome3_wall_v[0x4F0 / sizeof(Vtx)];
 #else
 Vtx rom_myhome3_wall_v[] = {
@@ -183,7 +183,7 @@ Gfx rom_myhome3_wall_new2_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_rom_myhome3_wall_c(void) {
     pc_load_asset("assets/rom_myhome3_wall/rom_myhome_pal.bin", rom_myhome_pal, 0x20, 0x594E40, 0, 1);

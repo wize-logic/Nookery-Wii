@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 tim_win_newtokei_tex[0x20];
 #else
 ATTRIBUTE_ALIGN(32) u8 tim_win_newtokei_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 tim_win_newtokei_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 tim_win_nuno_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 tim_win_nuno_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ u16 tim_win_nuno_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 tim_win_sw1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 tim_win_sw1_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ u16 tim_win_sw1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 tim_win_sw2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 tim_win_sw2_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ u16 tim_win_sw2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 tim_win_sw3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 tim_win_sw3_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ u16 tim_win_sw3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 tim_win_sw4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 tim_win_sw4_tex_rgb_ci4_pal[] = {
@@ -53,7 +53,7 @@ u16 tim_win_sw4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 tim_win_sw5_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 tim_win_sw5_tex_rgb_ci4_pal[] = {
@@ -61,7 +61,7 @@ u16 tim_win_sw5_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 tim_win_sw6_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 tim_win_sw6_tex_rgb_ci4_pal[] = {
@@ -69,7 +69,7 @@ u16 tim_win_sw6_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 tim_win_sw7_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 tim_win_sw7_tex_rgb_ci4_pal[] = {
@@ -77,7 +77,7 @@ u16 tim_win_sw7_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_tokei1_tex[0x800];
 #else
 u8 tim_win_tokei1_tex[] = {
@@ -85,7 +85,7 @@ u8 tim_win_tokei1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_fuki_tex[0x800];
 #else
 u8 tim_win_fuki_tex[] = {
@@ -93,7 +93,7 @@ u8 tim_win_fuki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_moji_tex[0x80];
 #else
 u8 tim_win_moji_tex[] = {
@@ -101,7 +101,7 @@ u8 tim_win_moji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_on_tex[0x80];
 #else
 u8 tim_win_on_tex[] = {
@@ -109,7 +109,7 @@ u8 tim_win_on_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 testmocomma[0x80];
 #else
 u8 testmocomma[] = {
@@ -117,7 +117,7 @@ u8 testmocomma[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_maru_tex[0x80];
 #else
 u8 tim_win_maru_tex[] = {
@@ -125,7 +125,7 @@ u8 tim_win_maru_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_w1_tex[0x400];
 #else
 u8 tim_win_w1_tex[] = {
@@ -133,7 +133,7 @@ u8 tim_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_w2_tex[0x400];
 #else
 u8 tim_win_w2_tex[] = {
@@ -141,7 +141,7 @@ u8 tim_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_w3_tex[0x200];
 #else
 u8 tim_win_w3_tex[] = {
@@ -149,7 +149,7 @@ u8 tim_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_w4_tex[0x400];
 #else
 u8 tim_win_w4_tex[] = {
@@ -157,7 +157,7 @@ u8 tim_win_w4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_w5_tex[0x400];
 #else
 u8 tim_win_w5_tex[] = {
@@ -165,7 +165,7 @@ u8 tim_win_w5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_april_tex_rgb_i4[0x200];
 #else
 u8 tim_win_april_tex_rgb_i4[] = {
@@ -173,7 +173,7 @@ u8 tim_win_april_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_august_tex_rgb_i4[0x200];
 #else
 u8 tim_win_august_tex_rgb_i4[] = {
@@ -181,7 +181,7 @@ u8 tim_win_august_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_december_tex_rgb_i4[0x200];
 #else
 u8 tim_win_december_tex_rgb_i4[] = {
@@ -189,7 +189,7 @@ u8 tim_win_december_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_february_tex_rgb_i4[0x200];
 #else
 u8 tim_win_february_tex_rgb_i4[] = {
@@ -197,7 +197,7 @@ u8 tim_win_february_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_january_tex_rgb_i4[0x200];
 #else
 u8 tim_win_january_tex_rgb_i4[] = {
@@ -205,7 +205,7 @@ u8 tim_win_january_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_july_tex_rgb_i4[0x200];
 #else
 u8 tim_win_july_tex_rgb_i4[] = {
@@ -213,7 +213,7 @@ u8 tim_win_july_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_june_tex_rgb_i4[0x200];
 #else
 u8 tim_win_june_tex_rgb_i4[] = {
@@ -221,7 +221,7 @@ u8 tim_win_june_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_march_tex_rgb_i4[0x200];
 #else
 u8 tim_win_march_tex_rgb_i4[] = {
@@ -229,7 +229,7 @@ u8 tim_win_march_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_may_tex_rgb_i4[0x200];
 #else
 u8 tim_win_may_tex_rgb_i4[] = {
@@ -237,7 +237,7 @@ u8 tim_win_may_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_november_tex_rgb_i4[0x200];
 #else
 u8 tim_win_november_tex_rgb_i4[] = {
@@ -245,7 +245,7 @@ u8 tim_win_november_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_october_tex_rgb_i4[0x200];
 #else
 u8 tim_win_october_tex_rgb_i4[] = {
@@ -253,7 +253,7 @@ u8 tim_win_october_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_september_tex_rgb_i4[0x200];
 #else
 u8 tim_win_september_tex_rgb_i4[] = {
@@ -261,7 +261,7 @@ u8 tim_win_september_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_fri_tex_rgb_i4[0x200];
 #else
 u8 tim_win_fri_tex_rgb_i4[] = {
@@ -269,7 +269,7 @@ u8 tim_win_fri_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_mon_tex_rgb_i4[0x200];
 #else
 u8 tim_win_mon_tex_rgb_i4[] = {
@@ -277,7 +277,7 @@ u8 tim_win_mon_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sat_tex_rgb_i4[0x200];
 #else
 u8 tim_win_sat_tex_rgb_i4[] = {
@@ -285,7 +285,7 @@ u8 tim_win_sat_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sun_tex_rgb_i4[0x200];
 #else
 u8 tim_win_sun_tex_rgb_i4[] = {
@@ -293,7 +293,7 @@ u8 tim_win_sun_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_thu_tex_rgb_i4[0x200];
 #else
 u8 tim_win_thu_tex_rgb_i4[] = {
@@ -301,7 +301,7 @@ u8 tim_win_thu_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_tue_tex_rgb_i4[0x200];
 #else
 u8 tim_win_tue_tex_rgb_i4[] = {
@@ -309,7 +309,7 @@ u8 tim_win_tue_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_wed_tex_rgb_i4[0x200];
 #else
 u8 tim_win_wed_tex_rgb_i4[] = {
@@ -317,7 +317,7 @@ u8 tim_win_wed_tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_nuno_tex_rgb_ci4[0x200];
 #else
 u8 tim_win_nuno_tex_rgb_ci4[] = {
@@ -325,7 +325,7 @@ u8 tim_win_nuno_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sw1_tex_rgb_ci4[0x400];
 #else
 u8 tim_win_sw1_tex_rgb_ci4[] = {
@@ -333,7 +333,7 @@ u8 tim_win_sw1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sw2_tex_rgb_ci4[0x400];
 #else
 u8 tim_win_sw2_tex_rgb_ci4[] = {
@@ -341,7 +341,7 @@ u8 tim_win_sw2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sw3_tex_rgb_ci4[0x400];
 #else
 u8 tim_win_sw3_tex_rgb_ci4[] = {
@@ -349,7 +349,7 @@ u8 tim_win_sw3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sw4_tex_rgb_ci4[0x400];
 #else
 u8 tim_win_sw4_tex_rgb_ci4[] = {
@@ -357,7 +357,7 @@ u8 tim_win_sw4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sw5_tex_rgb_ci4[0x400];
 #else
 u8 tim_win_sw5_tex_rgb_ci4[] = {
@@ -365,7 +365,7 @@ u8 tim_win_sw5_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sw6_tex_rgb_ci4[0x400];
 #else
 u8 tim_win_sw6_tex_rgb_ci4[] = {
@@ -373,7 +373,7 @@ u8 tim_win_sw6_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tim_win_sw7_tex_rgb_ci4[0x400];
 #else
 u8 tim_win_sw7_tex_rgb_ci4[] = {
@@ -381,7 +381,7 @@ u8 tim_win_sw7_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tim_win_v[0x870 / sizeof(Vtx)];
 #else
 Vtx tim_win_v[] = {
@@ -431,7 +431,7 @@ Gfx tim_win_moji_model[] = {
     gsDPSetTextureImage_Dolphin(G_IM_FMT_I, G_IM_SIZ_4b, 16, 16, tim_win_on_tex),
     gsDPSetTile_Dolphin(G_DOLPHIN_TLUT_DEFAULT_MODE, 0, 15, GX_CLAMP, GX_CLAMP, 0, 0),
     gsSPNTrianglesInit_5b(2, 12, 13, 14, 13, 15, 14, 0, 0, 0),
-#ifndef TARGET_PC
+#ifndef ACGC_PORT
     gsDPSetTextureImage_Dolphin(G_IM_FMT_I, G_IM_SIZ_4b, 16, 16, tim_win_moji_tex),
     gsDPSetTile_Dolphin(G_DOLPHIN_TLUT_DEFAULT_MODE, 0, 15, GX_CLAMP, GX_CLAMP, 0, 0),
     gsSPNTrianglesInit_5b(2, 16, 17, 18, 17, 19, 18, 0, 0, 0),

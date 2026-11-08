@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_cont_table02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_cont_table02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_cont_table02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_cont_table02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 int_sum_cont_table01_pal[0x20 / sizeof(u16)];
 #else
 static u16 int_sum_cont_table01_pal[] = {
@@ -22,7 +22,7 @@ static u16 int_sum_cont_table01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_table02_top_tex[0x200];
 #else
 u8 int_sum_cont_table02_top_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_cont_table02_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 int_sum_cont_table01_topside_tex[0x80];
 #else
 static u8 int_sum_cont_table01_topside_tex[] = {
@@ -38,7 +38,7 @@ static u8 int_sum_cont_table01_topside_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_table02_side_tex[0x80];
 #else
 u8 int_sum_cont_table02_side_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_cont_table02_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_cont_table02_foot_tex[0x200];
 #else
 u8 int_sum_cont_table02_foot_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_cont_table02_foot_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_cont_table02_v[0x380 / sizeof(Vtx)];
 #else
 Vtx int_sum_cont_table02_v[] = {
@@ -105,7 +105,7 @@ Gfx int_sum_cont_table02_onT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_sum_cont_table02_c(void) {
     pc_load_asset("assets/int_sum_cont_table02/int_sum_cont_table01_pal.bin", int_sum_cont_table01_pal, 0x20, 0xCACA80, 0, 1);

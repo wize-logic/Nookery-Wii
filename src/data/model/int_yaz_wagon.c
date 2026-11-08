@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_yaz_wagon_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_yaz_wagon_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_yaz_wagon_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_yaz_wagon_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_wagon_wood_tex_txt[0x200];
 #else
 u8 int_yaz_wagon_wood_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_yaz_wagon_wood_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_wagon_jiku_tex_txt[0x20];
 #else
 u8 int_yaz_wagon_jiku_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_yaz_wagon_jiku_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_wagon_horo2_tex_txt[0x120];
 #else
 u8 int_yaz_wagon_horo2_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_yaz_wagon_horo2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_wagon_horo_tex_txt[0x300];
 #else
 u8 int_yaz_wagon_horo_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_yaz_wagon_horo_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_yaz_wagon_wheel_tex_txt[0x200];
 #else
 u8 int_yaz_wagon_wheel_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_yaz_wagon_wheel_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_yaz_wagon_v[0x5D0 / sizeof(Vtx)];
 #else
 Vtx int_yaz_wagon_v[] = {

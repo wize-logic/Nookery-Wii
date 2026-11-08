@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_table02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_table02_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_table02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_table02_top_tex[0x400];
 #else
 u8 int_tak_table02_top_tex[] = {
@@ -21,7 +21,7 @@ u8 int_tak_table02_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_table02_under_tex[0x200];
 #else
 u8 int_tak_table02_under_tex[] = {
@@ -29,7 +29,7 @@ u8 int_tak_table02_under_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_table02_wa_tex[0x80];
 #else
 u8 int_tak_table02_wa_tex[] = {
@@ -37,7 +37,7 @@ u8 int_tak_table02_wa_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_table02_asi_tex[0x100];
 #else
 u8 int_tak_table02_asi_tex[] = {
@@ -45,7 +45,7 @@ u8 int_tak_table02_asi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_table02_v[0x1C0 / sizeof(Vtx)];
 #else
 Vtx int_tak_table02_v[] = {

@@ -11,7 +11,7 @@ extern u16 lat_letter10_pal[];
 extern u8 lat_letter10_5[];
 extern u8 lat_letter10_3[];
 extern u8 lat_letter10_2[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx lat_letter10_v[0x340 / sizeof(Vtx)];
 #else
 Vtx lat_letter10_v[] = {

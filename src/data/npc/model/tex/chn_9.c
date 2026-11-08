@@ -1,6 +1,6 @@
 #include <dolphin/types.h>
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned short chn_9_pal[0x20 / sizeof(unsigned short)];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned short chn_9_pal[] = {
@@ -8,7 +8,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned short chn_9_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_eye1_TA_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye1_TA_tex_txt[] = {
@@ -16,7 +16,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye1_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_eye2_TA_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye2_TA_tex_txt[] = {
@@ -24,7 +24,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye2_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_eye3_TA_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye3_TA_tex_txt[] = {
@@ -32,7 +32,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye3_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_eye4_TA_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye4_TA_tex_txt[] = {
@@ -40,7 +40,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye4_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_eye5_TA_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye5_TA_tex_txt[] = {
@@ -48,7 +48,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye5_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_eye6_TA_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye6_TA_tex_txt[] = {
@@ -56,7 +56,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye6_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_eye7_TA_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye7_TA_tex_txt[] = {
@@ -64,7 +64,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye7_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_eye8_TA_tex_txt[0x100];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye8_TA_tex_txt[] = {
@@ -72,7 +72,7 @@ ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_eye8_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) unsigned char chn_9_tmem_txt[0x4C0];
 #else
 ATTRIBUTE_ALIGN(32) extern unsigned char chn_9_tmem_txt[] = {

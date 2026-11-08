@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 lat_tegami_sw3_tex[0x1000];
 #else
 ATTRIBUTE_ALIGN(32) u8 lat_tegami_sw3_tex[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 lat_tegami_sw3_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx lat_sentaku2_v[0xB0 / sizeof(Vtx)];
 #else
 Vtx lat_sentaku2_v[] = {

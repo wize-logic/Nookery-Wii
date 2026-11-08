@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_e_count02_0_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_e_count02_0_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_e_count02_0_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_1_tex[0x200];
 #else
 u8 obj_e_count02_1_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_e_count02_1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_2_tex[0x200];
 #else
 u8 obj_e_count02_2_tex[] = {
@@ -29,7 +29,7 @@ u8 obj_e_count02_2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_3_tex[0x200];
 #else
 u8 obj_e_count02_3_tex[] = {
@@ -37,7 +37,7 @@ u8 obj_e_count02_3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_4_tex[0x200];
 #else
 u8 obj_e_count02_4_tex[] = {
@@ -45,7 +45,7 @@ u8 obj_e_count02_4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_5_tex[0x200];
 #else
 u8 obj_e_count02_5_tex[] = {
@@ -53,7 +53,7 @@ u8 obj_e_count02_5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_6_tex[0x200];
 #else
 u8 obj_e_count02_6_tex[] = {
@@ -61,7 +61,7 @@ u8 obj_e_count02_6_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_7_tex[0x200];
 #else
 u8 obj_e_count02_7_tex[] = {
@@ -69,7 +69,7 @@ u8 obj_e_count02_7_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_8_tex[0x200];
 #else
 u8 obj_e_count02_8_tex[] = {
@@ -77,7 +77,7 @@ u8 obj_e_count02_8_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_e_count02_9_tex[0x200];
 #else
 u8 obj_e_count02_9_tex[] = {
@@ -85,7 +85,7 @@ u8 obj_e_count02_9_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_e_count02_cl_v[0x100 / sizeof(Vtx)];
 #else
 Vtx obj_e_count02_cl_v[] = {

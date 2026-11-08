@@ -1,7 +1,7 @@
 #include "libforest/gbi_extensions.h"
 #include "PR/gbi.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_ant_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_ant_tex[] = {
@@ -9,7 +9,7 @@ ATTRIBUTE_ALIGN(32) u8 act_ant_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_ant_v[0xB0 / sizeof(Vtx)];
 #else
 Vtx act_ant_v[] = {

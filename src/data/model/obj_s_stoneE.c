@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_stoneE_v[0xF0 / sizeof(Vtx)];
 #else
 Vtx obj_s_stoneE_v[] = {

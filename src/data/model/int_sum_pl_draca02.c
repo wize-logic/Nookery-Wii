@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_pl_draca02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_pl_draca02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_pl_draca02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_pl_draca02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 int_sum_pl_kuroton_pal[0x20 / sizeof(u16)];
 #else
 static u16 int_sum_pl_kuroton_pal[] = {
@@ -22,7 +22,7 @@ static u16 int_sum_pl_kuroton_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_draca02_stand2_tex[0x100];
 #else
 u8 int_sum_pl_draca02_stand2_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_pl_draca02_stand2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_draca02_stand_tex[0x180];
 #else
 u8 int_sum_pl_draca02_stand_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_pl_draca02_stand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_draca02_leaf_tex[0x180];
 #else
 u8 int_sum_pl_draca02_leaf_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_pl_draca02_leaf_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_draca02_hachi_tex[0x100];
 #else
 u8 int_sum_pl_draca02_hachi_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_pl_draca02_hachi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_pl_draca02_earth_tex[0x80];
 #else
 u8 int_sum_pl_draca02_earth_tex[] = {
@@ -62,7 +62,7 @@ u8 int_sum_pl_draca02_earth_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_pl_draca02_v[0x650 / sizeof(Vtx)];
 #else
 Vtx int_sum_pl_draca02_v[] = {
@@ -121,7 +121,7 @@ Gfx int_sum_pl_draca02_onT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_sum_pl_draca02_c(void) {
     pc_load_asset("assets/int_sum_pl_draca02/int_sum_pl_kuroton_pal.bin", int_sum_pl_kuroton_pal, 0x20, 0xD1E5C0, 0, 1);

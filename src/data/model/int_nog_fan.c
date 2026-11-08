@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_fan_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_nog_fan_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_nog_fan_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_nog_fan_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_fan_net_tex_txt[0x200];
 #else
 u8 int_nog_fan_net_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_nog_fan_net_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_fan_motor_tex_txt[0x100];
 #else
 u8 int_nog_fan_motor_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_nog_fan_motor_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_fan_hole_tex_txt[0x80];
 #else
 u8 int_nog_fan_hole_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_nog_fan_hole_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_fan_fan1_TA_tex_txt[0x100];
 #else
 u8 int_nog_fan_fan1_TA_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_nog_fan_fan1_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_fan_fan2_TA_tex_txt[0x100];
 #else
 u8 int_nog_fan_fan2_TA_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_nog_fan_fan2_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_fan_fan3_TA_tex_txt[0x100];
 #else
 u8 int_nog_fan_fan3_TA_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_nog_fan_fan3_TA_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_fan_bace_tex_txt[0x200];
 #else
 u8 int_nog_fan_bace_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_nog_fan_bace_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_fan_pole_tex_txt[0x80];
 #else
 u8 int_nog_fan_pole_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 int_nog_fan_pole_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_fan_v[0x2E0 / sizeof(Vtx)];
 #else
 Vtx int_nog_fan_v[] = {

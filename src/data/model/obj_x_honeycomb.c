@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_x_honeycomb_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_x_honeycomb_pal[] = {
@@ -11,7 +11,7 @@ u16 obj_x_honeycomb_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_x_honeycomb_tex[0x200];
 #else
 u8 obj_x_honeycomb_tex[] = {
@@ -19,7 +19,7 @@ u8 obj_x_honeycomb_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_x_honeycomb_v[0x40 / sizeof(Vtx)];
 #else
 Vtx obj_x_honeycomb_v[] = {

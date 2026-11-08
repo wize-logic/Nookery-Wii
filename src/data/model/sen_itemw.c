@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 san_itemw_waku_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 san_itemw_waku_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 san_itemw_waku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 sen_itemw_kage_tex[0x400];
 #else
 u8 sen_itemw_kage_tex[] = {
@@ -21,7 +21,7 @@ u8 sen_itemw_kage_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 sen_itemw_yaji_tex[0x80];
 #else
 static u8 sen_itemw_yaji_tex[] = {
@@ -29,7 +29,7 @@ static u8 sen_itemw_yaji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 sen_itemw_yaji2_tex[0x100];
 #else
 static u8 sen_itemw_yaji2_tex[] = {
@@ -37,7 +37,7 @@ static u8 sen_itemw_yaji2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx sen_itemw_v[0x100 / sizeof(Vtx)];
 #else
 Vtx sen_itemw_v[] = {
@@ -99,7 +99,7 @@ Gfx sen_itemw_yajirushi2T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_sen_itemw_c(void) {
     pc_load_asset("assets/sen_itemw/sen_itemw_yaji_tex.bin", sen_itemw_yaji_tex, 0x80, 0x7B9920, 0, 0);

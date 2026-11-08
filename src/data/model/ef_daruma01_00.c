@@ -7,7 +7,7 @@
 
 extern Vtx ef_daruma01_02_v[];
 extern Vtx ef_daruma01_01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 ef_daruma01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 ef_daruma01_pal[] = {
@@ -15,7 +15,7 @@ ATTRIBUTE_ALIGN(32) u16 ef_daruma01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_daruma01_00_tex[0x80];
 #else
 u8 ef_daruma01_00_tex[] = {
@@ -23,7 +23,7 @@ u8 ef_daruma01_00_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_daruma01_00_v[0x1D0 / sizeof(Vtx)];
 #else
 Vtx ef_daruma01_00_v[] = {
@@ -48,7 +48,7 @@ Gfx ef_daruma01_00_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_daruma01_01_v[0x280 / sizeof(Vtx)];
 #else
 Vtx ef_daruma01_01_v[] = {
@@ -76,7 +76,7 @@ Gfx ef_daruma01_01_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_daruma01_02_v[0x280 / sizeof(Vtx)];
 #else
 Vtx ef_daruma01_02_v[] = {

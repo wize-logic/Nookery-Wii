@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_nikki_fan5_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_nikki_fan5_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_nikki_fan5_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_nikki_fan5_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_nikki_fan5face_tex[0x200];
 #else
 u8 int_ike_nikki_fan5face_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_nikki_fan5face_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_nikki_fan5side_tex[0x40];
 #else
 u8 int_ike_nikki_fan5side_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_nikki_fan5side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_nikki_fan5pen_tex[0x40];
 #else
 u8 int_ike_nikki_fan5pen_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_nikki_fan5pen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_nikki_fan5_v[0x210 / sizeof(Vtx)];
 #else
 Vtx int_ike_nikki_fan5_v[] = {

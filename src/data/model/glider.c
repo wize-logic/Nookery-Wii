@@ -2,7 +2,7 @@
 #include "PR/gbi.h"
 #include "evw_anime.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx glider_v[0xB0 / sizeof(Vtx)];
 #else
 Vtx glider_v[] = {

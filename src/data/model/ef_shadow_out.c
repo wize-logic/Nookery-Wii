@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_shadow_out_0_int_i4[0x100];
 #else
 u8 ef_shadow_out_0_int_i4[] = {
@@ -13,7 +13,7 @@ u8 ef_shadow_out_0_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_shadow_out_1_int_i4[0x100];
 #else
 u8 ef_shadow_out_1_int_i4[] = {
@@ -21,7 +21,7 @@ u8 ef_shadow_out_1_int_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_shadow_out_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_shadow_out_v[] = {

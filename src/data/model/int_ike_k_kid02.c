@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ike_k_kid02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_ike_k_kid02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_ike_k_kid02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_ike_k_kid02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2door1_tex[0x100];
 #else
 u8 int_ike_k_kid2door1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ike_k_kid2door1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2yane1_tex[0x100];
 #else
 u8 int_ike_k_kid2yane1_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ike_k_kid2yane1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2door2_tex[0x100];
 #else
 u8 int_ike_k_kid2door2_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ike_k_kid2door2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2under_tex[0x40];
 #else
 u8 int_ike_k_kid2under_tex[] = {
@@ -46,7 +46,7 @@ u8 int_ike_k_kid2under_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2kousi_tex[0x80];
 #else
 u8 int_ike_k_kid2kousi_tex[] = {
@@ -54,7 +54,7 @@ u8 int_ike_k_kid2kousi_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2side1_tex[0x100];
 #else
 u8 int_ike_k_kid2side1_tex[] = {
@@ -62,7 +62,7 @@ u8 int_ike_k_kid2side1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2sunoko_tex[0x80];
 #else
 u8 int_ike_k_kid2sunoko_tex[] = {
@@ -70,7 +70,7 @@ u8 int_ike_k_kid2sunoko_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2tire_tex[0x80];
 #else
 u8 int_ike_k_kid2tire_tex[] = {
@@ -78,7 +78,7 @@ u8 int_ike_k_kid2tire_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2tire2_tex[0x100];
 #else
 u8 int_ike_k_kid2tire2_tex[] = {
@@ -86,7 +86,7 @@ u8 int_ike_k_kid2tire2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ike_k_kid2base_tex[0x80];
 #else
 u8 int_ike_k_kid2base_tex[] = {
@@ -94,7 +94,7 @@ u8 int_ike_k_kid2base_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ike_k_kid02_v[0x780 / sizeof(Vtx)];
 #else
 Vtx int_ike_k_kid02_v[] = {

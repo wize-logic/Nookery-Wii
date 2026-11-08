@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 ef_tamaire01_r_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 ef_tamaire01_r_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 ef_tamaire01_r_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tama01_r_tex[0x200];
 #else
 u8 tama01_r_tex[] = {
@@ -21,7 +21,7 @@ u8 tama01_r_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx ef_tamaire01_r_v[0x40 / sizeof(Vtx)];
 #else
 static Vtx ef_tamaire01_r_v[] = {
@@ -38,7 +38,7 @@ Gfx tama01_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 tama01_w_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 tama01_w_tex[] = {
@@ -46,7 +46,7 @@ ATTRIBUTE_ALIGN(32) u8 tama01_w_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_ef_tamaire01_r_c(void) {
     pc_load_asset("assets/ef_tamaire01_r/ef_tamaire01_r_pal.bin", ef_tamaire01_r_pal, 0x20, 0x950500, 0, 1);

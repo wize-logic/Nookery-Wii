@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx inv_item_v[0x40 / sizeof(Vtx)];
 #else
 Vtx inv_item_v[] = {

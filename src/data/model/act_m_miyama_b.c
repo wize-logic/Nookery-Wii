@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx act_m_miyama_b_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 act_m_miyama_txt[0x800];
 #else
 u8 act_m_miyama_txt[] = {
@@ -14,7 +14,7 @@ u8 act_m_miyama_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_m_miyama_b_v[0x120 / sizeof(Vtx)];
 #else
 Vtx act_m_miyama_b_v[] = {

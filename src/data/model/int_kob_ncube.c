@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_kob_ncube_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_kob_ncube_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_kob_ncube_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_kob_ncube_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_ncube_gn[0x200];
 #else
 u8 int_kob_ncube_gn[] = {
@@ -22,7 +22,7 @@ u8 int_kob_ncube_gn[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_ncube_bn[0x200];
 #else
 u8 int_kob_ncube_bn[] = {
@@ -30,7 +30,7 @@ u8 int_kob_ncube_bn[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_ncube_top[0x80];
 #else
 u8 int_kob_ncube_top[] = {
@@ -38,7 +38,7 @@ u8 int_kob_ncube_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_ncube_r[0x80];
 #else
 u8 int_kob_ncube_r[] = {
@@ -46,7 +46,7 @@ u8 int_kob_ncube_r[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_ncube_g[0x80];
 #else
 u8 int_kob_ncube_g[] = {
@@ -54,7 +54,7 @@ u8 int_kob_ncube_g[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_kob_ncube_b[0x80];
 #else
 u8 int_kob_ncube_b[] = {
@@ -62,7 +62,7 @@ u8 int_kob_ncube_b[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_kob_ncube_v[0x480 / sizeof(Vtx)];
 #else
 Vtx int_kob_ncube_v[] = {

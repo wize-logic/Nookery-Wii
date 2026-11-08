@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_conpo02_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_conpo02_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_conpo02_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_conpo02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sum_conpo02_glass_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sum_conpo02_glass_tex_rgb_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sum_conpo02_glass_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_conpo02_front_tex[0x400];
 #else
 u8 int_sum_conpo02_front_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_conpo02_front_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_conpo02_p_top_tex[0x80];
 #else
 u8 int_sum_conpo02_p_top_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_conpo02_p_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_conpo02_spika_tex[0x180];
 #else
 u8 int_sum_conpo02_spika_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_conpo02_spika_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_conpo02_s_side_tex[0x180];
 #else
 u8 int_sum_conpo02_s_side_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_conpo02_s_side_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_conpo02_glass_tex_rgb_ci4[0x80];
 #else
 u8 int_sum_conpo02_glass_tex_rgb_ci4[] = {
@@ -62,7 +62,7 @@ u8 int_sum_conpo02_glass_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_conpo02_v[0x4F0 / sizeof(Vtx)];
 #else
 Vtx int_sum_conpo02_v[] = {

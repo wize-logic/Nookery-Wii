@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_a_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_a_pal[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_a_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_b_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_b_pal[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_b_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_c_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_c_pal[]= {
@@ -29,7 +29,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_c_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_d_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_d_pal[]= {
@@ -37,7 +37,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_d_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_e_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_e_pal[]= {
@@ -45,7 +45,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_e_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_f_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_f_pal[]= {
@@ -53,7 +53,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_f_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_g_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_g_pal[]= {
@@ -61,7 +61,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_g_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_h_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_h_pal[]= {
@@ -69,7 +69,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_h_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_i_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_i_pal[]= {
@@ -77,7 +77,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_i_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_j_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_j_pal[]= {
@@ -85,7 +85,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_j_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_k_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_k_pal[]= {
@@ -93,7 +93,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_k_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_l_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_l_pal[]= {
@@ -101,7 +101,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_shop_paint_l_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_shop_paint_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_shop_paint_tex[]= {
@@ -109,7 +109,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_shop_paint_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_shop_paint_v[0x1B0 / sizeof(Vtx)];
 #else
 Vtx obj_shop_paint_v[] = {

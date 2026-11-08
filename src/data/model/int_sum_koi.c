@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_koi_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_sum_koi_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_sum_koi_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_sum_koi_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 int_sum_koi_glass_pic_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 int_sum_koi_glass_pic_ci4_pal[] = {
@@ -22,7 +22,7 @@ u16 int_sum_koi_glass_pic_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_koi_body_txt[0x300];
 #else
 u8 int_sum_koi_body_txt[] = {
@@ -30,7 +30,7 @@ u8 int_sum_koi_body_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_koi_side_txt[0x200];
 #else
 u8 int_sum_koi_side_txt[] = {
@@ -38,7 +38,7 @@ u8 int_sum_koi_side_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_koi_base_txt[0x80];
 #else
 u8 int_sum_koi_base_txt[] = {
@@ -46,7 +46,7 @@ u8 int_sum_koi_base_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_koi_top_txt[0x100];
 #else
 u8 int_sum_koi_top_txt[] = {
@@ -54,7 +54,7 @@ u8 int_sum_koi_top_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_koi_glass_txt[0x100];
 #else
 u8 int_sum_koi_glass_txt[] = {
@@ -62,7 +62,7 @@ u8 int_sum_koi_glass_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_koi_v[0x330 / sizeof(Vtx)];
 #else
 Vtx int_sum_koi_v[] = {
@@ -162,7 +162,7 @@ cKF_Joint_R_c cKF_je_r_int_sum_koi_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA,
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_koi = { ARRAY_COUNT(cKF_je_r_int_sum_koi_tbl), 4, cKF_je_r_int_sum_koi_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_sum_koi_c(void) {
     pc_load_asset("assets/int_sum_koi/int_sum_koi_pal.bin", int_sum_koi_pal, 0x20, 0xCEFAE0, 0, 1);

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_shuttle_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_shuttle_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_shuttle_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_shuttle_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_shuttle_back[0x80];
 #else
 u8 int_tak_shuttle_back[] = {
@@ -22,7 +22,7 @@ u8 int_tak_shuttle_back[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_shuttle_eg[0x80];
 #else
 u8 int_tak_shuttle_eg[] = {
@@ -30,7 +30,7 @@ u8 int_tak_shuttle_eg[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_shuttle_fin[0x80];
 #else
 u8 int_tak_shuttle_fin[] = {
@@ -38,7 +38,7 @@ u8 int_tak_shuttle_fin[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_shuttle_wing[0x200];
 #else
 u8 int_tak_shuttle_wing[] = {
@@ -46,7 +46,7 @@ u8 int_tak_shuttle_wing[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_shuttle_face1[0x80];
 #else
 u8 int_tak_shuttle_face1[] = {
@@ -54,7 +54,7 @@ u8 int_tak_shuttle_face1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_shuttle_face2[0x80];
 #else
 u8 int_tak_shuttle_face2[] = {
@@ -62,7 +62,7 @@ u8 int_tak_shuttle_face2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_shuttle_face4[0x80];
 #else
 u8 int_tak_shuttle_face4[] = {
@@ -70,7 +70,7 @@ u8 int_tak_shuttle_face4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_shuttle_body3[0x300];
 #else
 u8 int_tak_shuttle_body3[] = {
@@ -78,7 +78,7 @@ u8 int_tak_shuttle_body3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_shuttle_v[0x430 / sizeof(Vtx)];
 #else
 Vtx int_tak_shuttle_v[] = {

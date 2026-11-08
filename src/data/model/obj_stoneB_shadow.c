@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_stoneB_shadow_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx obj_stoneB_shadow_v[] = { 

@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 act_f27_unagi_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 act_f27_unagi_pal[]= {
@@ -12,7 +12,7 @@ ATTRIBUTE_ALIGN(32) u16 act_f27_unagi_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_f27_unagi_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_f27_unagi_tex[]= {
@@ -20,7 +20,7 @@ ATTRIBUTE_ALIGN(32) u8 act_f27_unagi_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f27_unagi_a_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f27_unagi_a_v[] = { 
@@ -44,7 +44,7 @@ gsSPNTriangles_5b(6, 8, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f27_unagi_b_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f27_unagi_b_v[] = { 
@@ -68,7 +68,7 @@ gsSPNTriangles_5b(6, 8, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f27_unagi_c_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f27_unagi_c_v[] = { 

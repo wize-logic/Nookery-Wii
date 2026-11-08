@@ -1,4 +1,4 @@
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_paper[0x1000];
 #else
 unsigned char itemName_paper[] = {
@@ -6,7 +6,7 @@ unsigned char itemName_paper[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_money[0x40];
 #else
 unsigned char itemName_money[] = {
@@ -14,7 +14,7 @@ unsigned char itemName_money[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_tool[0x5C0];
 #else
 unsigned char itemName_tool[] = {
@@ -22,7 +22,7 @@ unsigned char itemName_tool[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_fish[0x280];
 #else
 unsigned char itemName_fish[] = {
@@ -30,7 +30,7 @@ unsigned char itemName_fish[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_cloth[0xFF0];
 #else
 unsigned char itemName_cloth[] = {
@@ -38,7 +38,7 @@ unsigned char itemName_cloth[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_etc[0x310];
 #else
 unsigned char itemName_etc[] = {
@@ -46,7 +46,7 @@ unsigned char itemName_etc[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_carpet[0x430];
 #else
 unsigned char itemName_carpet[] = {
@@ -54,7 +54,7 @@ unsigned char itemName_carpet[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_wall[0x430];
 #else
 unsigned char itemName_wall[] = {
@@ -62,7 +62,7 @@ unsigned char itemName_wall[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_fruit[0x80];
 #else
 unsigned char itemName_fruit[] = {
@@ -70,7 +70,7 @@ unsigned char itemName_fruit[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_plant[0xB0];
 #else
 unsigned char itemName_plant[] = {
@@ -78,7 +78,7 @@ unsigned char itemName_plant[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_minidisk[0x370];
 #else
 unsigned char itemName_minidisk[] = {
@@ -86,7 +86,7 @@ unsigned char itemName_minidisk[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_dummy[0x100];
 #else
 unsigned char itemName_dummy[] = {
@@ -94,7 +94,7 @@ unsigned char itemName_dummy[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_ticket[0x600];
 #else
 unsigned char itemName_ticket[] = {
@@ -102,7 +102,7 @@ unsigned char itemName_ticket[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_insect[0x2D0];
 #else
 unsigned char itemName_insect[] = {
@@ -110,7 +110,7 @@ unsigned char itemName_insect[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_hukubukuro[0x20];
 #else
 unsigned char itemName_hukubukuro[] = {
@@ -118,7 +118,7 @@ unsigned char itemName_hukubukuro[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char itemName_kabu[0x40];
 #else
 unsigned char itemName_kabu[] = {
@@ -126,7 +126,7 @@ unsigned char itemName_kabu[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char ftrName_table[0x4000];
 #else
 unsigned char ftrName_table[] = {
@@ -134,7 +134,7 @@ unsigned char ftrName_table[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 unsigned char ftrName2_table[0xF20];
 #else
 unsigned char ftrName2_table[] = {

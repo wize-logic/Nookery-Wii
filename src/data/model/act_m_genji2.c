@@ -4,7 +4,7 @@
 #include "c_keyframe.h"
 #include "ac_npc.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 act_m_genji_h1_txt[0x200];
 #else
 static u8 act_m_genji_h1_txt[] = {
@@ -12,7 +12,7 @@ static u8 act_m_genji_h1_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx act_m_genji2_v[0x100 / sizeof(Vtx)];
 #else
 static Vtx act_m_genji2_v[] = {
@@ -80,7 +80,7 @@ Gfx act_m_genji2_a_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_m_genji2_c(void) {
     pc_load_asset("assets/act_m_genji2/act_m_genji_h1_txt.bin", act_m_genji_h1_txt, 0x200, 0x540860, 0, 0);

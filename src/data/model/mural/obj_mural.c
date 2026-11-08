@@ -1,7 +1,7 @@
 #include "libforest/gbi_extensions.h"
 
 // clang-format off
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx obj_mural_v[0x40 / sizeof(Vtx)];
 #else
 static Vtx obj_mural_v[] = {
@@ -33,7 +33,7 @@ Gfx obj_mural_model[] = {
 
 // clang-format on
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_mural_obj_mural_c(void) {
     pc_load_asset("assets/obj_mural_v.bin", obj_mural_v, 0x40, 0x594440, 0, 2);

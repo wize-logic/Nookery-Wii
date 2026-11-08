@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_art_fel_etc_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_art_fel_etc_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_art_fel_etc_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_art_fel_art_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_art_fel_art_pal[] = {
@@ -21,7 +21,7 @@ u16 obj_art_fel_art_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_art_fel_gaku_tex[0x80];
 #else
 u8 obj_art_fel_gaku_tex[] = {
@@ -29,7 +29,7 @@ u8 obj_art_fel_gaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_art_fel_name_tex[0x80];
 #else
 u8 obj_art_fel_name_tex[] = {
@@ -37,7 +37,7 @@ u8 obj_art_fel_name_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_art_fel_art_tex[0x480];
 #else
 u8 obj_art_fel_art_tex[] = {
@@ -45,7 +45,7 @@ u8 obj_art_fel_art_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_art07_v[0x1E0 / sizeof(Vtx)];
 #else
 Vtx obj_art07_v[] = {

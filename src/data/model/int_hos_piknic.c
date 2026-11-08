@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_hos_piknic_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_hos_piknic_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_hos_piknic_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_hos_piknic_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_piknic_wood_txt[0x400];
 #else
 u8 int_hos_piknic_wood_txt[] = {
@@ -22,7 +22,7 @@ u8 int_hos_piknic_wood_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_hos_piknic_cloth_txt[0x400];
 #else
 u8 int_hos_piknic_cloth_txt[] = {
@@ -30,7 +30,7 @@ u8 int_hos_piknic_cloth_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_hos_piknic_v[0x660 / sizeof(Vtx)];
 #else
 Vtx int_hos_piknic_v[] = {

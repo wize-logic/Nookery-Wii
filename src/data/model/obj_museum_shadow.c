@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_museum_shadow_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_museum_shadow_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_museum_shadow_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_museum_shadow_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_museum_shadow_v[] = {

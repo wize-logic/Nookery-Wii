@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 myr_kotei_pal[0x20 / sizeof(u16)];
 #else
 static u16 myr_kotei_pal[] = {
@@ -8,7 +8,7 @@ static u16 myr_kotei_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 myr_enter[0x400];
 #else
 static u8 myr_enter[] = {
@@ -16,7 +16,7 @@ static u8 myr_enter[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 myr_window[0x800];
 #else
 static u8 myr_window[] = {
@@ -24,7 +24,7 @@ static u8 myr_window[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx myr_kotei_v[0x160 / sizeof(Vtx)];
 #else
 static Vtx myr_kotei_v[] = {
@@ -89,7 +89,7 @@ extern Gfx myr_etc_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_myr_etc_myr_etc_c(void) {
     pc_load_asset("assets/field/bg/myr_kotei_pal.bin", myr_kotei_pal, 0x20, 0xC145C0, 0, 1);

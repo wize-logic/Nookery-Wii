@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx act_mus_kaeru_a1_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 act_mus_kaeru_a1_body_tex_txt[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 act_mus_kaeru_a1_body_tex_txt[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u8 act_mus_kaeru_a1_body_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 act_mus_kaeru_a1_foot_tex_txt[0x800];
 #else
 static u8 act_mus_kaeru_a1_foot_tex_txt[] = {
@@ -22,7 +22,7 @@ static u8 act_mus_kaeru_a1_foot_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_mus_kaeru_a1_v[0x6D0 / sizeof(Vtx)];
 #else
 Vtx act_mus_kaeru_a1_v[] = {
@@ -125,7 +125,7 @@ cKF_Joint_R_c cKF_je_r_act_mus_kaeru_a1_tbl[] = {
 cKF_Skeleton_R_c cKF_bs_r_act_mus_kaeru_a1 = { ARRAY_COUNT(cKF_je_r_act_mus_kaeru_a1_tbl), 4,
                                                cKF_je_r_act_mus_kaeru_a1_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_mus_kaeru_a1_c(void) {
     pc_load_asset("assets/act_mus_kaeru_a1/act_mus_kaeru_a1_body_tex_txt.bin", act_mus_kaeru_a1_body_tex_txt, 0x800, 0x95EC40, 0, 0);

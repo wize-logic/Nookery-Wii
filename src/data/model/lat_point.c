@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_tegami_point_tex[0x80];
 #else
 u8 lat_tegami_point_tex[] = {
@@ -13,7 +13,7 @@ u8 lat_tegami_point_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx lat_point_v[0x40 / sizeof(Vtx)];
 #else
 Vtx lat_point_v[] = {

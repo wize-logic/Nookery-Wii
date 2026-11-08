@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_tak_ice_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_tak_ice_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_tak_ice_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_tak_ice_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_bou2_tex_txt[0x40];
 #else
 u8 int_tak_ice_bou2_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 int_tak_ice_bou2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_wa1_tex_txt[0x80];
 #else
 u8 int_tak_ice_wa1_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 int_tak_ice_wa1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_bou_tex_txt[0x20];
 #else
 u8 int_tak_ice_bou_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 int_tak_ice_bou_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_block_tex_txt[0x80];
 #else
 u8 int_tak_ice_block_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 int_tak_ice_block_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_top_tex_txt[0x40];
 #else
 u8 int_tak_ice_top_tex_txt[] = {
@@ -54,7 +54,7 @@ u8 int_tak_ice_top_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_body_tex_txt[0x200];
 #else
 u8 int_tak_ice_body_tex_txt[] = {
@@ -62,7 +62,7 @@ u8 int_tak_ice_body_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_dai_tex_txt[0x20];
 #else
 u8 int_tak_ice_dai_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 int_tak_ice_dai_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_sara_tex_txt[0x80];
 #else
 u8 int_tak_ice_sara_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 int_tak_ice_sara_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_cup_tex_txt[0x20];
 #else
 u8 int_tak_ice_cup_tex_txt[] = {
@@ -86,7 +86,7 @@ u8 int_tak_ice_cup_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_wa2_tex_txt[0x40];
 #else
 u8 int_tak_ice_wa2_tex_txt[] = {
@@ -94,7 +94,7 @@ u8 int_tak_ice_wa2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_tak_ice_yuki_tex_pic_i4[0x100];
 #else
 u8 int_tak_ice_yuki_tex_pic_i4[] = {
@@ -102,7 +102,7 @@ u8 int_tak_ice_yuki_tex_pic_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_tak_ice_v[0x800 / sizeof(Vtx)];
 #else
 Vtx int_tak_ice_v[] = {

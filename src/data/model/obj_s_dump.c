@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_dump_t1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_dump_t1_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_dump_t1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_dump_t2_tex[0x800];
 #else
 u8 obj_s_dump_t2_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_s_dump_t2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_dump_v[0x440 / sizeof(Vtx)];
 #else
 Vtx obj_s_dump_v[] = {
@@ -73,7 +73,7 @@ Gfx dump_s_DL_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_w_dump_t1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_w_dump_t1_tex[] = {
@@ -81,7 +81,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_w_dump_t1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_dump_t2_tex[0x800];
 #else
 u8 obj_w_dump_t2_tex[] = {
@@ -89,7 +89,7 @@ u8 obj_w_dump_t2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_dump_v[0x440 / sizeof(Vtx)];
 #else
 Vtx obj_w_dump_v[] = {

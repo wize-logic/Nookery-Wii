@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx ef_sphere_light_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_sphere_light_tex_4i4_rgb_i4[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_sphere_light_tex_4i4_rgb_i4[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_sphere_light_tex_4i4_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_sphere_light_v[0x300 / sizeof(Vtx)];
 #else
 Vtx ef_sphere_light_v[] = {

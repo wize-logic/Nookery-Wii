@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_yubinkyoku_shadow_tex_txt[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_yubinkyoku_shadow_tex_txt[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_yubinkyoku_shadow_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_yubinkyoku_shadow_v[0xE0 / sizeof(Vtx)];
 #else
 Vtx obj_s_yubinkyoku_shadow_v[] = {

@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_popchair01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_sum_poptable01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_sum_poptable01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_sum_poptable01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_popchair01_top_tex[0x200];
 #else
 u8 int_sum_popchair01_top_tex[] = {
@@ -22,7 +22,7 @@ u8 int_sum_popchair01_top_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_popchair01_standtop_tex[0x80];
 #else
 u8 int_sum_popchair01_standtop_tex[] = {
@@ -30,7 +30,7 @@ u8 int_sum_popchair01_standtop_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_popchair01_side1_tex[0x100];
 #else
 u8 int_sum_popchair01_side1_tex[] = {
@@ -38,7 +38,7 @@ u8 int_sum_popchair01_side1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_popchair01_stand_tex[0x100];
 #else
 u8 int_sum_popchair01_stand_tex[] = {
@@ -46,7 +46,7 @@ u8 int_sum_popchair01_stand_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_popchair01_board_tex[0x200];
 #else
 u8 int_sum_popchair01_board_tex[] = {
@@ -54,7 +54,7 @@ u8 int_sum_popchair01_board_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_popchair01_v[0x320 / sizeof(Vtx)];
 #else
 Vtx int_sum_popchair01_v[] = {
@@ -98,7 +98,7 @@ Gfx int_sum_popchair01_onT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_sum_popchair01_c(void) {
     pc_load_asset("assets/int_sum_popchair01/int_sum_poptable01_pal.bin", int_sum_poptable01_pal, 0x20, 0xD256C0, 0, 1);

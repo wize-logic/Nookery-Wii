@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 pas_win_nimotu_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 pas_win_nimotu_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 pas_win_nimotu_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pas_win_nuno_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pas_win_nuno_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ u16 pas_win_nuno_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pas_win_ta1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pas_win_ta1_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ u16 pas_win_ta1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pas_win_ta2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pas_win_ta2_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ u16 pas_win_ta2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 pas_win_ta3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 pas_win_ta3_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ u16 pas_win_ta3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_name_tex[0x200];
 #else
 u8 pas_win_name_tex[] = {
@@ -53,7 +53,7 @@ u8 pas_win_name_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_town_tex[0x200];
 #else
 u8 pas_win_town_tex[] = {
@@ -61,7 +61,7 @@ u8 pas_win_town_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_fuki2_tex[0x800];
 #else
 static u8 fkm_win_fuki2_tex[] = {
@@ -69,7 +69,7 @@ static u8 fkm_win_fuki2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_wa_tex[0x80];
 #else
 u8 pas_win_wa_tex[] = {
@@ -77,7 +77,7 @@ u8 pas_win_wa_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_test_tex[0x80];
 #else
 u8 pas_win_test_tex[] = {
@@ -85,7 +85,7 @@ u8 pas_win_test_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_icon_tex[0x800];
 #else
 u8 pas_win_icon_tex[] = {
@@ -93,7 +93,7 @@ u8 pas_win_icon_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_w4_tex[0x80];
 #else
 static u8 fkm_win_w4_tex[] = {
@@ -101,7 +101,7 @@ static u8 fkm_win_w4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_w3_tex[0x200];
 #else
 static u8 fkm_win_w3_tex[] = {
@@ -109,7 +109,7 @@ static u8 fkm_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_w2_tex[0x200];
 #else
 static u8 fkm_win_w2_tex[] = {
@@ -117,7 +117,7 @@ static u8 fkm_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 fkm_win_w1_tex[0x400];
 #else
 static u8 fkm_win_w1_tex[] = {
@@ -125,7 +125,7 @@ static u8 fkm_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_nuno_tex_rgb_ci4[0x200];
 #else
 u8 pas_win_nuno_tex_rgb_ci4[] = {
@@ -133,7 +133,7 @@ u8 pas_win_nuno_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_ta1_tex_rgb_ci4[0x400];
 #else
 u8 pas_win_ta1_tex_rgb_ci4[] = {
@@ -141,7 +141,7 @@ u8 pas_win_ta1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_ta2_tex_rgb_ci4[0x400];
 #else
 u8 pas_win_ta2_tex_rgb_ci4[] = {
@@ -149,7 +149,7 @@ u8 pas_win_ta2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 pas_win_ta3_tex_rgb_ci4[0x400];
 #else
 u8 pas_win_ta3_tex_rgb_ci4[] = {
@@ -157,7 +157,7 @@ u8 pas_win_ta3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx pas_win_v[0x940 / sizeof(Vtx)];
 #else
 Vtx pas_win_v[] = {
@@ -394,7 +394,7 @@ Gfx pas_win_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_pas_win_c(void) {
     pc_load_asset("assets/pas_win/fkm_win_fuki2_tex.bin", fkm_win_fuki2_tex, 0x800, 0x7B1BA0, 0, 0);

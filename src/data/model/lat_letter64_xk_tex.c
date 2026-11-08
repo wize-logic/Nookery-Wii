@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 lat_letter01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 lat_letter01_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 lat_letter01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter02_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter02_pal[] = {
@@ -21,7 +21,7 @@ u16 lat_letter02_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter03_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter03_pal[] = {
@@ -29,7 +29,7 @@ u16 lat_letter03_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter04_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter04_pal[] = {
@@ -37,7 +37,7 @@ u16 lat_letter04_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter05_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter05_pal[] = {
@@ -45,7 +45,7 @@ u16 lat_letter05_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter06_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter06_pal[] = {
@@ -53,7 +53,7 @@ u16 lat_letter06_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter07_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter07_pal[] = {
@@ -61,7 +61,7 @@ u16 lat_letter07_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter08_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter08_pal[] = {
@@ -69,7 +69,7 @@ u16 lat_letter08_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter09_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter09_pal[] = {
@@ -77,7 +77,7 @@ u16 lat_letter09_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter10_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter10_pal[] = {
@@ -85,7 +85,7 @@ u16 lat_letter10_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter11_1_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter11_1_pal[] = {
@@ -93,7 +93,7 @@ u16 lat_letter11_1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter12_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter12_pal[] = {
@@ -101,7 +101,7 @@ u16 lat_letter12_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter13_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter13_pal[] = {
@@ -109,7 +109,7 @@ u16 lat_letter13_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter14_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter14_pal[] = {
@@ -117,7 +117,7 @@ u16 lat_letter14_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter15_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter15_pal[] = {
@@ -125,7 +125,7 @@ u16 lat_letter15_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter16_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter16_pal[] = {
@@ -133,7 +133,7 @@ u16 lat_letter16_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter17_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter17_pal[] = {
@@ -141,7 +141,7 @@ u16 lat_letter17_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter18_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter18_pal[] = {
@@ -149,7 +149,7 @@ u16 lat_letter18_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter19_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter19_pal[] = {
@@ -157,7 +157,7 @@ u16 lat_letter19_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter20_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter20_pal[] = {
@@ -165,7 +165,7 @@ u16 lat_letter20_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter21_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter21_pal[] = {
@@ -173,7 +173,7 @@ u16 lat_letter21_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter22_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter22_pal[] = {
@@ -181,7 +181,7 @@ u16 lat_letter22_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter23_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter23_pal[] = {
@@ -189,7 +189,7 @@ u16 lat_letter23_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter24_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter24_pal[] = {
@@ -197,7 +197,7 @@ u16 lat_letter24_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter25_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter25_pal[] = {
@@ -205,7 +205,7 @@ u16 lat_letter25_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter26_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter26_pal[] = {
@@ -213,7 +213,7 @@ u16 lat_letter26_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter27_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter27_pal[] = {
@@ -221,7 +221,7 @@ u16 lat_letter27_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter28_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter28_pal[] = {
@@ -229,7 +229,7 @@ u16 lat_letter28_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter65_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter65_pal[] = {
@@ -237,7 +237,7 @@ u16 lat_letter65_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter30_tex[0x20];
 #else
 u8 lat_letter30_tex[] = {
@@ -245,7 +245,7 @@ u8 lat_letter30_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter31_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter31_pal[] = {
@@ -253,7 +253,7 @@ u16 lat_letter31_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter32_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter32_pal[] = {
@@ -261,7 +261,7 @@ u16 lat_letter32_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter33_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter33_pal[] = {
@@ -269,7 +269,7 @@ u16 lat_letter33_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter34_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter34_pal[] = {
@@ -277,7 +277,7 @@ u16 lat_letter34_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter35_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter35_pal[] = {
@@ -285,7 +285,7 @@ u16 lat_letter35_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter36_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter36_pal[] = {
@@ -293,7 +293,7 @@ u16 lat_letter36_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter37_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter37_pal[] = {
@@ -301,7 +301,7 @@ u16 lat_letter37_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter39_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter39_pal[] = {
@@ -309,7 +309,7 @@ u16 lat_letter39_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter40_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter40_pal[] = {
@@ -317,7 +317,7 @@ u16 lat_letter40_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter42_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter42_pal[] = {
@@ -325,7 +325,7 @@ u16 lat_letter42_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter43_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter43_pal[] = {
@@ -333,7 +333,7 @@ u16 lat_letter43_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter44_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter44_pal[] = {
@@ -341,7 +341,7 @@ u16 lat_letter44_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter45_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter45_pal[] = {
@@ -349,7 +349,7 @@ u16 lat_letter45_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter46_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter46_pal[] = {
@@ -357,7 +357,7 @@ u16 lat_letter46_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter47_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter47_pal[] = {
@@ -365,7 +365,7 @@ u16 lat_letter47_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter48_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter48_pal[] = {
@@ -373,7 +373,7 @@ u16 lat_letter48_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter49_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter49_pal[] = {
@@ -381,7 +381,7 @@ u16 lat_letter49_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter50_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter50_pal[] = {
@@ -389,7 +389,7 @@ u16 lat_letter50_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter51_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter51_pal[] = {
@@ -397,7 +397,7 @@ u16 lat_letter51_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter52_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter52_pal[] = {
@@ -405,7 +405,7 @@ u16 lat_letter52_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter53_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter53_pal[] = {
@@ -413,7 +413,7 @@ u16 lat_letter53_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter54_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter54_pal[] = {
@@ -421,7 +421,7 @@ u16 lat_letter54_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter55_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter55_pal[] = {
@@ -429,7 +429,7 @@ u16 lat_letter55_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter56_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter56_pal[] = {
@@ -437,7 +437,7 @@ u16 lat_letter56_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter57_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter57_pal[] = {
@@ -445,7 +445,7 @@ u16 lat_letter57_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter58_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter58_pal[] = {
@@ -453,7 +453,7 @@ u16 lat_letter58_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter59_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter59_pal[] = {
@@ -461,7 +461,7 @@ u16 lat_letter59_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter60_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter60_pal[] = {
@@ -469,7 +469,7 @@ u16 lat_letter60_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter61_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter61_pal[] = {
@@ -477,7 +477,7 @@ u16 lat_letter61_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter62_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter62_pal[] = {
@@ -485,7 +485,7 @@ u16 lat_letter62_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter63_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter63_pal[] = {
@@ -493,7 +493,7 @@ u16 lat_letter63_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 lat_letter64_pal[0x20 / sizeof(u16)];
 #else
 u16 lat_letter64_pal[] = {
@@ -501,7 +501,7 @@ u16 lat_letter64_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter01_01_tex[0x100];
 #else
 u8 lat_letter01_01_tex[] = {
@@ -509,7 +509,7 @@ u8 lat_letter01_01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter01_02_tex[0x100];
 #else
 u8 lat_letter01_02_tex[] = {
@@ -517,7 +517,7 @@ u8 lat_letter01_02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter01_03_tex[0x400];
 #else
 u8 lat_letter01_03_tex[] = {
@@ -525,7 +525,7 @@ u8 lat_letter01_03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter01_04_tex[0x80];
 #else
 u8 lat_letter01_04_tex[] = {
@@ -533,7 +533,7 @@ u8 lat_letter01_04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_tegami_fusen_tex[0x80];
 #else
 u8 lat_tegami_fusen_tex[] = {
@@ -541,7 +541,7 @@ u8 lat_tegami_fusen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter02_01_tex[0x200];
 #else
 u8 lat_letter02_01_tex[] = {
@@ -549,7 +549,7 @@ u8 lat_letter02_01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter02_02_tex[0x200];
 #else
 u8 lat_letter02_02_tex[] = {
@@ -557,7 +557,7 @@ u8 lat_letter02_02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter02_03_tex[0x200];
 #else
 u8 lat_letter02_03_tex[] = {
@@ -565,7 +565,7 @@ u8 lat_letter02_03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter03_01_tex[0x100];
 #else
 u8 lat_letter03_01_tex[] = {
@@ -573,7 +573,7 @@ u8 lat_letter03_01_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter03_02_tex[0x100];
 #else
 u8 lat_letter03_02_tex[] = {
@@ -581,7 +581,7 @@ u8 lat_letter03_02_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter03_03_tex[0x100];
 #else
 u8 lat_letter03_03_tex[] = {
@@ -589,7 +589,7 @@ u8 lat_letter03_03_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter03_04_tex[0x100];
 #else
 u8 lat_letter03_04_tex[] = {
@@ -597,7 +597,7 @@ u8 lat_letter03_04_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter03_05_tex[0x100];
 #else
 u8 lat_letter03_05_tex[] = {
@@ -605,7 +605,7 @@ u8 lat_letter03_05_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter03_06_tex[0x100];
 #else
 u8 lat_letter03_06_tex[] = {
@@ -613,7 +613,7 @@ u8 lat_letter03_06_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter03_07_tex[0x200];
 #else
 u8 lat_letter03_07_tex[] = {
@@ -621,7 +621,7 @@ u8 lat_letter03_07_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth2_tex[0x80];
 #else
 u8 lat_letter04_cloth2_tex[] = {
@@ -629,7 +629,7 @@ u8 lat_letter04_cloth2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth3_tex[0x80];
 #else
 u8 lat_letter04_cloth3_tex[] = {
@@ -637,7 +637,7 @@ u8 lat_letter04_cloth3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth4_tex[0x80];
 #else
 u8 lat_letter04_cloth4_tex[] = {
@@ -645,7 +645,7 @@ u8 lat_letter04_cloth4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth5_tex[0x80];
 #else
 u8 lat_letter04_cloth5_tex[] = {
@@ -653,7 +653,7 @@ u8 lat_letter04_cloth5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth6_tex[0x80];
 #else
 u8 lat_letter04_cloth6_tex[] = {
@@ -661,7 +661,7 @@ u8 lat_letter04_cloth6_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth1_tex[0x80];
 #else
 u8 lat_letter04_cloth1_tex[] = {
@@ -669,7 +669,7 @@ u8 lat_letter04_cloth1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth7_tex[0x80];
 #else
 u8 lat_letter04_cloth7_tex[] = {
@@ -677,7 +677,7 @@ u8 lat_letter04_cloth7_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth8_tex[0x80];
 #else
 u8 lat_letter04_cloth8_tex[] = {
@@ -685,7 +685,7 @@ u8 lat_letter04_cloth8_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_fusen_tex[0x80];
 #else
 u8 lat_letter04_fusen_tex[] = {
@@ -693,7 +693,7 @@ u8 lat_letter04_fusen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter04_cloth9_tex[0x80];
 #else
 u8 lat_letter04_cloth9_tex[] = {
@@ -701,7 +701,7 @@ u8 lat_letter04_cloth9_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter05_1[0x200];
 #else
 u8 lat_letter05_1[] = {
@@ -709,7 +709,7 @@ u8 lat_letter05_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter05_2[0x100];
 #else
 u8 lat_letter05_2[] = {
@@ -717,7 +717,7 @@ u8 lat_letter05_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter06_1[0x200];
 #else
 u8 lat_letter06_1[] = {
@@ -725,7 +725,7 @@ u8 lat_letter06_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter06_sen[0x100];
 #else
 u8 lat_letter06_sen[] = {
@@ -733,7 +733,7 @@ u8 lat_letter06_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter06_4[0x100];
 #else
 u8 lat_letter06_4[] = {
@@ -741,7 +741,7 @@ u8 lat_letter06_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter06_5[0x200];
 #else
 u8 lat_letter06_5[] = {
@@ -749,7 +749,7 @@ u8 lat_letter06_5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter06_6[0x80];
 #else
 u8 lat_letter06_6[] = {
@@ -757,7 +757,7 @@ u8 lat_letter06_6[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter07_1[0x100];
 #else
 u8 lat_letter07_1[] = {
@@ -765,7 +765,7 @@ u8 lat_letter07_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter07_2[0x200];
 #else
 u8 lat_letter07_2[] = {
@@ -773,7 +773,7 @@ u8 lat_letter07_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter07_sen[0x100];
 #else
 u8 lat_letter07_sen[] = {
@@ -781,7 +781,7 @@ u8 lat_letter07_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter07_3[0x80];
 #else
 u8 lat_letter07_3[] = {
@@ -789,7 +789,7 @@ u8 lat_letter07_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter08_1[0x200];
 #else
 u8 lat_letter08_1[] = {
@@ -797,7 +797,7 @@ u8 lat_letter08_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter08_2[0x200];
 #else
 u8 lat_letter08_2[] = {
@@ -805,7 +805,7 @@ u8 lat_letter08_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter08_3[0x80];
 #else
 u8 lat_letter08_3[] = {
@@ -813,7 +813,7 @@ u8 lat_letter08_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter08_sen[0x100];
 #else
 u8 lat_letter08_sen[] = {
@@ -821,7 +821,7 @@ u8 lat_letter08_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter09_1[0x400];
 #else
 u8 lat_letter09_1[] = {
@@ -829,7 +829,7 @@ u8 lat_letter09_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter09_2[0x200];
 #else
 u8 lat_letter09_2[] = {
@@ -837,7 +837,7 @@ u8 lat_letter09_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter09_3[0x100];
 #else
 u8 lat_letter09_3[] = {
@@ -845,7 +845,7 @@ u8 lat_letter09_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter10_1[0x200];
 #else
 u8 lat_letter10_1[] = {
@@ -853,7 +853,7 @@ u8 lat_letter10_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter10_2[0x80];
 #else
 u8 lat_letter10_2[] = {
@@ -861,7 +861,7 @@ u8 lat_letter10_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter10_3[0x80];
 #else
 u8 lat_letter10_3[] = {
@@ -869,7 +869,7 @@ u8 lat_letter10_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter10_sen[0x100];
 #else
 u8 lat_letter10_sen[] = {
@@ -877,7 +877,7 @@ u8 lat_letter10_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter10_5[0x80];
 #else
 u8 lat_letter10_5[] = {
@@ -885,7 +885,7 @@ u8 lat_letter10_5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter11_1[0x400];
 #else
 u8 lat_letter11_1[] = {
@@ -893,7 +893,7 @@ u8 lat_letter11_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter11_2[0x100];
 #else
 u8 lat_letter11_2[] = {
@@ -901,7 +901,7 @@ u8 lat_letter11_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter12_1[0x400];
 #else
 u8 lat_letter12_1[] = {
@@ -909,7 +909,7 @@ u8 lat_letter12_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter12_sen[0x100];
 #else
 u8 lat_letter12_sen[] = {
@@ -917,7 +917,7 @@ u8 lat_letter12_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter13_1[0x400];
 #else
 u8 lat_letter13_1[] = {
@@ -925,7 +925,7 @@ u8 lat_letter13_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter13_3[0x200];
 #else
 u8 lat_letter13_3[] = {
@@ -933,7 +933,7 @@ u8 lat_letter13_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter14_1[0x400];
 #else
 u8 lat_letter14_1[] = {
@@ -941,7 +941,7 @@ u8 lat_letter14_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter14_2[0x100];
 #else
 u8 lat_letter14_2[] = {
@@ -949,7 +949,7 @@ u8 lat_letter14_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter14_3[0x100];
 #else
 u8 lat_letter14_3[] = {
@@ -957,7 +957,7 @@ u8 lat_letter14_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter14_4[0x100];
 #else
 u8 lat_letter14_4[] = {
@@ -965,7 +965,7 @@ u8 lat_letter14_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter15_1[0x200];
 #else
 u8 lat_letter15_1[] = {
@@ -973,7 +973,7 @@ u8 lat_letter15_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter15_2[0x80];
 #else
 u8 lat_letter15_2[] = {
@@ -981,7 +981,7 @@ u8 lat_letter15_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter16_1[0x200];
 #else
 u8 lat_letter16_1[] = {
@@ -989,7 +989,7 @@ u8 lat_letter16_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter16_sen[0x100];
 #else
 u8 lat_letter16_sen[] = {
@@ -997,7 +997,7 @@ u8 lat_letter16_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter16_3[0x100];
 #else
 u8 lat_letter16_3[] = {
@@ -1005,7 +1005,7 @@ u8 lat_letter16_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter17_1[0x400];
 #else
 u8 lat_letter17_1[] = {
@@ -1013,7 +1013,7 @@ u8 lat_letter17_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter17_sen[0x100];
 #else
 u8 lat_letter17_sen[] = {
@@ -1021,7 +1021,7 @@ u8 lat_letter17_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter18_4[0x400];
 #else
 u8 lat_letter18_4[] = {
@@ -1029,7 +1029,7 @@ u8 lat_letter18_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter18_5[0x100];
 #else
 u8 lat_letter18_5[] = {
@@ -1037,7 +1037,7 @@ u8 lat_letter18_5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter18_sen[0x100];
 #else
 u8 lat_letter18_sen[] = {
@@ -1045,7 +1045,7 @@ u8 lat_letter18_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter19_1[0x400];
 #else
 u8 lat_letter19_1[] = {
@@ -1053,7 +1053,7 @@ u8 lat_letter19_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter19_2[0x400];
 #else
 u8 lat_letter19_2[] = {
@@ -1061,7 +1061,7 @@ u8 lat_letter19_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter20_1[0x400];
 #else
 u8 lat_letter20_1[] = {
@@ -1069,7 +1069,7 @@ u8 lat_letter20_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter20_sen[0x100];
 #else
 u8 lat_letter20_sen[] = {
@@ -1077,7 +1077,7 @@ u8 lat_letter20_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter21_1[0x800];
 #else
 u8 lat_letter21_1[] = {
@@ -1085,7 +1085,7 @@ u8 lat_letter21_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter21_sen[0x100];
 #else
 u8 lat_letter21_sen[] = {
@@ -1093,7 +1093,7 @@ u8 lat_letter21_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter22_1[0x200];
 #else
 u8 lat_letter22_1[] = {
@@ -1101,7 +1101,7 @@ u8 lat_letter22_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter22_3[0x80];
 #else
 u8 lat_letter22_3[] = {
@@ -1109,7 +1109,7 @@ u8 lat_letter22_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter22_sen[0x100];
 #else
 u8 lat_letter22_sen[] = {
@@ -1117,7 +1117,7 @@ u8 lat_letter22_sen[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter22_4[0x100];
 #else
 u8 lat_letter22_4[] = {
@@ -1125,7 +1125,7 @@ u8 lat_letter22_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter22_5[0x400];
 #else
 u8 lat_letter22_5[] = {
@@ -1133,7 +1133,7 @@ u8 lat_letter22_5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter23_1[0x200];
 #else
 u8 lat_letter23_1[] = {
@@ -1141,7 +1141,7 @@ u8 lat_letter23_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter23_2[0x40];
 #else
 u8 lat_letter23_2[] = {
@@ -1149,7 +1149,7 @@ u8 lat_letter23_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter23_4[0x200];
 #else
 u8 lat_letter23_4[] = {
@@ -1157,7 +1157,7 @@ u8 lat_letter23_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter24_1[0x400];
 #else
 u8 lat_letter24_1[] = {
@@ -1165,7 +1165,7 @@ u8 lat_letter24_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter24_5[0x100];
 #else
 u8 lat_letter24_5[] = {
@@ -1173,7 +1173,7 @@ u8 lat_letter24_5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter24_3[0x200];
 #else
 u8 lat_letter24_3[] = {
@@ -1181,7 +1181,7 @@ u8 lat_letter24_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter24_4[0x80];
 #else
 u8 lat_letter24_4[] = {
@@ -1189,7 +1189,7 @@ u8 lat_letter24_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter25_1[0x100];
 #else
 u8 lat_letter25_1[] = {
@@ -1197,7 +1197,7 @@ u8 lat_letter25_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter25_2[0x80];
 #else
 u8 lat_letter25_2[] = {
@@ -1205,7 +1205,7 @@ u8 lat_letter25_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter25_3[0x100];
 #else
 u8 lat_letter25_3[] = {
@@ -1213,7 +1213,7 @@ u8 lat_letter25_3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter25_4[0x80];
 #else
 u8 lat_letter25_4[] = {
@@ -1221,7 +1221,7 @@ u8 lat_letter25_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter25_5[0x400];
 #else
 u8 lat_letter25_5[] = {
@@ -1229,7 +1229,7 @@ u8 lat_letter25_5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test1_tex[0x100];
 #else
 u8 lat_letter26_test1_tex[] = {
@@ -1237,7 +1237,7 @@ u8 lat_letter26_test1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test2_tex[0x100];
 #else
 u8 lat_letter26_test2_tex[] = {
@@ -1245,7 +1245,7 @@ u8 lat_letter26_test2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test4_tex[0x80];
 #else
 u8 lat_letter26_test4_tex[] = {
@@ -1253,7 +1253,7 @@ u8 lat_letter26_test4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test5_tex[0x80];
 #else
 u8 lat_letter26_test5_tex[] = {
@@ -1261,7 +1261,7 @@ u8 lat_letter26_test5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test6_tex[0x100];
 #else
 u8 lat_letter26_test6_tex[] = {
@@ -1269,7 +1269,7 @@ u8 lat_letter26_test6_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test7_tex[0x80];
 #else
 u8 lat_letter26_test7_tex[] = {
@@ -1277,7 +1277,7 @@ u8 lat_letter26_test7_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test8_tex[0x80];
 #else
 u8 lat_letter26_test8_tex[] = {
@@ -1285,7 +1285,7 @@ u8 lat_letter26_test8_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test9_tex[0x100];
 #else
 u8 lat_letter26_test9_tex[] = {
@@ -1293,7 +1293,7 @@ u8 lat_letter26_test9_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test10_tex[0x100];
 #else
 u8 lat_letter26_test10_tex[] = {
@@ -1301,7 +1301,7 @@ u8 lat_letter26_test10_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter26_test11_tex[0x80];
 #else
 u8 lat_letter26_test11_tex[] = {
@@ -1309,7 +1309,7 @@ u8 lat_letter26_test11_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter27_9[0x100];
 #else
 u8 lat_letter27_9[] = {
@@ -1317,7 +1317,7 @@ u8 lat_letter27_9[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter27_4[0x200];
 #else
 u8 lat_letter27_4[] = {
@@ -1325,7 +1325,7 @@ u8 lat_letter27_4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter27_8[0x400];
 #else
 u8 lat_letter27_8[] = {
@@ -1333,7 +1333,7 @@ u8 lat_letter27_8[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter27_6[0x100];
 #else
 u8 lat_letter27_6[] = {
@@ -1341,7 +1341,7 @@ u8 lat_letter27_6[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter28_1[0x200];
 #else
 u8 lat_letter28_1[] = {
@@ -1349,7 +1349,7 @@ u8 lat_letter28_1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter28_2[0x100];
 #else
 u8 lat_letter28_2[] = {
@@ -1357,7 +1357,7 @@ u8 lat_letter28_2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter28_9[0x80];
 #else
 u8 lat_letter28_9[] = {
@@ -1365,7 +1365,7 @@ u8 lat_letter28_9[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter28_5[0x100];
 #else
 u8 lat_letter28_5[] = {
@@ -1373,7 +1373,7 @@ u8 lat_letter28_5[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter28_6[0x100];
 #else
 u8 lat_letter28_6[] = {
@@ -1381,7 +1381,7 @@ u8 lat_letter28_6[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter28_7[0x200];
 #else
 u8 lat_letter28_7[] = {
@@ -1389,7 +1389,7 @@ u8 lat_letter28_7[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter65_kt_tex[0x400];
 #else
 u8 lat_letter65_kt_tex[] = {
@@ -1397,7 +1397,7 @@ u8 lat_letter65_kt_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter65_me_tex[0x100];
 #else
 u8 lat_letter65_me_tex[] = {
@@ -1405,7 +1405,7 @@ u8 lat_letter65_me_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter65_sk_tex[0x200];
 #else
 u8 lat_letter65_sk_tex[] = {
@@ -1413,7 +1413,7 @@ u8 lat_letter65_sk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter65_xk_tex[0x100];
 #else
 u8 lat_letter65_xk_tex[] = {
@@ -1421,7 +1421,7 @@ u8 lat_letter65_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter30_ed_tex[0x40];
 #else
 u8 lat_letter30_ed_tex[] = {
@@ -1429,7 +1429,7 @@ u8 lat_letter30_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter30_ba_tex[0x40];
 #else
 u8 lat_letter30_ba_tex[] = {
@@ -1437,7 +1437,7 @@ u8 lat_letter30_ba_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter30_ki_tex[0x100];
 #else
 u8 lat_letter30_ki_tex[] = {
@@ -1445,7 +1445,7 @@ u8 lat_letter30_ki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter30_xk_tex[0x100];
 #else
 u8 lat_letter30_xk_tex[] = {
@@ -1453,7 +1453,7 @@ u8 lat_letter30_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter31_xk_tex[0x100];
 #else
 u8 lat_letter31_xk_tex[] = {
@@ -1461,7 +1461,7 @@ u8 lat_letter31_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter31_ed_tex[0x100];
 #else
 u8 lat_letter31_ed_tex[] = {
@@ -1469,7 +1469,7 @@ u8 lat_letter31_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter32_ce_tex[0x200];
 #else
 u8 lat_letter32_ce_tex[] = {
@@ -1477,7 +1477,7 @@ u8 lat_letter32_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter32_ed_tex[0x400];
 #else
 u8 lat_letter32_ed_tex[] = {
@@ -1485,7 +1485,7 @@ u8 lat_letter32_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter32_xk_tex[0x100];
 #else
 u8 lat_letter32_xk_tex[] = {
@@ -1493,7 +1493,7 @@ u8 lat_letter32_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter33_ed_tex[0x200];
 #else
 u8 lat_letter33_ed_tex[] = {
@@ -1501,7 +1501,7 @@ u8 lat_letter33_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter33_xk_tex[0x100];
 #else
 u8 lat_letter33_xk_tex[] = {
@@ -1509,7 +1509,7 @@ u8 lat_letter33_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter34_ed_tex[0x400];
 #else
 u8 lat_letter34_ed_tex[] = {
@@ -1517,7 +1517,7 @@ u8 lat_letter34_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter34_ed2_tex[0x200];
 #else
 u8 lat_letter34_ed2_tex[] = {
@@ -1525,7 +1525,7 @@ u8 lat_letter34_ed2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter34_ce_tex[0x200];
 #else
 u8 lat_letter34_ce_tex[] = {
@@ -1533,7 +1533,7 @@ u8 lat_letter34_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter34_xk_tex[0x100];
 #else
 u8 lat_letter34_xk_tex[] = {
@@ -1541,7 +1541,7 @@ u8 lat_letter34_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter35_ed_tex[0x400];
 #else
 u8 lat_letter35_ed_tex[] = {
@@ -1549,7 +1549,7 @@ u8 lat_letter35_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter35_ce_tex[0x400];
 #else
 u8 lat_letter35_ce_tex[] = {
@@ -1557,7 +1557,7 @@ u8 lat_letter35_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter35_xk_tex[0x100];
 #else
 u8 lat_letter35_xk_tex[] = {
@@ -1565,7 +1565,7 @@ u8 lat_letter35_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter36_ed4_tex[0x100];
 #else
 u8 lat_letter36_ed4_tex[] = {
@@ -1573,7 +1573,7 @@ u8 lat_letter36_ed4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter36_ed_tex[0x200];
 #else
 u8 lat_letter36_ed_tex[] = {
@@ -1581,7 +1581,7 @@ u8 lat_letter36_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter36_xk_tex[0x100];
 #else
 u8 lat_letter36_xk_tex[] = {
@@ -1589,7 +1589,7 @@ u8 lat_letter36_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter36_ed3_tex[0x100];
 #else
 u8 lat_letter36_ed3_tex[] = {
@@ -1597,7 +1597,7 @@ u8 lat_letter36_ed3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter37_ed_tex[0x400];
 #else
 u8 lat_letter37_ed_tex[] = {
@@ -1605,7 +1605,7 @@ u8 lat_letter37_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter37_kd_tex[0x200];
 #else
 u8 lat_letter37_kd_tex[] = {
@@ -1613,7 +1613,7 @@ u8 lat_letter37_kd_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter37_k_tex[0x100];
 #else
 u8 lat_letter37_k_tex[] = {
@@ -1621,7 +1621,7 @@ u8 lat_letter37_k_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter38_xk_tex[0x100];
 #else
 u8 lat_letter38_xk_tex[] = {
@@ -1629,7 +1629,7 @@ u8 lat_letter38_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter38_ce_tex[0x800];
 #else
 u8 lat_letter38_ce_tex[] = {
@@ -1637,7 +1637,7 @@ u8 lat_letter38_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter39_sk_tex[0x400];
 #else
 u8 lat_letter39_sk_tex[] = {
@@ -1645,7 +1645,7 @@ u8 lat_letter39_sk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter39_xk_tex[0x100];
 #else
 u8 lat_letter39_xk_tex[] = {
@@ -1653,7 +1653,7 @@ u8 lat_letter39_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter40_nk_tex[0x200];
 #else
 u8 lat_letter40_nk_tex[] = {
@@ -1661,7 +1661,7 @@ u8 lat_letter40_nk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter40_hw_tex[0x80];
 #else
 u8 lat_letter40_hw_tex[] = {
@@ -1669,7 +1669,7 @@ u8 lat_letter40_hw_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter40_xk_tex[0x100];
 #else
 u8 lat_letter40_xk_tex[] = {
@@ -1677,7 +1677,7 @@ u8 lat_letter40_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter41_gr_tex[0x800];
 #else
 u8 lat_letter41_gr_tex[] = {
@@ -1685,7 +1685,7 @@ u8 lat_letter41_gr_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter41_xk_tex[0x100];
 #else
 u8 lat_letter41_xk_tex[] = {
@@ -1693,7 +1693,7 @@ u8 lat_letter41_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter42_gr_tex[0x200];
 #else
 u8 lat_letter42_gr_tex[] = {
@@ -1701,7 +1701,7 @@ u8 lat_letter42_gr_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter42_xk_tex[0x100];
 #else
 u8 lat_letter42_xk_tex[] = {
@@ -1709,7 +1709,7 @@ u8 lat_letter42_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter43_ed_tex[0x400];
 #else
 u8 lat_letter43_ed_tex[] = {
@@ -1717,7 +1717,7 @@ u8 lat_letter43_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter43_xk_tex[0x100];
 #else
 u8 lat_letter43_xk_tex[] = {
@@ -1725,7 +1725,7 @@ u8 lat_letter43_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter44_ce_tex[0x200];
 #else
 u8 lat_letter44_ce_tex[] = {
@@ -1733,7 +1733,7 @@ u8 lat_letter44_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter44_ed_tex[0x200];
 #else
 u8 lat_letter44_ed_tex[] = {
@@ -1741,7 +1741,7 @@ u8 lat_letter44_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter44_xh_tex[0x100];
 #else
 u8 lat_letter44_xh_tex[] = {
@@ -1749,7 +1749,7 @@ u8 lat_letter44_xh_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter45_ed2_tex[0x400];
 #else
 u8 lat_letter45_ed2_tex[] = {
@@ -1757,7 +1757,7 @@ u8 lat_letter45_ed2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter45_ed_tex[0x400];
 #else
 u8 lat_letter45_ed_tex[] = {
@@ -1765,7 +1765,7 @@ u8 lat_letter45_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter45_xk_tex[0x100];
 #else
 u8 lat_letter45_xk_tex[] = {
@@ -1773,7 +1773,7 @@ u8 lat_letter45_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter46_ce_tex[0x200];
 #else
 u8 lat_letter46_ce_tex[] = {
@@ -1781,7 +1781,7 @@ u8 lat_letter46_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter46_ed_tex[0x400];
 #else
 u8 lat_letter46_ed_tex[] = {
@@ -1789,7 +1789,7 @@ u8 lat_letter46_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter46_xk_tex[0x100];
 #else
 u8 lat_letter46_xk_tex[] = {
@@ -1797,7 +1797,7 @@ u8 lat_letter46_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter47_ce_tex[0x400];
 #else
 u8 lat_letter47_ce_tex[] = {
@@ -1805,7 +1805,7 @@ u8 lat_letter47_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter47_xk_tex[0x100];
 #else
 u8 lat_letter47_xk_tex[] = {
@@ -1813,7 +1813,7 @@ u8 lat_letter47_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter48_hn_tex[0x200];
 #else
 u8 lat_letter48_hn_tex[] = {
@@ -1821,7 +1821,7 @@ u8 lat_letter48_hn_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter48_hn2_tex[0x200];
 #else
 u8 lat_letter48_hn2_tex[] = {
@@ -1829,7 +1829,7 @@ u8 lat_letter48_hn2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter48_hn3_tex[0x80];
 #else
 u8 lat_letter48_hn3_tex[] = {
@@ -1837,7 +1837,7 @@ u8 lat_letter48_hn3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter48_si_tex[0x200];
 #else
 u8 lat_letter48_si_tex[] = {
@@ -1845,7 +1845,7 @@ u8 lat_letter48_si_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter48_xk_tex[0x100];
 #else
 u8 lat_letter48_xk_tex[] = {
@@ -1853,7 +1853,7 @@ u8 lat_letter48_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter49_ki_tex[0x400];
 #else
 u8 lat_letter49_ki_tex[] = {
@@ -1861,7 +1861,7 @@ u8 lat_letter49_ki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter49_xk_tex[0x100];
 #else
 u8 lat_letter49_xk_tex[] = {
@@ -1869,7 +1869,7 @@ u8 lat_letter49_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter50_ed_tex[0x400];
 #else
 u8 lat_letter50_ed_tex[] = {
@@ -1877,7 +1877,7 @@ u8 lat_letter50_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter50_xk_tex[0x100];
 #else
 u8 lat_letter50_xk_tex[] = {
@@ -1885,7 +1885,7 @@ u8 lat_letter50_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter51_ed_tex[0x400];
 #else
 u8 lat_letter51_ed_tex[] = {
@@ -1893,7 +1893,7 @@ u8 lat_letter51_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter51_ce_tex[0x400];
 #else
 u8 lat_letter51_ce_tex[] = {
@@ -1901,7 +1901,7 @@ u8 lat_letter51_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter51_xk_tex[0x100];
 #else
 u8 lat_letter51_xk_tex[] = {
@@ -1909,7 +1909,7 @@ u8 lat_letter51_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter52_ed_tex[0x400];
 #else
 u8 lat_letter52_ed_tex[] = {
@@ -1917,7 +1917,7 @@ u8 lat_letter52_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter52_ce_tex[0x400];
 #else
 u8 lat_letter52_ce_tex[] = {
@@ -1925,7 +1925,7 @@ u8 lat_letter52_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter52_xk_tex[0x100];
 #else
 u8 lat_letter52_xk_tex[] = {
@@ -1933,7 +1933,7 @@ u8 lat_letter52_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter53_ki_tex[0x400];
 #else
 u8 lat_letter53_ki_tex[] = {
@@ -1941,7 +1941,7 @@ u8 lat_letter53_ki_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter53_ed_tex[0x400];
 #else
 u8 lat_letter53_ed_tex[] = {
@@ -1949,7 +1949,7 @@ u8 lat_letter53_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter53_xk_tex[0x100];
 #else
 u8 lat_letter53_xk_tex[] = {
@@ -1957,7 +1957,7 @@ u8 lat_letter53_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter54_ce_tex[0x200];
 #else
 u8 lat_letter54_ce_tex[] = {
@@ -1965,7 +1965,7 @@ u8 lat_letter54_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter54_xk_tex[0x100];
 #else
 u8 lat_letter54_xk_tex[] = {
@@ -1973,7 +1973,7 @@ u8 lat_letter54_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter55_ce_tex[0x400];
 #else
 u8 lat_letter55_ce_tex[] = {
@@ -1981,7 +1981,7 @@ u8 lat_letter55_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter55_bg_tex[0x200];
 #else
 u8 lat_letter55_bg_tex[] = {
@@ -1989,7 +1989,7 @@ u8 lat_letter55_bg_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter55_xk_tex[0x100];
 #else
 u8 lat_letter55_xk_tex[] = {
@@ -1997,7 +1997,7 @@ u8 lat_letter55_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter56_ce_tex[0x200];
 #else
 u8 lat_letter56_ce_tex[] = {
@@ -2005,7 +2005,7 @@ u8 lat_letter56_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter56_wh_tex[0x80];
 #else
 u8 lat_letter56_wh_tex[] = {
@@ -2013,7 +2013,7 @@ u8 lat_letter56_wh_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter56_xk_tex[0x100];
 #else
 u8 lat_letter56_xk_tex[] = {
@@ -2021,7 +2021,7 @@ u8 lat_letter56_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter57_ce_tex[0x400];
 #else
 u8 lat_letter57_ce_tex[] = {
@@ -2029,7 +2029,7 @@ u8 lat_letter57_ce_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter57_xk_tex[0x100];
 #else
 u8 lat_letter57_xk_tex[] = {
@@ -2037,7 +2037,7 @@ u8 lat_letter57_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter58_ed_tex[0x400];
 #else
 u8 lat_letter58_ed_tex[] = {
@@ -2045,7 +2045,7 @@ u8 lat_letter58_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter58_xk_tex[0x100];
 #else
 u8 lat_letter58_xk_tex[] = {
@@ -2053,7 +2053,7 @@ u8 lat_letter58_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter59_sn_tex[0x400];
 #else
 u8 lat_letter59_sn_tex[] = {
@@ -2061,7 +2061,7 @@ u8 lat_letter59_sn_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter59_xk_tex[0x100];
 #else
 u8 lat_letter59_xk_tex[] = {
@@ -2069,7 +2069,7 @@ u8 lat_letter59_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter60_de_tex[0x200];
 #else
 u8 lat_letter60_de_tex[] = {
@@ -2077,7 +2077,7 @@ u8 lat_letter60_de_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter60_ed_tex[0x200];
 #else
 u8 lat_letter60_ed_tex[] = {
@@ -2085,7 +2085,7 @@ u8 lat_letter60_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter60_gd_tex[0x80];
 #else
 u8 lat_letter60_gd_tex[] = {
@@ -2093,7 +2093,7 @@ u8 lat_letter60_gd_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter60_hw_tex[0x80];
 #else
 u8 lat_letter60_hw_tex[] = {
@@ -2101,7 +2101,7 @@ u8 lat_letter60_hw_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter61_ed_tex[0x200];
 #else
 u8 lat_letter61_ed_tex[] = {
@@ -2109,7 +2109,7 @@ u8 lat_letter61_ed_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter61_kd_tex[0x200];
 #else
 u8 lat_letter61_kd_tex[] = {
@@ -2117,7 +2117,7 @@ u8 lat_letter61_kd_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter61_ha_tex[0x200];
 #else
 u8 lat_letter61_ha_tex[] = {
@@ -2125,7 +2125,7 @@ u8 lat_letter61_ha_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter61_xk_tex[0x100];
 #else
 u8 lat_letter61_xk_tex[] = {
@@ -2133,7 +2133,7 @@ u8 lat_letter61_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter62_ch_tex[0x400];
 #else
 u8 lat_letter62_ch_tex[] = {
@@ -2141,7 +2141,7 @@ u8 lat_letter62_ch_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter62_hn_tex[0x400];
 #else
 u8 lat_letter62_hn_tex[] = {
@@ -2149,7 +2149,7 @@ u8 lat_letter62_hn_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter62_xk_tex[0x100];
 #else
 u8 lat_letter62_xk_tex[] = {
@@ -2157,7 +2157,7 @@ u8 lat_letter62_xk_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth3_tex[0x80];
 #else
 u8 lat_letter63_cloth3_tex[] = {
@@ -2165,7 +2165,7 @@ u8 lat_letter63_cloth3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth4_tex[0x80];
 #else
 u8 lat_letter63_cloth4_tex[] = {
@@ -2173,7 +2173,7 @@ u8 lat_letter63_cloth4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth5_tex[0x80];
 #else
 u8 lat_letter63_cloth5_tex[] = {
@@ -2181,7 +2181,7 @@ u8 lat_letter63_cloth5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth6_tex[0x100];
 #else
 u8 lat_letter63_cloth6_tex[] = {
@@ -2189,7 +2189,7 @@ u8 lat_letter63_cloth6_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth7_tex[0x100];
 #else
 u8 lat_letter63_cloth7_tex[] = {
@@ -2197,7 +2197,7 @@ u8 lat_letter63_cloth7_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth8_tex[0x100];
 #else
 u8 lat_letter63_cloth8_tex[] = {
@@ -2205,7 +2205,7 @@ u8 lat_letter63_cloth8_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth1_tex[0x80];
 #else
 u8 lat_letter63_cloth1_tex[] = {
@@ -2213,7 +2213,7 @@ u8 lat_letter63_cloth1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_fusen_tex[0x80];
 #else
 u8 lat_letter63_fusen_tex[] = {
@@ -2221,7 +2221,7 @@ u8 lat_letter63_fusen_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth2_tex[0x80];
 #else
 u8 lat_letter63_cloth2_tex[] = {
@@ -2229,7 +2229,7 @@ u8 lat_letter63_cloth2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter63_cloth9_tex[0x80];
 #else
 u8 lat_letter63_cloth9_tex[] = {
@@ -2237,7 +2237,7 @@ u8 lat_letter63_cloth9_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter64_ik_tex[0x200];
 #else
 u8 lat_letter64_ik_tex[] = {
@@ -2245,7 +2245,7 @@ u8 lat_letter64_ik_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter64_ti_tex[0x200];
 #else
 u8 lat_letter64_ti_tex[] = {
@@ -2253,7 +2253,7 @@ u8 lat_letter64_ti_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter64_aw_tex[0x400];
 #else
 u8 lat_letter64_aw_tex[] = {
@@ -2261,7 +2261,7 @@ u8 lat_letter64_aw_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 lat_letter64_xk_tex[0x100];
 #else
 u8 lat_letter64_xk_tex[] = {

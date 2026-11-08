@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_museum5_awa1[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_museum5_awa1[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 ef_museum5_awa1[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_museum5_awa1_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_museum5_awa1_v[] = {

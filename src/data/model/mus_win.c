@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 mus_win_nuno_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 mus_win_nuno_tex_rgb_ci4_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 mus_win_nuno_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 mus_win_sw4_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 mus_win_sw4_tex_rgb_ci4_pal[] = {
@@ -21,7 +21,7 @@ u16 mus_win_sw4_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 mus_win_sw1_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 mus_win_sw1_tex_rgb_ci4_pal[] = {
@@ -29,7 +29,7 @@ u16 mus_win_sw1_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 mus_win_sw2_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 mus_win_sw2_tex_rgb_ci4_pal[] = {
@@ -37,7 +37,7 @@ u16 mus_win_sw2_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 mus_win_sw3_tex_rgb_ci4_pal[0x20 / sizeof(u16)];
 #else
 u16 mus_win_sw3_tex_rgb_ci4_pal[] = {
@@ -45,7 +45,7 @@ u16 mus_win_sw3_tex_rgb_ci4_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 inv_mwin_nwaku_tex[0x400];
 #else
 static u8 inv_mwin_nwaku_tex[] = {
@@ -53,7 +53,7 @@ static u8 inv_mwin_nwaku_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_w1_tex[0x400];
 #else
 u8 mus_win_w1_tex[] = {
@@ -61,7 +61,7 @@ u8 mus_win_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_w2_tex[0x800];
 #else
 u8 mus_win_w2_tex[] = {
@@ -69,7 +69,7 @@ u8 mus_win_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_w3_tex[0x800];
 #else
 u8 mus_win_w3_tex[] = {
@@ -77,7 +77,7 @@ u8 mus_win_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_w4_tex[0x400];
 #else
 u8 mus_win_w4_tex[] = {
@@ -85,7 +85,7 @@ u8 mus_win_w4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_w5_tex[0x100];
 #else
 u8 mus_win_w5_tex[] = {
@@ -93,7 +93,7 @@ u8 mus_win_w5_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_nuno_tex_rgb_ci4[0x200];
 #else
 u8 mus_win_nuno_tex_rgb_ci4[] = {
@@ -101,7 +101,7 @@ u8 mus_win_nuno_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_sw4_tex_rgb_ci4[0x80];
 #else
 u8 mus_win_sw4_tex_rgb_ci4[] = {
@@ -109,7 +109,7 @@ u8 mus_win_sw4_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_sw1_tex_rgb_ci4[0x400];
 #else
 u8 mus_win_sw1_tex_rgb_ci4[] = {
@@ -117,7 +117,7 @@ u8 mus_win_sw1_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_sw2_tex_rgb_ci4[0x400];
 #else
 u8 mus_win_sw2_tex_rgb_ci4[] = {
@@ -125,7 +125,7 @@ u8 mus_win_sw2_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 mus_win_sw3_tex_rgb_ci4[0x400];
 #else
 u8 mus_win_sw3_tex_rgb_ci4[] = {
@@ -133,7 +133,7 @@ u8 mus_win_sw3_tex_rgb_ci4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx mus_win_v[0x760 / sizeof(Vtx)];
 #else
 Vtx mus_win_v[] = {
@@ -342,7 +342,7 @@ Gfx mus_win_model[] = {
     gsSPDisplayList(mus_win_sw12T_model), gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_mus_win_c(void) {
     pc_load_asset("assets/mus_win/inv_mwin_nwaku_tex.bin", inv_mwin_nwaku_tex, 0x400, 0x7982E0, 0, 0);

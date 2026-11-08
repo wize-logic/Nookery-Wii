@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_nog_cosmos_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 int_nog_cosmos_grass_tex[0x80];
 #else
 ATTRIBUTE_ALIGN(32) u8 int_nog_cosmos_grass_tex[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u8 int_nog_cosmos_grass_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cosmos_flower_tex[0x100];
 #else
 u8 int_nog_cosmos_flower_tex[] = {
@@ -22,7 +22,7 @@ u8 int_nog_cosmos_flower_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_nog_cosmos_leaf_tex[0x80];
 #else
 u8 int_nog_cosmos_leaf_tex[] = {
@@ -30,7 +30,7 @@ u8 int_nog_cosmos_leaf_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_nog_cosmos_v[0x340 / sizeof(Vtx)];
 #else
 Vtx int_nog_cosmos_v[] = {

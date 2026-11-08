@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u16 room[0x20 / sizeof(u16)];
 #else
 static u16 room[] = {
@@ -8,7 +8,7 @@ static u16 room[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 room_floor[0x400];
 #else
 static u8 room_floor[] = {
@@ -16,7 +16,7 @@ static u8 room_floor[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 room_wall[0x800];
 #else
 static u8 room_wall[] = {
@@ -24,7 +24,7 @@ static u8 room_wall[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 room_window[0x800];
 #else
 static u8 room_window[] = {
@@ -32,7 +32,7 @@ static u8 room_window[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx room01_v[0x580 / sizeof(Vtx)];
 #else
 static Vtx room01_v[] = {
@@ -115,7 +115,7 @@ extern Gfx room01_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_room01_room01_c(void) {
     pc_load_asset("assets/field/bg/room.bin", room, 0x20, 0xD94E20, 0, 1);

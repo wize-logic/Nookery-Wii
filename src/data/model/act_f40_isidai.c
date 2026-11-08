@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_nog_isidai_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_nog_isidai_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_nog_isidai_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_f40_isidai_tex[0x300];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_f40_isidai_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 act_f40_isidai_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f40_isidai_a_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f40_isidai_a_v[] = {
@@ -43,7 +43,7 @@ Gfx act_f40_isidai_aT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f40_isidai_b_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f40_isidai_b_v[] = {
@@ -67,7 +67,7 @@ Gfx act_f40_isidai_bT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f40_isidai_c_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f40_isidai_c_v[] = {
@@ -91,7 +91,7 @@ Gfx act_f40_isidai_cT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_act_f40_isidai_c(void) {
     pc_load_asset("assets/act_f40_isidai/int_nog_isidai_pal.bin", int_nog_isidai_pal, 0x20, 0x519BE0, 0, 1);

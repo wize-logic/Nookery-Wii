@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx cam_win_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 ct_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 ct_tex[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u8 ct_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 cam_win_camera_tex[0x400];
 #else
 u8 cam_win_camera_tex[] = {
@@ -22,7 +22,7 @@ u8 cam_win_camera_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ban_win_waku3_tex[0x200];
 #else
 u8 ban_win_waku3_tex[] = {
@@ -30,7 +30,7 @@ u8 ban_win_waku3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ban_win_waku4_tex[0x200];
 #else
 u8 ban_win_waku4_tex[] = {
@@ -38,7 +38,7 @@ u8 ban_win_waku4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 yaji[0x80];
 #else
 static u8 yaji[] = {
@@ -46,7 +46,7 @@ static u8 yaji[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 elc_win_moji_tex[0x80];
 #else
 u8 elc_win_moji_tex[] = {
@@ -54,7 +54,7 @@ u8 elc_win_moji_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 elc_win_z_tex[0x400];
 #else
 u8 elc_win_z_tex[] = {
@@ -62,7 +62,7 @@ u8 elc_win_z_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 elc_win_light_tex[0x400];
 #else
 u8 elc_win_light_tex[] = {
@@ -70,7 +70,7 @@ u8 elc_win_light_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx cam_win_v[0x400 / sizeof(Vtx)];
 #else
 Vtx cam_win_v[] = {
@@ -189,7 +189,7 @@ Gfx elc_win_moji2T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_cam_win_c(void) {
     pc_load_asset("assets/cam_win/ct_tex.bin", ct_tex, 0x400, 0xB5BD80, 0, 0);

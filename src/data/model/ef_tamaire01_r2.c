@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 ef_tamaire01_r_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 ef_tamaire01_r_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 ef_tamaire01_r_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_tamaire01_r_tex[0x200];
 #else
 u8 ef_tamaire01_r_tex[] = {
@@ -21,7 +21,7 @@ u8 ef_tamaire01_r_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx ef_tamaire01_r_v[0x40 / sizeof(Vtx)];
 #else
 static Vtx ef_tamaire01_r_v[] = {
@@ -42,7 +42,7 @@ Gfx ef_tamaire01_r_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 ef_tamaire01_w_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 ef_tamaire01_w_pal[] = {
@@ -50,7 +50,7 @@ ATTRIBUTE_ALIGN(32) u16 ef_tamaire01_w_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 ef_tamaire01_w_tex[0x200];
 #else
 u8 ef_tamaire01_w_tex[] = {
@@ -58,7 +58,7 @@ u8 ef_tamaire01_w_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_tamaire01_w_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_tamaire01_w_v[] = {
@@ -79,7 +79,7 @@ Gfx ef_tamaire01_w_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx ef_tama_shadow_in_v[0x40 / sizeof(Vtx)];
 #else
 Vtx ef_tama_shadow_in_v[] = {
@@ -87,7 +87,7 @@ Vtx ef_tama_shadow_in_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 ef_tama_shadow_in_0[0x100];
 #else
 ATTRIBUTE_ALIGN(32) u8 ef_tama_shadow_in_0[] = {
@@ -107,7 +107,7 @@ Gfx ef_tamaire_shadow_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_ef_tamaire01_r2_c(void) {
     pc_load_asset("assets/ef_tamaire01_r2/ef_tamaire01_r_pal.bin", ef_tamaire01_r_pal, 0x20, 0x950500, 0, 1);

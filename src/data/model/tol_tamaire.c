@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 tol_tamaire_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 tol_tamaire_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 tol_tamaire_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_tamaire_r1_tex[0x200];
 #else
 u8 tol_tamaire_r1_tex[] = {
@@ -21,7 +21,7 @@ u8 tol_tamaire_r1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_tamaire_r2_tex[0x200];
 #else
 u8 tol_tamaire_r2_tex[] = {
@@ -29,7 +29,7 @@ u8 tol_tamaire_r2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_tamaire_r3_tex[0x200];
 #else
 u8 tol_tamaire_r3_tex[] = {
@@ -37,7 +37,7 @@ u8 tol_tamaire_r3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_tamaire_w1_tex[0x200];
 #else
 u8 tol_tamaire_w1_tex[] = {
@@ -45,7 +45,7 @@ u8 tol_tamaire_w1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_tamaire_w2_tex[0x200];
 #else
 u8 tol_tamaire_w2_tex[] = {
@@ -53,7 +53,7 @@ u8 tol_tamaire_w2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 tol_tamaire_w3_tex[0x200];
 #else
 u8 tol_tamaire_w3_tex[] = {
@@ -61,7 +61,7 @@ u8 tol_tamaire_w3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx tol_tamaire_v[0x40 / sizeof(Vtx)];
 #else
 Vtx tol_tamaire_v[] = {

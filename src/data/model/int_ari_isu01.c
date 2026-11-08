@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_ari_isu01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 int_ari_nagaisu1_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 int_ari_nagaisu1_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 int_ari_nagaisu1_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_isu01_1_tex[0x200];
 #else
 u8 int_ari_isu01_1_tex[] = {
@@ -22,7 +22,7 @@ u8 int_ari_isu01_1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_isu01_0_tex[0x400];
 #else
 u8 int_ari_isu01_0_tex[] = {
@@ -30,7 +30,7 @@ u8 int_ari_isu01_0_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_ari_isu01_2_tex[0x200];
 #else
 u8 int_ari_isu01_2_tex[] = {
@@ -38,7 +38,7 @@ u8 int_ari_isu01_2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_ari_isu01_v[0x260 / sizeof(Vtx)];
 #else
 Vtx int_ari_isu01_v[] = {
@@ -75,7 +75,7 @@ Gfx int_ari_isu01_00T_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_int_ari_isu01_c(void) {
     pc_load_asset("assets/int_ari_isu01/int_ari_nagaisu1_pal.bin", int_ari_nagaisu1_pal, 0x20, 0x8E6780, 0, 1);

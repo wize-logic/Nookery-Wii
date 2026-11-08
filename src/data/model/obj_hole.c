@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_hole_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_hole_tex[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_hole_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole0_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole0_v[] = {
@@ -19,7 +19,7 @@ Vtx obj_hole0_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole1_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole1_v[] = {
@@ -27,7 +27,7 @@ Vtx obj_hole1_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole2_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole2_v[] = {
@@ -35,7 +35,7 @@ Vtx obj_hole2_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole3_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole3_v[] = {
@@ -43,7 +43,7 @@ Vtx obj_hole3_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole4_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole4_v[] = {
@@ -51,7 +51,7 @@ Vtx obj_hole4_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole5_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole5_v[] = {
@@ -59,7 +59,7 @@ Vtx obj_hole5_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole6_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole6_v[] = {
@@ -67,7 +67,7 @@ Vtx obj_hole6_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole7_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole7_v[] = {
@@ -75,7 +75,7 @@ Vtx obj_hole7_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole8_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole8_v[] = {
@@ -83,7 +83,7 @@ Vtx obj_hole8_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole9_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole9_v[] = {
@@ -91,7 +91,7 @@ Vtx obj_hole9_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole10_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole10_v[] = {
@@ -99,7 +99,7 @@ Vtx obj_hole10_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole11_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole11_v[] = {
@@ -107,7 +107,7 @@ Vtx obj_hole11_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole12_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole12_v[] = {
@@ -115,7 +115,7 @@ Vtx obj_hole12_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole13_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole13_v[] = {
@@ -123,7 +123,7 @@ Vtx obj_hole13_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole14_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole14_v[] = {
@@ -131,7 +131,7 @@ Vtx obj_hole14_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole15_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole15_v[] = {
@@ -139,7 +139,7 @@ Vtx obj_hole15_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole16_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole16_v[] = {
@@ -147,7 +147,7 @@ Vtx obj_hole16_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole17_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole17_v[] = {
@@ -155,7 +155,7 @@ Vtx obj_hole17_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole18_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole18_v[] = {
@@ -163,7 +163,7 @@ Vtx obj_hole18_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole19_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole19_v[] = {
@@ -171,7 +171,7 @@ Vtx obj_hole19_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole20_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole20_v[] = {
@@ -179,7 +179,7 @@ Vtx obj_hole20_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole21_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole21_v[] = {
@@ -187,7 +187,7 @@ Vtx obj_hole21_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole22_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole22_v[] = {
@@ -195,7 +195,7 @@ Vtx obj_hole22_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole23_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole23_v[] = {
@@ -203,7 +203,7 @@ Vtx obj_hole23_v[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_hole24_v[0x50 / sizeof(Vtx)];
 #else
 Vtx obj_hole24_v[] = {

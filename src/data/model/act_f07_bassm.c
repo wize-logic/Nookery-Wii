@@ -3,7 +3,7 @@
 #include "evw_anime.h"
 #include "c_keyframe.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 act_f07_bassm_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 act_f07_bassm_pal[] = {
@@ -11,7 +11,7 @@ ATTRIBUTE_ALIGN(32) u16 act_f07_bassm_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 act_f07_bassm_tex[0x300];
 #else
 ATTRIBUTE_ALIGN(32) u8 act_f07_bassm_tex[] = {
@@ -19,7 +19,7 @@ ATTRIBUTE_ALIGN(32) u8 act_f07_bassm_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f07_bassm_a_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f07_bassm_a_v[] = {
@@ -43,7 +43,7 @@ Gfx act_f07_bassm_aT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f07_bassm_b_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f07_bassm_b_v[] = {
@@ -67,7 +67,7 @@ Gfx act_f07_bassm_bT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx act_f07_bassm_c_v[0x90 / sizeof(Vtx)];
 #else
 Vtx act_f07_bassm_c_v[] = {

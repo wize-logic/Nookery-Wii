@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_s_frag_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_s_frag_pal[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_s_frag_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_frag_t3_tex_txt[0x100];
 #else
 u8 obj_s_frag_t3_tex_txt[] = {
@@ -21,7 +21,7 @@ u8 obj_s_frag_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_frag_t1_tex_txt[0x200];
 #else
 u8 obj_s_frag_t1_tex_txt[] = {
@@ -29,7 +29,7 @@ u8 obj_s_frag_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_frag_t2_tex_txt[0x100];
 #else
 u8 obj_s_frag_t2_tex_txt[] = {
@@ -37,7 +37,7 @@ u8 obj_s_frag_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_frag_v[0x7A0 / sizeof(Vtx)];
 #else
 Vtx obj_s_frag_v[] = {
@@ -189,7 +189,7 @@ cKF_Animation_R_c cKF_ba_r_obj_s_frag = {
     cKF_ckcb_r_obj_s_frag_tbl, cKF_ds_obj_s_frag_tbl, cKF_kn_obj_s_frag_tbl, cKF_c_obj_s_frag_tbl, -1, 65
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_w_frag_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_w_frag_pal[] = {
@@ -197,7 +197,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_w_frag_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_frag_t3_tex_txt[0x100];
 #else
 u8 obj_w_frag_t3_tex_txt[] = {
@@ -205,7 +205,7 @@ u8 obj_w_frag_t3_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_frag_t1_tex_txt[0x200];
 #else
 u8 obj_w_frag_t1_tex_txt[] = {
@@ -213,7 +213,7 @@ u8 obj_w_frag_t1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_frag_t2_tex_txt[0x100];
 #else
 u8 obj_w_frag_t2_tex_txt[] = {
@@ -221,7 +221,7 @@ u8 obj_w_frag_t2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_frag_v[0x7A0 / sizeof(Vtx)];
 #else
 Vtx obj_w_frag_v[] = {

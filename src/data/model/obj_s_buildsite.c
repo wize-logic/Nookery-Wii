@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u8 obj_s_buildsite_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) u8 obj_s_buildsite_tex[] = {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) u8 obj_s_buildsite_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_buildsite_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx obj_s_buildsite_v[] = {
@@ -33,7 +33,7 @@ Gfx reserve_DL_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_s_attention_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_s_attention_pal[] = {
@@ -41,7 +41,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_s_attention_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_s_attention_tex[0x400];
 #else
 u8 obj_s_attention_tex[] = {
@@ -49,7 +49,7 @@ u8 obj_s_attention_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_s_attention_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_s_attention_v[] = {
@@ -72,7 +72,7 @@ Gfx obj_s_attentionT_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_buildsite_tex[0x400];
 #else
 u8 obj_w_buildsite_tex[] = {
@@ -80,7 +80,7 @@ u8 obj_w_buildsite_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_buildsite_v[0xC0 / sizeof(Vtx)];
 #else
 Vtx obj_w_buildsite_v[] = {
@@ -100,7 +100,7 @@ Gfx reserve_winter_DL_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 obj_w_attention_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 obj_w_attention_pal[] = {
@@ -108,7 +108,7 @@ ATTRIBUTE_ALIGN(32) u16 obj_w_attention_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_w_attention_tex[0x400];
 #else
 u8 obj_w_attention_tex[] = {
@@ -116,7 +116,7 @@ u8 obj_w_attention_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_w_attention_v[0x80 / sizeof(Vtx)];
 #else
 Vtx obj_w_attention_v[] = {

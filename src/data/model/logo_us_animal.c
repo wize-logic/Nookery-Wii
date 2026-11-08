@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx logo_us_animal_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 logo_us_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 logo_us_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) static u16 logo_us_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_l_tex_txt[0x600];
 #else
 u8 logo_us_l_tex_txt[] = {
@@ -22,7 +22,7 @@ u8 logo_us_l_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_a_tex_txt[0x800];
 #else
 u8 logo_us_a_tex_txt[] = {
@@ -30,7 +30,7 @@ u8 logo_us_a_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_m_1_tex_txt[0x800];
 #else
 u8 logo_us_m_1_tex_txt[] = {
@@ -38,7 +38,7 @@ u8 logo_us_m_1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_m_2_tex_txt[0x400];
 #else
 u8 logo_us_m_2_tex_txt[] = {
@@ -46,7 +46,7 @@ u8 logo_us_m_2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 logo_us_i_tex_txt[0x600];
 #else
 static u8 logo_us_i_tex_txt[] = {
@@ -54,7 +54,7 @@ static u8 logo_us_i_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static u8 logo_us_n_tex_txt[0x800];
 #else
 static u8 logo_us_n_tex_txt[] = {
@@ -62,7 +62,7 @@ static u8 logo_us_n_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_a_2_tex_txt[0x400];
 #else
 u8 logo_us_a_2_tex_txt[] = {
@@ -70,7 +70,7 @@ u8 logo_us_a_2_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 logo_us_a_1_tex_txt[0x800];
 #else
 u8 logo_us_a_1_tex_txt[] = {
@@ -78,7 +78,7 @@ u8 logo_us_a_1_tex_txt[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx logo_us_animal_v[0x200 / sizeof(Vtx)];
 #else
 Vtx logo_us_animal_v[] = {
@@ -182,7 +182,7 @@ cKF_Joint_R_c cKF_je_r_logo_us_animal_tbl[] = { { NULL, 6, cKF_JOINT_FLAG_DISP_O
 
 cKF_Skeleton_R_c cKF_bs_r_logo_us_animal = { ARRAY_COUNT(cKF_je_r_logo_us_animal_tbl), 8, cKF_je_r_logo_us_animal_tbl };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_logo_us_animal_c(void) {
     pc_load_asset("assets/logo_us_animal/logo_us_pal.bin", logo_us_pal, 0x20, 0x8CEAA0, 0, 1);

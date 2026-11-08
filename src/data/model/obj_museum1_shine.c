@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u16 obj_museum1_shine_2_pal[0x20 / sizeof(u16)];
 #else
 u16 obj_museum1_shine_2_pal[] = {
@@ -13,7 +13,7 @@ u16 obj_museum1_shine_2_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum1_shine_2_tex[0x400];
 #else
 u8 obj_museum1_shine_2_tex[] = {
@@ -21,7 +21,7 @@ u8 obj_museum1_shine_2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum1_shine_1_tex[0x800];
 #else
 u8 obj_museum1_shine_1_tex[] = {
@@ -29,7 +29,7 @@ u8 obj_museum1_shine_1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 obj_museum1_shine_3__tex_rgb_i4[0x80];
 #else
 u8 obj_museum1_shine_3__tex_rgb_i4[] = {
@@ -37,7 +37,7 @@ u8 obj_museum1_shine_3__tex_rgb_i4[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx obj_museum1_shine_v[0x140 / sizeof(Vtx)];
 #else
 Vtx obj_museum1_shine_v[] = {

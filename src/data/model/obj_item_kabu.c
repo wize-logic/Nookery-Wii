@@ -5,7 +5,7 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 obj_item_kabu_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 obj_item_kabu_pal[]= {
@@ -13,7 +13,7 @@ ATTRIBUTE_ALIGN(32) static u16 obj_item_kabu_pal[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 obj_item_kabu_tex[0x200];
 #else
 ATTRIBUTE_ALIGN(32) static u8 obj_item_kabu_tex[]= {
@@ -21,7 +21,7 @@ ATTRIBUTE_ALIGN(32) static u8 obj_item_kabu_tex[]= {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx obj_item_kabu_v[0x40 / sizeof(Vtx)];
 #else
 static Vtx obj_item_kabu_v[] = {
@@ -44,7 +44,7 @@ gsSPEndDisplayList(),
 };
 
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_model_obj_item_kabu_c(void) {
     pc_load_asset("assets/obj_item_kabu/obj_item_kabu_pal.bin", obj_item_kabu_pal, 0x20, 0x66C9A0, 0, 1);

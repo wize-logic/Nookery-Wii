@@ -1,6 +1,6 @@
 #include "libforest/gbi_extensions.h"
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_museum1_mado_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_museum1_mado_pal[] = {
@@ -8,7 +8,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_museum1_mado_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_museum1_step_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_museum1_step_pal[] = {
@@ -16,7 +16,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_museum1_step_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_museum1_floor_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_museum1_floor_pal[] = {
@@ -24,7 +24,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_museum1_floor_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u16 rom_museum1_wall_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) static u16 rom_museum1_wall_pal[] = {
@@ -32,7 +32,7 @@ ATTRIBUTE_ALIGN(32) static u16 rom_museum1_wall_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_mado1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_mado1_tex[] = {
@@ -40,7 +40,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_mado1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_step1_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_step1_tex[] = {
@@ -48,7 +48,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_step1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_step2_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_step2_tex[] = {
@@ -56,7 +56,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_step2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_floorA_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_floorA_tex[] = {
@@ -64,7 +64,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_floorA_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_floorB_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_floorB_tex[] = {
@@ -72,7 +72,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_floorB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_mado2_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_mado2_tex[] = {
@@ -80,7 +80,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_mado2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign1_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign1_tex[] = {
@@ -88,7 +88,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign1_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_wallA_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_wallA_tex[] = {
@@ -96,7 +96,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_wallA_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_wallB_tex[0x800];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_wallB_tex[] = {
@@ -104,7 +104,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_wallB_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign2_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign2_tex[] = {
@@ -112,7 +112,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign2_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign3_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign3_tex[] = {
@@ -120,7 +120,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign3_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign4_tex[0x400];
 #else
 ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign4_tex[] = {
@@ -128,7 +128,7 @@ ATTRIBUTE_ALIGN(32) static u8 rom_museum1_sign4_tex[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 static Vtx rom_museum1_v[0x12C0 / sizeof(Vtx)];
 #else
 static Vtx rom_museum1_v[] = {
@@ -479,7 +479,7 @@ extern Gfx rom_museum1_model[] = {
     gsSPEndDisplayList(),
 };
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void pc_load_asset(const char*, void*, unsigned int, unsigned int, int, int);
 void _pc_load_src_data_field_bg_acre_rom_museum1_rom_museum1_c(void) {
     pc_load_asset("assets/field/bg/rom_museum1_mado_pal.bin", rom_museum1_mado_pal, 0x20, 0xBA38E0, 0, 1);

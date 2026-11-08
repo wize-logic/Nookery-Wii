@@ -6,7 +6,7 @@
 #include "ef_effect_control.h"
 
 extern Vtx int_sum_stove01_v[];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 ATTRIBUTE_ALIGN(32) u16 int_sum_stove01_pal[0x20 / sizeof(u16)];
 #else
 ATTRIBUTE_ALIGN(32) u16 int_sum_stove01_pal[] = {
@@ -14,7 +14,7 @@ ATTRIBUTE_ALIGN(32) u16 int_sum_stove01_pal[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_top[0x80];
 #else
 u8 int_sum_stove01_top[] = {
@@ -22,7 +22,7 @@ u8 int_sum_stove01_top[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_side[0x300];
 #else
 u8 int_sum_stove01_side[] = {
@@ -30,7 +30,7 @@ u8 int_sum_stove01_side[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_net[0x80];
 #else
 u8 int_sum_stove01_net[] = {
@@ -38,7 +38,7 @@ u8 int_sum_stove01_net[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_douwn[0x80];
 #else
 u8 int_sum_stove01_douwn[] = {
@@ -46,7 +46,7 @@ u8 int_sum_stove01_douwn[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_side2[0x80];
 #else
 u8 int_sum_stove01_side2[] = {
@@ -54,7 +54,7 @@ u8 int_sum_stove01_side2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_top2[0x80];
 #else
 u8 int_sum_stove01_top2[] = {
@@ -62,7 +62,7 @@ u8 int_sum_stove01_top2[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_side3[0x40];
 #else
 u8 int_sum_stove01_side3[] = {
@@ -70,7 +70,7 @@ u8 int_sum_stove01_side3[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_swich[0x80];
 #else
 u8 int_sum_stove01_swich[] = {
@@ -78,7 +78,7 @@ u8 int_sum_stove01_swich[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 u8 int_sum_stove01_fire[0x80];
 #else
 u8 int_sum_stove01_fire[] = {
@@ -86,7 +86,7 @@ u8 int_sum_stove01_fire[] = {
 };
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 Vtx int_sum_stove01_v[0x430 / sizeof(Vtx)];
 #else
 Vtx int_sum_stove01_v[] = {
