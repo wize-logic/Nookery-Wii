@@ -37,6 +37,14 @@ static void my_alloc_init(GAME* game, void* start, size_t size) {
     u32 tsize;
 
     freebytes = game_getFreeBytes(game);
+#ifdef ACGC_PORT
+    /* THA_alloc16 counts down from the tail rounded to 16 bytes: with a tail
+     * that isn't (the ports' hyral sizes), the whole free size from there
+     * starts up to 16 bytes before the hyral, over its gamealloc header, and
+     * the scene's cleanup then walks a broken list (the Wii hung leaving the
+     * NES games). A multiple of 16 starts at the head. */
+    freebytes &= ~15u;
+#endif
     alloc = (u32)THA_alloc16(&game->tha, freebytes);
     aligned = ALIGN_NEXT(alloc, 16);
     tsize = aligned - alloc;
@@ -163,6 +171,15 @@ extern void famicom_emu_init(GAME* game) {
     /* Pump audio system until it transitions to sub-game (NES) mode */
     for (int i = 0; i < 120 && sAdo_SubGameOK() == FALSE; i++) {
         sAdo_GameFrame();
+    }
+#elif defined(ACGC_PORT)
+    /* As on PC: two seconds at most for the sounds to stop */
+    {
+        int i;
+        for (i = 0; i < 120 && sAdo_SubGameOK() == FALSE; i++) {
+            VIWaitForRetrace();
+            sAdo_GameFrame();
+        }
     }
 #else
     while (sAdo_SubGameOK() == FALSE) {

@@ -2632,13 +2632,12 @@ void ksNesPushResetButton(ksNesStateObj* sp) {
 }
 
 int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp, u8* bbramp) {
-#ifdef TARGET_PC
-    /* On PC, fixNES handles NES emulation — ksNesReset just needs to succeed */
+#ifdef ACGC_PORT
+    /* The ports run fixNES in the core's place: ksNesReset just needs to succeed */
     (void)wp; (void)sp; (void)flags; (void)chrramp; (void)bbramp;
     return 0;
 }
 #else
-{
     u8* wramp;
     uint uVar1;
     uint uVar2;
@@ -2982,7 +2981,7 @@ void ksNesEmuFrame(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags) {
 }
 #endif /* !ACGC_PORT */
 
-#ifndef TARGET_PC /* PPC inline assembly — replaced by pc_nes_core.c on PC */
+#ifndef ACGC_PORT /* PPC inline assembly (MWCC) — replaced by fixNES on PC and the Wii */
 
 #define REGISTER_A r14
 #define REGISTER_X r15

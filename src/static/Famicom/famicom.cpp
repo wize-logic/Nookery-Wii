@@ -2,6 +2,11 @@
 #include "Famicom/famicomInternal.hpp"
 #include "dolphin/vi.h"
 
+#ifdef ACGC_PORT
+/* The ports (PC and Wii) run the NES games on fixNES (pc/lib/fixnes, through
+ * pc/src/pc_nes_fixnes.c) in place of the GameCube's assembly core, and take
+ * the cartridges the GameCube read from memory cards from a folder of the
+ * player's own ROMs (nes_roms). */
 #ifdef TARGET_PC
 #include "pc_bswap.h"
 #include "pc_gci_dir.h"
@@ -9,6 +14,10 @@
 #include "pc_town_select.h"
 
 #include "borealis/io.hpp"
+#else
+#include "pc_bswap.h"
+#include "nookery_wii/nes_paths.h"
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,9 +30,19 @@
 #endif
 #include <algorithm>
 #include <cstddef>
+#ifdef TARGET_PC
 #include <filesystem>
+#endif
 #include <string>
+#ifdef TARGET_PC
 #include <system_error>
+#else
+/* The Wii's files: the C library's (newlib over libogc's SD driver) */
+#include <dirent.h>
+#include <errno.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#endif
 #include <vector>
 extern "C" {
     void pc_fixnes_init(unsigned char* ines_data, int ines_size);
@@ -52,6 +71,7 @@ extern "C" {
 #define PC_NES_DOLPHIN_GCI_FILENAME "01-GAFE-" PC_NES_GCI_NAME ".gci"
 #define PC_NES_SAVE_PATH_MAX 1024
 
+#ifdef TARGET_PC
 static FILE* pc_nes_open_file(const std::filesystem::path& path, const char* mode) {
 #ifdef _WIN32
     const std::wstring wide_mode(mode, mode + strlen(mode));
@@ -70,6 +90,7 @@ static int pc_nes_save_path(char* path, size_t path_size) {
     }
     return pc_platform_user_path("save/card_a/" PC_NES_GCI_FILENAME, path, path_size);
 }
+#endif
 
 static void pc_sync_bbramp_to_prgram() {
     if (!emuPrgRAM || !famicomCommon.bbramp) return;
@@ -87,6 +108,11 @@ static void pc_sync_prgram_to_bbramp() {
  * from a user folder instead of a GC memory card image. */
 #define PC_NES_ROMS_DIR "nes_roms"
 
+static int pc_nes_rom_cmp(const void* a, const void* b) {
+    return pc_strcasecmp(*(const char* const*)a, *(const char* const*)b);
+}
+
+#ifdef TARGET_PC
 static const std::filesystem::path& pc_nes_roms_dir(void) {
     static const std::filesystem::path resolved = [] {
         char buffer[PC_NES_SAVE_PATH_MAX];
@@ -110,10 +136,6 @@ static const std::filesystem::path& pc_nes_roms_dir(void) {
         return primary;
     }();
     return resolved;
-}
-
-static int pc_nes_rom_cmp(const void* a, const void* b) {
-    return pc_strcasecmp(*(const char* const*)a, *(const char* const*)b);
 }
 
 static int pc_nes_rom_scan(char*** out_names) {
@@ -151,6 +173,56 @@ static int pc_nes_rom_scan(char*** out_names) {
     return count;
 }
 
+static FILE* pc_nes_rom_open(const char* filename) {
+    return pc_nes_open_file(pc_nes_roms_dir() / borealis::io::fs_path_from_utf8(filename), "rb");
+}
+#else
+/* The Wii: sd:/apps/nookery/nes_roms (wii/src/nes_paths.c) */
+static int pc_nes_rom_scan(char*** out_names) {
+    *out_names = nullptr;
+    char roms_dir[PC_NES_SAVE_PATH_MAX];
+    if (!nk_wii_nes_roms_dir(roms_dir, sizeof(roms_dir))) return 0;
+    DIR* dir = opendir(roms_dir);
+    if (dir == nullptr) return 0;
+
+    char** names = nullptr;
+    int count = 0;
+    int cap = 0;
+    for (struct dirent* entry; (entry = readdir(dir)) != nullptr;) {
+        const char* filename = entry->d_name;
+        const size_t len = strlen(filename);
+        if (len < 5 || pc_strcasecmp(filename + len - 4, ".nes") != 0) continue;
+
+        if (count == cap) {
+            const int new_cap = cap ? cap * 2 : 8;
+            char** new_names = (char**)realloc(names, new_cap * sizeof(char*));
+            if (new_names == nullptr) break;
+            names = new_names;
+            cap = new_cap;
+        }
+
+        char* name = (char*)malloc(len + 1);
+        if (name == nullptr) break;
+        memcpy(name, filename, len + 1);
+        names[count++] = name;
+    }
+    closedir(dir);
+
+    if (count > 1) qsort(names, count, sizeof(char*), pc_nes_rom_cmp);
+    *out_names = names;
+    return count;
+}
+
+static FILE* pc_nes_rom_open(const char* filename) {
+    char roms_dir[PC_NES_SAVE_PATH_MAX];
+    char path[PC_NES_SAVE_PATH_MAX];
+    if (!nk_wii_nes_roms_dir(roms_dir, sizeof(roms_dir))) return nullptr;
+    const int length = snprintf(path, sizeof(path), "%s/%s", roms_dir, filename);
+    if (length < 0 || static_cast<size_t>(length) >= sizeof(path)) return nullptr;
+    return fopen(path, "rb");
+}
+#endif
+
 static void pc_nes_rom_free(char** names, int count) {
     for (int i = 0; i < count; i++) free(names[i]);
     free(names);
@@ -166,7 +238,7 @@ static void pc_nes_rom_copy_title(u8* dst, const char* filename) {
 }
 #endif
 
-#ifndef TARGET_PC
+#if !defined(TARGET_PC) && !defined(TARGET_WII)
 #define pc_widescreen_set_projection GXSetProjection
 #define pc_widescreen_set_viewport GXSetViewport
 #endif
@@ -243,12 +315,22 @@ static void famicom_save_data_setup(FamicomSaveDataHeader* header, u32 size, u8*
 static void famicom_save_data_init(FamicomSaveDataHeader* header, u32 size, u8* identifier);
 static int famicom_save_data_check(const FamicomSaveDataHeader* header, int ignore_player_no, const u8* identifier);
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
+/* The NES saves in files. The PC keeps the common one (the furniture games')
+ * as a GCI of its own and the cartridges' as raw images; the Wii keeps the
+ * common one on its memory card (wii/src/card.c, as the GameCube did) and
+ * the cartridges' as the PC's raw images. */
 enum PcNesReadResult { PC_NES_MISSING, PC_NES_LOADED, PC_NES_INVALID, PC_NES_IO_ERROR };
 enum class PcNesFormat { Raw, Gci };
 
+#ifdef TARGET_PC
+typedef std::filesystem::path PcNesPath;
+#else
+typedef std::string PcNesPath;
+#endif
+
 struct PcNesSaveState {
-    std::filesystem::path path;
+    PcNesPath path;
     PcNesFormat format = PcNesFormat::Raw;
     int slot = -1;
     bool writable = false;
@@ -256,9 +338,9 @@ struct PcNesSaveState {
 };
 
 struct PcNesImportSource {
-    std::filesystem::path path;
+    PcNesPath path;
     PcNesFormat format;
-    std::filesystem::path once_marker;
+    PcNesPath once_marker;
 };
 
 struct PcNesCartridge {
@@ -268,6 +350,7 @@ struct PcNesCartridge {
     u32 ram_size = 0;
 };
 
+#ifdef TARGET_PC
 struct PcNesGciIcon {
     std::vector<u8> data;
     u16 format = 0;
@@ -275,16 +358,19 @@ struct PcNesGciIcon {
 };
 
 static PcNesSaveState pc_nes_common_save;
+#endif
 static PcNesCartridge pc_nes_cartridge;
 static const char* const pc_nes_save_suffixes[] = { "", ".write", ".write.temp", ".tmp", ".bak1" };
 
 static constexpr size_t PC_NES_GCI_MAX_BLOCKS = 16;
 static constexpr size_t PC_NES_PLAYED_MASK_OFFSET = 4;
 
+#ifdef TARGET_PC
 static int SetupResIcon(const ResTIMG*, u8*, size_t, size_t*, u16*, u16*);
+#endif
 
-static std::filesystem::path pc_nes_sibling(const std::filesystem::path& path, const char* suffix) {
-    std::filesystem::path sibling = path;
+static PcNesPath pc_nes_sibling(const PcNesPath& path, const char* suffix) {
+    PcNesPath sibling = path;
     sibling += suffix;
     return sibling;
 }
@@ -300,6 +386,7 @@ static void pc_nes_swap_fields(u8* image, u32 block_size) {
     }
 }
 
+#ifdef TARGET_PC
 static const PcNesGciIcon& pc_nes_gci_icon() {
     static PcNesGciIcon icon;
     static bool loaded = false;
@@ -384,10 +471,14 @@ static bool pc_nes_decode_gci(const std::vector<u8>& file, u8* image, u32 block_
     return true;
 }
 
+#endif
+
 static bool pc_nes_valid_image(const FamicomSaveDataHeader* header, u32 block_size, const u8* identifier) {
     return header->headerSize == FAMICOM_SAVE_HEADER_SIZE && header->size == block_size &&
            famicom_save_data_check(header, -1, identifier) == 0;
 }
+
+#ifdef TARGET_PC
 
 static PcNesReadResult pc_nes_read_save(const std::filesystem::path& path, PcNesFormat format,
                                       FamicomSaveDataHeader* header, u32 block_size, const u8* identifier) {
@@ -664,8 +755,196 @@ static int pc_nes_save_image(PcNesSaveState& state, FamicomSaveDataHeader* heade
     OSReport("[PC] NES save: wrote '%s'\n", borealis::io::fs_path_to_string(state.path).c_str());
     return FAMICOM_RESULT_OK;
 }
+#else
+/* The Wii: the PC's cartridge saves (raw images, with the PC's
+ * little-endian fields, so the files go between the two), written the PC's
+ * way (a new copy beside the old, then renamed over it), with the C
+ * library's calls. A cartridge's save is <its card's folder>/nes_roms/<ROM's
+ * file name>.sav (wii/src/nes_paths.c): sd:/apps/nookery/card_a/nes_roms for
+ * your town, as the PC's save/card_a/nes_roms. */
+static bool pc_nes_missing_errno(int error) {
+    return error == ENOENT || error == ENOTDIR;
+}
 
-#endif
+/* Whether the file is there: false with *error set when that can't be told */
+static bool pc_nes_exists(const PcNesPath& path, bool* error) {
+    struct stat st;
+    *error = false;
+    if (stat(path.c_str(), &st) == 0) return true;
+    *error = !pc_nes_missing_errno(errno);
+    return false;
+}
+
+/* A file removed (or not there): false when it stays */
+static bool pc_nes_remove(const PcNesPath& path) {
+    return remove(path.c_str()) == 0 || pc_nes_missing_errno(errno);
+}
+
+static bool pc_nes_rename(const PcNesPath& from, const PcNesPath& to) {
+    return rename(from.c_str(), to.c_str()) == 0;
+}
+
+static bool pc_nes_make_parent(const PcNesPath& path) {
+    const size_t slash = path.rfind('/');
+    if (slash == PcNesPath::npos) return true;
+    const PcNesPath parent = path.substr(0, slash);
+    struct stat st;
+    if (stat(parent.c_str(), &st) == 0) return S_ISDIR(st.st_mode);
+    return mkdir(parent.c_str(), 0777) == 0 || errno == EEXIST;
+}
+
+/* The PC's raw image has its fields in the PC's (little-endian) order */
+static std::vector<u8> pc_nes_encode(PcNesFormat format, const u8* image, u32 block_size) {
+    (void)format;
+    std::vector<u8> file(image, image + pc_nes_image_size(block_size));
+    pc_nes_swap_fields(file.data(), block_size);
+    return file;
+}
+
+static PcNesReadResult pc_nes_read_save(const PcNesPath& path, PcNesFormat format,
+                                      FamicomSaveDataHeader* header, u32 block_size, const u8* identifier) {
+    (void)format;
+    struct stat st;
+    if (stat(path.c_str(), &st) != 0) return pc_nes_missing_errno(errno) ? PC_NES_MISSING : PC_NES_IO_ERROR;
+    if (!S_ISREG(st.st_mode)) return PC_NES_IO_ERROR;
+    const size_t size = pc_nes_image_size(block_size);
+    if (static_cast<size_t>(st.st_size) != size) return PC_NES_INVALID;
+
+    FILE* file = fopen(path.c_str(), "rb");
+    if (file == nullptr) return PC_NES_IO_ERROR;
+    std::vector<u8> image(size);
+    const bool read = fread(image.data(), 1, image.size(), file) == image.size();
+    const bool failed = ferror(file) != 0;
+    fclose(file);
+    if (!read) return failed ? PC_NES_IO_ERROR : PC_NES_INVALID;
+
+    pc_nes_swap_fields(image.data(), block_size);
+    if (!pc_nes_valid_image((const FamicomSaveDataHeader*)image.data(), block_size, identifier)) {
+        return PC_NES_INVALID;
+    }
+    if (header != nullptr) memcpy(header, image.data(), size);
+    return PC_NES_LOADED;
+}
+
+static bool pc_nes_write_file(const PcNesPath& path, const void* data, size_t size) {
+    FILE* file = fopen(path.c_str(), "wb");
+    if (file == nullptr) return false;
+    const bool wrote = fwrite(data, 1, size, file) == size;
+    const bool flushed = fflush(file) == 0 && fsync(fileno(file)) == 0;
+    const bool closed = fclose(file) == 0;
+    return wrote && flushed && closed;
+}
+
+/* The PC brings in saves its earlier versions kept elsewhere; the Wii has
+ * none (pc_nes_cartridge_save_path gives no sources) */
+static bool pc_nes_import_save(const PcNesPath& target, PcNesFormat target_format,
+                               const std::vector<PcNesImportSource>& sources, u32 block_size,
+                               const u8* identifier) {
+    (void)target;
+    (void)target_format;
+    (void)block_size;
+    (void)identifier;
+    return sources.empty();
+}
+
+static bool pc_nes_cartridge_save_path(const std::string& filename, PcNesPath& path,
+                                       std::vector<PcNesImportSource>& sources) {
+    (void)sources;
+    char saves_dir[PC_NES_SAVE_PATH_MAX];
+    if (!nk_wii_nes_saves_dir(mCD_GetThisLandSlotNo(), saves_dir, sizeof(saves_dir))) return false;
+    path = PcNesPath(saves_dir) + "/" + filename + ".sav";
+    return true;
+}
+
+static PcNesReadResult pc_nes_load_image(PcNesSaveState& state, const PcNesPath& path, PcNesFormat format,
+                                       FamicomSaveDataHeader* header, u32 block_size, u8* identifier) {
+    state = {};
+    state.path = path;
+    state.format = format;
+    state.slot = mCD_GetThisLandSlotNo();
+    PcNesReadResult failure = PC_NES_MISSING;
+    bool committed_present = false;
+    for (const char* suffix : pc_nes_save_suffixes) {
+        const auto candidate = pc_nes_sibling(path, suffix);
+        const PcNesReadResult result = pc_nes_read_save(candidate, format, header, block_size, identifier);
+        if (result == PC_NES_LOADED) {
+            state.writable = true;
+            state.recovered = suffix[0] != '\0';
+            if (state.recovered) {
+                OSReport("[Wii] NES save: recovered from '%s'\n", candidate.c_str());
+            }
+            return PC_NES_LOADED;
+        }
+        const bool committed = suffix[0] == '\0' || strcmp(suffix, ".bak1") == 0;
+        if (committed && result != PC_NES_MISSING) committed_present = true;
+        if (result == PC_NES_IO_ERROR || failure == PC_NES_MISSING) failure = result;
+    }
+    if (failure == PC_NES_INVALID && !committed_present) {
+        OSReport("[Wii] NES save: ignoring incomplete pending write for '%s'\n", path.c_str());
+        failure = PC_NES_MISSING;
+    }
+    famicom_save_data_init(header, block_size, identifier);
+    state.writable = failure == PC_NES_MISSING;
+    return failure;
+}
+
+static bool pc_nes_write_save(const PcNesSaveState& state, const FamicomSaveDataHeader* header,
+                              u32 block_size, const u8* identifier) {
+    const auto temporary = pc_nes_sibling(state.path, ".write");
+    const auto preserved = pc_nes_sibling(state.path, ".write.temp");
+    const auto displaced = pc_nes_sibling(state.path, state.recovered ? ".invalid" : ".bak1");
+    const std::vector<u8> encoded = pc_nes_encode(state.format, (const u8*)header, block_size);
+    if (!pc_nes_make_parent(state.path)) return false;
+
+    const PcNesReadResult result = pc_nes_read_save(temporary, state.format, nullptr, block_size, identifier);
+    if (result == PC_NES_IO_ERROR) return false;
+    if (result == PC_NES_LOADED) {
+        if (!pc_nes_remove(preserved)) return false;
+        if (!pc_nes_rename(temporary, preserved)) return false;
+    }
+    if (!pc_nes_write_file(temporary, encoded.data(), encoded.size())) return false;
+
+    bool error;
+    const bool had_previous = pc_nes_exists(state.path, &error);
+    if (error) return false;
+    if (had_previous) {
+        if (!pc_nes_remove(displaced)) return false;
+        if (!pc_nes_rename(state.path, displaced)) return false;
+    }
+    if (!pc_nes_rename(temporary, state.path)) {
+        if (had_previous) pc_nes_rename(displaced, state.path);
+        return false;
+    }
+    pc_nes_remove(preserved);
+    pc_nes_remove(pc_nes_sibling(state.path, ".tmp"));
+    return true;
+}
+
+static int pc_nes_save_image(PcNesSaveState& state, FamicomSaveDataHeader* header,
+                             u32 block_size, u8* identifier) {
+    if (!state.writable || state.slot != mCD_GetThisLandSlotNo() ||
+        !pc_nes_valid_image(header, block_size, identifier)) {
+        return FAMICOM_RESULT_BROKEN;
+    }
+    const bool no_save = header->no_save;
+    bool error;
+    const bool exists = pc_nes_exists(state.path, &error);
+    if (error || (no_save && exists)) return FAMICOM_RESULT_BROKEN;
+    header->no_save = FALSE;
+    famicom_save_data_setup(header, block_size, identifier);
+    if (!pc_nes_write_save(state, header, block_size, identifier)) {
+        header->no_save = no_save;
+        famicom_save_data_setup(header, block_size, identifier);
+        OSReport("[Wii] NES save: write failed; recovery files retained\n");
+        return FAMICOM_RESULT_BROKEN;
+    }
+    state.recovered = false;
+    OSReport("[Wii] NES save: wrote '%s'\n", state.path.c_str());
+    return FAMICOM_RESULT_OK;
+}
+#endif /* TARGET_PC */
+
+#endif /* ACGC_PORT */
 static OSThread ksnes_thread;
 static s8 errorChan = -1;
 
@@ -1792,8 +2071,8 @@ static s32 memcard_game_load(
     u8* chr_to_i8_bufp,
     size_t chr_to_i8_buf_size
 ) {
-#ifdef TARGET_PC
-    /* PC: open ./nes_roms/<idx>.nes and copy raw iNES bytes into nesromp.
+#ifdef ACGC_PORT
+    /* The ports: open nes_roms/<idx>.nes and copy raw iNES bytes into nesromp.
      * fixNES parses the iNES header itself in pc_fixnes_init. */
     (void)chr_to_i8_bufp;
     (void)chr_to_i8_buf_size;
@@ -1810,8 +2089,7 @@ static s32 memcard_game_load(
         return CARD_RESULT_FATAL_ERROR;
     }
 
-    const auto rom_path = pc_nes_roms_dir() / borealis::io::fs_path_from_utf8(names[rom_idx]);
-    FILE* f = pc_nes_open_file(rom_path, "rb");
+    FILE* f = pc_nes_rom_open(names[rom_idx]);
     if (f == nullptr) {
         pc_nes_rom_free(names, count);
         return CARD_RESULT_FATAL_ERROR;
@@ -2459,8 +2737,8 @@ extern int famicom_init(int rom_idx, Famicom_MallocInfo* malloc_info, int player
 
     if (famicomCommon.noise_bufp == nullptr || JKRFileLoader::readGlbResource(famicomCommon.noise_bufp, KS_NES_NOISE_DATA_SIZE, "noise.bin.szs", EXPAND_SWITCH_DECOMPRESS)) {
         if (famicomCommon.noise_bufp != nullptr) {
-#ifndef TARGET_PC
-            /* On PC, fixNES handles NES audio directly — skip jaudio_NES */
+#ifndef ACGC_PORT
+            /* On the ports, fixNES handles NES audio directly — skip jaudio_NES */
             EmuSound_Start(famicomCommon.noise_bufp + 0x2000);
 #endif
         }
@@ -2858,8 +3136,8 @@ static int famicom_rom_load() {
         famicomCommon.internal_save_datap = famicomCommonSave + sizeof(FamicomSaveDataHeader) + 0x660 * famicomCommon.save_pl_no;
     }
     else if (famicomCommon.save_data_header != nullptr) {
-#ifdef TARGET_PC
-        std::filesystem::path path;
+#ifdef ACGC_PORT
+        PcNesPath path;
         std::vector<PcNesImportSource> sources;
         if (!pc_nes_cartridge_save_path(pc_nes_cartridge.filename, path, sources)) return -1;
         if (pc_nes_cartridge.ram_size != 0) {
@@ -3084,8 +3362,8 @@ static void ksnes_thread_kill(OSAlarm* alarm, OSContext* context) {
 #endif
 
 static int ksnes_thread_exec(u32 flags) {
-#ifdef TARGET_PC
-    /* On PC, use fixNES emulator for NES rendering + audio */
+#ifdef ACGC_PORT
+    /* On the ports, use fixNES emulator for NES rendering + audio */
     {
         /* Convert AC pad format to fixNES format.
          * AC pads[0] bits: 31=A, 30=B, 29=Select, 28=Start, 27=Up, 26=Down, 25=Left, 24=Right
@@ -3261,8 +3539,8 @@ extern void famicom_1frame() {
                 nesinfo_update_highscore(famicomCommon.internal_save_datap, 1);
             }
 
-#ifdef TARGET_PC
-            /* ksNes state is never initialized on PC; reset fixNES instead */
+#ifdef ACGC_PORT
+            /* ksNes state is never initialized on the ports; reset fixNES instead */
             pc_fixnes_reset();
 #else
             ksNesPushResetButton(famicomCommon.sp);

@@ -5,7 +5,12 @@
  * init/frame/render/cleanup API for the game's famicom.cpp integration.
  *
  * Produces a 256x240 RGB565 framebuffer for the host presenter.
- * Audio samples are pushed to the game's audio system via AIInitDMA. */
+ * Audio samples are pushed to the game's audio system via AIInitDMA.
+ *
+ * The Wii port (TARGET_WII) runs it too, in the GameCube core's place: there
+ * fixNES is built without COL_TEX_BSWAP (its framebuffer is the native
+ * RGB565 GX reads, on a big-endian host), the frame is tiled for GX, and the
+ * samples are mixed into the game's AI output (wii/src/ogc/ai.c). */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,10 +38,15 @@
 
 #include <dolphin/gx.h>
 #include <dolphin/mtx.h>
+#ifndef TARGET_PC
+#include <dolphin/os.h>
+#endif
 
 #include "fm2play.h"
 #include "audio.h"
+#ifdef TARGET_PC
 #include "pc_platform.h"
+#endif
 #include "pc_settings.h"
 
 /* ======================================================================
@@ -78,7 +88,13 @@ extern bool ppuMapper5;
 extern uint8_t inValReads[8];
 
 /* Audio output to game engine */
+#ifdef TARGET_PC
 extern void AIInitDMA(uintptr_t addr, uint32_t size);
+#else
+/* wii/src/ogc/ai.c */
+extern void nk_wii_ai_mix_samples(const short* frames, unsigned int bytes);
+extern unsigned int nk_wii_ai_mix_queued(void);
+#endif
 
 extern void* JC_JUTVideo_getManager(void);
 extern unsigned int JC_JUTVideo_getFbWidth(void* manager);
@@ -86,6 +102,7 @@ extern unsigned int JC_JUTVideo_getEfbHeight(void* manager);
 
 static int fixnes_initialized = 0;
 
+#ifdef TARGET_PC
 /* fixNES writes a linear BGR565 framebuffer (COL_TEX_BSWAP). Aurora's PC
  * texture format accepts linear RGBA8 directly, so expand once here rather
  * than tiling RGB565 only for Aurora to decode it again. */
@@ -97,7 +114,21 @@ static int fixnes_initialized = 0;
 ATTRIBUTE_ALIGN(32) static uint8_t fixnes_gx_texture[FIXNES_GX_TEXTURE_SIZE];
 static GXTexObj fixnes_tex_obj;
 static int fixnes_tex_obj_initialized = 0;
+#else
+/* The Wii: fixNES writes native RGB565, which GX takes in 4x4 tiles. Two
+ * textures, one written while the GPU may still read the other. */
+#define FIXNES_PRESENT_WIDTH 256
+#define FIXNES_PRESENT_HEIGHT 224
+#define FIXNES_SOURCE_TOP 8
+#define FIXNES_GX_TEXTURE_SIZE (FIXNES_PRESENT_WIDTH * FIXNES_PRESENT_HEIGHT * 2)
 
+ATTRIBUTE_ALIGN(32) static uint8_t fixnes_gx_textures[2][FIXNES_GX_TEXTURE_SIZE];
+static int fixnes_gx_texture_index = 0;
+#define fixnes_gx_texture (fixnes_gx_textures[fixnes_gx_texture_index])
+static GXTexObj fixnes_tex_obj;
+#endif
+
+#ifdef TARGET_PC
 static void fixnes_convert_frame(const uint16_t *fb) {
     uint8_t *dst = fixnes_gx_texture;
 
@@ -112,6 +143,24 @@ static void fixnes_convert_frame(const uint16_t *fb) {
         }
     }
 }
+#else
+static void fixnes_convert_frame(const uint16_t *fb) {
+    uint16_t *dst = (uint16_t *)fixnes_gx_texture;
+
+    for (int ty = 0; ty < FIXNES_PRESENT_HEIGHT; ty += 4) {
+        for (int tx = 0; tx < FIXNES_PRESENT_WIDTH; tx += 4) {
+            for (int y = 0; y < 4; y++) {
+                const uint16_t *src = fb + (ty + y + FIXNES_SOURCE_TOP) * VISIBLE_DOTS + tx;
+                *dst++ = src[0];
+                *dst++ = src[1];
+                *dst++ = src[2];
+                *dst++ = src[3];
+            }
+        }
+    }
+    DCFlushRange(fixnes_gx_texture, FIXNES_GX_TEXTURE_SIZE);
+}
+#endif
 
 static void fixnes_set_projection(int pillarbox) {
     Mtx44 projection;
@@ -119,8 +168,13 @@ static void fixnes_set_projection(int pillarbox) {
 
     C_MTXOrtho(projection, 1.0f, -1.0f, -1.0f, 1.0f, 0.0f, 10.0f);
     C_MTXIdentity(identity);
+#if defined(TARGET_PC) || defined(TARGET_WII)
     g_pc_widescreen_stretch = pillarbox ? 2 : 1;
     pc_widescreen_set_projection(projection, GX_ORTHOGRAPHIC);
+#else
+    (void)pillarbox;
+    GXSetProjection(projection, GX_ORTHOGRAPHIC);
+#endif
     GXLoadPosMtxImm(identity, GX_PNMTX0);
     GXSetCurrentMtx(GX_PNMTX0);
 }
@@ -210,6 +264,18 @@ static void fixnes_capture_audio(void) {
     /* Downsample from fixNES APU frequency to game's 32kHz audio output */
     #define FIXNES_OUTPUT_RATE 32000
     int target_frames = FIXNES_OUTPUT_RATE / 60;
+#ifndef TARGET_PC
+    /* The Wii's NES frames come at the TV's rate (59.94 Hz in NTSC), the AI
+     * plays 32000 frames a second: a few frames more or fewer keep the
+     * queue near 75 ms (wii/src/ogc/ai.c), a pitch change of under 1% */
+    {
+        int queued = (int)nk_wii_ai_mix_queued();
+        int adjust = (2400 - queued) / 128;
+        if (adjust > 4) adjust = 4;
+        if (adjust < -4) adjust = -4;
+        target_frames += adjust;
+    }
+#endif
     if (target_frames > FIXNES_AUDIO_BUF_SIZE)
         target_frames = FIXNES_AUDIO_BUF_SIZE;
 
@@ -225,7 +291,11 @@ static void fixnes_capture_audio(void) {
     }
 
     if (fixnes_audio_pos > 0) {
+#ifdef TARGET_PC
         AIInitDMA((uintptr_t)fixnes_audio_buf, fixnes_audio_pos * 4);
+#else
+        nk_wii_ai_mix_samples(fixnes_audio_buf, fixnes_audio_pos * 4);
+#endif
     }
 }
 
@@ -370,6 +440,34 @@ uint16_t *pc_fixnes_frame(void) {
     if (!fixnes_initialized) return textureImage;
 
     /* Run one full NES frame: cycle CPU/PPU/APU until ppuDrawDone() */
+#ifdef TARGET_WII
+    {
+        /* With settings.ini trace_scenes = 1, the speed in the log: 300 NES
+         * frames in 300 video frames is full speed */
+        extern int g_nk_trace_scenes;
+        extern void nk_wii_log(const char* msg, ...);
+        extern u32 VIGetRetraceCount(void);
+        static int frames;
+        static unsigned int vi_start;
+        if (g_nk_trace_scenes) {
+            if (frames == 0) {
+                vi_start = VIGetRetraceCount();
+            }
+            if (++frames == 300) {
+                nk_wii_log("NES: 300 frames in %u video frames\n", VIGetRetraceCount() - vi_start);
+                frames = 0;
+            }
+        }
+    }
+    {
+        /* wii/src/nes/nk_fixnes_core.c: the same loop, inlined */
+        extern int nk_fixnes_run_frame(void);
+        if (nk_fixnes_run_frame()) {
+            fixnes_capture_audio();
+            apuUpdate();
+        }
+    }
+#else
     while (1) {
         if (!cpuCycle())
             break; /* CPU halted */
@@ -383,6 +481,7 @@ uint16_t *pc_fixnes_frame(void) {
             break;
         }
     }
+#endif
 
     return textureImage;
 }
@@ -403,10 +502,12 @@ void pc_fixnes_cleanup(void) {
 
     fixnes_initialized = 0;
 
+#ifdef TARGET_PC
     if (fixnes_tex_obj_initialized) {
         GXDestroyTexObj(&fixnes_tex_obj);
         fixnes_tex_obj_initialized = 0;
     }
+#endif
 
 }
 
@@ -418,6 +519,7 @@ void pc_fixnes_render_frame(uint16_t *fb) {
     if (!fixnes_initialized) return;
     if (!fb) fb = textureImage;
 
+#ifdef TARGET_PC
     fixnes_convert_frame(fb);
     if (!fixnes_tex_obj_initialized) {
         GXInitTexObj(&fixnes_tex_obj, fixnes_gx_texture,
@@ -429,14 +531,29 @@ void pc_fixnes_render_frame(uint16_t *fb) {
     } else {
         GXInitTexObjData(&fixnes_tex_obj, fixnes_gx_texture);
     }
+#else
+    fixnes_gx_texture_index ^= 1;
+    fixnes_convert_frame(fb);
+    GXInitTexObj(&fixnes_tex_obj, fixnes_gx_texture,
+                 FIXNES_PRESENT_WIDTH, FIXNES_PRESENT_HEIGHT,
+                 GX_TF_RGB565, GX_CLAMP, GX_CLAMP, GX_FALSE);
+    GXInitTexObjLOD(&fixnes_tex_obj, GX_NEAR, GX_NEAR,
+                    0.0f, 0.0f, 0.0f, GX_FALSE, GX_FALSE, GX_ANISO_1);
+    GXInvalidateTexAll();
+#endif
 
     {
         void* video = JC_JUTVideo_getManager();
         unsigned int width = video != NULL ? JC_JUTVideo_getFbWidth(video) : 0;
         unsigned int height = video != NULL ? JC_JUTVideo_getEfbHeight(video) : 0;
         if (width == 0 || height == 0) {
+#ifdef TARGET_PC
             width = PC_GC_WIDTH;
             height = PC_GC_HEIGHT;
+#else
+            width = 640;
+            height = 480;
+#endif
         }
         GXSetScissor(0, 0, width, height);
         GXSetViewport(0.0f, 0.0f, (float)width, (float)height, 0.0f, 1.0f);
