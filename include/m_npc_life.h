@@ -123,6 +123,10 @@ extern void mNL_DriftRelations(void);
 /* Picks gossip for speaker and sets STR_FREE13/14. Returns a message number or -1. */
 extern int mNL_DecideGossipMsg(const Animal_c* speaker, int looks);
 
+/* A line of a topic (mNL_TOPIC_*, or a town life line topic past them) for looks, one of its variants at random,
+ * or -1 */
+extern int mNL_TopicMsgNo(int topic, int looks);
+
 /* Gossip message lookup for mMsg_LoadMsgData */
 extern int mNL_IsExtMsg(int msg_no);
 extern int mNL_GetMsgData(int msg_no, const u8** data, u32* size);

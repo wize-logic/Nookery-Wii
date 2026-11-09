@@ -1886,3 +1886,363 @@ you,<<PAUSE [06]>> <<STR_TAIL>>.
 <<MSGCLEAR>><<DEMONPC0 [00 00 12]>>I'd have worn gloves,<<PAUSE [06]>>
 <<STR_TAIL>>.
 <<MSGEND>>
+
+
+@ACT_SIT NORMAL 0
+<<DEMONPC0 [00 00 03]>>Oh, <<STR_PLAYERNAME>>! I was just
+sitting here, watching the
+day go by,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>>It's nice to stop and look
+around once in a while.
+<<MSGEND>>
+
+@ACT_SIT PEPPY 0
+<<DEMONPC0 [00 00 0A]>>Hiya! I was resting my legs,<<PAUSE [06]>>
+but now that you're here,<<PAUSE [06]>>
+I'm totally rested,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_SIT LAZY 0
+<<DEMONPC0 [00 00 13]>>Sitting is my favorite
+exercise,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>I could do this all day.<<PAUSE [0A]>>
+Actually,<<PAUSE [06]>> I think I will.
+<<MSGEND>>
+
+@ACT_SIT JOCK 0
+<<DEMONPC0 [00 00 07]>>Whoa,<<PAUSE [06]>> you caught me resting!<<PAUSE [08]>>
+Even champions need a break,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_SIT CRANKY 0
+<<DEMONPC0 [00 00 16]>>Can't a fella sit down for
+five minutes,<<PAUSE [06]>> <<STR_TAIL>>?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Eh,<<PAUSE [06]>> pull up some grass.<<PAUSE [08]>>
+The view's free.
+<<MSGEND>>
+
+@ACT_SIT SNOOTY 0
+<<DEMONPC0 [00 00 03]>>I'm taking in the scenery,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>And the scenery is taking in
+me.<<PAUSE [0A]>> It's only fair.
+<<MSGEND>>
+
+@ACT_DRINK NORMAL 0
+<<DEMONPC0 [00 00 0A]>>Mmm,<<PAUSE [08]>> there's nothing like a
+cool drink in the shade,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>>I'd offer you a sip,<<PAUSE [06]>> but I
+just finished it!
+<<MSGEND>>
+
+@ACT_DRINK PEPPY 0
+<<DEMONPC0 [00 00 15]>>It's juice!<<PAUSE [08]>> Fizzy juice!<<PAUSE [08]>>
+It makes my nose tickle,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_DRINK LAZY 0
+<<DEMONPC0 [00 00 03]>>A drink,<<PAUSE [06]>> a tree,<<PAUSE [06]>> a nice
+breeze...<<PAUSE [0A]>> Life is good,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0C]>>Now if only somebody would
+bring me a snack.
+<<MSGEND>>
+
+@ACT_DRINK JOCK 0
+<<DEMONPC0 [00 00 0A]>>Gotta stay hydrated,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>!<<PAUSE [08]>> Muscles are
+mostly water,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_DRINK CRANKY 0
+<<DEMONPC0 [00 00 0B]>>Coffee,<<PAUSE [06]>> black.<<PAUSE [0A]>> The only
+way to drink it,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>Don't tell me about your
+fancy foam.
+<<MSGEND>>
+
+@ACT_DRINK SNOOTY 0
+<<DEMONPC0 [00 00 03]>>A little afternoon tea,<<PAUSE [06]>>
+<<STR_TAIL>>.<<PAUSE [08]>> Out here, under
+the trees,<<PAUSE [06]>> like a painting.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>You may admire it.
+<<MSGEND>>
+
+@ACT_EXERCISE NORMAL 0
+<<DEMONPC0 [00 00 07]>>Whew!<<PAUSE [08]>> I'm trying to stretch
+a little every day,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>My back already thanks me.
+<<MSGEND>>
+
+@ACT_EXERCISE PEPPY 0
+<<DEMONPC0 [00 00 0A]>>One,<<PAUSE [06]>> two,<<PAUSE [06]>> one,<<PAUSE [06]>> two!<<PAUSE [08]>> Wanna
+join me,<<PAUSE [06]>> <<STR_PLAYERNAME>>?<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>We could be workout buddies,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_EXERCISE LAZY 0
+<<DEMONPC0 [00 00 07]>>I'm,<<PAUSE [06]>> uh,<<PAUSE [06]>> exercising,<<PAUSE [08]>>
+<<STR_TAIL>>.<<PAUSE [08]>> Somebody said
+it makes you hungry.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>That part I'm good at.
+<<MSGEND>>
+
+@ACT_EXERCISE JOCK 0
+<<DEMONPC0 [00 00 0A]>>Can't stop now,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>!<<PAUSE [08]>> I'm feeling
+the burn,<<PAUSE [06]>> <<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>Twenty more!<<PAUSE [08]>> Then twenty
+more after that!
+<<MSGEND>>
+
+@ACT_EXERCISE CRANKY 0
+<<DEMONPC0 [00 00 01]>>Doc says I gotta move more,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>So I'm moving.<<PAUSE [0A]>> Happy?
+<<MSGEND>>
+
+@ACT_EXERCISE SNOOTY 0
+<<DEMONPC0 [00 00 03]>>Graceful stretches keep one
+graceful,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>Not that I needed the help.
+<<MSGEND>>
+
+@ACT_DANCE NORMAL 0
+<<DEMONPC0 [00 00 15]>>Oh!<<PAUSE [08]>> You saw that?<<PAUSE [08]>> I had
+a song stuck in my head,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_DANCE PEPPY 0
+<<DEMONPC0 [00 00 0A]>>I can't help it,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>!<<PAUSE [08]>> When I'm happy,<<PAUSE [06]>>
+my feet just go,<<PAUSE [06]>> <<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>Come on,<<PAUSE [06]>> dance with me!
+<<MSGEND>>
+
+@ACT_DANCE LAZY 0
+<<DEMONPC0 [00 00 15]>>Heh.<<PAUSE [08]>> That's my "lunch is
+coming" dance,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGEND>>
+
+@ACT_DANCE JOCK 0
+<<DEMONPC0 [00 00 0A]>>Dancing is cardio,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>!<<PAUSE [08]>> Look it up,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_DANCE CRANKY 0
+<<DEMONPC0 [00 00 07]>>You didn't see anything,<<PAUSE [06]>>
+<<STR_TAIL>>.<<PAUSE [0A]>> Got it?
+<<MSGEND>>
+
+@ACT_DANCE SNOOTY 0
+<<DEMONPC0 [00 00 0E]>>I was a dancer once,<<PAUSE [06]>>
+you know,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>Well,<<PAUSE [06]>> I was once at a dance.
+<<MSGEND>>
+
+@ACT_FISH NORMAL 0
+<<DEMONPC0 [00 00 03]>>Shh...<<PAUSE [0A]>> I think something's
+biting,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Oh.<<PAUSE [08]>> It was a leaf.
+<<MSGEND>>
+
+@ACT_FISH PEPPY 0
+<<DEMONPC0 [00 00 0F]>>The fish won't bite,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>!<<PAUSE [08]>> Maybe they
+don't like my singing,<<PAUSE [06]>>
+<<STR_TAIL>>?
+<<MSGEND>>
+
+@ACT_FISH LAZY 0
+<<DEMONPC0 [00 00 13]>>Fishing's great.<<PAUSE [08]>> You get
+to sit still and call it
+a hobby,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGEND>>
+
+@ACT_FISH JOCK 0
+<<DEMONPC0 [00 00 0A]>>I'm gonna land the biggest
+one in town,<<PAUSE [06]>> <<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>Bet you a sandwich I beat
+you to it,<<PAUSE [06]>> <<STR_PLAYERNAME>>!
+<<MSGEND>>
+
+@ACT_FISH CRANKY 0
+<<DEMONPC0 [00 00 16]>>Keep it down,<<PAUSE [06]>> you'll scare
+'em off,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Fishing's the only time this
+town is quiet.
+<<MSGEND>>
+
+@ACT_FISH SNOOTY 0
+<<DEMONPC0 [00 00 03]>>I fish for the peace,<<PAUSE [06]>> not
+the fish,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>Fish are rather slimy,<<PAUSE [06]>>
+darling.
+<<MSGEND>>
+
+@ACT_DOZE NORMAL 0
+<<DEMONPC0 [00 00 13]>>Hm?<<PAUSE [0A]>> Oh!<<PAUSE [08]>> I must have
+nodded off,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 07]>>This shade is just too
+comfortable.
+<<MSGEND>>
+
+@ACT_DOZE PEPPY 0
+<<DEMONPC0 [00 00 07]>>I wasn't sleeping!<<PAUSE [08]>> I was
+resting my eyes,<<PAUSE [06]>> really
+hard,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_DOZE LAZY 0
+<<DEMONPC0 [00 00 13]>>Mmmf...<<PAUSE [0A]>> five more
+minutes,<<PAUSE [06]>> <<STR_TAIL>>...<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Oh,<<PAUSE [06]>> it's you,<<PAUSE [06]>> <<STR_PLAYERNAME>>.<<PAUSE [08]>>
+I dreamed about pudding.
+<<MSGEND>>
+
+@ACT_DOZE JOCK 0
+<<DEMONPC0 [00 00 07]>>Huh?<<PAUSE [08]>> I'm up!<<PAUSE [08]>> Power
+nap,<<PAUSE [06]>> <<STR_PLAYERNAME>>!<<PAUSE [08]>> Rest is
+training too,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_DOZE CRANKY 0
+<<DEMONPC0 [00 00 01]>>What?<<PAUSE [08]>> I was thinking with
+my eyes closed,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGEND>>
+
+@ACT_DOZE SNOOTY 0
+<<DEMONPC0 [00 00 07]>>I was NOT snoring,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 12]>>A lady merely breathes
+deeply.
+<<MSGEND>>
+
+@ACT_FAN NORMAL 0
+<<DEMONPC0 [00 00 07]>>Phew,<<PAUSE [06]>> it's so hot today,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>>Make sure you drink plenty
+of water,<<PAUSE [06]>> <<STR_PLAYERNAME>>!
+<<MSGEND>>
+
+@ACT_FAN PEPPY 0
+<<DEMONPC0 [00 00 07]>>It's hot,<<PAUSE [06]>> hot,<<PAUSE [06]>> HOT!<<PAUSE [08]>> I'm
+melting like a popsicle,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_FAN LAZY 0
+<<DEMONPC0 [00 00 07]>>Too hot to move,<<PAUSE [06]>>
+<<STR_TAIL>>.<<PAUSE [08]>> Too hot to eat.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>...<<PAUSE [0A]>>Okay,<<PAUSE [06]>> not too hot to eat.
+<<MSGEND>>
+
+@ACT_FAN JOCK 0
+<<DEMONPC0 [00 00 0A]>>Sweat means it's working,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>!<<PAUSE [08]>> Even standing
+still,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_FAN CRANKY 0
+<<DEMONPC0 [00 00 01]>>This heat,<<PAUSE [06]>> I tell ya,<<PAUSE [06]>>
+<<STR_TAIL>>.<<PAUSE [08]>> Back in my day,<<PAUSE [06]>>
+summers had manners.
+<<MSGEND>>
+
+@ACT_FAN SNOOTY 0
+<<DEMONPC0 [00 00 03]>>A lady never sweats,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 07]>>She glistens.<<PAUSE [0A]>> A lot.
+<<MSGEND>>
+
+@ACT_PRAY NORMAL 0
+<<DEMONPC0 [00 00 03]>>I was making a wish,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>If I tell you,<<PAUSE [06]>> it won't come
+true!
+<<MSGEND>>
+
+@ACT_PRAY PEPPY 0
+<<DEMONPC0 [00 00 0E]>>I wished for something
+amazing,<<PAUSE [06]>> <<STR_PLAYERNAME>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>Okay,<<PAUSE [06]>> like,<<PAUSE [06]>> six amazing
+somethings,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@ACT_PRAY LAZY 0
+<<DEMONPC0 [00 00 03]>>I wished for a bottomless
+bowl of noodles,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>>Fingers crossed.
+<<MSGEND>>
+
+@ACT_PRAY JOCK 0
+<<DEMONPC0 [00 00 0A]>>I wished to break my record,<<PAUSE [06]>>
+<<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>...<<PAUSE [0A]>>Which record?<<PAUSE [08]>> All of
+'em!
+<<MSGEND>>
+
+@ACT_PRAY CRANKY 0
+<<DEMONPC0 [00 00 16]>>Wishes are for kids,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>I was just...<<PAUSE [08]>> checking the
+well.<<PAUSE [0A]>> For leaks.
+<<MSGEND>>
+
+@ACT_PRAY SNOOTY 0
+<<DEMONPC0 [00 00 12]>>Some wish for riches,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>I wish for everyone else to
+have my taste.
+<<MSGEND>>
+
+@ACT_PHONE NORMAL 0
+<<DEMONPC0 [00 00 15]>>Sorry,<<PAUSE [06]>> that was my mom!<<PAUSE [08]>> She
+always calls at the best
+moments,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGEND>>
+
+@ACT_PHONE PEPPY 0
+<<DEMONPC0 [00 00 0A]>>Gotta go,<<PAUSE [06]>> bestie!<<PAUSE [08]>> Love
+you!<<PAUSE [08]>> Bye!<<PAUSE [08]>> Bye!<<PAUSE [08]>> Byeee!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>Oh,<<PAUSE [06]>> hi <<STR_PLAYERNAME>>!<<PAUSE [08]>> What's
+up,<<PAUSE [06]>> <<STR_TAIL>>?
+<<MSGEND>>
+
+@ACT_PHONE LAZY 0
+<<DEMONPC0 [00 00 03]>>I was ordering a pizza,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>They said they don't deliver
+to towns with no roads.
+<<MSGEND>>
+
+@ACT_PHONE JOCK 0
+<<DEMONPC0 [00 00 0A]>>That was my coach,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>!<<PAUSE [08]>> Well,<<PAUSE [06]>> I'm my
+own coach,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>So I guess I called myself.
+<<MSGEND>>
+
+@ACT_PHONE CRANKY 0
+<<DEMONPC0 [00 00 01]>>Wrong number again,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>Third time today.<<PAUSE [0A]>> I'm
+starting to think it's on
+purpose.
+<<MSGEND>>
+
+@ACT_PHONE SNOOTY 0
+<<DEMONPC0 [00 00 12]>>Just a call with my
+stylist,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>We were discussing you,<<PAUSE [06]>>
+actually.<<PAUSE [0A]>> Nothing bad.<<PAUSE [0A]>>
+Mostly.
+<<MSGEND>>

@@ -53,7 +53,8 @@ enum {
 /* No prop */
 #define mTL_PROP_NONE 0xFF
 
-/* Kinds of activity, for what a villager says about one when talked to in the middle of it */
+/* What a villager says when talked to mid-activity: the ACT_* message topics (tools/npc_life_msg.py), which
+ * follow the gossip topics (mNL_TOPIC_NUM + line) */
 enum {
     mTL_LINE_SIT,
     mTL_LINE_DRINK,
@@ -129,6 +130,8 @@ typedef struct {
     int start_sec; /* game time (Common time.now_sec) it started */
     int repeats;   /* animation loops played */
     void* prop;    /* the prop actor held, or NULL */
+    u8 talk_activity; /* the activity + 1 the player's chat interrupted, or 0 */
+    int talk_sec;     /* when */
 } mTL_villager_c;
 
 extern const mTL_activity_c mTL_activity_table[mTL_ACT_NUM];
@@ -179,9 +182,17 @@ typedef struct {
     int last_activity;
     int last_event; /* 1 started, 2 ended, 3 interrupted */
     int events;     /* increases with every start/end/interruption */
+    int last_interrupt_act; /* the act (aNPC_ACT_*) that took over at the last interruption */
 } mTL_stats_c;
 extern mTL_stats_c mTL_stats;
 extern void mTL_NoteEvent(int idx, int act, int event);
+
+/* The player's chat interrupted the villager's activity */
+extern void mTL_NoteTalk(int idx);
+/* For a chat that interrupted an activity: a line about it (sets nothing else), or -1. Forgets the activity. */
+#define mTL_TALK_CHANCE 70
+extern int mTL_talk_chance;
+extern int mTL_DecideTalkMsg(const Animal_c* animal, int looks);
 
 /* Number of villagers busy with an activity right now */
 extern int mTL_CountBusy(void);

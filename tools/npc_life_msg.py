@@ -15,7 +15,8 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import msg_tool  # noqa: E402
 
-# Order matches the mNL_TOPIC_* and mNpc_LOOKS_* enums; each topic's number of variants per personality.
+# Order matches the mNL_TOPIC_* (then mTL_LINE_*) and mNpc_LOOKS_* enums; each topic's number of variants per
+# personality.
 TOPICS = {
     "LIKE": 4,
     "DISLIKE": 4,
@@ -31,6 +32,16 @@ TOPICS = {
     "SELF_MADE_UP": 2,
     "SELF_FELL_OUT": 2,
     "PLAYER_CATCH": 2,
+    # Town life (m_town_life.c): what a villager says when talked to in the middle of an activity
+    "ACT_SIT": 1,
+    "ACT_DRINK": 1,
+    "ACT_EXERCISE": 1,
+    "ACT_DANCE": 1,
+    "ACT_FISH": 1,
+    "ACT_DOZE": 1,
+    "ACT_FAN": 1,
+    "ACT_PRAY": 1,
+    "ACT_PHONE": 1,
 }
 LOOKS = ["NORMAL", "PEPPY", "LAZY", "JOCK", "CRANKY", "SNOOTY"]
 

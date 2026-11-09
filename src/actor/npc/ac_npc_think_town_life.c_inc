@@ -6,6 +6,7 @@
 #define aNPC_TL_ARRIVE_DIST 14.0f /* close enough to the spot */
 #define aNPC_TL_SPOT_TRIES 32      /* tiles tried when looking for a spot */
 #define aNPC_TL_WALK_TRIES 3       /* walks toward the spot before giving up */
+#define aNPC_TL_CHOOSE_TRIES 3     /* activities considered before giving up for now */
 
 /* A free tile in the villager's area that suits place */
 static int aNPC_tl_find_spot(NPC_ACTOR* nactorx, int idx, int place, xyz_t* spot) {
@@ -110,8 +111,9 @@ static int aNPC_town_life_decide(NPC_ACTOR* nactorx, u8* act_idx, u8* act_type, 
         default: {
             const mTL_activity_c* a;
             xyz_t spot;
-            int place;
+            int place = mTL_PLACE_ANYWHERE;
             int act;
+            int tries;
 
             if (v->cooldown > 0) {
                 v->cooldown--;
@@ -122,21 +124,32 @@ static int aNPC_town_life_decide(NPC_ACTOR* nactorx, u8* act_idx, u8* act_type, 
                 return FALSE;
             }
 
-            act = mTL_ChooseActivity(mNpc_GetNpcLooks((ACTOR*)nactorx));
-            if (act < 0) {
-                return FALSE;
+            /* a few tries: the first choice may need a place this acre doesn't have (a river, a tree) */
+            for (tries = 0; tries < aNPC_TL_CHOOSE_TRIES; tries++) {
+                act = mTL_ChooseActivity(mNpc_GetNpcLooks((ACTOR*)nactorx));
+                if (act < 0) {
+                    return FALSE;
+                }
+
+                a = mTL_GetActivity(act);
+                if ((a->prop != mTL_PROP_NONE || a->sub_anim != aNPC_SUB_ANIM_NONE) &&
+                    (nactorx->right_hand.item_type != aNPC_ITEM_TYPE_NONE ||
+                     nactorx->right_hand.item_actor_p != NULL)) {
+                    /* (the hand is full: an umbrella) */
+                    continue;
+                }
+
+                place = mTL_test_activity >= 0 ? mTL_PLACE_ANYWHERE : a->place;
+                if (place == mTL_PLACE_ANYWHERE) {
+                    spot = nactorx->actor_class.world.position;
+                    break;
+                }
+                if (aNPC_tl_find_spot(nactorx, idx, place, &spot)) {
+                    break;
+                }
             }
 
-            a = mTL_GetActivity(act);
-            if ((a->prop != mTL_PROP_NONE || a->sub_anim != aNPC_SUB_ANIM_NONE) &&
-                (nactorx->right_hand.item_type != aNPC_ITEM_TYPE_NONE || nactorx->right_hand.item_actor_p != NULL)) {
-                /* (the hand is full: an umbrella) */
-                return FALSE;
-            }
-            place = mTL_test_activity >= 0 ? mTL_PLACE_ANYWHERE : a->place;
-            if (place == mTL_PLACE_ANYWHERE) {
-                spot = nactorx->actor_class.world.position;
-            } else if (!aNPC_tl_find_spot(nactorx, idx, place, &spot)) {
+            if (tries == aNPC_TL_CHOOSE_TRIES) {
                 v->cooldown = 2;
                 mTL_stats.no_spot++;
                 return FALSE;

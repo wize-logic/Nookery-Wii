@@ -14,6 +14,7 @@
 #include "ac_npc.h"
 #include "ac_tools.h"
 #include "pc_settings.h"
+#include "m_npc_life.h"
 
 /*
  * The activities. Animations come from aNPC_animeTable (any villager can play
@@ -47,7 +48,7 @@ const mTL_activity_c mTL_activity_table[mTL_ACT_NUM] = {
     { "fish",        aNPC_ANIM_TURI_WAIT1,     aNPC_SUB_ANIM_NONE,  TOOL_NPC_SAO,  mTL_PLACE_RIVER,    mTL_LINE_FISH,
                      { 2, 1, 3, 1, 4, 0 },  6, 19,  mTL_WEATHER_DRY,   mTL_SEASON_ANY,    30, 60 },
     { "fan",         aNPC_ANIM_WAIT1,          aNPC_SUB_ANIM_UTIWA, TOOL_UTIWA,    mTL_PLACE_ANYWHERE, mTL_LINE_FAN,
-                     { 2, 2, 2, 2, 2, 2 }, 10, 21,  mTL_WEATHER_CLEAR, mTL_SEASON_SUMMER, 15, 30 },
+                     { 1, 1, 1, 1, 1, 1 }, 10, 21,  mTL_WEATHER_CLEAR, mTL_SEASON_SUMMER, 15, 30 },
     { "pray",        aNPC_ANIM_OMAIRI1,        aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_PLAZA,    mTL_LINE_PRAY,
                      { 2, 1, 1, 1, 1, 1 },  6, 20,  mTL_WEATHER_ANY,   mTL_SEASON_ANY,     6, 12 },
     { "look_around", aNPC_ANIM_KYORO1,         aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_ANYWHERE, mTL_LINE_NONE,
@@ -64,6 +65,7 @@ const mTL_activity_c mTL_activity_table[mTL_ACT_NUM] = {
 static mTL_villager_c mTL_villagers[ANIMAL_NUM_MAX];
 
 int mTL_start_chance = mTL_START_CHANCE;
+int mTL_talk_chance = mTL_TALK_CHANCE;
 int mTL_test_activity = -1;
 int mTL_test_villager = -1;
 int mTL_test_seconds = 0;
@@ -115,6 +117,38 @@ extern void mTL_NoteEvent(int idx, int act, int event) {
     mTL_stats.last_activity = act;
     mTL_stats.last_event = event;
     mTL_stats.events++;
+}
+
+extern void mTL_NoteTalk(int idx) {
+    mTL_villager_c* v = mTL_GetVillager(idx);
+
+    if (v != NULL) {
+        v->talk_activity = v->activity + 1;
+        v->talk_sec = Common_Get(time.now_sec);
+    }
+}
+
+extern int mTL_DecideTalkMsg(const Animal_c* animal, int looks) {
+    mTL_villager_c* v = mTL_GetVillager(mNL_GetAnimalIdx(animal));
+    const mTL_activity_c* a;
+    int age;
+
+    if (v == NULL || v->talk_activity == 0 || !mTL_IsEnabled()) {
+        return -1;
+    }
+
+    a = mTL_GetActivity(v->talk_activity - 1);
+    age = Common_Get(time.now_sec) - v->talk_sec;
+    v->talk_activity = 0;
+    if (age < 0) {
+        age += 24 * 60 * 60;
+    }
+    /* (the chat comes right after the interruption) */
+    if (age > 30 || a->line >= mTL_LINE_NUM || RANDOM(100) >= mTL_talk_chance) {
+        return -1;
+    }
+
+    return mNL_TopicMsgNo(mNL_TOPIC_NUM + a->line, looks);
 }
 
 extern int mTL_CountBusy(void) {

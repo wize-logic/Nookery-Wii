@@ -121,6 +121,19 @@ index cleared, or the game skips the new act's init.
 - **Test:** `life_test = 3` logs each activity started and ended, and how many
   villagers are busy each minute. Screenshots of each personality's favorite.
 
+**Result (done):** 17 activities chosen by personality, hour, weather and
+season; when the first choice needs a place the acre lacks (a river, a tree),
+up to three are tried. Talked to mid-activity, a villager says what they were
+doing 70% of the time: 54 new lines (`ACT_*` topics in
+`m_npc_life_msg.txt`, one per kind of activity and personality, served after
+the gossip topics). A villager with a full hand (an umbrella) skips
+activities with a prop. `life_test = 3` also takes screenshots a few seconds
+into activities near the player; `life_test = 5` interrupts a fanning
+villager with a chat, rain and its schedule, and checks each time that the
+prop, the fan pose and the act are gone: all clean in Dolphin, and the chat
+showed the fan line. In 8 game minutes at a 50% start chance, 3 villagers did
+19 activities.
+
 ## Phase 2: places to gather (M)
 
 - **Gathering spots:** the plaza (the wishing well acre), the river bank, the

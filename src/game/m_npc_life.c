@@ -419,6 +419,15 @@ extern int mNL_GetMsgTopic(int msg_no) {
     return topic;
 }
 
+extern int mNL_TopicMsgNo(int topic, int looks) {
+    if (topic < 0 || topic >= mNL_MSG_TOPIC_NUM || looks < 0 || looks >= mNL_MSG_LOOKS_NUM) {
+        return -1;
+    }
+
+    return mNL_MSG_BASE + mNL_msg_topic_first[topic] + looks * mNL_msg_variants[topic] +
+           RANDOM(mNL_msg_variants[topic]);
+}
+
 static void mNL_SetNameFreeStr(int slot, int free_str_no, int animal_idx) {
     Animal_c* animal = &Save_Get(animals)[animal_idx];
 
@@ -460,7 +469,7 @@ static int mNL_DecideGossipMsgSub(const Animal_c* speaker, int looks) {
     int i;
     int j;
 
-    if (self < 0 || looks < 0 || looks >= mNL_MSG_LOOKS_NUM || mNL_MSG_TOPIC_NUM != mNL_TOPIC_NUM) {
+    if (self < 0 || looks < 0 || looks >= mNL_MSG_LOOKS_NUM || mNL_MSG_TOPIC_NUM < mNL_TOPIC_NUM) {
         return -1;
     }
 

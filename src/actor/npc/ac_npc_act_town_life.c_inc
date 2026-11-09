@@ -50,6 +50,10 @@ static void aNPC_tl_stop(NPC_ACTOR* nactorx, int event) {
     }
 
     aNPC_tl_prop_off(nactorx, v);
+    if (event == 3 && nactorx->condition_info.talk_condition != aNPC_TALK_TYPE_NONE) {
+        /* the player came to chat: they may say what they were doing */
+        mTL_NoteTalk(mNL_GetAnimalIdx(nactorx->npc_info.animal));
+    }
     mTL_NoteEvent(mNL_GetAnimalIdx(nactorx->npc_info.animal), v->activity, event);
     v->state = mTL_STATE_IDLE;
     v->cooldown = mTL_test_activity >= 0 ? 0 : mTL_COOLDOWN;
@@ -133,10 +137,21 @@ static void aNPC_town_life_act_proc(NPC_ACTOR* nactorx, GAME_PLAY* play, int typ
     (*act_proc[type])(nactorx, play);
 }
 
+/* The hand is wanted for something else (an umbrella) */
+static void aNPC_tl_hand_needed(NPC_ACTOR* nactorx) {
+    mTL_villager_c* v = aNPC_tl_get(nactorx);
+
+    if (v != NULL && v->state == mTL_STATE_DOING) {
+        mTL_stats.last_interrupt_act = aNPC_ACT_UMB_OPEN;
+        aNPC_tl_stop(nactorx, 3);
+    }
+}
+
 /* Another act is taking over from an activity */
 static void aNPC_tl_chk_interrupt(NPC_ACTOR* nactorx, u8 prev_idx, u8 next_idx) {
     if (prev_idx == aNPC_ACT_SPECIAL && next_idx != aNPC_ACT_SPECIAL &&
         nactorx->action.act_proc == &aNPC_town_life_act_proc) {
+        mTL_stats.last_interrupt_act = next_idx;
         aNPC_tl_stop(nactorx, 3);
     }
 }

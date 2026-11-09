@@ -1,6 +1,7 @@
 #include "ac_quest_talk_normal_init.h"
 #ifdef ACGC_PORT
 #include "m_npc_life.h"
+#include "m_town_life.h"
 #endif
 
 #include "m_font.h"
@@ -2166,9 +2167,10 @@ static void aQMgr_talk_normal_select_talk(QUEST_MANAGER_ACTOR* manager) {
         mPr_AddFirstJobHint(Now_Private);
     } else {
 #ifdef ACGC_PORT
-        /* Villager friendships: sometimes talk about the other villagers instead */
-        msg_no = -1;
-        if (mNL_IsEnabled() && RANDOM(100) < mNL_gossip_chance) {
+        /* Town life: caught in the middle of something, they talk about it. Villager friendships: sometimes
+         * talk about the other villagers instead */
+        msg_no = mTL_DecideTalkMsg(animal, looks);
+        if (msg_no == -1 && mNL_IsEnabled() && RANDOM(100) < mNL_gossip_chance) {
             msg_no = mNL_DecideGossipMsg(animal, looks);
         }
 

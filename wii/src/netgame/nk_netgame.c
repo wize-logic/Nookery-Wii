@@ -971,15 +971,18 @@ static void life_test(GAME_PLAY* play)
  *
  * life_test = 3 watches activities as they happen: every activity started, ended or interrupted
  * ("LIFETEST: act"), and each game minute how many villagers are busy ("LIFETEST: busy"). life_test_topic, when
- * set, is the percent of wander decisions that consider an activity. First, how many of the town's villagers
- * are outside at each hour of a simulated day, on the original schedules and on town life's.
+ * set, is the percent of wander decisions that consider an activity.
  *
  * life_test = 4 is the animation and prop check: the villager nearest the player is brought beside it and
  * plays each candidate animation in turn (mTL_ACT_TEST), facing the camera, from life_test_topic on when set.
  * Three times during each, "LIFETEST: shot N" asks for a screenshot (the test's watcher touches dolphin_run's
  * shot-N.req); the log says whether the animation loops or stops, and whether the prop came out. The villager
  * doesn't seek out or avoid the player meanwhile (the friendship interrupt), which would keep it from starting.
- */
+ *
+ * life_test = 5 checks that activities end cleanly: the villager nearest the player fans itself (a prop and a
+ * sub-animation) and is interrupted in turn by a chat with the player (the input script's A; the line it says
+ * is logged), by rain starting and by its schedule sending it home. After each, "LIFETEST: after" says whether
+ * the prop, the fan pose and the act are gone. */
 typedef struct {
     const char* name;
     u8 anim;
@@ -1065,6 +1068,177 @@ static NPC_ACTOR* town_test_npc(GAME_PLAY* play, int idx)
     return NULL;
 }
 
+/* After an interruption: is the activity gone without a trace? */
+static void town_test_check_clean(const char* what, NPC_ACTOR* npc, mTL_villager_c* v)
+{
+    int clean = v->state != mTL_STATE_DOING && v->prop == NULL && npc->draw.sub_anim_type != aNPC_SUB_ANIM_UTIWA &&
+                !(npc->action.idx == aNPC_ACT_SPECIAL && npc->action.step != aNPC_ACTION_END_STEP);
+    ACTOR* hand = npc->right_hand.item_actor_p;
+
+    if (hand != NULL && ((TOOLS_ACTOR*) hand)->tool_name == TOOL_UTIWA) {
+        clean = FALSE;
+    }
+    nk_wii_log("LIFETEST: after %s: state %d prop %d hand %d sub %d act %d step %d -> %s\n", what, (int) v->state,
+               v->prop != NULL, hand != NULL ? ((TOOLS_ACTOR*) hand)->tool_name : -1, (int) npc->draw.sub_anim_type,
+               (int) npc->action.idx, (int) npc->action.step, clean ? "OK" : "FAIL");
+}
+
+static void town_test_interrupt(GAME_PLAY* play)
+{
+    static const char* const why[] = {"wait", "walk", "run", "turn", "turn2", "insect", "fish", "greeting", "chat",
+                                      "into house", "leave house", "umbrella", "umbrella", "ensou", "chat",
+                                      "react", "clap", "trans", "get", "cloth", "pitfall", "revive", "special"};
+    static int subject = -1;
+    static int step;
+    static int frames;
+    static int last_msg = -1;
+    static int interrupted_seen;
+    static int chats;
+    static int line_seen;
+    static int line_frames = -1;
+    PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+    mMsg_Window_c* window = mMsg_Get_base_window_p();
+    NPC_ACTOR* npc;
+    mTL_villager_c* v;
+    xyz_t* ppos = &player->actor_class.world.position;
+
+    if (subject < 0) {
+        Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+        ACTOR* a = list->actor;
+        f32 best = 1e9f;
+        int n;
+        for (n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+            int idx;
+            f32 d;
+            if (ITEM_NAME_GET_TYPE(a->npc_id) != NAME_TYPE_NPC) {
+                continue;
+            }
+            idx = mNL_GetAnimalIdx(((NPC_ACTOR*) a)->npc_info.animal);
+            d = search_position_distanceXZ(&a->world.position, ppos);
+            if (idx >= 0 && d < best) {
+                best = d;
+                subject = idx;
+            }
+        }
+        if (subject < 0) {
+            return;
+        }
+        mTL_test_entry.name = "fan";
+        mTL_test_entry.anim = aNPC_ANIM_WAIT1;
+        mTL_test_entry.sub_anim = aNPC_SUB_ANIM_UTIWA;
+        mTL_test_entry.prop = TOOL_UTIWA;
+        mTL_test_entry.place = mTL_PLACE_ANYWHERE;
+        mTL_test_entry.line = mTL_LINE_FAN;
+        mTL_test_activity = mTL_ACT_TEST;
+        mTL_test_villager = subject;
+        mTL_test_seconds = 600;
+        mTL_start_chance = 100;
+        mTL_talk_chance = 100;
+        if (Now_Private != NULL) {
+            Now_Private->hint_count = 0x80; /* (no first-job hints in the way of the chat) */
+        }
+        nk_wii_log("LIFETEST: interruption test on villager %d\n", subject);
+    }
+
+    npc = town_test_npc(play, subject);
+    v = mTL_GetVillager(subject);
+    if (npc == NULL || v == NULL) {
+        return;
+    }
+    npc->think.interrupt_flags &= ~aNPC_THINK_INTERRUPT_FRIENDSHIP;
+    frames++;
+
+    if (window->msg_data != NULL && window->main_index != mMsg_INDEX_HIDE && window->msg_data->msg_no != last_msg) {
+        int topic;
+        last_msg = window->msg_data->msg_no;
+        topic = mNL_GetMsgTopic(last_msg);
+        nk_wii_log("LIFETEST: msg 0x%04X topic %d%s\n", last_msg, topic, topic >= mNL_TOPIC_NUM ? " (activity line)" : "");
+        if (topic >= mNL_TOPIC_NUM && !line_seen) {
+            line_seen = 1;
+            line_frames = 0;
+        }
+    }
+    if (line_frames >= 0 && ++line_frames == 40) {
+        nk_wii_log("LIFETEST: shot 1 activity-line\n");
+    }
+    {
+        /* the villager's "what can I do for you?" menu (msgs 0x2A6 on): "Let's talk!", the second of three */
+        mChoice_c* choice = mChoice_Get_base_window_p();
+        if (choice->main_index == mChoice_MAIN_NORMAL && choice->data.choice_num == 3 && last_msg >= 0x2A6 &&
+            last_msg <= 0x2B1) {
+            choice->selected_choice_idx = 1;
+        }
+    }
+    if (v->state != mTL_STATE_DOING && frames % 600 == 0 && step < 3) {
+        nk_wii_log("LIFETEST: waiting in step %d: state %d act %d step %d think %d cooldown %d hand %d talk %d\n", step,
+                   (int) v->state, (int) npc->action.idx, (int) npc->action.step, (int) npc->think.idx,
+                   (int) v->cooldown, npc->right_hand.item_actor_p != NULL, (int) npc->condition_info.talk_condition);
+    }
+
+    if (mTL_stats.interrupted != interrupted_seen) {
+        int act = mTL_stats.last_interrupt_act;
+        interrupted_seen = mTL_stats.interrupted;
+        town_test_check_clean(act >= 0 && act < (int) (sizeof(why) / sizeof(why[0])) ? why[act] : "?", npc, v);
+        if (step == 0 && (act == aNPC_ACT_TALK || act == aNPC_ACT_TALK2)) {
+            chats++;
+        }
+        frames = 0;
+    }
+
+    switch (step) {
+        case 0: /* fanning in front of the player until the player's chat interrupts it */
+            if (v->state == mTL_STATE_DOING && v->prop != NULL) {
+                s16 angle = search_position_angleY(ppos, &npc->actor_class.world.position);
+                npc->actor_class.world.position.x = ppos->x + sin_s(angle) * 36.0f;
+                npc->actor_class.world.position.z = ppos->z + cos_s(angle) * 36.0f;
+                player->actor_class.shape_info.rotation.y = angle;
+                player->actor_class.world.angle.y = angle;
+            }
+            /* (the first chat with a villager the player hasn't met is an introduction) */
+            if ((line_seen || chats >= 4) && npc->condition_info.talk_condition == aNPC_TALK_TYPE_NONE &&
+                window->main_index == mMsg_INDEX_HIDE) {
+                step = 1;
+                frames = 0;
+            }
+            break;
+        case 1: /* fanning again, away from the player; then rain */
+            if (frames == 30) {
+                npc->actor_class.world.position.x = ppos->x + 120.0f;
+                npc->actor_class.world.position.z = ppos->z;
+            }
+            if (frames > 60 && v->state == mTL_STATE_DOING && v->prop != NULL && npc->action.step != 0) {
+                nk_wii_log("LIFETEST: fanning again; rain starts\n");
+                Common_Set(weather, mEnv_WEATHER_RAIN);
+                Common_Set(weather_intensity, mEnv_WEATHER_INTENSITY_NORMAL);
+                step = 2;
+                frames = 0;
+            }
+            break;
+        case 2: /* the umbrella out: rain stops; once fanning again, home time */
+            if (frames == 300) {
+                Common_Set(weather, mEnv_WEATHER_CLEAR);
+                Common_Set(weather_intensity, mEnv_WEATHER_INTENSITY_NONE);
+            }
+            if (frames > 300 && v->state == mTL_STATE_DOING && v->prop != NULL && npc->action.step != 0) {
+                nk_wii_log("LIFETEST: fanning again; the schedule sends it home\n");
+                if (npc->npc_info.schedule != NULL) {
+                    npc->npc_info.schedule->forced_type = mNPS_SCHED_IN_HOUSE;
+                    npc->npc_info.schedule->forced_timer = 100000;
+                }
+                step = 3;
+                frames = 0;
+            }
+            break;
+        case 3:
+            if (frames == 300) {
+                nk_wii_log("LIFETEST: interruption test done (started %d ended %d interrupted %d, %d chats, activity "
+                           "line %s)\n",
+                           mTL_stats.started, mTL_stats.ended, mTL_stats.interrupted, chats, line_seen ? "seen" : "NOT seen");
+            }
+            break;
+    }
+}
+
 static void town_test(GAME_PLAY* play)
 {
     static int field_frames;
@@ -1076,6 +1250,9 @@ static void town_test(GAME_PLAY* play)
     static int events_seen;
     static int last_min = -1;
     static int shots;
+    static int shot_frames = -1;
+    static int shot_act = -1;
+    static int shot_looks;
     PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
     mNpc_NpcList_c* npclist = Common_Get(npclist);
     int i;
@@ -1115,12 +1292,27 @@ static void town_test(GAME_PLAY* play)
         return;
     }
 
+    if (g_nk_life_test == 3 && shot_frames >= 0 && ++shot_frames == 150 && shots < 12) {
+        /* a few seconds into an activity the player can see */
+        nk_wii_log("LIFETEST: shot %d %s-looks%d\n", ++shots, mTL_GetActivity(shot_act)->name, shot_looks);
+        shot_frames = -1;
+    }
+
     /* every activity started, ended or interrupted */
     if (mTL_stats.events != events_seen) {
         static const char* const what[] = {"?", "started", "ended", "interrupted"};
         mTL_villager_c* v = mTL_GetVillager(mTL_stats.last_villager);
         const mTL_activity_c* a = mTL_GetActivity(mTL_stats.last_activity);
         events_seen = mTL_stats.events;
+        if (mTL_stats.last_event == 1 && shot_frames < 0 && mTL_stats.last_activity != shot_act) {
+            NPC_ACTOR* npc = town_test_npc(play, mTL_stats.last_villager);
+            if (npc != NULL && search_position_distanceXZ(&npc->actor_class.world.position,
+                                                         &player->actor_class.world.position) < 160.0f) {
+                shot_frames = 0;
+                shot_act = mTL_stats.last_activity;
+                shot_looks = Save_Get(animals[mTL_stats.last_villager]).id.looks;
+            }
+        }
         nk_wii_log("LIFETEST: act %s villager %d %s (place %d, %d s, repeats %d%s, prop %d) busy %d\n",
                    what[mTL_stats.last_event & 3], mTL_stats.last_villager, a->name, a->place,
                    v != NULL ? v->seconds : 0, v != NULL ? v->repeats : 0, v != NULL && v->oneshot ? " one-shot" : "",
@@ -1161,6 +1353,11 @@ static void town_test(GAME_PLAY* play)
                        (int) t->hour, (int) t->min, mTL_CountBusy(), play->actor_info.list[ACTOR_PART_NPC].num_actors,
                        mTL_stats.started, mTL_stats.ended, mTL_stats.interrupted, mTL_stats.no_spot);
         }
+        return;
+    }
+
+    if (g_nk_life_test == 5) {
+        town_test_interrupt(play);
         return;
     }
 

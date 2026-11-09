@@ -128,7 +128,7 @@ static const Key s_keys[] = {
     {"trace_scenes", &g_nk_trace_scenes, 0, 1},
     {"nes_test", &g_nk_nes_test, 0, 30},
     {"travel_test", &g_nk_travel_test, 0, 1},
-    {"life_test", &g_nk_life_test, 0, 4},
+    {"life_test", &g_nk_life_test, 0, 5},
     {"life_test_topic", &g_nk_life_test_topic, -1, 99},
     {"clock_test_skew", &g_nk_clock_test_skew, -864000, 864000},
     {"net_test_public", &g_nk_net_test_public, 0, 1},

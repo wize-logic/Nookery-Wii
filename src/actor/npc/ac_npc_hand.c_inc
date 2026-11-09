@@ -100,7 +100,7 @@ static int aNPC_takeout_right_item(NPC_ACTOR* nactorx) {
 }
 
 #if defined(ACGC_PORT) && !defined(aNPC_NPC2)
-static void aNPC_tl_stop(NPC_ACTOR* nactorx, int event);
+static void aNPC_tl_hand_needed(NPC_ACTOR* nactorx);
 #endif
 
 static int aNPC_chk_right_hand(NPC_ACTOR* nactorx) {
@@ -110,7 +110,7 @@ static int aNPC_chk_right_hand(NPC_ACTOR* nactorx) {
 #if defined(ACGC_PORT) && !defined(aNPC_NPC2)
     if (requested != aNPC_ITEM_TYPE_NONE) {
         /* Town life: the activity's prop goes before the hand takes anything else */
-        aNPC_tl_stop(nactorx, 3);
+        aNPC_tl_hand_needed(nactorx);
     }
 #endif
 
