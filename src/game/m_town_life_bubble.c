@@ -93,11 +93,13 @@ static int mTL_ExpandBark(u8* out, const u8* bark, int a_idx, int b_idx) {
             int name_len;
             int j;
 
-            if (who < 0 || who >= ANIMAL_NUM_MAX) {
+            if (who == mTL_VISITOR_IDX && mTL_GetVisitor() != EMPTY_NO) {
+                mem_copy(name, (u8*)mTL_VisitorName(), ANIMAL_NAME_LEN);
+            } else if (who < 0 || who >= ANIMAL_NUM_MAX) {
                 return 0;
+            } else {
+                mNpc_GetNpcWorldNameAnm(name, &Save_Get(animals)[who].id);
             }
-
-            mNpc_GetNpcWorldNameAnm(name, &Save_Get(animals)[who].id);
             name_len = mMl_strlen(name, ANIMAL_NAME_LEN, CHAR_SPACE);
             for (j = 0; j < name_len && len < mTL_BUBBLE_TEXT_LEN; j++) {
                 out[len++] = name[j];

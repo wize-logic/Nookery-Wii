@@ -272,6 +272,27 @@ villager-hours outside before, 148 after (`life_test = 3` logs both).
 - **Test:** forced visitor days in `life_test`; check the event slots and
   existing events never clash.
 
+**Result (done):** `src/game/m_town_life_visitor.c`. On 30% of days a
+villager who could move in (and isn't living here or on the island) visits
+from 9:00 to 18:00. Rather than an event NPC slot, which belongs to the
+special characters, the visitor uses one of the game's three mask NPC
+records (how festivals and the summer camper borrow villagers): a normal
+villager actor whose data is that record and who, having no schedule entry,
+gets the game's wander schedule, plus an npclist entry of its own (the
+game's greeting code reads one; without it Dolphin caught a read from
+address 0x1d). The game clears the records at every scene change, so the
+record is made again when the visitor appears, only while two of the three
+are free (one always stays for an event). The visitor drifts to a
+neighboring acre every 8 game minutes while the player is elsewhere and
+appears wherever the player meets them; residents gossip about them once
+they've been seen (a new chat topic, 6 lines, and bubble barks). The
+travelling characters (the "special event": Saharah, Gracie, Wendell, Redd,
+the sales) now come every 2 to 4 days instead of 2 to 7. `life_test = 9`:
+the visitor (with the summer camper's record in use the same day) appeared,
+wandered, greeted a resident, introduced itself in a chat ("I've never seen
+you before, huh?"), and a resident's gossip named it; no invalid memory
+access with Dolphin's MMU emulation on.
+
 ## Phase 7: weather and night (S–M)
 
 - Snowball throws in winter (`TAMANAGE` and a snow puff effect), between

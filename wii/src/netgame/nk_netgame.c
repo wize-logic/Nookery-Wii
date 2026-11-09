@@ -1002,7 +1002,12 @@ static void life_test(GAME_PLAY* play)
  * fruit, tend flowers and (in a pretend snowman season) build a snowman. Every ground change against a snapshot
  * of the town is logged ("LIFETEST: ground"), with screenshots of the first few; a gift letter is sent and the
  * mailbox counted; then, limits on, villagers who planted may not plant again. On an online host, a guest's log
- * should show the same changes arriving ("NETGAME: ground change from the others"). */
+ * should show the same changes arriving ("NETGAME: ground change from the others").
+ *
+ * life_test = 9 checks visitors: today's visitor is put in the player's acre and should appear and wander
+ * ("LIFETEST: visitor" every five seconds, with screenshots); then it is brought in front of the player and
+ * the input script's A starts a chat; then a resident is brought over, whose gossip is about the visitor. The
+ * messages shown are logged, and the mask records in use (none must be taken from an event). */
 typedef struct {
     const char* name;
     u8 anim;
@@ -1661,6 +1666,143 @@ static void town_test_tend(GAME_PLAY* play)
     }
 }
 
+static void town_test_visitor(GAME_PLAY* play)
+{
+    static int frames, step, step_frames, shots, last_msg = -1, chatted = -1;
+    PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+    mMsg_Window_c* window = mMsg_Get_base_window_p();
+    ACTOR* visitor = NULL;
+    NPC_ACTOR* target = NULL;
+    Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+    ACTOR* a;
+    int n, masks = 0, i;
+
+    frames++;
+    if (player == NULL) {
+        return;
+    }
+    if (frames == 600) {
+        /* (after the warp: the acre the player is really in) */
+        int bx, bz;
+        mFI_Wpos2BlockNum(&bx, &bz, player->actor_class.world.position);
+        for (i = 0; i < mNpc_MASK_NPC_NUM; i++) {
+            masks += Common_Get(mask_npc[i]).in_use;
+            if (Common_Get(mask_npc[i]).in_use) {
+                nk_wii_log("LIFETEST: mask record %d in use: %04x as %04x\n", i, Common_Get(mask_npc[i]).mask_id,
+                           Common_Get(mask_npc[i]).npc_id);
+            }
+        }
+        mTL_TestVisitorHere(bx, bz);
+        if (Now_Private != NULL) {
+            Now_Private->hint_count = 0x80;
+        }
+        nk_wii_log("LIFETEST: a visitor today in acre %d,%d (mask records in use before: %d)\n", bx, bz, masks);
+        return;
+    }
+    if (frames < 600) {
+        return;
+    }
+    for (a = list->actor, n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+        if (mTL_GetVisitor() != EMPTY_NO && a->npc_id == mTL_GetVisitor()) {
+            visitor = a;
+        }
+    }
+
+    if (window->msg_data != NULL && window->main_index != mMsg_INDEX_HIDE && window->msg_data->msg_no != last_msg) {
+        last_msg = window->msg_data->msg_no;
+        nk_wii_log("LIFETEST: msg 0x%04X topic %d (step %d)\n", last_msg, mNL_GetMsgTopic(last_msg), step);
+    }
+    {
+        mChoice_c* choice = mChoice_Get_base_window_p();
+        if (choice->main_index == mChoice_MAIN_NORMAL && choice->data.choice_num == 3 && last_msg >= 0x2A6 &&
+            last_msg <= 0x2B1) {
+            choice->selected_choice_idx = 1;
+        }
+    }
+
+    step_frames++;
+    switch (step) {
+        case 0: /* the visitor appears and wanders */
+            if (visitor == NULL && step_frames % 300 == 0) {
+                int pbx, pbz;
+                mFI_Wpos2BlockNum(&pbx, &pbz, player->actor_class.world.position);
+                nk_wii_log("LIFETEST: no visitor yet: %04x, step %d, spawns %d, player acre %d,%d, npcs %d\n",
+                           (int) mTL_GetVisitor(), mTL_stats.visitor_step, mTL_stats.visitor_spawns, pbx, pbz,
+                           list->num_actors);
+            }
+            if (visitor != NULL && step_frames % 300 == 0) {
+                NPC_ACTOR* v = (NPC_ACTOR*) visitor;
+                for (i = 0; i < mNpc_MASK_NPC_NUM; i++) {
+                    masks += Common_Get(mask_npc[i]).in_use;
+                }
+                nk_wii_log("LIFETEST: visitor %04x at %.0f,%.0f act %d think %d sched %d hide %d, %.0f from the player, "
+                           "masks %d, spawns %d\n",
+                           (int) visitor->npc_id, (double) visitor->world.position.x, (double) visitor->world.position.z,
+                           (int) v->action.idx, (int) v->think.idx, (int) v->schedule.type,
+                           (int) v->condition_info.hide_flg, (double) visitor->player_distance_xz, masks,
+                           mTL_stats.visitor_spawns);
+                if (shots < 2) {
+                    player->actor_class.world.position.x = visitor->world.position.x - 70.0f;
+                    player->actor_class.world.position.z = visitor->world.position.z - 30.0f;
+                    nk_wii_log("LIFETEST: shot %d visitor\n", ++shots);
+                }
+            }
+            if (step_frames == 60 * 60) {
+                nk_wii_log("LIFETEST: visitor %s after a minute\n", visitor != NULL ? "here" : "NOT HERE");
+                step = 1;
+                step_frames = 0;
+            }
+            break;
+        case 1: /* a chat with the visitor */
+        case 2: /* a chat with a resident, about the visitor */
+            if (step == 1) {
+                target = (NPC_ACTOR*) visitor;
+            } else {
+                for (a = list->actor, n = list->num_actors; n != 0 && a != NULL && target == NULL; n--,
+                    a = a->next_actor) {
+                    if (ITEM_NAME_GET_TYPE(a->npc_id) == NAME_TYPE_NPC &&
+                        mNL_GetAnimalIdx(((NPC_ACTOR*) a)->npc_info.animal) >= 0 &&
+                        ((NPC_ACTOR*) a)->npc_info.animal->mood == mNpc_FEEL_NORMAL) {
+                        target = (NPC_ACTOR*) a; /* (an angry villager only tells the player to go away) */
+                    }
+                }
+                mNL_gossip_chance = 100;
+                mNL_test_topic = mNL_TOPIC_VISITOR;
+                mTL_talk_chance = 0;
+            }
+            if (target == NULL) {
+                break;
+            }
+            target->think.interrupt_flags &= ~aNPC_THINK_INTERRUPT_FRIENDSHIP;
+            if (target->condition_info.talk_condition != aNPC_TALK_TYPE_NONE) {
+                chatted = step;
+            } else if (chatted == step && window->main_index == mMsg_INDEX_HIDE) {
+                nk_wii_log("LIFETEST: chat %d over\n", step);
+                chatted = -1;
+                step++;
+                step_frames = 0;
+                if (step == 3) {
+                    nk_wii_log("LIFETEST: visitor test done (visitor days %d, spawns %d)\n", mTL_stats.visitor_days,
+                               mTL_stats.visitor_spawns);
+                }
+            } else if (window->main_index == mMsg_INDEX_HIDE) {
+                xyz_t* ppos = &player->actor_class.world.position;
+                s16 angle = search_position_angleY(ppos, &target->actor_class.world.position);
+                target->actor_class.world.position.x = ppos->x + sin_s(angle) * 36.0f;
+                target->actor_class.world.position.z = ppos->z + cos_s(angle) * 36.0f;
+                target->actor_class.world.position.y = ppos->y;
+                player->actor_class.shape_info.rotation.y = angle;
+                player->actor_class.world.angle.y = angle;
+            }
+            if (window->main_index != mMsg_INDEX_HIDE && step_frames % 120 == 60 && shots < 6) {
+                nk_wii_log("LIFETEST: shot %d chat%d\n", ++shots, step);
+            }
+            break;
+        default:
+            break;
+    }
+}
+
 static void town_test(GAME_PLAY* play)
 {
     static int field_frames;
@@ -1788,6 +1930,10 @@ static void town_test(GAME_PLAY* play)
     }
     if (g_nk_life_test == 8) {
         town_test_tend(play);
+        return;
+    }
+    if (g_nk_life_test == 9) {
+        town_test_visitor(play);
         return;
     }
 

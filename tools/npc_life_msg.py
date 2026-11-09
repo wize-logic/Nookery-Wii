@@ -34,6 +34,7 @@ TOPICS = {
     "PLAYER_CATCH": 2,
     "SELF_PLANTED": 1,  # town life: the speaker planted STR_ITEM0
     "NEWS_PLANTED": 1,  # town life: STR_FREE13 planted STR_ITEM0
+    "VISITOR": 1,  # town life: STR_FREE13 is visiting town today
     # Town life (m_town_life.c): what a villager says when talked to in the middle of an activity
     "ACT_SIT": 1,
     "ACT_DRINK": 1,

@@ -252,6 +252,11 @@ extern int mTL_ChooseChatBark(int idx, int* a_idx, int* b_idx) {
         }
     }
 
+    if (mTL_VisitorSeen() && RANDOM(4) == 0) {
+        *a_idx = mTL_VISITOR_IDX;
+        return mTL_BARK_VISITOR;
+    }
+
     roll = RANDOM(10);
     if (roll < 2 && friend_idx >= 0) {
         *a_idx = friend_idx;

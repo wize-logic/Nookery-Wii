@@ -85,6 +85,7 @@ enum {
     mNL_TOPIC_PLAYER_CATCH,     /* the player caught STR_ITEM0 */
     mNL_TOPIC_SELF_PLANTED,     /* the speaker planted STR_ITEM0 by their house (town life) */
     mNL_TOPIC_NEWS_PLANTED,     /* STR_FREE13 planted STR_ITEM0 by their house (town life) */
+    mNL_TOPIC_VISITOR,          /* STR_FREE13 is visiting town today (town life) */
 
     mNL_TOPIC_NUM
 };

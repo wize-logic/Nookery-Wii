@@ -1,6 +1,9 @@
 #include "m_event.h"
 
 #include "libultra/libultra.h"
+#ifdef ACGC_PORT
+#include "m_town_life.h"
+#endif
 #include "_mem.h"
 #include "lb_reki.h"
 #include "ac_aprilfool_control_h.h"
@@ -989,6 +992,14 @@ static int init_special_event(int new_event) {
             }
 
             mFAs_SetFieldRank();
+#ifdef ACGC_PORT
+            /* Town life: the travelling characters come by a little more often (every 2 to 4 days at most) */
+            if (mTL_IsEnabled()) {
+                int span = (mFAs_FIELDRANK_SIX + 1) - mFAs_GetFieldRank();
+
+                next_event_day_gap = 1 + ((rtc_time->day + rtc_time->month * rtc_time->sec) % MIN(span, 4));
+            } else
+#endif
             next_event_day_gap = 1 + ((rtc_time->day + rtc_time->month * rtc_time->sec) %
                                       ((mFAs_FIELDRANK_SIX + 1) - mFAs_GetFieldRank()));
 

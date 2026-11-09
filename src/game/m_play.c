@@ -612,6 +612,7 @@ static void Game_play_move(GAME* game) {
     watch_my_step_move(play);
 #ifdef ACGC_PORT
     mTL_BubbleMove(play); /* town life's speech bubbles */
+    mTL_VisitorMove(play); /* and visitors */
 #endif
     game->doing_point = 4;
     banti_move(play);

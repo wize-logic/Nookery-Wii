@@ -2332,3 +2332,47 @@ planted <<STR_ITEM0>>,<<PAUSE [06]>>
 <<MSGCLEAR>><<DEMONPC0 [00 00 03]>>Not bad.<<PAUSE [0A]>> Not as nice as
 mine, of course.
 <<MSGEND>>
+
+@VISITOR NORMAL 0
+<<DEMONPC0 [00 00 0C]>>Did you meet <<STR_FREE13>>?<<PAUSE [08]>>
+They're visiting town today,<<PAUSE [06]>>
+<<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>You should say hello before
+they head home.
+<<MSGEND>>
+
+@VISITOR PEPPY 0
+<<DEMONPC0 [00 00 0A]>>There's a visitor in town!<<PAUSE [08]>>
+<<STR_FREE13>>!<<PAUSE [08]>> I wanna show
+them EVERYTHING,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGEND>>
+
+@VISITOR LAZY 0
+<<DEMONPC0 [00 00 0B]>>Somebody named <<STR_FREE13>>
+is wandering around,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>I hope they brought snacks.
+<<MSGEND>>
+
+@VISITOR JOCK 0
+<<DEMONPC0 [00 00 0A]>>A new face in town!<<PAUSE [08]>>
+<<STR_FREE13>>'s visiting,<<PAUSE [06]>>
+<<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>Bet they can't keep up with
+me!
+<<MSGEND>>
+
+@VISITOR CRANKY 0
+<<DEMONPC0 [00 00 0B]>>Some <<STR_FREE13>> fella's
+poking around town,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>Visitors.<<PAUSE [0A]>> Hmph.<<PAUSE [0A]>> As long as
+they don't stay.
+<<MSGEND>>
+
+@VISITOR SNOOTY 0
+<<DEMONPC0 [00 00 12]>>We have a visitor,<<PAUSE [06]>>
+<<STR_TAIL>>.<<PAUSE [08]>> <<STR_FREE13>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>I do hope they noticed how
+stylish our town is.
+<<MSGEND>>

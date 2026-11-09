@@ -11,6 +11,7 @@
 #include "m_time.h"
 #include "lb_rtc.h"
 #include "pc_settings.h"
+#include "m_town_life.h"
 
 #include "../src/game/m_npc_life_msg.c_inc"
 
@@ -21,6 +22,7 @@ static const int mNL_topic_weight[mNL_TOPIC_NUM] = {
     5, 5, 4,       /* news: made up, fell out, new friends */
     5, 5, 5,       /* the speaker made up, fell out; the player's catch */
     4, 3,          /* planted flowers: the speaker, another villager */
+    4,             /* today's visitor */
 };
 
 /* Opinion at or above which a villager is sorry to see another move away */
@@ -539,6 +541,11 @@ static int mNL_DecideGossipMsgSub(const Animal_c* speaker, int looks) {
         }
     }
 
+    /* Today's visitor, once they've been about */
+    if (mTL_VisitorSeen()) {
+        mNL_Consider(&pick[mNL_TOPIC_VISITOR], -1, -1, NULL, 1);
+    }
+
     /* The villager thinking of moving away (they tell the player so themselves) */
     i = Save_Get(remove_animal_idx);
     if (i != self && i >= 0 && i < ANIMAL_NUM_MAX && mNL_IsTownAnimal(&animals[i])) {
@@ -637,6 +644,9 @@ static int mNL_DecideGossipMsgSub(const Animal_c* speaker, int looks) {
         if (topic == mNL_TOPIC_NEWS_PLANTED) {
             mNL_SetNameFreeStr(0, mMsg_FREE_STR13, pick[topic].a);
         }
+    } else if (topic == mNL_TOPIC_VISITOR) {
+        mem_copy(mNL_name_str[0], (u8*)mTL_VisitorName(), ANIMAL_NAME_LEN);
+        mMsg_SET_FREE_STR(mMsg_FREE_STR13, mNL_name_str[0], ANIMAL_NAME_LEN);
     } else {
         mNL_SetNameFreeStr(0, mMsg_FREE_STR13, pick[topic].a);
         if (pick[topic].b >= 0) {

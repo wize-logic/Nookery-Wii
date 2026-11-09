@@ -1,4 +1,7 @@
 #include "m_npc.h"
+#ifdef ACGC_PORT
+#include "m_town_life.h"
+#endif
 
 #include "m_font.h"
 #include "m_name_table.h"
@@ -2861,6 +2864,10 @@ extern void mNpc_SetNpcinfo(ACTOR* actor, s8 npc_info_idx) {
                 if (ITEM_NAME_GET_TYPE(mask_npc->npc_id) == NAME_TYPE_NPC) {
                     npc->npc_info.animal = &mask_npc->animal_data;
                     npc->npc_info.list = NULL;
+#ifdef ACGC_PORT
+                    /* Town life's visitor: a villager actor in its own right, whose talk reads an npclist entry */
+                    npc->npc_info.list = mTL_VisitorList(npc_id);
+#endif
                 } else {
                     npc->npc_info.animal = NULL;
                     npc->npc_info.list = NULL;

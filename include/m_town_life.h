@@ -276,6 +276,9 @@ typedef struct {
     int last_event; /* 1 started, 2 ended, 3 interrupted */
     int events;     /* increases with every start/end/interruption */
     int last_interrupt_act; /* the act (aNPC_ACT_*) that took over at the last interruption */
+    int visitor_days;
+    int visitor_spawns;
+    int visitor_step; /* where the visitor's appearing got to: 1 their acre, 2 mask record, 3 a tile, 4 made */
     int planted;
     int picked;
     int snowmen;
@@ -347,6 +350,27 @@ typedef struct {
     int screen_y; /* where the last bubble's speaker is on screen (0-240) */
 } mTL_bubble_stats_c;
 extern mTL_bubble_stats_c mTL_bubble_stats;
+
+/*
+ * Visitors (m_town_life_visitor.c): some days a villager who doesn't live in town spends the day here.
+ */
+#define mTL_VISITOR_CHANCE 30      /* percent of days */
+#define mTL_VISITOR_MOVE_SEC (8 * 60) /* game seconds between their moves to another acre */
+#define mTL_VISITOR_IDX 100        /* stands for the visitor where a Save animals index is expected (barks) */
+extern int mTL_visitor_chance;
+extern int mTL_test_visitor; /* tests: a visitor today, at any hour */
+/* Tests: decide today's visitor again, in this acre (field block numbers) */
+extern void mTL_TestVisitorHere(int bx, int bz);
+extern void mTL_VisitorMove(struct game_play_s* play);
+/* Today's visitor (an NPC id), or EMPTY_NO */
+extern mActor_name_t mTL_GetVisitor(void);
+/* Whether today's visitor has been about town near the player (worth gossiping about) */
+extern int mTL_VisitorSeen(void);
+/* The visitor's npclist entry, for mNpc_SetNpcinfo (the game's talk code reads one), or NULL when npc_id isn't
+ * today's visitor */
+extern mNpc_NpcList_c* mTL_VisitorList(mActor_name_t npc_id);
+/* The visitor's name (ANIMAL_NAME_LEN characters) */
+extern const u8* mTL_VisitorName(void);
 
 /* Number of villagers busy with an activity right now */
 extern int mTL_CountBusy(void);
