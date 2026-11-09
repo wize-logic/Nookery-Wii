@@ -1,13 +1,14 @@
-/* A game that stops: where its main thread is, and the hardware's state,
+/* A game that stops: where its frame loop is, and the hardware's state,
  * written to the log (nk_wii.h).
  *
- * The game shows each frame through VISetNextFrameBuffer (vi.c); the shims'
- * blocking calls mark the main thread's waits with their own stack frame
+ * The game shows each frame through VISetNextFrameBuffer (vi.c: a frame counts when the picture changes,
+ * as the game's video code gives the same one again at every retrace while frozen); the shims'
+ * blocking calls mark the frame loop's waits (the thread JW_BeginFrame runs in) with their own stack frame
  * (its frames pace themselves by polling the retrace count, not by waiting,
  * so a wait that lasts is the news). The system watch thread
  * (wl_platform_system_watch_start, above every thread of the game's) checks
  * each tick: when no new frame has come for 20 s (from the game's start),
- * it logs what the main thread waits in, if anything, the call chain under
+ * it logs what the frame loop waits in, if anything, the call chain under
  * that wait (the stack's back chain, as the SDK's OSDumpContext walks it),
  * and the registers of the hardware a start-up or frame waits on (GX's FIFO,
  * the pixel engine, VI, the DSP, the audio interface), then writes the log
@@ -24,6 +25,14 @@
 #include "nk_wii.h"
 
 #define STALL_SECONDS 20
+
+/* The build (main.c; weak: programs without it, the tests, leave it out) */
+extern const char nk_build_id[] __attribute__((weak));
+
+static const char* build_id(void)
+{
+    return nk_build_id != NULL ? nk_build_id : "unknown";
+}
 #define MAX_FRAMES 16
 
 static volatile int s_armed;
@@ -47,6 +56,19 @@ void nk_wii_stall_start(void)
     s_main = LWP_GetSelf();
     s_started = s_last_end = gettime();
     s_armed = 1;
+}
+
+/* The thread that begins each frame (JW_BeginFrame) is the game's frame loop (graph_proc's thread, not main()'s,
+ * which only waits for it): the waits watched from then on are its own */
+void nk_wii_stall_game_thread(void)
+{
+    lwp_t self = LWP_GetSelf();
+
+    if (s_armed && self != s_main) {
+        s_main = self;
+        s_kind = 0;
+        s_last_end = gettime();
+    }
 }
 
 void nk_wii_stall_frame(void)
@@ -101,11 +123,11 @@ static int stack_addr(u32 p)
     return (p & 7) == 0 && ((p >= 0x80000000u && p < 0x81800000u) || (p >= 0x90000000u && p < 0x94000000u));
 }
 
-static void report_calls(u32 frame)
+static void report_calls(const char* prefix, u32 frame)
 {
     char line[200];
     int n = 0, len = 0;
-    len += snprintf(line + len, sizeof(line) - len, "stall: its calls (innermost first):");
+    len += snprintf(line + len, sizeof(line) - len, "%s: its calls (innermost first):", prefix);
     for (u32 p = frame; stack_addr(p) && n < MAX_FRAMES; n++) {
         u32 next = ((volatile u32*) p)[0];
         len += snprintf(line + len, sizeof(line) - len, " %08x", (unsigned) ((volatile u32*) p)[1]);
@@ -148,48 +170,56 @@ static void report_hardware(void)
              (unsigned) ai[0], (unsigned) ai[2]);
 }
 
+static volatile u32 s_crashes;
+
 void nk_wii_stall_tick(void* user)
 {
     u64 now, last;
     u32 seconds;
     int kind;
     (void) user;
-    if (!s_armed || s_reported == s_frames) {
+    if (!s_armed || s_reported == s_frames || s_crashes != 0) {
         return;
     }
-    now = gettime();
-    last = s_frames != 0 ? s_last_frame : s_started;
+    {
+        /* (the 64-bit time read in one go: the game's thread writes it) */
+        u32 level = IRQ_Disable();
+        now = gettime();
+        last = s_frames != 0 ? s_last_frame : s_started;
+        IRQ_Restore(level);
+    }
     seconds = ticks_to_secs(now - last);
     if (seconds < STALL_SECONDS) {
         return;
     }
     s_reported = s_frames;
     kind = s_kind;
+    WL_LOG_W("nookery", "stall: build %s", build_id());
     WL_LOG_W("nookery", "stall: no new frame for %u s (%u frames shown so far)", (unsigned) seconds,
              (unsigned) s_frames);
     seconds = ticks_to_secs(now - (kind != 0 ? s_since : s_last_end));
     switch (kind) {
     case 0:
-        WL_LOG_W("nookery", "stall: the game's main thread is in no wait (its last ended %u s ago)",
+        WL_LOG_W("nookery", "stall: the game's frame loop is in no wait (its last ended %u s ago)",
                  (unsigned) seconds);
         break;
     case NK_WII_WAIT_SLEEP:
-        WL_LOG_W("nookery", "stall: the game's main thread has waited %u s in OSSleepThread (queue %p)",
+        WL_LOG_W("nookery", "stall: the game's frame loop has waited %u s in OSSleepThread (queue %p)",
                  (unsigned) seconds, s_object);
         break;
     case NK_WII_WAIT_RETRACE:
-        WL_LOG_W("nookery", "stall: the game's main thread has waited %u s for the VI's retrace",
+        WL_LOG_W("nookery", "stall: the game's frame loop has waited %u s for the VI's retrace",
                  (unsigned) seconds);
         break;
     case WAIT_SUSPENDED:
-        WL_LOG_W("nookery", "stall: the game's main thread has been suspended %u s (by %p)", (unsigned) seconds,
+        WL_LOG_W("nookery", "stall: the game's frame loop has been suspended %u s (by %p)", (unsigned) seconds,
                  s_object);
         break;
     default:
         break;
     }
     if (kind != 0 && kind != WAIT_SUSPENDED) {
-        report_calls(s_frame);
+        report_calls("stall", s_frame);
     }
     report_hardware();
     WL_LOG_W("nookery", "stall: %u waits so far, %u retraces", (unsigned) s_waits, (unsigned) VIGetRetraceCount());
@@ -213,7 +243,7 @@ extern char _SDA_BASE_[];
 extern char _SDA2_BASE_[];
 
 static PPCExcptPanicFn s_ogc_panic;
-static volatile u32 s_crashes;
+/* s_crashes: above nk_wii_stall_tick (a crash stops the frames too: no freeze report after one) */
 static unsigned s_crash_id;
 static PPCContext s_crash;
 static u32 s_crash_dar, s_crash_dsisr, s_crash_thread;
@@ -241,8 +271,11 @@ static void crash_screen(const char* name, const PPCContext* c)
     console_init(fb, 40, 40, mode->fbWidth, mode->xfbHeight, mode->fbWidth * VI_DISPLAY_PIX_SZ);
     printf("\n Nookery stopped: a crash.\n\n");
     printf(" %s exception at %08x (lr %08x)\n", name, (unsigned) c->pc, (unsigned) c->lr);
-    printf(" data address %08x\n\n", (unsigned) s_crash_dar);
-    printf(" The details are in apps/nookery/logs/log.txt on the SD card.\n\n");
+    printf(" data address %08x\n", (unsigned) s_crash_dar);
+    printf(" build %s\n\n", build_id());
+    printf(" The details are in apps/nookery/logs/log.txt on the SD card\n");
+    printf(" (copy it off before starting Nookery again: it becomes\n");
+    printf(" log-1.txt, then log-2.txt, then is gone).\n\n");
     printf(" Press RESET to go back to the Homebrew Channel.\n");
     VIDEO_SetNextFramebuffer(fb);
     VIDEO_SetBlack(false);
@@ -261,9 +294,10 @@ static void crash_report(void)
     };
     const PPCContext* c = &s_crash;
     const char* name = s_crash_id < sizeof(names) / sizeof(names[0]) ? names[s_crash_id] : "?";
-    WL_LOG_E("nookery", "crash: %s exception (%u) at %08x, lr %08x, srr1 %08x, in %s", name, s_crash_id,
-             (unsigned) c->pc, (unsigned) c->lr, (unsigned) c->msr,
-             s_armed && s_crash_thread == (u32) s_main ? "the game's main thread" : "another thread");
+    WL_LOG_E("nookery", "crash: build %s", build_id());
+    WL_LOG_E("nookery", "crash: %s exception (%u) at %08x, lr %08x, srr1 %08x, in thread %08x%s", name, s_crash_id,
+             (unsigned) c->pc, (unsigned) c->lr, (unsigned) c->msr, (unsigned) s_crash_thread,
+             s_armed && s_crash_thread == (u32) s_main ? " (the game's frame loop)" : "");
     WL_LOG_E("nookery", "crash: data address %08x, DSISR %08x", (unsigned) s_crash_dar, (unsigned) s_crash_dsisr);
     if (code_addr(c->pc - 8) && code_addr(c->pc + 8)) {
         const volatile u32* p = (const volatile u32*) (c->pc - 8);
@@ -277,7 +311,7 @@ static void crash_report(void)
                  (unsigned) c->gpr[i + 7]);
     }
     WL_LOG_E("nookery", "crash: cr %08x ctr %08x xer %08x", (unsigned) c->cr, (unsigned) c->ctr, (unsigned) c->xer);
-    report_calls(c->gpr[1]);
+    report_calls("crash", c->gpr[1]);
     report_hardware();
     wl_platform_log_flush();
     crash_screen(name, c);

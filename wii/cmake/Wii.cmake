@@ -283,7 +283,14 @@ endif()
 # The program
 # =============================================================================
 add_executable(nookery "${NK_WII}/src/ogc/main.c")
-target_include_directories(nookery PRIVATE ${NK_WII}/src ${NK_WII}/include)
+target_include_directories(nookery PRIVATE ${NK_WII}/src ${NK_WII}/include ${CMAKE_BINARY_DIR}/generated)
+# The build's id (the commit), for the log and crash reports: worked out at every build
+add_custom_target(nk_build_id
+    COMMAND ${CMAKE_COMMAND} -DSRC=${CMAKE_SOURCE_DIR} -DOUT=${CMAKE_BINARY_DIR}/generated/nk_build_id.h
+            -P ${NK_WII}/cmake/build_id.cmake
+    BYPRODUCTS ${CMAKE_BINARY_DIR}/generated/nk_build_id.h
+    COMMENT "Build id")
+add_dependencies(nookery nk_build_id)
 target_compile_options(nookery PRIVATE -std=gnu17 -O2 -g -Wall)
 target_link_libraries(nookery PRIVATE
     -Wl,--start-group ${_nk_libs} -Wl,--end-group

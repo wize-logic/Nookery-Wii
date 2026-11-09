@@ -112,6 +112,17 @@ void wl_platform_log_init(const char *sd_dir) {
         }
     }
     memcpy(path + len, "/log.txt", sizeof "/log.txt");
+    {
+        // the last two runs' logs kept: log.txt -> log-1.txt -> log-2.txt (so starting again after a crash
+        // doesn't lose its report)
+        char older[sizeof path + 8];
+        char old[sizeof path + 8];
+        snprintf(older, sizeof older, "%.*s/log-2.txt", (int)len, sd_dir);
+        snprintf(old, sizeof old, "%.*s/log-1.txt", (int)len, sd_dir);
+        remove(older);
+        rename(old, older);
+        rename(path, old);
+    }
     if (wl_platform_fs_open(path, WL_FILE_WRITE_NEW, &g_file) != WL_OK) {
         g_file = NULL;
         return;

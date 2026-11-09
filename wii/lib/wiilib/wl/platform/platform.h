@@ -78,7 +78,8 @@ bool wl_platform_fs_exists(const char *path);
 // ---------------------------------------------------------------------------------------------
 
 // Installs the sink with wl_log_set_sink. Idempotent. `sd_dir` (e.g. "sd:/apps/myapp/logs")
-// enables the file <sd_dir>/log.txt, rewritten each run; NULL or no card keeps it off. Lines are
+// enables the file <sd_dir>/log.txt, new each run (the last two runs' kept as log-1.txt and log-2.txt);
+// NULL or no card keeps it off. Lines are
 // buffered in memory (the sink may be called with interrupts disabled) and written by a thread
 // of their own every second, and by wl_platform_log_flush.
 void wl_platform_log_init(const char *sd_dir);

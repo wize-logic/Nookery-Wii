@@ -38,7 +38,7 @@ Everything is in `sd:/apps/nookery/`. Only the disc image may be on a USB drive 
 | `settings.ini` | [Settings](#settings), made at the first start |
 | `lobby_servers.txt` | [Lobby servers](#lobby-servers), one `host[:port]` per line, eight at most |
 | `net/town/` | The host's town while you are a guest online |
-| `logs/log.txt` | The last run's log |
+| `logs/log.txt` | The last run's log; `log-1.txt` and `log-2.txt` are the two runs before |
 
 `wii/tools/iso2ciso.py --trim GAME.iso game.ciso` shrinks a disc image to about 28 MB by leaving out its
 padding.
@@ -129,6 +129,13 @@ port to the Wii.
 ## Troubleshooting
 
 `logs/log.txt` has the last run's log. A crash shows a stop screen and writes a report there.
+A freeze (no new picture for 20 seconds) writes one too. Every report, and the log's first line,
+names the build, and the two runs before are kept as `log-1.txt` and `log-2.txt`, so starting again
+doesn't lose a report.
+
+`wii/tools/crash_report.py log.txt --elf nookery.elf` turns a report's addresses into functions and
+source lines. It needs the symbols of the build that made the log: `build/wii/nookery.elf`, or the
+`.elf.xz` that `make_release.py` writes beside a release zip.
 
 ### Known issues
 
@@ -150,6 +157,10 @@ cmake --preset wii
 cmake --build --preset wii            # build/wii/boot.dol, and nookery.elf with its symbols
 python3 wii/tools/make_release.py     # build/release/nookery-wii-vX.Y.Z.zip
 ```
+
+`make_release.py` also writes the build's symbols beside the zip (`nookery-wii-vX.Y.Z-BUILD.elf.xz`):
+keep them with the release, for crash reports. Commit before building a release, so its build id is
+a commit's.
 
 The version is `wii/release/apps/nookery/meta.xml`'s. `-DNOOKERY_WII_NET=OFF` builds without online
 play.
@@ -176,6 +187,7 @@ Test keys in `settings.ini`:
 | `travel_test` | Takes the train to slot B's town |
 | `net_echo`, `net_title_town`, `net_test_public`, `clock_test_skew` | Online play: yourself as a second player, the title screen as a town, the route between two networks, a clock set off by that many seconds |
 | `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 to 10: town life's tests (activities, animations and props, interruptions, gatherings, speech bubbles, tending the town, visitors, weather and night; `town_test` in `nk_netgame.c`) |
+| `crash_test` | 1: a crash in town; 2: a freeze there (for the reports) |
 
 The lobby server has its own test: `python3 wii/server/tests/test_lobby.py`.
 
@@ -191,7 +203,7 @@ The lobby server has its own test: `python3 wii/server/tests/test_lobby.py`.
 | `wii/src/net` | Sockets, ENet, the lobby client and the session |
 | `wii/src/netgame` | Online play in the game: the other players and the shared ground; the test keys |
 | `wii/server` | The lobby server |
-| `wii/tools` | Scripts for the build, releases and disc images |
+| `wii/tools` | Scripts for the build, releases, disc images and crash reports |
 | `wii/release` | The SD card's files |
 
 The game's own sources (`src/`, `include/`, `libs/dolphin`) are shared with the PC port. `ACGC_PORT`

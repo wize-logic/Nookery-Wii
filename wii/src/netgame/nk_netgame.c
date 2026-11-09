@@ -633,6 +633,7 @@ static void travel_test(GAME_PLAY* play)
 
 extern int g_nk_life_test;
 extern int g_nk_life_test_topic;
+extern int g_nk_crash_test;
 
 /* The topics life_test_topic = 99 goes through, one gossip line each */
 static const int s_life_cycle[] = {
@@ -2245,6 +2246,26 @@ void nk_netgame_play_frame(GAME_PLAY* play)
     }
     if (g_nk_travel_test) {
         travel_test(play);
+    }
+    if (g_nk_crash_test != 0) {
+        /* settings crash_test: ten seconds on the streets, then a crash (1: a read from address 0x1d, as a NULL
+         * pointer's field) or a freeze (2: the game waits forever), for the reports of stall.c */
+        static int crash_frames;
+        if (Save_Get(scene_no) == SCENE_FG && GET_PLAYER_ACTOR(play) != NULL && ++crash_frames == 600) {
+            nk_wii_log("CRASHTEST: %s now\n", g_nk_crash_test == 1 ? "a crash" : "a freeze");
+            if (g_nk_crash_test == 1) {
+                volatile uintptr_t bad = 0x1d; /* (volatile: the compiler doesn't see the bad address coming) */
+                g_nk_crash_test = *(volatile u8*) bad;
+            } else {
+                /* stuck waiting for a message that never comes, as a deadlock is (a busy loop starves the
+                 * watching thread and leaves no report) */
+                static OSMessageQueue queue;
+                static OSMessage slot;
+                OSMessage msg;
+                OSInitMessageQueue(&queue, &slot, 1);
+                OSReceiveMessage(&queue, &msg, OS_MESSAGE_BLOCK);
+            }
+        }
     }
     if (g_nk_life_test >= 3) {
         town_test(play);

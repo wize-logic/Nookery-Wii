@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Makes Nookery for the Wii's release zip: the SD card's files (the
-Homebrew Channel's apps/nookery folder) and the lobby server. No game data:
+Homebrew Channel's apps/nookery folder) and the lobby server, and beside it the build's symbols
+(nookery-wii-vVERSION-BUILD.elf.xz, for wii/tools/crash_report.py; keep it with the release). No game data:
 players put their own disc image on the card.
 
     wii/tools/make_release.py [--build build/wii] [--out build/release]
@@ -12,6 +13,8 @@ The zip unpacks onto the SD card's root:
 
 import argparse
 import re
+import lzma
+import shutil
 import sys
 import zipfile
 from pathlib import Path
@@ -44,6 +47,18 @@ def main() -> int:
         z.write(ROOT / "wii" / "server" / "README.md", "nookery-lobby-server/README.md")
         z.write(ROOT / "wii" / "README.md", "apps/nookery/README.md")
     print(zpath)
+
+    # The build's symbols, kept beside the zip (not in it): what turns a crash report's addresses into names
+    # (wii/tools/crash_report.py LOG --elf THIS). Named by the build id in the log's first line.
+    elf = Path(a.build) / "nookery.elf"
+    hdr = Path(a.build) / "generated" / "nk_build_id.h"
+    build = re.search(r'NK_BUILD_ID "([^"]+)"', hdr.read_text()).group(1) if hdr.is_file() else "unknown"
+    if build.endswith("-modified") or build == "unknown":
+        print(f"note: build {build}: commit first, so a crash report can be matched to a commit", file=sys.stderr)
+    spath = out / f"nookery-wii-v{version}-{build}.elf.xz"
+    with elf.open("rb") as src, lzma.open(spath, "wb", preset=6) as dst:
+        shutil.copyfileobj(src, dst)
+    print(spath)
     return 0
 
 

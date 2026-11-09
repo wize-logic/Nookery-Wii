@@ -17,6 +17,14 @@
 #include <wl/platform/platform.h>
 #include <wl/platform/stop.h>
 
+#include "nk_build_id.h"
+
+/* The build: the commit it comes from ("-modified" when files differed from it), in the log's first line and in
+ * crash reports (stall.c), to find the nookery.elf that turns a report's addresses into names
+ * (wii/tools/crash_report.py) */
+const char nk_build_id[] = NK_BUILD_ID;
+const char nk_build_date[] = NK_BUILD_DATE;
+
 /* libogc's sbrk takes MEM2 for newlib's malloc while this is set */
 extern u32 MALLOC_MEM2;
 
@@ -168,8 +176,8 @@ int main(int argc, char** argv)
             nk_wii_netlog_start(net, run);
         }
     }
-    WL_LOG_I("nookery", "Nookery for the Wii (MEM1 %p-%p free, MEM2 tables %p-%p)", SYS_GetArena1Lo(),
-             SYS_GetArena1Hi(), __mem2bss_start, __mem2bss_end);
+    WL_LOG_I("nookery", "Nookery for the Wii, build %s (%s) (MEM1 %p-%p free, MEM2 tables %p-%p)", nk_build_id,
+             nk_build_date, SYS_GetArena1Lo(), SYS_GetArena1Hi(), __mem2bss_start, __mem2bss_end);
     nk_wii_settings_load();
 
     /* The player's disc, then the game's tables out of its DOL and REL */

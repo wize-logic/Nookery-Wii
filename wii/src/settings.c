@@ -68,6 +68,9 @@ int g_nk_nes_test = 0;
  * to the town in slot B (his card check, the save, the train ride), as if
  * asked for at the station */
 int g_nk_travel_test = 0;
+/* crash_test = 1: a bad memory read on the town's streets, 2: a freeze there, waiting forever (tests of the crash and freeze
+ * reports, wii/src/ogc/stall.c; nk_netgame.c) */
+int g_nk_crash_test = 0;
 /* life_test = 1, 2: villager friendships tests (nk_netgame.c life_test); 3, 4: town life (town_test) */
 int g_nk_life_test = 0;
 /* life_test_topic = N: only gossip topic N (99: each news, fan and moving topic in turn) */
@@ -129,6 +132,7 @@ static const Key s_keys[] = {
     {"nes_test", &g_nk_nes_test, 0, 30},
     {"travel_test", &g_nk_travel_test, 0, 1},
     {"life_test", &g_nk_life_test, 0, 10},
+    {"crash_test", &g_nk_crash_test, 0, 2},
     {"life_test_topic", &g_nk_life_test_topic, -1, 99},
     {"clock_test_skew", &g_nk_clock_test_skew, -864000, 864000},
     {"net_test_public", &g_nk_net_test_public, 0, 1},

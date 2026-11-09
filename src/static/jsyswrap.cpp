@@ -325,11 +325,17 @@ extern "C" void ac_aurora_end_frame(void);
 extern "C" int g_pc_running;
 #endif
 
+#ifdef TARGET_WII
+/* The freeze watch follows the thread that begins the frames (wii/src/ogc/stall.c) */
+extern "C" void nk_wii_stall_game_thread(void);
+#endif
+
 extern void JW_BeginFrame() {
 #ifdef TARGET_WII
     /* widescreen: hor+ again until the frame's markers say otherwise
      * (wii/src/widescreen.c; the PC does this in ac_aurora_begin_frame) */
     g_pc_widescreen_stretch = 0;
+    nk_wii_stall_game_thread();
 #endif
 #ifdef TARGET_PC
     ZoneScoped;

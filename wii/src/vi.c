@@ -76,8 +76,14 @@ void VIFlush(void)
 
 void VISetNextFrameBuffer(void* fb)
 {
+    static void* s_last_fb;
     VIDEO_SetNextFramebuffer(fb);
-    nk_wii_stall_frame();
+    /* a new frame for the freeze watch (stall.c) only when the picture changes: JUTVideo's retrace callback
+     * gives the frame buffer shown again at every retrace, a frozen game's too */
+    if (fb != s_last_fb) {
+        s_last_fb = fb;
+        nk_wii_stall_frame();
+    }
 }
 
 void VISetBlack(BOOL black)
