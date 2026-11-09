@@ -22,6 +22,7 @@
 #include "m_player_lib.h"
 #include "m_lib.h"
 #include "m_npc.h"
+#include "m_npc_life.h"
 #include "m_field_info.h"
 #include "m_collision_bg.h"
 #include "m_name_table.h"
@@ -40,6 +41,7 @@ typedef struct {
     s8 bz;
     int move_sec;         /* when they last moved acre */
     u8 seen;              /* they have been on the streets near the player */
+    u8 met;               /* they have introduced themselves to the player */
     u8 name[ANIMAL_NAME_LEN];
 } mTL_visitor_c;
 
@@ -126,6 +128,15 @@ extern mNpc_NpcList_c* mTL_VisitorList(mActor_name_t npc_id) {
     return &mTL_visitor_list;
 }
 
+extern int mTL_VisitorHelloMsg(int looks) {
+    /* (the game would have them introduce themselves at every visit to their acre: their villager data is made
+     * afresh each time, without the memory of meeting the player) */
+    int topic = mTL_visitor.met ? mNL_TOPIC_VISITOR_AGAIN : mNL_TOPIC_VISITOR_HELLO;
+
+    mTL_visitor.met = TRUE;
+    return mNL_TopicMsgNo(topic, looks);
+}
+
 extern int mTL_VisitorSeen(void) {
     return mTL_GetVisitor() != EMPTY_NO && mTL_visitor.seen;
 }
@@ -151,6 +162,7 @@ extern void mTL_VisitorMove(GAME_PLAY* play) {
         mTL_visitor.stamp = mTL_VisitorStamp() + 1;
         mTL_visitor.npc_id = EMPTY_NO;
         mTL_visitor.seen = FALSE;
+        mTL_visitor.met = FALSE;
         if (mTL_test_visitor || RANDOM(100) < mTL_visitor_chance) {
             mTL_visitor.npc_id = mTL_PickVisitor();
             mTL_visitor.bx = mTL_visitor_test_bx >= 0 ? mTL_visitor_test_bx : 1 + RANDOM(FG_BLOCK_X_NUM);

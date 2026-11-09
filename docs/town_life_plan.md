@@ -293,9 +293,15 @@ they've been seen (a new chat topic, 6 lines, and bubble barks). The
 travelling characters (the "special event": Saharah, Gracie, Wendell, Redd,
 the sales) now come every 2 to 4 days instead of 2 to 7. `life_test = 9`:
 the visitor (with the summer camper's record in use the same day) appeared,
-wandered, greeted a resident, introduced itself in a chat ("I've never seen
-you before, huh?"), and a resident's gossip named it; no invalid memory
-access with Dolphin's MMU emulation on.
+wandered, greeted a resident, introduced itself in a chat, and a resident's
+gossip named it; no invalid memory access with Dolphin's MMU emulation on.
+The visitor greets the player in its own words: the first chat of the day is
+an introduction as a visitor ("Hm? Name's Peewee. I'm only here for the day.
+PC's not bad. Don't tell anyone I said that."), later chats a short hello
+that goes on into the usual chat menu (12 lines). Without this the game used
+its first-meeting introduction for a newcomer, and again at every visit to
+the visitor's acre, since the visitor's villager data is made afresh each
+time.
 
 ## Phase 7: weather and night (S–M)
 

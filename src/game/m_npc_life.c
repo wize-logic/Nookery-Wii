@@ -23,6 +23,7 @@ static const int mNL_topic_weight[mNL_TOPIC_NUM] = {
     5, 5, 5,       /* the speaker made up, fell out; the player's catch */
     4, 3,          /* planted flowers: the speaker, another villager */
     4,             /* today's visitor */
+    0, 0,          /* (the visitor's greetings) */
 };
 
 /* Opinion at or above which a villager is sorry to see another move away */

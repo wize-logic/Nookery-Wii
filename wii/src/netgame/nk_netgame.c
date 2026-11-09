@@ -1006,7 +1006,8 @@ static void life_test(GAME_PLAY* play)
  *
  * life_test = 9 checks visitors: today's visitor is put in the player's acre and should appear and wander
  * ("LIFETEST: visitor" every five seconds, with screenshots); then it is brought in front of the player and
- * the input script's A starts a chat; then a resident is brought over, whose gossip is about the visitor. The
+ * the input script's A starts a chat (its introduction), and another (its hello for later in the day); then a
+ * resident is brought over, whose gossip is about the visitor. The
  * messages shown are logged, and the mask records in use (none must be taken from an event).
  *
  * life_test = 10 checks weather and night: with snow, the acre's villagers (made friends) gather and throw
@@ -1757,9 +1758,10 @@ static void town_test_visitor(GAME_PLAY* play)
                 step_frames = 0;
             }
             break;
-        case 1: /* a chat with the visitor */
-        case 2: /* a chat with a resident, about the visitor */
-            if (step == 1) {
+        case 1: /* a chat with the visitor: they introduce themselves */
+        case 2: /* another: a hello */
+        case 3: /* a chat with a resident, about the visitor */
+            if (step <= 2) {
                 target = (NPC_ACTOR*) visitor;
             } else {
                 for (a = list->actor, n = list->num_actors; n != 0 && a != NULL && target == NULL; n--,
@@ -1785,7 +1787,7 @@ static void town_test_visitor(GAME_PLAY* play)
                 chatted = -1;
                 step++;
                 step_frames = 0;
-                if (step == 3) {
+                if (step == 4) {
                     nk_wii_log("LIFETEST: visitor test done (visitor days %d, spawns %d)\n", mTL_stats.visitor_days,
                                mTL_stats.visitor_spawns);
                 }
@@ -1798,7 +1800,7 @@ static void town_test_visitor(GAME_PLAY* play)
                 player->actor_class.shape_info.rotation.y = angle;
                 player->actor_class.world.angle.y = angle;
             }
-            if (window->main_index != mMsg_INDEX_HIDE && step_frames % 120 == 60 && shots < 6) {
+            if (window->main_index != mMsg_INDEX_HIDE && step_frames % 120 == 60 && shots < 9) {
                 nk_wii_log("LIFETEST: shot %d chat%d\n", ++shots, step);
             }
             break;

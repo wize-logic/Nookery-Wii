@@ -35,6 +35,8 @@ TOPICS = {
     "SELF_PLANTED": 1,  # town life: the speaker planted STR_ITEM0
     "NEWS_PLANTED": 1,  # town life: STR_FREE13 planted STR_ITEM0
     "VISITOR": 1,  # town life: STR_FREE13 is visiting town today
+    "VISITOR_HELLO": 1,  # town life: the visitor introduces themselves (STR_TALKNAME, STR_COUNTRYNAME)
+    "VISITOR_AGAIN": 1,  # town life: the visitor's hello later that day, going on into the chat (MSGCONTINUE)
     # Town life (m_town_life.c): what a villager says when talked to in the middle of an activity
     "ACT_SIT": 1,
     "ACT_DRINK": 1,
@@ -56,6 +58,8 @@ PLACEHOLDER_WIDTH = {
     "STR_PLAYERNAME": 8,
     "STR_TAIL": 10,  # ANIMAL_CATCHPHRASE_LEN
     "STR_ITEM0": 18,  # an item name (mIN_ITEM_NAME_LEN) with its article
+    "STR_TALKNAME": 8,  # the speaker's own name
+    "STR_COUNTRYNAME": 8,  # the town's name
 }
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -96,10 +100,10 @@ def parse(path):
 
 def check_layout(key, text):
     problems = []
-    if not text.endswith("<<MSGEND>>"):
-        problems.append("does not end with <<MSGEND>>")
+    if not text.endswith("<<MSGEND>>") and not text.endswith("<<MSGCONTINUE>>"):
+        problems.append("does not end with <<MSGEND>> or <<MSGCONTINUE>>")
     for page in text.split("<<MSGCLEAR>>"):
-        page = page.replace("<<MSGEND>>", "")
+        page = page.replace("<<MSGEND>>", "").replace("<<MSGCONTINUE>>", "")
         shown = [l for l in page.split("\n")]
         while shown and not re.sub(r"<<[^>]*>>", "", shown[-1]).strip():
             shown.pop()

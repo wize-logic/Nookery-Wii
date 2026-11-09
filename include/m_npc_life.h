@@ -86,6 +86,8 @@ enum {
     mNL_TOPIC_SELF_PLANTED,     /* the speaker planted STR_ITEM0 by their house (town life) */
     mNL_TOPIC_NEWS_PLANTED,     /* STR_FREE13 planted STR_ITEM0 by their house (town life) */
     mNL_TOPIC_VISITOR,          /* STR_FREE13 is visiting town today (town life) */
+    mNL_TOPIC_VISITOR_HELLO,    /* the visitor introduces themselves (town life; a greeting, never gossip) */
+    mNL_TOPIC_VISITOR_AGAIN,    /* the visitor's hello later that day (town life; a greeting, never gossip) */
 
     mNL_TOPIC_NUM
 };

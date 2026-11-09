@@ -2376,3 +2376,91 @@ they don't stay.
 <<MSGCLEAR>><<DEMONPC0 [00 00 03]>>I do hope they noticed how
 stylish our town is.
 <<MSGEND>>
+
+@VISITOR_HELLO NORMAL 0
+<<DEMONPC0 [00 00 03]>>Oh, hello there!<<PAUSE [08]>> I'm
+<<STR_TALKNAME>>.<<PAUSE [08]>> I'm just visiting
+<<STR_COUNTRYNAME>> for the day,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0A]>>Everyone here is so
+friendly!<<PAUSE [08]>> I go home this
+evening, so I'm trying to
+see everything first.
+<<MSGEND>>
+
+@VISITOR_HELLO PEPPY 0
+<<DEMONPC0 [00 00 0A]>>Hiiii!<<PAUSE [08]>> I'm <<STR_TALKNAME>>,<<PAUSE [06]>>
+and I'm visiting for the
+day,<<PAUSE [06]>> <<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>><<STR_COUNTRYNAME>> is SO cute!<<PAUSE [08]>>
+Can you show me around?<<PAUSE [08]>>
+I have to go home tonight!
+<<MSGEND>>
+
+@VISITOR_HELLO LAZY 0
+<<DEMONPC0 [00 00 03]>>Oh,<<PAUSE [06]>> hey.<<PAUSE [08]>> I'm <<STR_TALKNAME>>.<<PAUSE [08]>>
+Just passing through,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Somebody said <<STR_COUNTRYNAME>>
+has good snacks.<<PAUSE [0A]>> I'm here
+till dinner to find out.
+<<MSGEND>>
+
+@VISITOR_HELLO JOCK 0
+<<DEMONPC0 [00 00 0A]>>Hey there!<<PAUSE [08]>> Name's
+<<STR_TALKNAME>>!<<PAUSE [08]>> I'm visiting for
+the day,<<PAUSE [06]>> <<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 15]>>I'm gonna jog every inch
+of <<STR_COUNTRYNAME>> before I
+head home tonight!
+<<MSGEND>>
+
+@VISITOR_HELLO CRANKY 0
+<<DEMONPC0 [00 00 0B]>>Hm?<<PAUSE [08]>> Name's <<STR_TALKNAME>>.<<PAUSE [08]>>
+I'm only here for the day,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>><<STR_COUNTRYNAME>>'s not bad.<<PAUSE [0A]>>
+Don't tell anyone I said
+that.
+<<MSGEND>>
+
+@VISITOR_HELLO SNOOTY 0
+<<DEMONPC0 [00 00 12]>>Charmed.<<PAUSE [08]>> I'm <<STR_TALKNAME>>,<<PAUSE [06]>>
+just visiting for the day,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>><<STR_COUNTRYNAME>> is quaint.<<PAUSE [08]>>
+I'll be gone by this
+evening, so enjoy me while
+you can.
+<<MSGEND>>
+
+@VISITOR_AGAIN NORMAL 0
+<<DEMONPC0 [00 00 03]>>Oh, hello again,<<PAUSE [06]>>
+<<STR_PLAYERNAME>>!<<PAUSE [08]>> I'm still
+looking around,<<PAUSE [06]>> <<STR_TAIL>>.
+<<MSGCONTINUE>>
+
+@VISITOR_AGAIN PEPPY 0
+<<DEMONPC0 [00 00 0A]>><<STR_PLAYERNAME>>!<<PAUSE [08]>> We meet
+again,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGCONTINUE>>
+
+@VISITOR_AGAIN LAZY 0
+<<DEMONPC0 [00 00 03]>>Oh,<<PAUSE [06]>> you again.<<PAUSE [08]>> Hey,<<PAUSE [06]>>
+<<STR_TAIL>>.
+<<MSGCONTINUE>>
+
+@VISITOR_AGAIN JOCK 0
+<<DEMONPC0 [00 00 0A]>>Yo,<<PAUSE [06]>> <<STR_PLAYERNAME>>!<<PAUSE [08]>> Still
+touring town,<<PAUSE [06]>> <<STR_TAIL>>!
+<<MSGCONTINUE>>
+
+@VISITOR_AGAIN CRANKY 0
+<<DEMONPC0 [00 00 0B]>>You again,<<PAUSE [06]>> huh?<<PAUSE [08]>>
+<<STR_TAIL>>.
+<<MSGCONTINUE>>
+
+@VISITOR_AGAIN SNOOTY 0
+<<DEMONPC0 [00 00 12]>>Ah,<<PAUSE [06]>> <<STR_PLAYERNAME>>.<<PAUSE [08]>> Still
+here,<<PAUSE [06]>> <<STR_TAIL>>?
+<<MSGCONTINUE>>

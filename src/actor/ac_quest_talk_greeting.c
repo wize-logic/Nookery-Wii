@@ -1,6 +1,9 @@
 #include "ac_quest_talk_greeting.h"
 
 #include "m_common_data.h"
+#ifdef ACGC_PORT
+#include "m_town_life.h"
+#endif
 #include "m_font.h"
 #include "m_msg.h"
 #include "m_string.h"
@@ -651,6 +654,12 @@ extern int aQMgr_get_hello_msg_no(ACTOR* client, aQMgr_GET_TIME_KIND_PROC get_ti
         aQMgr_set_memory(animal, animal->memories);
     }
 
+#ifdef ACGC_PORT
+    if (mTL_IsEnabled() && client->npc_id == mTL_GetVisitor() &&
+        (msg_no = mTL_VisitorHelloMsg(mNpc_GetNpcLooks(client))) != -1) {
+        /* Town life's visitor greets the player as someone visiting for the day */
+    } else
+#endif
     if (mNpc_CheckIslandAnimal(animal) == TRUE) {
         msg_no = aQMgr_get_hello_msg_no_island((NPC_ACTOR*)client, get_time_kind_proc, last_meet_time_type);
     } else if (client->npc_id == SP_NPC_EV_KAMAKURA_0) {

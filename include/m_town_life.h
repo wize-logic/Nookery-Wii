@@ -387,6 +387,9 @@ extern int mTL_VisitorSeen(void);
 /* The visitor's npclist entry, for mNpc_SetNpcinfo (the game's talk code reads one), or NULL when npc_id isn't
  * today's visitor */
 extern mNpc_NpcList_c* mTL_VisitorList(mActor_name_t npc_id);
+/* The visitor's greeting when the player talks to them: an introduction the first time today, a hello that goes
+ * on into the chat after that */
+extern int mTL_VisitorHelloMsg(int looks);
 /* The visitor's name (ANIMAL_NAME_LEN characters) */
 extern const u8* mTL_VisitorName(void);
 
