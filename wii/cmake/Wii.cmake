@@ -214,7 +214,8 @@ target_compile_options(nk_port PRIVATE -Wall -Wno-unused-function -Wno-unused-va
 file(GLOB NK_PORT_OGC CONFIGURE_DEPENDS "${NK_WII}/src/ogc/*.c" "${NK_WII}/src/launcher/*.c")
 list(REMOVE_ITEM NK_PORT_OGC "${NK_WII}/src/ogc/main.c")
 add_library(nk_port_ogc STATIC ${NK_PORT_OGC})
-target_include_directories(nk_port_ogc PRIVATE ${NK_WII}/src ${NK_WII}/include ${NK_ROOT}/pc/include)
+target_include_directories(nk_port_ogc PRIVATE ${NK_WII}/src ${NK_WII}/include ${NK_ROOT}/pc/include
+    ${DEVKITPRO}/portlibs/ppc/include) # (zlib, for ogc/remote.c's screenshots)
 target_compile_options(nk_port_ogc PRIVATE -std=gnu17 -O2 -g -Wall)
 target_link_libraries(nk_port_ogc PRIVATE wiilib::platform wiilib::gcm)
 
@@ -294,7 +295,7 @@ add_dependencies(nookery nk_build_id)
 target_compile_options(nookery PRIVATE -std=gnu17 -O2 -g -Wall)
 target_link_libraries(nookery PRIVATE
     -Wl,--start-group ${_nk_libs} -Wl,--end-group
-    wiilib::platform wiilib::gcm wiiuse bte fat ogc m)
+    wiilib::platform wiilib::gcm wiiuse bte fat ogc z m)
 set(_nk_specs "${CMAKE_BINARY_DIR}/nookery.specs")
 file(WRITE "${_nk_specs}" "*link_start_rvl:\n-T ${NK_WII}/nookery.ld\n")
 target_link_options(nookery PRIVATE

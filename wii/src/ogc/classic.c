@@ -15,6 +15,8 @@
 #include <gccore.h>
 #include <wiiuse/wpad.h>
 
+void nk_wii_remote_frame(void); /* ogc/remote.c */
+
 /* A GameCube stick's full reach, as games read it (its gate's corners are
  * further, its sides nearer) */
 #define STICK_FULL 100.0f
@@ -52,6 +54,7 @@ void nk_wii_classic_scan(void)
 {
     if (s_started) {
         WPAD_ScanPads();
+        nk_wii_remote_frame(); /* the Remote's 1 and HOME (ogc/remote.c) */
     }
 }
 

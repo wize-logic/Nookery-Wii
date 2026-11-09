@@ -71,6 +71,9 @@ int g_nk_travel_test = 0;
 /* crash_test = 1: a bad memory read on the town's streets, 2: a freeze there, waiting forever (tests of the crash and freeze
  * reports, wii/src/ogc/stall.c; nk_netgame.c) */
 int g_nk_crash_test = 0;
+/* screenshot_test = 1: a screenshot every 30 s; home_test = N: HOME held from N s on (ogc/remote.c) */
+int g_nk_screenshot_test = 0;
+int g_nk_home_test = 0;
 /* life_test = 1, 2: villager friendships tests (nk_netgame.c life_test); 3, 4: town life (town_test) */
 int g_nk_life_test = 0;
 /* life_test_topic = N: only gossip topic N (99: each news, fan and moving topic in turn) */
@@ -133,6 +136,8 @@ static const Key s_keys[] = {
     {"travel_test", &g_nk_travel_test, 0, 1},
     {"life_test", &g_nk_life_test, 0, 10},
     {"crash_test", &g_nk_crash_test, 0, 2},
+    {"screenshot_test", &g_nk_screenshot_test, 0, 1},
+    {"home_test", &g_nk_home_test, 0, 3600},
     {"life_test_topic", &g_nk_life_test_topic, -1, 99},
     {"clock_test_skew", &g_nk_clock_test_skew, -864000, 864000},
     {"net_test_public", &g_nk_net_test_public, 0, 1},

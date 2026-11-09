@@ -44,6 +44,8 @@ void nk_wii_wait_suspend(unsigned int lwp, int suspended, void* by);
 void nk_wii_stall_start(void);
 void nk_wii_stall_frame(void);
 void nk_wii_stall_game_thread(void);
+/* The Wii Remote's 1 (a screenshot) and HOME held (back to the loader), once a frame (ogc/remote.c) */
+void nk_wii_remote_frame(void);
 void nk_wii_stall_tick(void* user);
 void nk_wii_crash_install(void);
 

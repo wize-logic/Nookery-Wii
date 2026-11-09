@@ -39,6 +39,7 @@ Everything is in `sd:/apps/nookery/`. Only the disc image may be on a USB drive 
 | `lobby_servers.txt` | [Lobby servers](#lobby-servers), one `host[:port]` per line, eight at most |
 | `net/town/` | The host's town while you are a guest online |
 | `logs/log.txt` | The last run's log; `log-1.txt` and `log-2.txt` are the two runs before |
+| `screenshots/` | Screenshots, as `shot-YYYYMMDD-HHMMSS.png` |
 
 `wii/tools/iso2ciso.py --trim GAME.iso game.ciso` shrinks a disc image to about 28 MB by leaving out its
 padding.
@@ -67,6 +68,8 @@ Hold Z on a GameCube controller while Nookery starts to skip the launcher and pl
   you point; B is the action button (hold it for the inventory); Up and Down on the D-pad scroll. The
   hand hides when a controller is used or the Remote is still for five seconds. A Remote alone has no
   START, X, Y, Z, L or R.
+- **1** on any Wii Remote saves a screenshot (the Remote rumbles once).
+- **HOME** held for a second, on a Remote or a Classic Controller, goes back to the Homebrew Channel.
 - **RESET** on the console goes back to the Homebrew Channel; **POWER** turns the console off.
 
 Leaving loses what you haven't saved.
@@ -188,6 +191,7 @@ Test keys in `settings.ini`:
 | `net_echo`, `net_title_town`, `net_test_public`, `clock_test_skew` | Online play: yourself as a second player, the title screen as a town, the route between two networks, a clock set off by that many seconds |
 | `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 to 10: town life's tests (activities, animations and props, interruptions, gatherings, speech bubbles, tending the town, visitors, weather and night; `town_test` in `nk_netgame.c`) |
 | `crash_test` | 1: a crash in town; 2: a freeze there (for the reports) |
+| `screenshot_test`, `home_test = N` | A screenshot every 30 s; HOME held from N s on |
 
 The lobby server has its own test: `python3 wii/server/tests/test_lobby.py`.
 

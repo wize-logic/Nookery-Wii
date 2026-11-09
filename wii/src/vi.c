@@ -57,9 +57,22 @@ float pc_widescreen_get_aspect_factor(void);
  * set to 16:9 is on a flat widescreen TV, which shows the whole line, so the
  * picture had black bars at its sides, and was 6% narrower than the 16:9 the
  * game draws for. With the game in widescreen the frame spans the line. */
+/* The frame buffer on the TV and the frame's size, for screenshots (ogc/remote.c) */
+static void* s_shown_fb;
+static int s_fb_width, s_fb_height;
+
+void* nk_wii_vi_shown_fb(int* width, int* height)
+{
+    *width = s_fb_width;
+    *height = s_fb_height;
+    return s_shown_fb;
+}
+
 void VIConfigure(const GXRenderModeObj* rm)
 {
     static GXRenderModeObj wide;
+    s_fb_width = rm->fbWidth;
+    s_fb_height = rm->xfbHeight;
     if (pc_widescreen_get_aspect_factor() < 1.0f && rm->viWidth < 720) {
         wide = *rm;
         wide.viXOrigin = 0;
@@ -76,12 +89,11 @@ void VIFlush(void)
 
 void VISetNextFrameBuffer(void* fb)
 {
-    static void* s_last_fb;
     VIDEO_SetNextFramebuffer(fb);
     /* a new frame for the freeze watch (stall.c) only when the picture changes: JUTVideo's retrace callback
      * gives the frame buffer shown again at every retrace, a frozen game's too */
-    if (fb != s_last_fb) {
-        s_last_fb = fb;
+    if (fb != s_shown_fb) {
+        s_shown_fb = fb;
         nk_wii_stall_frame();
     }
 }
