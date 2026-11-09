@@ -989,7 +989,12 @@ static void life_test(GAME_PLAY* play)
  * formed or ended is logged with its members ("LIFETEST: group"), screenshots are taken of groups, and each
  * game minute says how often friends were within 100 units of each other ("LIFETEST: friends close"). After
  * five minutes, one villager is sent home, and a friend should walk it there ("LIFETEST: escort"). With
- * town_life = 0 the same log gives the baseline. */
+ * town_life = 0 the same log gives the baseline.
+ *
+ * life_test = 7 watches speech bubbles: as in 6, and villagers also do activities; every ten seconds the player
+ * is moved next to a group or a busy villager. Each bubble is logged ("LIFETEST: bubble") with a screenshot of
+ * the first eight, and a bubble on screen while the speech window is open is an error ("BUBBLE OVER WINDOW";
+ * the input script's A starts chats). */
 typedef struct {
     const char* name;
     u8 anim;
@@ -1294,7 +1299,7 @@ static void town_test_groups(GAME_PLAY* play)
         }
         mTL_test_group_any_hour = TRUE;
         mTL_group_chance = g_nk_life_test_topic > 0 ? g_nk_life_test_topic : 60;
-        mTL_start_chance = 0;
+        mTL_start_chance = g_nk_life_test == 7 ? 40 : 0;
         seeded = 1;
         frames = 60;
         nk_wii_log("LIFETEST: %d villagers here made friends, rivals %d and %d; town life %d\n", count, rival[0],
@@ -1345,6 +1350,59 @@ static void town_test_groups(GAME_PLAY* play)
                            (gr->arrived >> i) & 1);
             }
         }
+    }
+
+    if (g_nk_life_test == 7) {
+        static int bubbles_seen, over_window, bubble_shots, bubble_shot_frames = -1;
+        PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+        mMsg_Window_c* window = mMsg_Get_base_window_p();
+
+        if (mTL_bubble_stats.shown != bubbles_seen) {
+            bubbles_seen = mTL_bubble_stats.shown;
+            nk_wii_log("LIFETEST: bubble %d villager %d topic %d screen y %d\n", bubbles_seen,
+                       mTL_bubble_stats.last_villager, mTL_bubble_stats.last_topic, mTL_bubble_stats.screen_y);
+            if (bubble_shot_frames < 0 && bubble_shots < 8) {
+                bubble_shot_frames = 0;
+            }
+        }
+        if (bubble_shot_frames >= 0 && ++bubble_shot_frames == 45) {
+            bubble_shot_frames = -1;
+            if (mTL_BubblesShowing() > 0) {
+                nk_wii_log("LIFETEST: shot %d bubble-topic%d\n", ++bubble_shots, mTL_bubble_stats.last_topic);
+            }
+        }
+        if (window->main_index != mMsg_INDEX_HIDE && mTL_BubblesShowing() > 0 && over_window++ < 5) {
+            nk_wii_log("LIFETEST: BUBBLE OVER WINDOW\n");
+        }
+        if (frames % 600 == 300 && player != NULL && window->main_index == mMsg_INDEX_HIDE) {
+            /* the player next to a group, else a busy villager */
+            xyz_t* target = NULL;
+            xyz_t center;
+            for (g = 0; g < mTL_GROUP_NUM && target == NULL; g++) {
+                if (mTL_groups[g].active && mTL_groups[g].arrived) {
+                    center.x = mTL_groups[g].center_x;
+                    center.y = player->actor_class.world.position.y;
+                    center.z = mTL_groups[g].center_z;
+                    target = &center;
+                }
+            }
+            for (i = 0; i < ANIMAL_NUM_MAX && target == NULL; i++) {
+                mTL_villager_c* v = mTL_GetVillager(i);
+                NPC_ACTOR* npc = town_test_npc(play, i);
+                if (v != NULL && v->state == mTL_STATE_DOING && npc != NULL) {
+                    target = &npc->actor_class.world.position;
+                }
+            }
+            if (target != NULL) {
+                player->actor_class.world.position.x = target->x + 70.0f;
+                player->actor_class.world.position.z = target->z - 30.0f;
+            }
+        }
+        if (frames == 60 * 60 * 6) {
+            nk_wii_log("LIFETEST: bubble test done (shown %d, over the speech window %d)\n", mTL_bubble_stats.shown,
+                       over_window);
+        }
+        return;
     }
 
     /* a screenshot once a group has gathered */
@@ -1560,7 +1618,7 @@ static void town_test(GAME_PLAY* play)
         town_test_interrupt(play);
         return;
     }
-    if (g_nk_life_test == 6) {
+    if (g_nk_life_test == 6 || g_nk_life_test == 7) {
         town_test_groups(play);
         return;
     }

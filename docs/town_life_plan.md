@@ -186,6 +186,21 @@ time against 35% with town life off (6 game minutes each).
 - **Test:** screenshots of bubbles at different camera distances, and a check
   that they never cover the speech window.
 
+**Result (done):** `src/game/m_town_life_bubble.c` draws the game's own
+balloon (`fki_win`, as `m_watch_my_step.c` does for item names) above the
+speaker, kept on screen, at most two at once, each villager at most every 20
+seconds, only within five tiles of the player, and never during a
+conversation, a cutscene or a menu (bubbles vanish at once). 252 barks (21
+topics: chat, laugh, like, dislike, pairs, news, each activity, weather,
+night, planting, visitors and greeting the player; two per personality) in
+`m_town_life_barks.txt`, encoded by `tools/town_life_barks.py`, names filled
+in at run time. Speakers in a group say their line on their turn and
+listeners sometimes laugh; busy villagers now and then say a word about their
+activity; greeting villagers say something about each other; villagers
+passing the player say hello. `life_test = 7`: 15 bubbles in 6 game minutes,
+none while the speech window was open, screenshots with speakers from the top
+to the bottom of the screen.
+
 ## Phase 4: villagers tend the town (M–L)
 
 - **Actions:**

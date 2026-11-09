@@ -39,6 +39,9 @@
 #include "m_player_lib.h"
 #include "m_skin_matrix.h"
 #include "padmgr.h"
+#ifdef ACGC_PORT
+#include "m_town_life.h"
+#endif
 #ifdef TARGET_PC
 #include "pc_diag.h"
 #include "pc_platform.h"
@@ -607,6 +610,9 @@ static void Game_play_move(GAME* game) {
     mEnv_WindMove();
     game->doing_point = 3;
     watch_my_step_move(play);
+#ifdef ACGC_PORT
+    mTL_BubbleMove(play); /* town life's speech bubbles */
+#endif
     game->doing_point = 4;
     banti_move(play);
     game->doing_point = 5;
@@ -837,6 +843,9 @@ static void Game_play_draw(GAME_PLAY* play) {
         if ((makeBumpTexture(play, graph, graph) == 1) && ((GETREG(HREG, 80) != 10) || (GETREG(HREG, 89) != 0))) {
             PC_DIAG(3, "Game_play_draw: bump done, drawing\n");
             watch_my_step_draw(play);
+#ifdef ACGC_PORT
+            mTL_BubbleDraw(play);
+#endif
             banti_draw(play);
             mSM_submenu_draw(&play->submenu, (GAME*)play);
         }

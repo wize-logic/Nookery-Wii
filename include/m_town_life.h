@@ -250,6 +250,59 @@ extern void mTL_NoteTalk(int idx);
 extern int mTL_talk_chance;
 extern int mTL_DecideTalkMsg(const Animal_c* animal, int looks);
 
+/*
+ * Speech bubbles (m_town_life_bubble.c): short lines villagers say to each other near the player. Topics, in the
+ * order of tools/town_life_barks.py.
+ */
+enum {
+    mTL_BARK_CHAT,
+    mTL_BARK_LAUGH,
+    mTL_BARK_LIKE,    /* {A}: a friend */
+    mTL_BARK_DISLIKE, /* {A}: a rival */
+    mTL_BARK_PAIR,    /* {A} and {B} */
+    mTL_BARK_NEWS,
+    mTL_BARK_EXERCISE,
+    mTL_BARK_SIT,
+    mTL_BARK_FISH,
+    mTL_BARK_DANCE,
+    mTL_BARK_DRINK,
+    mTL_BARK_DOZE,
+    mTL_BARK_FAN,
+    mTL_BARK_PRAY,
+    mTL_BARK_PHONE,
+    mTL_BARK_RAIN,
+    mTL_BARK_SNOW,
+    mTL_BARK_STARS,
+    mTL_BARK_PLANTED,
+    mTL_BARK_VISITOR, /* {A}: the visitor */
+    mTL_BARK_GREET,
+
+    mTL_BARK_NUM
+};
+
+/* The villager (Save animals index) says a line of topic, with {A} and {B} as these villagers: shown when the
+ * player is near, nothing else is being said and it's been a while since they last spoke. TRUE when shown. */
+extern int mTL_Bark(int idx, int topic, int a_idx, int b_idx);
+/* The bark topic for an activity's line (mTL_LINE_*), or -1 */
+extern int mTL_LineBark(int line);
+/* A group chat line for the speaker: a topic, with its villagers in *a_idx and *b_idx */
+extern int mTL_ChooseChatBark(int idx, int* a_idx, int* b_idx);
+/* Each frame, from Game_play_move / Game_play_draw */
+struct game_play_s;
+extern void mTL_BubbleMove(struct game_play_s* play);
+extern void mTL_BubbleDraw(struct game_play_s* play);
+extern void mTL_BubbleClear(void);
+/* Bubbles on screen now */
+extern int mTL_BubblesShowing(void);
+
+typedef struct {
+    int shown;
+    int last_villager;
+    int last_topic;
+    int screen_y; /* where the last bubble's speaker is on screen (0-240) */
+} mTL_bubble_stats_c;
+extern mTL_bubble_stats_c mTL_bubble_stats;
+
 /* Number of villagers busy with an activity right now */
 extern int mTL_CountBusy(void);
 

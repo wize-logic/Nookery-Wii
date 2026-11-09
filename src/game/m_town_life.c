@@ -175,6 +175,76 @@ extern int mTL_DecideTalkMsg(const Animal_c* animal, int looks) {
     return mNL_TopicMsgNo(mNL_TOPIC_NUM + a->line, looks);
 }
 
+extern int mTL_LineBark(int line) {
+    static const s8 bark[mTL_LINE_NUM] = {
+        mTL_BARK_SIT, mTL_BARK_DRINK, mTL_BARK_EXERCISE, mTL_BARK_DANCE, mTL_BARK_FISH,
+        mTL_BARK_DOZE, mTL_BARK_FAN, mTL_BARK_PRAY, mTL_BARK_PHONE,
+    };
+
+    return line >= 0 && line < mTL_LINE_NUM ? bark[line] : -1;
+}
+
+extern int mTL_ChooseChatBark(int idx, int* a_idx, int* b_idx) {
+    Animal_c* animals = Save_Get(animals);
+    int friend_idx = -1;
+    int rival_idx = -1;
+    int pair_a = -1;
+    int pair_b = -1;
+    int seen = 0;
+    int roll;
+    int i;
+    int j;
+
+    *a_idx = -1;
+    *b_idx = -1;
+    if (idx < 0 || idx >= ANIMAL_NUM_MAX || !mNL_IsEnabled()) {
+        return RANDOM(4) == 0 ? mTL_BARK_LAUGH : mTL_BARK_CHAT;
+    }
+
+    /* someone they like or dislike, and two others who are close, each picked at random */
+    for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+        int rel;
+
+        if (i == idx || mNpc_CheckFreeAnimalPersonalID(&animals[i].id)) {
+            continue;
+        }
+        rel = animals[idx].animal_relations[i];
+        if (rel >= mNL_RELATION_FRIEND && (friend_idx < 0 || RANDOM(2))) {
+            friend_idx = i;
+        } else if (rel <= mNL_RELATION_RIVAL && (rival_idx < 0 || RANDOM(2))) {
+            rival_idx = i;
+        }
+        for (j = i + 1; j < ANIMAL_NUM_MAX; j++) {
+            if (j != idx && !mNpc_CheckFreeAnimalPersonalID(&animals[j].id) &&
+                animals[i].animal_relations[j] >= mNL_RELATION_FRIEND &&
+                animals[j].animal_relations[i] >= mNL_RELATION_FRIEND && RANDOM(++seen) == 0) {
+                pair_a = i;
+                pair_b = j;
+            }
+        }
+    }
+
+    roll = RANDOM(10);
+    if (roll < 2 && friend_idx >= 0) {
+        *a_idx = friend_idx;
+        return mTL_BARK_LIKE;
+    }
+    if (roll < 3 && rival_idx >= 0) {
+        *a_idx = rival_idx;
+        return mTL_BARK_DISLIKE;
+    }
+    if (roll < 5 && pair_a >= 0) {
+        *a_idx = pair_a;
+        *b_idx = pair_b;
+        return mTL_BARK_PAIR;
+    }
+    if (roll < 7 && mNL_CountEvents(&animals[idx]) > 0) {
+        return mTL_BARK_NEWS;
+    }
+
+    return mTL_BARK_CHAT;
+}
+
 extern int mTL_CountBusy(void) {
     int n = 0;
     int i;

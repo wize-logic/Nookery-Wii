@@ -421,6 +421,11 @@ static int aNPC_town_life_decide(NPC_ACTOR* nactorx, u8* act_idx, u8* act_type, 
             int act;
             int tries;
 
+            if (nactorx->actor_class.player_distance_xz < 80.0f && RANDOM(100) < 8) {
+                /* the player passing by */
+                mTL_Bark(idx, mTL_BARK_GREET, -1, -1);
+            }
+
             if (v->cooldown > 0) {
                 v->cooldown--;
                 return FALSE;

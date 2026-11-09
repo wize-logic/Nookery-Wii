@@ -21,6 +21,11 @@ static mTL_villager_c* aNPC_tl_get(NPC_ACTOR* nactorx) {
     return mTL_GetVillager(mNL_GetAnimalIdx(nactorx->npc_info.animal));
 }
 
+/* (spreads villagers' periodic checks over different frames) */
+static int idx_frame_offset(NPC_ACTOR* nactorx) {
+    return (mNL_GetAnimalIdx(nactorx->npc_info.animal) + 1) * 13;
+}
+
 static int aNPC_tl_wandering(NPC_ACTOR* nactorx) {
     return nactorx->think.idx == aNPC_THINK_WANDER || nactorx->think.idx == aNPC_THINK_WALK_WANDER;
 }
@@ -72,9 +77,17 @@ static void aNPC_tl_chat(NPC_ACTOR* nactorx, mTL_villager_c* v, int idx) {
 
         v->turn_seen = g->turn_seq;
         if (speaker == idx) {
+            int a_idx;
+            int b_idx;
+            int topic = mTL_ChooseChatBark(idx, &a_idx, &b_idx);
+
             anim = talk_anim[RANDOM(ARRAY_COUNT(talk_anim))];
+            mTL_Bark(idx, topic, a_idx, b_idx);
         } else if (RANDOM(100) < 35) {
             anim = react_anim[RANDOM(ARRAY_COUNT(react_anim))];
+            if (RANDOM(2) == 0) {
+                mTL_Bark(idx, mTL_BARK_LAUGH, -1, -1);
+            }
         }
         nactorx->draw.animation_id = -1;
         aNPC_Animation_init((ACTOR*)nactorx, anim, FALSE);
@@ -130,6 +143,10 @@ static void aNPC_act_town_life_main_proc(NPC_ACTOR* nactorx, GAME_PLAY* play) {
                     aNPC_tl_chat(nactorx, v, mNL_GetAnimalIdx(nactorx->npc_info.animal));
                 }
                 break;
+            }
+            if ((play->game.frame_counter % 120) == (idx_frame_offset(nactorx) % 120) && RANDOM(3) == 0) {
+                /* now and then, a word about it to anyone nearby */
+                mTL_Bark(mNL_GetAnimalIdx(nactorx->npc_info.animal), mTL_LineBark(a->line), -1, -1);
             }
             if (nactorx->draw.main_animation_state == cKF_STATE_STOPPED) {
                 /* a one-shot animation: again, from its start */

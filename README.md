@@ -25,6 +25,7 @@ Nookery-Wii is [Nookery](https://github.com/flyngmt/Nookery) with:
     rains
   - gatherings: friends meet on the plaza or in the open and talk in turns, and in the evening one
     walks another home
+  - a few words to each other in speech bubbles as you walk by
 
 Both are settings, on by default, on every platform: Settings > Gameplay on PC and mobile, the
 launcher's Settings on the Wii. Saves keep their size and still work in the original game and in

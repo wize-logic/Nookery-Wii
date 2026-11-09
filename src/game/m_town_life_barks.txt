@@ -1,0 +1,404 @@
+# Speech bubble barks (m_town_life_bubble.c). After editing, regenerate m_town_life_barks.c_inc:
+#   python3 tools/town_life_barks.py
+#
+# "@TOPIC PERSONALITY", then two barks, one per line, at most 24 characters with {A} and {B}
+# (villager names) counted as 8.
+
+@CHAT NORMAL
+Lovely day, isn't it?
+Have you been well?
+@CHAT PEPPY
+OMG, guess what!
+This is SO fun!
+@CHAT LAZY
+I'm kinda hungry...
+Wanna get snacks later?
+@CHAT JOCK
+Feeling strong today!
+Race you later!
+@CHAT CRANKY
+Hmph. Kids these days.
+Same old, same old.
+@CHAT SNOOTY
+Did you see my outfit?
+Fashion is everything.
+
+@LAUGH NORMAL
+Ha ha, really?
+Oh, that's funny!
+@LAUGH PEPPY
+Hee hee hee!
+No way! Totally!
+@LAUGH LAZY
+Heh heh...
+Huh. Cool.
+@LAUGH JOCK
+HA HA! Classic!
+You said it!
+@LAUGH CRANKY
+Heh. Not bad.
+Hmph. Maybe.
+@LAUGH SNOOTY
+Oh ho ho!
+How amusing.
+
+@LIKE NORMAL
+{A} is so kind!
+I adore {A}.
+@LIKE PEPPY
+{A} is the BEST!
+I love {A}!
+@LIKE LAZY
+{A}'s pretty cool.
+{A} shares snacks.
+@LIKE JOCK
+{A}'s a champ!
+{A}'s got spirit!
+@LIKE CRANKY
+{A}'s all right.
+{A}'s not so bad.
+@LIKE SNOOTY
+{A} has taste.
+{A} is charming.
+
+@DISLIKE NORMAL
+Oh, {A}... sigh.
+{A} upset me.
+@DISLIKE PEPPY
+{A}?! Ugh!
+{A} is SO mean!
+@DISLIKE LAZY
+{A} bugs me.
+Not {A} again...
+@DISLIKE JOCK
+{A}'s a slacker!
+{A}? Weak!
+@DISLIKE CRANKY
+{A}? Don't start.
+Bah! {A}!
+@DISLIKE SNOOTY
+{A}? Please.
+{A} is so tacky.
+
+@PAIR NORMAL
+{A} and {B}!
+{A} and {B}...
+@PAIR PEPPY
+{A} and {B}?!
+{A} + {B}!!
+@PAIR LAZY
+{A} and {B}?
+{A}, {B}? Huh.
+@PAIR JOCK
+{A} and {B}!
+{A} vs {B}!
+@PAIR CRANKY
+{A} and {B}.
+{A}, {B}. Bah
+@PAIR SNOOTY
+{A} and {B}!
+{A} and {B}...
+
+@NEWS NORMAL
+Did you hear?
+I have news!
+@NEWS PEPPY
+You'll never believe it!
+Big news, big news!
+@NEWS LAZY
+So, uh, I heard...
+Guess what happened.
+@NEWS JOCK
+Breaking news!
+Listen up!
+@NEWS CRANKY
+Get a load of this.
+You hear the latest?
+@NEWS SNOOTY
+I heard a rumor...
+Between us, darling...
+
+@EXERCISE NORMAL
+And stretch...
+One, two, three...
+@EXERCISE PEPPY
+One, two! One, two!
+Woo! Workout!
+@EXERCISE LAZY
+Is it over yet?
+So... tired...
+@EXERCISE JOCK
+Morning stretches!
+Feel the burn!
+@EXERCISE CRANKY
+Oof. My back.
+Still got it.
+@EXERCISE SNOOTY
+Graceful, graceful.
+For my figure.
+
+@SIT NORMAL
+What a nice spot.
+Ahh, so peaceful.
+@SIT PEPPY
+Resting my feet!
+Such a pretty view!
+@SIT LAZY
+Ahh... comfy.
+I live here now.
+@SIT JOCK
+Quick breather!
+Just a short break!
+@SIT CRANKY
+Leave me be.
+Finally, some quiet.
+@SIT SNOOTY
+Such scenery.
+A moment of calm.
+
+@FISH NORMAL
+Here, fishy fishy...
+Anything biting?
+@FISH PEPPY
+Come on, fishies!
+Bite already!
+@FISH LAZY
+Nap or fish...
+Fish taste good.
+@FISH JOCK
+Gonna catch a big one!
+Patience is training!
+@FISH CRANKY
+Quiet. Fishing.
+Bah, nothing yet.
+@FISH SNOOTY
+Fishing is so chic.
+Not a single nibble.
+
+@DANCE NORMAL
+La la la!
+Dum de dum!
+@DANCE PEPPY
+Dance party!
+Wheee!
+@DANCE LAZY
+Snack dance!
+Heh, look at me.
+@DANCE JOCK
+Dancing is cardio!
+Feel the rhythm!
+@DANCE CRANKY
+Don't look at me!
+Hmph. Just a step.
+@DANCE SNOOTY
+Simply divine.
+Like a ballerina.
+
+@DRINK NORMAL
+Mmm, so refreshing.
+Ahh, perfect.
+@DRINK PEPPY
+Fizzy fizzy!
+So yummy!
+@DRINK LAZY
+Slurrrp.
+Need a snack, too.
+@DRINK JOCK
+Hydration!
+Refuel time!
+@DRINK CRANKY
+Good coffee.
+Ahh. That's better.
+@DRINK SNOOTY
+Tea time, darling.
+How refined.
+
+@DOZE NORMAL
+Zzz...
+Mm... five minutes...
+@DOZE PEPPY
+Zzz... hee hee...
+Zzz...
+@DOZE LAZY
+Zzz... pudding...
+Zzz... snore...
+@DOZE JOCK
+Zzz... reps...
+Zzz... one more...
+@DOZE CRANKY
+Zzz... hmph...
+Zzz... grumble...
+@DOZE SNOOTY
+Zzz...
+Zzz... so pretty...
+
+@FAN NORMAL
+Phew, it's hot!
+What a scorcher.
+@FAN PEPPY
+I'm melting!
+Hot hot hot!
+@FAN LAZY
+Too hot to move.
+Ugh, summer...
+@FAN JOCK
+Sweat is good!
+Hot day, hot moves!
+@FAN CRANKY
+This heat, I tell ya.
+Blasted sun.
+@FAN SNOOTY
+I'm glistening.
+Too hot for style.
+
+@PRAY NORMAL
+I wish, I wish...
+Please, please...
+@PRAY PEPPY
+Wish come true!
+Pretty please!
+@PRAY LAZY
+Bottomless noodles...
+Snacks forever...
+@PRAY JOCK
+Make me stronger!
+A new record!
+@PRAY CRANKY
+Just checking. Hmph.
+Couldn't hurt.
+@PRAY SNOOTY
+More style, please.
+For elegance...
+
+@PHONE NORMAL
+Hello? Mom?
+Yes, yes, I know...
+@PHONE PEPPY
+Hiii! Guess what!
+No WAY! Tell me!
+@PHONE LAZY
+One large pizza...
+Uh-huh... yeah...
+@PHONE JOCK
+Coach? It's me!
+Yeah, I'm pumped!
+@PHONE CRANKY
+Wrong number!
+What? Speak up!
+@PHONE SNOOTY
+Darling, really?
+Book me a stylist.
+
+@RAIN NORMAL
+Rain, rain...
+I love the rain.
+@RAIN PEPPY
+Puddle time!
+Splish splash!
+@RAIN LAZY
+Wet and sleepy.
+Rain makes me hungry.
+@RAIN JOCK
+Rain can't stop me!
+Training in the rain!
+@RAIN CRANKY
+Lousy weather.
+My joints ache.
+@RAIN SNOOTY
+My fur, my fur!
+Ugh, so damp.
+
+@SNOW NORMAL
+So pretty!
+Snowflakes!
+@SNOW PEPPY
+Snowball fight!
+It's snowing!!
+@SNOW LAZY
+Cold toes...
+Snow cones?
+@SNOW JOCK
+Snow workout!
+Brrr! Bring it!
+@SNOW CRANKY
+Too cold for this.
+Brr. Bah.
+@SNOW SNOOTY
+Winter fashion!
+How magical.
+
+@STARS NORMAL
+So many stars...
+Make a wish!
+@STARS PEPPY
+Twinkle twinkle!
+A shooting star!
+@STARS LAZY
+Stars look like rice.
+Pretty, huh?
+@STARS JOCK
+Night run, anyone?
+Stars! Awesome!
+@STARS CRANKY
+Nice night. Hmph.
+Can't sleep.
+@STARS SNOOTY
+Like diamonds.
+How romantic.
+
+@PLANTED NORMAL
+I planted flowers!
+My garden grows!
+@PLANTED PEPPY
+New flowers! Yay!
+Look at my flowers!
+@PLANTED LAZY
+Planted some stuff.
+Flowers. Nice.
+@PLANTED JOCK
+Gardening is lifting!
+Grow, flowers, grow!
+@PLANTED CRANKY
+Planted a few. So?
+Don't trample 'em.
+@PLANTED SNOOTY
+My garden is divine.
+Flowers suit me.
+
+@VISITOR NORMAL
+Who's {A}?
+{A} is visiting!
+@VISITOR PEPPY
+{A}'s here! Hi!
+New friend: {A}!
+@VISITOR LAZY
+{A}... new face.
+{A}'s visiting.
+@VISITOR JOCK
+{A}! Welcome!
+Hey, {A}!
+@VISITOR CRANKY
+{A}? Who's that?
+A visitor. Hmph.
+@VISITOR SNOOTY
+{A}? How quaint.
+A guest: {A}.
+
+@GREET NORMAL
+Hi there!
+Good to see you!
+@GREET PEPPY
+Hiiii!
+Heya, bestie!
+@GREET LAZY
+Oh, hey.
+Sup.
+@GREET JOCK
+Yo!
+Hey, champ!
+@GREET CRANKY
+Hmph. Hello.
+Oh, it's you.
+@GREET SNOOTY
+Hello, darling.
+Oh, it's you.

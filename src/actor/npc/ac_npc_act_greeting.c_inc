@@ -522,6 +522,17 @@ static void aNPC_act_greeting_reaction(NPC_ACTOR* nactorx, GAME_PLAY* play) {
             if (mNL_IsEnabled()) {
                 aNPC_life_greeting(nactorx, pal_nactorx, life_rel0, life_pal_rel0);
             }
+#ifndef aNPC_NPC2
+            if (mTL_IsEnabled()) {
+                /* Town life: one of them says something about the other, for the player to overhear */
+                int pal_idx = aNPC_get_animal_idx(pal_nactorx);
+                int topic = life_rel0 >= mNL_RELATION_FRIEND   ? mTL_BARK_LIKE
+                            : life_rel0 <= mNL_RELATION_RIVAL ? mTL_BARK_DISLIKE
+                                                              : mTL_BARK_CHAT;
+
+                mTL_Bark(aNPC_get_animal_idx(nactorx), topic, pal_idx, -1);
+            }
+#endif
 #endif
 
             greeting_flag = 1;
