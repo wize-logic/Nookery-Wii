@@ -175,7 +175,7 @@ Test keys in `settings.ini`:
 | `nes_test = N` | Starts NES game N from the town |
 | `travel_test` | Takes the train to slot B's town |
 | `net_echo`, `net_title_town`, `net_test_public`, `clock_test_skew` | Online play: yourself as a second player, the title screen as a town, the route between two networks, a clock set off by that many seconds |
-| `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 and up: town life's tests (`town_test` in `nk_netgame.c`) |
+| `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 to 10: town life's tests (activities, animations and props, interruptions, gatherings, speech bubbles, tending the town, visitors, weather and night; `town_test` in `nk_netgame.c`) |
 
 The lobby server has its own test: `python3 wii/server/tests/test_lobby.py`.
 

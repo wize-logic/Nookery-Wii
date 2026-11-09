@@ -153,6 +153,10 @@ static int aNPC_tl_try_group(NPC_ACTOR* leader, int idx, u8* act_idx, u8* act_ty
     int j;
     int n;
 
+    if (mTL_Night() && !mTL_test_group_any_hour && !mTL_NightOwl(animals[idx].id.looks)) {
+        return FALSE;
+    }
+
     member[0] = leader;
     ids[0] = idx;
     for (n = list->num_actors; n != 0 && actor != NULL && count < mTL_GROUP_MAX; n--, actor = actor->next_actor) {
@@ -165,7 +169,8 @@ static int aNPC_tl_try_group(NPC_ACTOR* leader, int idx, u8* act_idx, u8* act_ty
         }
 
         o = mNL_GetAnimalIdx(other->npc_info.animal);
-        if (o < 0 || !aNPC_tl_free(other, o) || animals[idx].animal_relations[o] < mNL_RELATION_FRIEND) {
+        if (o < 0 || !aNPC_tl_free(other, o) || animals[idx].animal_relations[o] < mNL_RELATION_FRIEND ||
+            (mTL_Night() && !mTL_test_group_any_hour && !mTL_NightOwl(animals[o].id.looks))) {
             continue;
         }
 
@@ -260,6 +265,8 @@ static int aNPC_tl_try_group(NPC_ACTOR* leader, int idx, u8* act_idx, u8* act_ty
         v->last_dist = 0;
         v->group = group;
         v->turn_seen = 0xFF;
+        v->throw_at = -1;
+        v->throw_frames = 0;
         if (member[i] != leader) {
             aNPC_tl_call_over(member[i]);
         }

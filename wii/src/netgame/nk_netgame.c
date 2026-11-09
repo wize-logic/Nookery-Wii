@@ -1007,7 +1007,11 @@ static void life_test(GAME_PLAY* play)
  * life_test = 9 checks visitors: today's visitor is put in the player's acre and should appear and wander
  * ("LIFETEST: visitor" every five seconds, with screenshots); then it is brought in front of the player and
  * the input script's A starts a chat; then a resident is brought over, whose gossip is about the visitor. The
- * messages shown are logged, and the mask records in use (none must be taken from an event). */
+ * messages shown are logged, and the mask records in use (none must be taken from an event).
+ *
+ * life_test = 10 checks weather and night: with snow, the acre's villagers (made friends) gather and throw
+ * snowballs ("LIFETEST: snowball"); in rain, they splash in puddles and shelter under trees; at night (pretend),
+ * they look up at the stars, turning slowly. Screenshots of each. */
 typedef struct {
     const char* name;
     u8 anim;
@@ -1803,6 +1807,153 @@ static void town_test_visitor(GAME_PLAY* play)
     }
 }
 
+static void town_test_weather(GAME_PLAY* play)
+{
+    static int frames, step = -1, step_frames, shots, snowballs_seen, started_seen;
+    static int angle_log[ANIMAL_NUM_MAX];
+    PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+    Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+    Animal_c* animals = Save_Get(animals);
+    ACTOR* a;
+    int n, i, g;
+
+    frames++;
+    if (player == NULL) {
+        return;
+    }
+    if (step < 0) {
+        int ids[ANIMAL_NUM_MAX], count = 0;
+        if (frames < 600) {
+            return;
+        }
+        for (a = list->actor, n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+            int idx = ITEM_NAME_GET_TYPE(a->npc_id) == NAME_TYPE_NPC ? mNL_GetAnimalIdx(((NPC_ACTOR*) a)->npc_info.animal) : -1;
+            if (idx >= 0) {
+                ids[count++] = idx;
+            }
+        }
+        for (i = 0; i < count; i++) {
+            for (n = 0; n < count; n++) {
+                if (i != n) {
+                    animals[ids[i]].animal_relations[ids[n]] = 200;
+                }
+            }
+        }
+        mTL_test_snow = TRUE;
+        mTL_test_group_any_hour = TRUE;
+        mTL_group_chance = 80;
+        mTL_start_chance = 0;
+        Common_Set(weather, mEnv_WEATHER_SNOW);
+        Common_Set(weather_intensity, mEnv_WEATHER_INTENSITY_LIGHT);
+        step = 0;
+        step_frames = 0;
+        nk_wii_log("LIFETEST: weather: snow (%d villagers here made friends)\n", count);
+    }
+
+    step_frames++;
+    if (frames % 60 == 0) {
+        /* (everyone stays out, whatever the weather: the test is about what they do outside) */
+        for (a = list->actor, n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+            NPC_ACTOR* npc = (NPC_ACTOR*) a;
+            if (ITEM_NAME_GET_TYPE(a->npc_id) == NAME_TYPE_NPC && mNL_GetAnimalIdx(npc->npc_info.animal) >= 0 &&
+                npc->npc_info.schedule != NULL) {
+                npc->npc_info.schedule->forced_type = mNPS_SCHED_FIELD;
+                npc->npc_info.schedule->forced_timer = 100000;
+            }
+        }
+    }
+    if (step == 0 && frames % 300 == 0) {
+        for (g = 0; g < mTL_GROUP_NUM; g++) {
+            if (mTL_groups[g].active) {
+                nk_wii_log("LIFETEST: group %d members %d %d %d arrived %x turns %d\n", g, mTL_groups[g].members[0],
+                           mTL_groups[g].members[1], mTL_groups[g].count > 2 ? mTL_groups[g].members[2] : -1,
+                           mTL_groups[g].arrived, mTL_groups[g].turn_seq);
+            }
+        }
+    }
+    if (mTL_stats.snowballs != snowballs_seen) {
+        snowballs_seen = mTL_stats.snowballs;
+        nk_wii_log("LIFETEST: snowball %d\n", snowballs_seen);
+        if (shots < 3) {
+            nk_wii_log("LIFETEST: shot %d snowball\n", ++shots);
+        }
+    }
+    if (mTL_stats.started != started_seen) {
+        started_seen = mTL_stats.started;
+        if (step >= 1 && mTL_stats.last_event == 1 && shots < 8) {
+            /* the player beside the busy villager, a screenshot a few seconds in */
+            NPC_ACTOR* npc = town_test_npc(play, mTL_stats.last_villager);
+            if (npc != NULL) {
+                player->actor_class.world.position.x = npc->actor_class.world.position.x + 70.0f;
+                player->actor_class.world.position.z = npc->actor_class.world.position.z - 30.0f;
+            }
+        }
+    }
+    if (step >= 1 && step_frames % 400 == 200 && shots < 8) {
+        for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+            mTL_villager_c* v = mTL_GetVillager(i);
+            if (v != NULL && v->state == mTL_STATE_DOING) {
+                nk_wii_log("LIFETEST: shot %d %s\n", ++shots, mTL_GetActivity(v->activity)->name);
+                break;
+            }
+        }
+    }
+    if (step == 0 && step_frames % 300 == 0) {
+        /* the player next to a group */
+        for (g = 0; g < mTL_GROUP_NUM; g++) {
+            if (mTL_groups[g].active && mTL_groups[g].arrived) {
+                player->actor_class.world.position.x = mTL_groups[g].center_x + 80.0f;
+                player->actor_class.world.position.z = mTL_groups[g].center_z - 40.0f;
+                break;
+            }
+        }
+    }
+    if (step == 3 && step_frames % 120 == 0) {
+        /* stargazers turn slowly */
+        for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+            mTL_villager_c* v = mTL_GetVillager(i);
+            NPC_ACTOR* npc = town_test_npc(play, i);
+            if (v != NULL && npc != NULL && v->state == mTL_STATE_DOING &&
+                mTL_GetActivity(v->activity)->effect == mTL_EFFECT_STARS &&
+                npc->actor_class.shape_info.rotation.y != angle_log[i]) {
+                angle_log[i] = npc->actor_class.shape_info.rotation.y;
+                nk_wii_log("LIFETEST: stargazer %d facing %d\n", i, angle_log[i] & 0xFFFF);
+            }
+        }
+    }
+
+    if (step == 0 && step_frames == 60 * 240) {
+        mTL_test_snow = FALSE;
+        mTL_group_chance = 0;
+        Common_Set(weather, mEnv_WEATHER_RAIN);
+        Common_Set(weather_intensity, mEnv_WEATHER_INTENSITY_NORMAL);
+        mTL_start_chance = 100;
+        mTL_test_keep_place = TRUE;
+        mTL_test_activity = mTL_ACT_SPLASH;
+        step = 1;
+        step_frames = 0;
+        nk_wii_log("LIFETEST: weather: rain, splashing (snowballs %d)\n", mTL_stats.snowballs);
+    } else if (step == 1 && step_frames == 60 * 60) {
+        mTL_test_activity = mTL_ACT_SHELTER;
+        step = 2;
+        step_frames = 0;
+        nk_wii_log("LIFETEST: rain, sheltering\n");
+    } else if (step == 2 && step_frames == 60 * 60) {
+        Common_Set(weather, mEnv_WEATHER_CLEAR);
+        Common_Set(weather_intensity, mEnv_WEATHER_INTENSITY_NONE);
+        mTL_test_activity = mTL_ACT_STARGAZE2;
+        step = 3;
+        step_frames = 0;
+        nk_wii_log("LIFETEST: night (pretend): stargazing\n");
+    } else if (step == 3 && step_frames == 60 * 60) {
+        mTL_test_activity = -1;
+        mTL_start_chance = 0;
+        step = 4;
+        nk_wii_log("LIFETEST: weather test done (snowballs %d, started %d)\n", mTL_stats.snowballs,
+                   mTL_stats.started);
+    }
+}
+
 static void town_test(GAME_PLAY* play)
 {
     static int field_frames;
@@ -1934,6 +2085,10 @@ static void town_test(GAME_PLAY* play)
     }
     if (g_nk_life_test == 9) {
         town_test_visitor(play);
+        return;
+    }
+    if (g_nk_life_test == 10) {
+        town_test_weather(play);
         return;
     }
 

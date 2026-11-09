@@ -62,6 +62,8 @@ enum {
     mTL_EFFECT_PLANT,   /* at the end: a flower on the tile in front */
     mTL_EFFECT_PICK,    /* at the start: the fruit off the tree in front (then eaten) */
     mTL_EFFECT_SNOWMAN, /* at the end: a snowman on the tile in front */
+    mTL_EFFECT_SPLASH,  /* all along: water splashing at the feet */
+    mTL_EFFECT_STARS,   /* all along: turning slowly, looking up at the stars */
 
     mTL_EFFECT_NUM
 };
@@ -123,6 +125,10 @@ enum {
     mTL_ACT_PLANT,
     mTL_ACT_PICK_FRUIT,
     mTL_ACT_SNOWMAN,
+    mTL_ACT_SPLASH,
+    mTL_ACT_SHELTER,
+    mTL_ACT_STARGAZE,
+    mTL_ACT_STARGAZE2, /* the same, anywhere open (not every acre has the plaza) */
 
     mTL_ACT_NUM,
     mTL_ACT_TEST = mTL_ACT_NUM, /* mTL_test_entry, for tests */
@@ -157,6 +163,8 @@ typedef struct {
     u8 turn_seen;     /* the group's turn this villager last reacted to */
     s8 escort;        /* the friend (Save animals index) being walked home, for mTL_ACT_ESCORT */
     s16 last_dist;    /* distance to the spot at the last walk toward it */
+    s8 throw_at;      /* a snowball thrown at this group member (Save animals index), or -1 */
+    s16 throw_frames; /* frames until it lands */
 } mTL_villager_c;
 
 /*
@@ -257,6 +265,15 @@ extern int mTL_start_chance;
 /* Tests: groups form at any hour */
 extern int mTL_test_group_any_hour;
 
+/* Snow on the ground or falling: groups throw snowballs (tests: mTL_test_snow) */
+extern int mTL_Snowy(void);
+extern int mTL_test_snow;
+/* Night: night owls (cranky, snooty, jock) gather; the others don't */
+extern int mTL_Night(void);
+extern int mTL_NightOwl(int looks);
+/* A bark for an activity now: its own, or the weather or the night's sometimes */
+extern int mTL_ActivityBark(int act);
+
 /* Tests: start only this activity (-1: any), in place, only for this villager (-1: any), for this many
  * seconds (0: the activity's own) */
 extern int mTL_test_activity;
@@ -283,6 +300,7 @@ typedef struct {
     int picked;
     int snowmen;
     int gifts;
+    int snowballs;
     int groups_formed;
     int groups_ended;
     int group_members; /* members of all groups formed */

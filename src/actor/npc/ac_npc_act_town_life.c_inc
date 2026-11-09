@@ -65,6 +65,23 @@ static void aNPC_tl_stop(NPC_ACTOR* nactorx, int event) {
     v->cooldown = mTL_test_activity >= 0 ? 0 : mTL_COOLDOWN;
 }
 
+/* The NPC actor of a town villager (Save animals index), or NULL */
+static NPC_ACTOR* aNPC_tl_find_actor_act(int idx) {
+    Actor_list* list = &((GAME_PLAY*)gamePT)->actor_info.list[ACTOR_PART_NPC];
+    ACTOR* actor = list->actor;
+    int n;
+
+    for (n = list->num_actors; n != 0 && actor != NULL; n--, actor = actor->next_actor) {
+        NPC_ACTOR* other = (NPC_ACTOR*)actor;
+
+        if (aNPC_IS_NRM_NPC(other) && mNL_GetAnimalIdx(other->npc_info.animal) == idx) {
+            return other;
+        }
+    }
+
+    return NULL;
+}
+
 /* In a group: the talking member speaks, the others listen and sometimes react */
 static void aNPC_tl_chat(NPC_ACTOR* nactorx, mTL_villager_c* v, int idx) {
     static const u8 talk_anim[] = { aNPC_ANIM_SMILE1, aNPC_ANIM_HAPPY1, aNPC_ANIM_HIRAMEKI1, aNPC_ANIM_KIDUKU1 };
@@ -76,11 +93,29 @@ static void aNPC_tl_chat(NPC_ACTOR* nactorx, mTL_villager_c* v, int idx) {
         int anim = aNPC_ANIM_WAIT1;
 
         v->turn_seen = g->turn_seq;
-        if (speaker == idx) {
+        if (speaker == idx && mTL_Snowy() && RANDOM(2) == 0) {
+            /* winter: a snowball at someone else in the group */
+            int i;
+
+            for (i = 0; i < g->count; i++) {
+                int t = g->members[(g->turn + 1 + i) % g->count];
+
+                if (t >= 0 && t != idx && (g->arrived & (1 << ((g->turn + 1 + i) % g->count)))) {
+                    v->throw_at = t;
+                    v->throw_frames = 28;
+                    break;
+                }
+            }
+            anim = aNPC_ANIM_TAMANAGE1;
+            mTL_Bark(idx, mTL_BARK_SNOW, -1, -1);
+        } else if (speaker == idx) {
             int a_idx;
             int b_idx;
             int topic = mTL_ChooseChatBark(idx, &a_idx, &b_idx);
 
+            if (mTL_Night() && RANDOM(2) == 0) {
+                topic = mTL_BARK_STARS;
+            }
             anim = talk_anim[RANDOM(ARRAY_COUNT(talk_anim))];
             mTL_Bark(idx, topic, a_idx, b_idx);
         } else if (RANDOM(100) < 35) {
@@ -95,6 +130,22 @@ static void aNPC_tl_chat(NPC_ACTOR* nactorx, mTL_villager_c* v, int idx) {
     } else if (nactorx->draw.main_animation_state == cKF_STATE_STOPPED) {
         /* (a reaction done: back to listening) */
         aNPC_Animation_init((ACTOR*)nactorx, aNPC_ANIM_WAIT1, FALSE);
+    }
+
+    if (v->throw_frames > 0 && --v->throw_frames == 0 && v->throw_at >= 0) {
+        /* the snowball lands: a puff of snow, and they laugh it off */
+        NPC_ACTOR* target = aNPC_tl_find_actor_act(v->throw_at);
+
+        if (target != NULL && eEC_CLIP != NULL) {
+            xyz_t pos = target->actor_class.world.position;
+
+            pos.y += 30.0f;
+            eEC_CLIP->effect_make_proc(eEC_EFFECT_YUKIHANE, pos, 1, target->actor_class.shape_info.rotation.y,
+                                       gamePT, target->actor_class.npc_id, 0, 0);
+            mTL_Bark(v->throw_at, mTL_BARK_LAUGH, -1, -1);
+            mTL_stats.snowballs++;
+        }
+        v->throw_at = -1;
     }
 }
 
@@ -146,7 +197,17 @@ static void aNPC_act_town_life_main_proc(NPC_ACTOR* nactorx, GAME_PLAY* play) {
             }
             if ((play->game.frame_counter % 120) == (idx_frame_offset(nactorx) % 120) && RANDOM(3) == 0) {
                 /* now and then, a word about it to anyone nearby */
-                mTL_Bark(mNL_GetAnimalIdx(nactorx->npc_info.animal), mTL_LineBark(a->line), -1, -1);
+                mTL_Bark(mNL_GetAnimalIdx(nactorx->npc_info.animal), mTL_ActivityBark(v->activity), -1, -1);
+            }
+            if (a->effect == mTL_EFFECT_SPLASH && (play->game.frame_counter % 20) == 0 && eEC_CLIP != NULL) {
+                /* splashing in the puddles */
+                eEC_CLIP->effect_make_proc(eEC_EFFECT_MIZUTAMA, nactorx->actor_class.world.position, 1,
+                                           nactorx->actor_class.shape_info.rotation.y, (GAME*)play,
+                                           nactorx->actor_class.npc_id, 0, 3);
+            }
+            if (a->effect == mTL_EFFECT_STARS && nactorx->draw.main_animation_state == cKF_STATE_STOPPED) {
+                /* a slow turn, looking up at the sky */
+                v->angle += 0x0C00;
             }
             if (nactorx->draw.main_animation_state == cKF_STATE_STOPPED) {
                 /* a one-shot animation: again, from its start */

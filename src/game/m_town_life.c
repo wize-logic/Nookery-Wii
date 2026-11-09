@@ -42,7 +42,7 @@ const mTL_activity_c mTL_activity_table[mTL_ACT_NUM] = {
     { "sit_laugh",   aNPC_ANIM_SITDOWN_CLAP1,  aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_RIVER,    mTL_LINE_SIT, mTL_EFFECT_NONE,
                      { 1, 3, 1, 1, 0, 0 },  9, 19,  mTL_WEATHER_CLEAR, mTL_SEASON_ANY,    10, 20 },
     { "sit_fan",     aNPC_ANIM_SITDOWN_WAIT1,  aNPC_SUB_ANIM_UTIWA, TOOL_UTIWA,    mTL_PLACE_TREE,     mTL_LINE_FAN, mTL_EFFECT_NONE,
-                     { 2, 1, 3, 0, 2, 3 }, 11, 20,  mTL_WEATHER_CLEAR, mTL_SEASON_SUMMER, 20, 40 },
+                     { 2, 1, 3, 0, 2, 3 }, 11, 22,  mTL_WEATHER_CLEAR, mTL_SEASON_SUMMER, 20, 40 },
     { "doze",        aNPC_ANIM_KOKKURI_D1,     aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_TREE,     mTL_LINE_DOZE, mTL_EFFECT_NONE,
                      { 1, 0, 5, 0, 2, 0 }, 12, 17,  mTL_WEATHER_CLEAR, mTL_SEASON_ANY,    30, 60 },
     { "dance",       aNPC_ANIM_DANCE1,         aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_OPEN,     mTL_LINE_DANCE, mTL_EFFECT_NONE,
@@ -78,6 +78,15 @@ const mTL_activity_c mTL_activity_table[mTL_ACT_NUM] = {
                      { 2, 2, 4, 2, 1, 1 },  8, 19,  mTL_WEATHER_DRY,   mTL_SEASON_ANY,     6, 10 },
     { "snowman",     aNPC_ANIM_TAMAHIROI1,     aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_OPEN,     mTL_LINE_NONE, mTL_EFFECT_SNOWMAN,
                      { 2, 4, 1, 3, 1, 1 },  9, 17,  mTL_WEATHER_DRY,   mTL_SEASON_WINTER, 15, 25 },
+    /* weather and night */
+    { "splash",      aNPC_ANIM_ASIHUMI1,       aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_OPEN,     mTL_LINE_NONE, mTL_EFFECT_SPLASH,
+                     { 1, 4, 0, 3, 0, 0 },  7, 20,  mTL_WEATHER_RAIN,  mTL_SEASON_ANY,     8, 15 },
+    { "shelter",     aNPC_ANIM_KYORO1,         aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_TREE,     mTL_LINE_NONE, mTL_EFFECT_NONE,
+                     { 2, 0, 3, 0, 2, 3 },  6, 22,  mTL_WEATHER_RAIN,  mTL_SEASON_ANY,    20, 40 },
+    { "stargaze",    aNPC_ANIM_KYORO1,         aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_PLAZA,    mTL_LINE_NONE, mTL_EFFECT_STARS,
+                     { 1, 1, 0, 2, 4, 4 }, 20,  4,  mTL_WEATHER_CLEAR, mTL_SEASON_ANY,    20, 40 },
+    { "stargaze2",   aNPC_ANIM_KYORO1,         aNPC_SUB_ANIM_NONE,  mTL_PROP_NONE, mTL_PLACE_OPEN,     mTL_LINE_NONE, mTL_EFFECT_STARS,
+                     { 0, 1, 0, 1, 3, 3 }, 20,  4,  mTL_WEATHER_CLEAR, mTL_SEASON_ANY,    20, 40 },
 };
 // clang-format on
 
@@ -85,6 +94,7 @@ static mTL_villager_c mTL_villagers[ANIMAL_NUM_MAX];
 mTL_group_c mTL_groups[mTL_GROUP_NUM];
 int mTL_group_chance = mTL_GROUP_CHANCE;
 int mTL_test_group_any_hour = FALSE;
+int mTL_test_snow = FALSE;
 
 /* Standing in a group, and walking a friend home: not in the table, never chosen at random */
 static const mTL_activity_c mTL_chat_entry = {
@@ -303,12 +313,22 @@ extern int mTL_SecondsDoing(const mTL_villager_c* v) {
     return mTL_SecondsSince(v->start_sec);
 }
 
+extern int mTL_Night(void) {
+    int hour = Common_Get(time.rtc_time).hour;
+
+    return hour >= 20 || hour < 4;
+}
+
+extern int mTL_NightOwl(int looks) {
+    return looks == mNpc_LOOKS_GRIM_MAN || looks == mNpc_LOOKS_NANIWA_LADY || looks == mNpc_LOOKS_SPORT_MAN;
+}
+
 extern int mTL_GatherHour(void) {
     int hour = Common_Get(time.rtc_time).hour;
 
-    /* morning, after lunch, evening */
+    /* morning, after lunch, evening; and at night, for the night owls (try_group checks who) */
     return mTL_test_group_any_hour || (hour >= 8 && hour < 10) || (hour >= 13 && hour < 15) ||
-           (hour >= 17 && hour < 20);
+           (hour >= 17 && hour < 20) || (hour >= 21 && hour < 24);
 }
 
 extern int mTL_NewGroup(void) {
@@ -483,6 +503,26 @@ typedef char mTL_spare_fits[(mTL_SPARE_OFS + 2 <= sizeof(((Animal_c*)0)->unused)
 
 static int mTL_SnowmanSeason(void) {
     return mTL_test_winter || mEv_check_status(mEv_EVENT_SNOWMAN_SEASON, mEv_STATUS_ACTIVE);
+}
+
+extern int mTL_Snowy(void) {
+    return mTL_test_snow || Common_Get(weather) == mEnv_WEATHER_SNOW || mTL_SnowmanSeason();
+}
+
+extern int mTL_ActivityBark(int act) {
+    const mTL_activity_c* a = mTL_GetActivity(act);
+
+    if (a->effect == mTL_EFFECT_STARS || (mTL_Night() && RANDOM(3) == 0)) {
+        return mTL_BARK_STARS;
+    }
+    if (Common_Get(weather) == mEnv_WEATHER_RAIN && (a->effect == mTL_EFFECT_SPLASH || RANDOM(2) == 0)) {
+        return mTL_BARK_RAIN;
+    }
+    if (mTL_Snowy() && RANDOM(3) == 0) {
+        return mTL_BARK_SNOW;
+    }
+
+    return mTL_LineBark(a->line);
 }
 
 static int mTL_SnowmenInTown(void) {

@@ -302,6 +302,19 @@ access with Dolphin's MMU emulation on.
   (`KYORO`, a slow turn).
 - Summer evenings: fanning while sitting.
 
+**Result (done):** with snow falling or in the snowman season, a group
+member whose turn it is sometimes throws a snowball (`TAMANAGE1`) at another
+member, who gets a puff of snow (the game's `eEC_EFFECT_YUKIHANE`) and
+laughs. In rain, jocks and peppy villagers splash in puddles (stepping in
+place with `eEC_EFFECT_MIZUTAMA` at their feet) and others shelter under
+trees, looking about. From 20:00 to 4:00 night owls (cranky, snooty, jock)
+stargaze at the plaza or in the open, turning slowly while looking around,
+and gather in groups until midnight (others don't join); barks about rain,
+snow and stars come up with the weather and the hour. Sitting and fanning
+lasts until 22:00 in summer. `life_test = 10` (with snow, then rain, then a
+pretend night): 14 snowballs between two friends, splashing and sheltering,
+and a stargazer turning all the way round.
+
 ## Settings and performance
 
 - One toggle, `town_life`, covers Phases 1–7. Sub-toggles only if testers ask.
