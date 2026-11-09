@@ -1,6 +1,10 @@
 #include "m_npc_schedule.h"
 
 #include "m_common_data.h"
+#ifdef ACGC_PORT
+#include "m_town_life.h"
+#include "m_kankyo.h"
+#endif
 
 #define mNPS_TIME_2_SEC(hour, min, sec) ((hour) * 3600 + (min) * 60 + (sec))
 #define mNPS_MAKE_SCHEDULE_TABLE(sched_data) { ARRAY_SIZE(sched_data, mNPS_schedule_data_c), sched_data }
@@ -90,6 +94,159 @@ static mNPS_schedule_data_table_c* mNPS_schedule[mNpc_LOOKS_NUM] = {
   &naniwa_lady_schedule
 };
 
+#ifdef ACGC_PORT
+/*
+ * Town life (setting town_life): longer days outdoors. Each personality keeps
+ * its character (early jocks, cranky and snooty night owls, lazy late risers),
+ * but lunch indoors is short, evenings outside are longer, and each villager's
+ * day is shifted by up to half an hour either way (mNPS_town_life_shift), so
+ * they don't all go in and come out at the same moment.
+ */
+static mNPS_schedule_data_c tl_girl_schedule_dt[] = {
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(5, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(6, 30, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(12, 15, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(12, 45, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(20, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(22, 0, 0) },
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(24, 0, 0) }
+};
+
+static mNPS_schedule_data_c tl_ko_girl_schedule_dt[] = {
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(7, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(7, 45, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(13, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(13, 30, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(22, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(23, 30, 0) },
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(24, 0, 0) }
+};
+
+static mNPS_schedule_data_c tl_boy_schedule_dt[] = {
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(8, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(9, 15, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(12, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(13, 30, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(21, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(22, 30, 0) },
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(24, 0, 0) }
+};
+
+static mNPS_schedule_data_c tl_sport_man_schedule_dt[] = {
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(0, 30, 0) },
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(5, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(5, 45, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(12, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(12, 30, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(23, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(24, 0, 0) }
+};
+
+static mNPS_schedule_data_c tl_grim_man_schedule_dt[] = {
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(4, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(5, 0, 0) },
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(10, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(10, 45, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(15, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(15, 30, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(22, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(23, 0, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(24, 0, 0) }
+};
+
+static mNPS_schedule_data_c tl_naniwa_lady_schedule_dt[] = {
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(1, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(2, 30, 0) },
+  { mNPS_SCHED_SLEEP, mNPS_TIME_2_SEC(9, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(9, 45, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(13, 0, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(13, 30, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(21, 30, 0) },
+  { mNPS_SCHED_IN_HOUSE, mNPS_TIME_2_SEC(22, 0, 0) },
+  { mNPS_SCHED_FIELD, mNPS_TIME_2_SEC(24, 0, 0) }
+};
+
+static mNPS_schedule_data_table_c tl_girl_schedule = mNPS_MAKE_SCHEDULE_TABLE(tl_girl_schedule_dt);
+static mNPS_schedule_data_table_c tl_ko_girl_schedule = mNPS_MAKE_SCHEDULE_TABLE(tl_ko_girl_schedule_dt);
+static mNPS_schedule_data_table_c tl_boy_schedule = mNPS_MAKE_SCHEDULE_TABLE(tl_boy_schedule_dt);
+static mNPS_schedule_data_table_c tl_sport_man_schedule = mNPS_MAKE_SCHEDULE_TABLE(tl_sport_man_schedule_dt);
+static mNPS_schedule_data_table_c tl_grim_man_schedule = mNPS_MAKE_SCHEDULE_TABLE(tl_grim_man_schedule_dt);
+static mNPS_schedule_data_table_c tl_naniwa_lady_schedule = mNPS_MAKE_SCHEDULE_TABLE(tl_naniwa_lady_schedule_dt);
+
+static mNPS_schedule_data_table_c* mNPS_town_life_schedule[mNpc_LOOKS_NUM] = {
+  &tl_girl_schedule,
+  &tl_ko_girl_schedule,
+  &tl_boy_schedule,
+  &tl_sport_man_schedule,
+  &tl_grim_man_schedule,
+  &tl_naniwa_lady_schedule
+};
+
+/* Percent of each personality who stay in when it rains (half that in light rain); the rest like it */
+static const u8 mNPS_rain_stay_in[mNpc_LOOKS_NUM] = { 40, 15, 55, 10, 30, 65 };
+
+/* A villager's own shift of the day, -30 to +30 minutes, from their id */
+static int mNPS_town_life_shift(const AnmPersonalID_c* id) {
+  u32 h = (u32)id->npc_id * 2654435761u + id->name_id * 40503u;
+
+  return ((int)((h >> 16) % 61) - 30) * 60;
+}
+
+/* Whether a villager stays in today in this rain: the same answer all day */
+static int mNPS_town_life_rain_stay_in(const AnmPersonalID_c* id) {
+  const lbRTC_time_c* now = Common_GetPointer(time.rtc_time);
+  u32 h;
+  int percent;
+
+  if (Common_Get(weather) != mEnv_WEATHER_RAIN || id->looks >= mNpc_LOOKS_NUM) {
+    return FALSE;
+  }
+
+  percent = mNPS_rain_stay_in[id->looks];
+  if (Common_Get(weather_intensity) <= mEnv_WEATHER_INTENSITY_LIGHT) {
+    percent /= 2;
+  }
+
+  h = ((u32)id->npc_id * 2246822519u) ^ ((u32)(now->year * 372 + now->month * 31 + now->day) * 3266489917u);
+  return (int)((h >> 8) % 100) < percent;
+}
+
+/* The schedule entry type for id at now_sec in table */
+static u32 mNPS_lookup(mNPS_schedule_data_table_c* table, int now_sec) {
+  mNPS_schedule_data_c* entry = table->sched_data;
+  int count;
+
+  for (count = table->count; count != 0; count--) {
+    if (entry->end_time > now_sec) {
+      break;
+    }
+
+    entry++;
+  }
+
+  if (count == 0) {
+    entry--;
+  }
+
+  return entry->type;
+}
+
+/* For tests: whether a villager is outside at now_sec, on the town life schedule or the original */
+extern int mNPS_test_outside(const AnmPersonalID_c* id, int now_sec, int town_life) {
+  if (id->looks >= mNpc_LOOKS_NUM) {
+    return FALSE;
+  }
+
+  if (town_life) {
+    now_sec = (now_sec - mNPS_town_life_shift(id) + 24 * 60 * 60) % (24 * 60 * 60);
+    return mNPS_lookup(mNPS_town_life_schedule[id->looks], now_sec) == mNPS_SCHED_FIELD &&
+           !mNPS_town_life_rain_stay_in(id);
+  }
+
+  return mNPS_lookup(mNPS_schedule[id->looks], now_sec) == mNPS_SCHED_FIELD;
+}
+#endif
+
 extern mNPS_schedule_c* mNPS_get_schedule_area(AnmPersonalID_c* anm_id) {
   mNPS_schedule_c* schedule = Common_Get(npc_schedule);
   int i;
@@ -153,6 +310,32 @@ static void mNPS_schedule_manager_sub(mNPS_schedule_c* schedule, int forced_tick
   int now_sec = Common_Get(time.now_sec);
   int count = schedule->data_table->count;
   mNPS_schedule_data_c* schedule_entry = schedule->data_table->sched_data;
+
+#ifdef ACGC_PORT
+  /* Town life: the longer, staggered days, and some stay in out of the rain */
+  if (mTL_IsEnabled() && schedule->id != NULL && schedule->id->looks < mNpc_LOOKS_NUM &&
+      schedule->data_table == mNPS_schedule[schedule->id->looks]) {
+    u32 type;
+
+    now_sec = (now_sec - mNPS_town_life_shift(schedule->id) + 24 * 60 * 60) % (24 * 60 * 60);
+    type = mNPS_lookup(mNPS_town_life_schedule[schedule->id->looks], now_sec);
+    if (type == mNPS_SCHED_FIELD && mNPS_town_life_rain_stay_in(schedule->id)) {
+      type = mNPS_SCHED_IN_HOUSE;
+    }
+
+    schedule->saved_type = type;
+    if (schedule->forced_timer > 0) {
+      schedule->current_type = schedule->forced_type;
+      schedule->forced_timer -= forced_ticks;
+      if (schedule->forced_timer < 0) {
+        schedule->forced_timer = 0;
+      }
+    } else {
+      schedule->current_type = schedule->saved_type;
+    }
+    return;
+  }
+#endif
 
   /* Locate our current scehdule entry */
   for (count; count != 0; count--) {

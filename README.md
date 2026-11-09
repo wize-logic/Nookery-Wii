@@ -21,6 +21,8 @@ Nookery-Wii is [Nookery](https://github.com/flyngmt/Nookery) with:
 - **Town life.** Villagers get things to do around town:
   - everyday activities that suit their personality, the hour, the weather and the season: sitting
     down, fishing, exercising, dozing, dancing, a drink, a phone call
+  - longer days outdoors, each villager on a slightly different clock, and some staying in when it
+    rains
 
 Both are settings, on by default, on every platform: Settings > Gameplay on PC and mobile, the
 launcher's Settings on the Wii. Saves keep their size and still work in the original game and in

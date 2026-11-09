@@ -13,6 +13,9 @@ extern void mNPS_set_island_schedule_area(AnmPersonalID_c* anm_id);
 extern void mNPS_reset_schedule_area(AnmPersonalID_c* anm_id);
 extern void mNPS_schedule_manager();
 extern void mNPS_set_all_schedule_area();
+#ifdef ACGC_PORT
+extern int mNPS_test_outside(const AnmPersonalID_c* id, int now_sec, int town_life);
+#endif
 
 #ifdef __cplusplus
 }

@@ -188,6 +188,15 @@ index cleared, or the game skips the new act's init.
 - **Measure:** villagers outside per hour, over a simulated day, before and
   after.
 
+**Result (done):** town life's own schedule tables in `m_npc_schedule.c`
+(shorter lunches indoors, longer evenings, each personality's shape kept),
+each villager's day shifted by up to half an hour by its id, and a share of
+each personality staying in when it rains (the same villagers all day, fewer
+in light rain; jocks and peppy villagers like the rain). One of each
+personality is out 13.5 h a day on average instead of 12.9 h, and 6 of 6 from
+13:00 to 20:00. The test town's 10 villagers, on a rainy day: 137
+villager-hours outside before, 148 after (`life_test = 3` logs both).
+
 ## Phase 6: visitors (M)
 
 - A daily visitor: some days, a villager from the game's roster who doesn't

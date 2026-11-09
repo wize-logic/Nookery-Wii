@@ -40,6 +40,7 @@
 #include "m_npc_life.h"
 #include "m_town_life.h"
 #include "m_kankyo.h"
+#include "m_npc_schedule.h"
 #include "ac_npc_anim_def.h"
 #include "ac_tools.h"
 #include "m_choice.h"
@@ -970,7 +971,8 @@ static void life_test(GAME_PLAY* play)
  *
  * life_test = 3 watches activities as they happen: every activity started, ended or interrupted
  * ("LIFETEST: act"), and each game minute how many villagers are busy ("LIFETEST: busy"). life_test_topic, when
- * set, is the percent of wander decisions that consider an activity.
+ * set, is the percent of wander decisions that consider an activity. First, how many of the town's villagers
+ * are outside at each hour of a simulated day, on the original schedules and on town life's.
  *
  * life_test = 4 is the animation and prop check: the villager nearest the player is brought beside it and
  * plays each candidate animation in turn (mTL_ACT_TEST), facing the camera, from life_test_topic on when set.
@@ -1127,6 +1129,29 @@ static void town_test(GAME_PLAY* play)
 
     if (g_nk_life_test == 3) {
         const lbRTC_time_c* t = Common_GetPointer(time.rtc_time);
+        if (last_min < 0) {
+            /* the town's villagers outside each hour of a simulated day (at half past), on the original
+             * schedules and on town life's (m_npc_schedule.c), in today's weather */
+            char line[2][80];
+            int h, mode, total[2] = {0, 0};
+            for (mode = 0; mode < 2; mode++) {
+                int len = 0;
+                for (h = 0; h < 24; h++) {
+                    int n = 0;
+                    for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+                        Animal_c* animal = &Save_Get(animals[i]);
+                        if (!mNpc_CheckFreeAnimalPersonalID(&animal->id)) {
+                            n += mNPS_test_outside(&animal->id, h * 3600 + 1800, mode);
+                        }
+                    }
+                    total[mode] += n;
+                    line[mode][len++] = n < 10 ? '0' + n : 'A' + n - 10;
+                }
+                line[mode][len] = '\0';
+            }
+            nk_wii_log("LIFETEST: outside by hour 00-23, original  %s (%d villager-hours)\n", line[0], total[0]);
+            nk_wii_log("LIFETEST: outside by hour 00-23, town life %s (%d villager-hours)\n", line[1], total[1]);
+        }
         if (field_frames < 200) {
             mTL_start_chance = g_nk_life_test_topic > 0 ? g_nk_life_test_topic : mTL_START_CHANCE;
         }
