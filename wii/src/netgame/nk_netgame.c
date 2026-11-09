@@ -982,7 +982,14 @@ static void life_test(GAME_PLAY* play)
  * life_test = 5 checks that activities end cleanly: the villager nearest the player fans itself (a prop and a
  * sub-animation) and is interrupted in turn by a chat with the player (the input script's A; the line it says
  * is logged), by rain starting and by its schedule sending it home. After each, "LIFETEST: after" says whether
- * the prop, the fan pose and the act are gone. */
+ * the prop, the fan pose and the act are gone.
+ *
+ * life_test = 6 watches gatherings: the villagers of the acre all become friends, but the first two become
+ * rivals; groups may form at any hour (life_test_topic: percent of decisions that try, default 60). Each group
+ * formed or ended is logged with its members ("LIFETEST: group"), screenshots are taken of groups, and each
+ * game minute says how often friends were within 100 units of each other ("LIFETEST: friends close"). After
+ * five minutes, one villager is sent home, and a friend should walk it there ("LIFETEST: escort"). With
+ * town_life = 0 the same log gives the baseline. */
 typedef struct {
     const char* name;
     u8 anim;
@@ -1239,6 +1246,199 @@ static void town_test_interrupt(GAME_PLAY* play)
     }
 }
 
+static void town_test_groups(GAME_PLAY* play)
+{
+    static int seeded;
+    static int frames;
+    static int formed_seen, ended_seen, escorts_seen;
+    static int close_n, close_total;
+    static int last_min = -1;
+    static int shots;
+    static int shot_frames = -1;
+    static int rival[2] = {-1, -1};
+    static int home_idx = -1;
+    Animal_c* animals = Save_Get(animals);
+    Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+    const lbRTC_time_c* t = Common_GetPointer(time.rtc_time);
+    ACTOR* a;
+    int n, g, i;
+
+    frames++;
+    if (!seeded) {
+        int ids[ANIMAL_NUM_MAX], count = 0;
+        if (frames < 60 || (list->num_actors < 3 && frames < 900)) {
+            return;
+        }
+        for (a = list->actor, n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+            int idx;
+            if (ITEM_NAME_GET_TYPE(a->npc_id) != NAME_TYPE_NPC) {
+                continue;
+            }
+            idx = mNL_GetAnimalIdx(((NPC_ACTOR*) a)->npc_info.animal);
+            if (idx >= 0) {
+                ids[count++] = idx;
+            }
+        }
+        for (i = 0; i < count; i++) {
+            for (n = 0; n < count; n++) {
+                if (i != n) {
+                    animals[ids[i]].animal_relations[ids[n]] = 200;
+                }
+            }
+        }
+        if (count >= 3) {
+            rival[0] = ids[0];
+            rival[1] = ids[1];
+            animals[ids[0]].animal_relations[ids[1]] = 60;
+            animals[ids[1]].animal_relations[ids[0]] = 60;
+        }
+        mTL_test_group_any_hour = TRUE;
+        mTL_group_chance = g_nk_life_test_topic > 0 ? g_nk_life_test_topic : 60;
+        mTL_start_chance = 0;
+        seeded = 1;
+        frames = 60;
+        nk_wii_log("LIFETEST: %d villagers here made friends, rivals %d and %d; town life %d\n", count, rival[0],
+                   rival[1], mTL_IsEnabled());
+    }
+
+    if (mTL_stats.groups_formed != formed_seen || mTL_stats.groups_ended != ended_seen) {
+        formed_seen = mTL_stats.groups_formed;
+        ended_seen = mTL_stats.groups_ended;
+        for (g = 0; g < mTL_GROUP_NUM; g++) {
+            mTL_group_c* gr = &mTL_groups[g];
+            int with_rivals = 0, has0 = 0, has1 = 0;
+            if (!gr->active) {
+                continue;
+            }
+            for (i = 0; i < gr->count; i++) {
+                has0 |= gr->members[i] == rival[0];
+                has1 |= gr->members[i] == rival[1];
+            }
+            with_rivals = has0 && has1;
+            nk_wii_log("LIFETEST: group %d: %d members %d %d %d %d, %d s%s\n", g, gr->count, gr->members[0],
+                       gr->members[1], gr->count > 2 ? gr->members[2] : -1, gr->count > 3 ? gr->members[3] : -1,
+                       gr->seconds, with_rivals ? " WITH RIVALS" : "");
+        }
+        nk_wii_log("LIFETEST: groups formed %d ended %d (members %d), last interruption by act %d\n",
+                   mTL_stats.groups_formed, mTL_stats.groups_ended, mTL_stats.group_members,
+                   mTL_stats.last_interrupt_act);
+    }
+
+    if (frames % 60 == 0 && frames < 60 * 150) {
+        /* (where each group member is) */
+        for (g = 0; g < mTL_GROUP_NUM; g++) {
+            mTL_group_c* gr = &mTL_groups[g];
+            for (i = 0; gr->active && i < gr->count; i++) {
+                mTL_villager_c* v = mTL_GetVillager(gr->members[i]);
+                NPC_ACTOR* npc = gr->members[i] >= 0 ? town_test_npc(play, gr->members[i]) : NULL;
+                xyz_t spot;
+                if (v == NULL || npc == NULL) {
+                    continue;
+                }
+                spot.x = v->spot_x;
+                spot.y = 0.0f;
+                spot.z = v->spot_z;
+                nk_wii_log("LIFETEST: member %d state %d tries %d act %d step %d think %d dist %.0f arrived %d\n",
+                           gr->members[i], (int) v->state, (int) v->tries, (int) npc->action.idx,
+                           (int) npc->action.step, (int) npc->think.idx,
+                           (double) search_position_distanceXZ(&npc->actor_class.world.position, &spot),
+                           (gr->arrived >> i) & 1);
+            }
+        }
+    }
+
+    /* a screenshot once a group has gathered */
+    for (g = 0; g < mTL_GROUP_NUM && shot_frames < 0 && shots < 6; g++) {
+        static int shot_seq[mTL_GROUP_NUM];
+        mTL_group_c* gr = &mTL_groups[g];
+        int arrived = 0;
+        for (i = 0; i < gr->count; i++) {
+            arrived += (gr->arrived >> i) & 1;
+        }
+        if (gr->active && arrived >= 2 && gr->turn_seq >= 2 && shot_seq[g] != mTL_stats.groups_formed) {
+            PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+            shot_seq[g] = mTL_stats.groups_formed;
+            shot_frames = 0;
+            if (player != NULL) {
+                /* the player beside the group, so the camera sees it */
+                player->actor_class.world.position.x = gr->center_x + 80.0f;
+                player->actor_class.world.position.z = gr->center_z - 40.0f;
+            }
+        }
+    }
+    if (shot_frames >= 0 && ++shot_frames == 90) {
+        nk_wii_log("LIFETEST: shot %d group\n", ++shots);
+        shot_frames = -1;
+    }
+
+    if (frames % 60 == 0) {
+        /* friend pairs among the villagers here, and how many are close */
+        ACTOR* b;
+        int m;
+        for (a = list->actor, n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+            int ia = ITEM_NAME_GET_TYPE(a->npc_id) == NAME_TYPE_NPC ? mNL_GetAnimalIdx(((NPC_ACTOR*) a)->npc_info.animal) : -1;
+            if (ia < 0) {
+                continue;
+            }
+            for (b = a->next_actor, m = n - 1; m != 0 && b != NULL; m--, b = b->next_actor) {
+                int ib = ITEM_NAME_GET_TYPE(b->npc_id) == NAME_TYPE_NPC ? mNL_GetAnimalIdx(((NPC_ACTOR*) b)->npc_info.animal) : -1;
+                if (ib < 0 || animals[ia].animal_relations[ib] < mNL_RELATION_FRIEND ||
+                    animals[ib].animal_relations[ia] < mNL_RELATION_FRIEND) {
+                    continue;
+                }
+                close_total++;
+                close_n += search_position_distanceXZ(&a->world.position, &b->world.position) < 100.0f;
+            }
+        }
+    }
+    if (t->min != last_min) {
+        if (last_min >= 0) {
+            nk_wii_log("LIFETEST: friends close %02d:%02d %d of %d (%d%%), groups formed %d\n", (int) t->hour,
+                       (int) t->min, close_n, close_total, close_total ? close_n * 100 / close_total : 0,
+                       mTL_stats.groups_formed);
+        }
+        last_min = t->min;
+    }
+
+    /* after five minutes, someone goes home: a friend should walk them */
+    if (frames == 60 * 60 * 5) {
+        for (a = list->actor, n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+            NPC_ACTOR* npc = (NPC_ACTOR*) a;
+            int idx = ITEM_NAME_GET_TYPE(a->npc_id) == NAME_TYPE_NPC ? mNL_GetAnimalIdx(npc->npc_info.animal) : -1;
+            if (idx >= 0 && idx != rival[0] && npc->npc_info.schedule != NULL) {
+                mTL_test_group_any_hour = TRUE;
+                mTL_group_chance = 0;
+                npc->npc_info.schedule->forced_type = mNPS_SCHED_IN_HOUSE;
+                npc->npc_info.schedule->forced_timer = 100000;
+                home_idx = idx;
+                nk_wii_log("LIFETEST: villager %d sent home\n", idx);
+                break;
+            }
+        }
+    }
+    if (mTL_stats.escorts != escorts_seen) {
+        escorts_seen = mTL_stats.escorts;
+        nk_wii_log("LIFETEST: escort %d starts walking %d home\n", mTL_stats.last_villager, home_idx);
+    }
+    if (home_idx >= 0 && frames % 120 == 0 && frames < 60 * 60 * 6) {
+        for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+            mTL_villager_c* v = mTL_GetVillager(i);
+            NPC_ACTOR* e = town_test_npc(play, i);
+            NPC_ACTOR* h = town_test_npc(play, home_idx);
+            if (v != NULL && v->state == mTL_STATE_ESCORT && e != NULL && h != NULL) {
+                nk_wii_log("LIFETEST: escort %d beside %d: dist %.0f%s\n", i, home_idx,
+                           (double) search_position_distanceXZ(&e->actor_class.world.position,
+                                                               &h->actor_class.world.position),
+                           h->condition_info.hide_flg ? " (home)" : "");
+            }
+        }
+    }
+    if (frames == 60 * 60 * 6) {
+        nk_wii_log("LIFETEST: gathering test done (groups formed %d, members %d, escorts %d, friends close %d of %d)\n",
+                   mTL_stats.groups_formed, mTL_stats.group_members, mTL_stats.escorts, close_n, close_total);
+    }
+}
+
 static void town_test(GAME_PLAY* play)
 {
     static int field_frames;
@@ -1358,6 +1558,10 @@ static void town_test(GAME_PLAY* play)
 
     if (g_nk_life_test == 5) {
         town_test_interrupt(play);
+        return;
+    }
+    if (g_nk_life_test == 6) {
+        town_test_groups(play);
         return;
     }
 

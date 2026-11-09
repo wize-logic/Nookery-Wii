@@ -107,7 +107,9 @@ enum {
     mTL_ACT_WAVE_FLAG,
 
     mTL_ACT_NUM,
-    mTL_ACT_TEST = mTL_ACT_NUM /* mTL_test_entry, for tests */
+    mTL_ACT_TEST = mTL_ACT_NUM, /* mTL_test_entry, for tests */
+    mTL_ACT_CHAT,               /* standing in a group (mTL_group_c), taking turns to talk */
+    mTL_ACT_ESCORT,             /* walking a friend home */
 };
 
 /* Per-villager state (memory only) */
@@ -115,6 +117,7 @@ enum {
     mTL_STATE_IDLE,  /* wandering */
     mTL_STATE_GOING, /* walking to the activity's spot */
     mTL_STATE_DOING, /* playing the activity */
+    mTL_STATE_ESCORT, /* walking beside a friend who is going home */
 };
 
 typedef struct {
@@ -132,7 +135,53 @@ typedef struct {
     void* prop;    /* the prop actor held, or NULL */
     u8 talk_activity; /* the activity + 1 the player's chat interrupted, or 0 */
     int talk_sec;     /* when */
+    s8 group;         /* mTL_groups index while in a group, else -1 (only meaningful when not idle) */
+    u8 turn_seen;     /* the group's turn this villager last reacted to */
+    s8 escort;        /* the friend (Save animals index) being walked home, for mTL_ACT_ESCORT */
+    s16 last_dist;    /* distance to the spot at the last walk toward it */
 } mTL_villager_c;
+
+/*
+ * Gatherings: at set times a villager may call friends in the same acre over to a spot (the plaza, a tree, the
+ * river bank, open ground). Two to four stand in a circle facing the center and take turns to talk and react.
+ * Rivals of anyone in the group don't join. Meeting counts like a greeting (opinions, news), and the group
+ * breaks up after a few minutes or when its members' schedules change.
+ */
+#define mTL_GROUP_NUM 4
+#define mTL_GROUP_MAX 4
+#define mTL_GROUP_TURN_SEC 4 /* how long each member talks */
+
+typedef struct {
+    u8 active;
+    u8 count;
+    s8 members[mTL_GROUP_MAX]; /* Save animals indices, -1 for a member who left */
+    u8 arrived;                /* bits of members at their places */
+    u8 met;                    /* bits of members whose meeting with the others was counted */
+    u8 turn;                   /* the member talking */
+    u8 turn_seq;               /* increases with each turn */
+    s16 center_x;
+    s16 center_z;
+    int start_sec;
+    int seconds;
+    int turn_sec;
+} mTL_group_c;
+
+extern mTL_group_c mTL_groups[mTL_GROUP_NUM];
+
+/* Hours villagers gather in, and the percent of wander decisions in them that try to start a group */
+#define mTL_GROUP_CHANCE 20
+extern int mTL_group_chance;
+extern int mTL_GatherHour(void);
+/* A free group, or -1 */
+extern int mTL_NewGroup(void);
+/* A member leaves (interrupted, or the group's time is up); the group ends below two members */
+extern void mTL_LeaveGroup(int idx);
+/* Advances the turns; returns the talking member's Save animals index, or -1 */
+extern int mTL_GroupTurn(int group);
+/* Two members meet: like a greeting (opinions and news), once per pair and group */
+extern void mTL_GroupMeet(int a_idx, int b_idx);
+/* Seconds of game time since since_sec */
+extern int mTL_SecondsSince(int since_sec);
 
 extern const mTL_activity_c mTL_activity_table[mTL_ACT_NUM];
 /* An activity of the table, or mTL_test_entry for mTL_ACT_TEST */
@@ -165,6 +214,9 @@ extern int mTL_start_chance;
 /* Decisions to wait after an activity before another */
 #define mTL_COOLDOWN 6
 
+/* Tests: groups form at any hour */
+extern int mTL_test_group_any_hour;
+
 /* Tests: start only this activity (-1: any), in place, only for this villager (-1: any), for this many
  * seconds (0: the activity's own) */
 extern int mTL_test_activity;
@@ -183,6 +235,10 @@ typedef struct {
     int last_event; /* 1 started, 2 ended, 3 interrupted */
     int events;     /* increases with every start/end/interruption */
     int last_interrupt_act; /* the act (aNPC_ACT_*) that took over at the last interruption */
+    int groups_formed;
+    int groups_ended;
+    int group_members; /* members of all groups formed */
+    int escorts;
 } mTL_stats_c;
 extern mTL_stats_c mTL_stats;
 extern void mTL_NoteEvent(int idx, int act, int event);

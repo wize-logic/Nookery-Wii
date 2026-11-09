@@ -23,6 +23,8 @@ Nookery-Wii is [Nookery](https://github.com/flyngmt/Nookery) with:
     down, fishing, exercising, dozing, dancing, a drink, a phone call
   - longer days outdoors, each villager on a slightly different clock, and some staying in when it
     rains
+  - gatherings: friends meet on the plaza or in the open and talk in turns, and in the evening one
+    walks another home
 
 Both are settings, on by default, on every platform: Settings > Gameplay on PC and mobile, the
 launcher's Settings on the Wii. Saves keep their size and still work in the original game and in

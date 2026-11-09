@@ -50,6 +50,7 @@ static void aNPC_tl_stop(NPC_ACTOR* nactorx, int event) {
     }
 
     aNPC_tl_prop_off(nactorx, v);
+    mTL_LeaveGroup(mNL_GetAnimalIdx(nactorx->npc_info.animal));
     if (event == 3 && nactorx->condition_info.talk_condition != aNPC_TALK_TYPE_NONE) {
         /* the player came to chat: they may say what they were doing */
         mTL_NoteTalk(mNL_GetAnimalIdx(nactorx->npc_info.animal));
@@ -57,6 +58,31 @@ static void aNPC_tl_stop(NPC_ACTOR* nactorx, int event) {
     mTL_NoteEvent(mNL_GetAnimalIdx(nactorx->npc_info.animal), v->activity, event);
     v->state = mTL_STATE_IDLE;
     v->cooldown = mTL_test_activity >= 0 ? 0 : mTL_COOLDOWN;
+}
+
+/* In a group: the talking member speaks, the others listen and sometimes react */
+static void aNPC_tl_chat(NPC_ACTOR* nactorx, mTL_villager_c* v, int idx) {
+    static const u8 talk_anim[] = { aNPC_ANIM_SMILE1, aNPC_ANIM_HAPPY1, aNPC_ANIM_HIRAMEKI1, aNPC_ANIM_KIDUKU1 };
+    static const u8 react_anim[] = { aNPC_ANIM_CLAP1, aNPC_ANIM_HAPPY1, aNPC_ANIM_SMILE1 };
+    mTL_group_c* g = &mTL_groups[v->group];
+    int speaker = mTL_GroupTurn(v->group);
+
+    if (g->turn_seq != v->turn_seen && speaker >= 0) {
+        int anim = aNPC_ANIM_WAIT1;
+
+        v->turn_seen = g->turn_seq;
+        if (speaker == idx) {
+            anim = talk_anim[RANDOM(ARRAY_COUNT(talk_anim))];
+        } else if (RANDOM(100) < 35) {
+            anim = react_anim[RANDOM(ARRAY_COUNT(react_anim))];
+        }
+        nactorx->draw.animation_id = -1;
+        aNPC_Animation_init((ACTOR*)nactorx, anim, FALSE);
+        v->repeats++;
+    } else if (nactorx->draw.main_animation_state == cKF_STATE_STOPPED) {
+        /* (a reaction done: back to listening) */
+        aNPC_Animation_init((ACTOR*)nactorx, aNPC_ANIM_WAIT1, FALSE);
+    }
 }
 
 static void aNPC_tl_start_anim(NPC_ACTOR* nactorx, const mTL_activity_c* a) {
@@ -95,6 +121,16 @@ static void aNPC_act_town_life_main_proc(NPC_ACTOR* nactorx, GAME_PLAY* play) {
             break;
         case aNPC_ACT_TL_STEP_DO:
             nactorx->movement.mv_angl = v->angle;
+            if (v->activity == mTL_ACT_CHAT) {
+                if (v->group < 0 || !mTL_groups[v->group].active || !aNPC_tl_wandering(nactorx)) {
+                    aNPC_tl_stop(nactorx, 2);
+                    aNPC_setupAction(nactorx, aNPC_ACTION_TYPE_WAIT);
+                    nactorx->action.step = aNPC_ACTION_END_STEP;
+                } else {
+                    aNPC_tl_chat(nactorx, v, mNL_GetAnimalIdx(nactorx->npc_info.animal));
+                }
+                break;
+            }
             if (nactorx->draw.main_animation_state == cKF_STATE_STOPPED) {
                 /* a one-shot animation: again, from its start */
                 nactorx->draw.animation_id = -1;
@@ -135,6 +171,14 @@ static void aNPC_town_life_act_proc(NPC_ACTOR* nactorx, GAME_PLAY* play, int typ
     };
 
     (*act_proc[type])(nactorx, play);
+}
+
+/* Walking to or standing in a group */
+static int aNPC_tl_in_group(NPC_ACTOR* nactorx) {
+    mTL_villager_c* v = aNPC_tl_get(nactorx);
+
+    return v != NULL && v->state != mTL_STATE_IDLE && v->activity == mTL_ACT_CHAT && v->group >= 0 &&
+           mTL_groups[v->group].active;
 }
 
 /* The hand is wanted for something else (an umbrella) */

@@ -154,6 +154,19 @@ showed the fan line. In 8 game minutes at a 50% start chance, 3 villagers did
 - **Test:** count groups and their members by game hour in watch mode, and
   measure how often friends end up within 100 units of each other.
 
+**Result (done):** groups form in the villager's own acre (only loaded
+villagers can be called over) on open ground or the plaza, with room for the
+circle checked tile by tile. Members walking to or standing in a group don't
+trigger the game's own greetings, which would break the group up; their
+meeting counts instead (`mTL_GroupMeet`: opinions, news, "new friends").
+Members keep walking while they make progress (walks pause for the game's
+fatigue rests) and stop when close enough. In the evening, a free friend in
+the same acre walks a villager who heads home (stays 43 to 58 units beside
+them in Dolphin). `life_test = 6` makes the acre's villagers friends and two
+of them rivals: groups of two and three formed and lasted their full time,
+the rivals never shared one, and friends were within 100 units 41% of the
+time against 35% with town life off (6 game minutes each).
+
 ## Phase 3: overheard chatter (M)
 
 - **Speech bubbles:** a small balloon drawn above a villager:

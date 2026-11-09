@@ -49,6 +49,10 @@ static void aNPC_think_go_home_init_proc(NPC_ACTOR* nactorx, GAME_PLAY* play) {
     nactorx->movement.range_type = aNPC_MOVE_RANGE_TYPE_BLOCK;
     nactorx->think.interrupt_flags = aNPC_THINK_INTERRUPT_OBSTACLE;
     aNPC_set_request_go_home_act(nactorx);
+#if defined(ACGC_PORT) && !defined(aNPC_NPC2)
+    /* Town life: in the evening, a friend walks them home */
+    aNPC_tl_going_home(nactorx);
+#endif
 }
 
 static void aNPC_think_go_home_proc(NPC_ACTOR* nactorx, GAME_PLAY* play, int proc_type) {

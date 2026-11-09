@@ -63,6 +63,19 @@ const mTL_activity_c mTL_activity_table[mTL_ACT_NUM] = {
 // clang-format on
 
 static mTL_villager_c mTL_villagers[ANIMAL_NUM_MAX];
+mTL_group_c mTL_groups[mTL_GROUP_NUM];
+int mTL_group_chance = mTL_GROUP_CHANCE;
+int mTL_test_group_any_hour = FALSE;
+
+/* Standing in a group, and walking a friend home: not in the table, never chosen at random */
+static const mTL_activity_c mTL_chat_entry = {
+    "chat", aNPC_ANIM_WAIT1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE, mTL_PLACE_ANYWHERE, mTL_LINE_NONE,
+    { 0, 0, 0, 0, 0, 0 }, 0, 24, mTL_WEATHER_ANY, mTL_SEASON_ANY, 60, 180,
+};
+static const mTL_activity_c mTL_escort_entry = {
+    "escort", aNPC_ANIM_WALK1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE, mTL_PLACE_ANYWHERE, mTL_LINE_NONE,
+    { 0, 0, 0, 0, 0, 0 }, 0, 24, mTL_WEATHER_ANY, mTL_SEASON_ANY, 30, 45,
+};
 
 int mTL_start_chance = mTL_START_CHANCE;
 int mTL_talk_chance = mTL_TALK_CHANCE;
@@ -75,6 +88,12 @@ mTL_stats_c mTL_stats;
 extern const mTL_activity_c* mTL_GetActivity(int act) {
     if (act == mTL_ACT_TEST) {
         return &mTL_test_entry;
+    }
+    if (act == mTL_ACT_CHAT) {
+        return &mTL_chat_entry;
+    }
+    if (act == mTL_ACT_ESCORT) {
+        return &mTL_escort_entry;
     }
 
     return &mTL_activity_table[(act >= 0 && act < mTL_ACT_NUM) ? act : 0];
@@ -96,7 +115,12 @@ extern void mTL_ClearVillager(int idx) {
     mTL_villager_c* v = mTL_GetVillager(idx);
 
     if (v != NULL) {
+        if (v->state != mTL_STATE_IDLE) {
+            mTL_LeaveGroup(idx);
+        }
         bzero(v, sizeof(*v));
+        v->group = -1;
+        v->escort = -1;
     }
 }
 
@@ -156,21 +180,149 @@ extern int mTL_CountBusy(void) {
     int i;
 
     for (i = 0; i < ANIMAL_NUM_MAX; i++) {
-        n += mTL_villagers[i].state == mTL_STATE_DOING;
+        n += mTL_villagers[i].state == mTL_STATE_DOING && mTL_villagers[i].activity != mTL_ACT_ESCORT;
     }
 
     return n;
 }
 
-extern int mTL_SecondsDoing(const mTL_villager_c* v) {
-    int now = Common_Get(time.now_sec);
-    int d = now - v->start_sec;
+extern int mTL_SecondsSince(int since_sec) {
+    int d = Common_Get(time.now_sec) - since_sec;
 
     if (d < 0) {
         d += 24 * 60 * 60;
     }
 
     return d;
+}
+
+extern int mTL_SecondsDoing(const mTL_villager_c* v) {
+    return mTL_SecondsSince(v->start_sec);
+}
+
+extern int mTL_GatherHour(void) {
+    int hour = Common_Get(time.rtc_time).hour;
+
+    /* morning, after lunch, evening */
+    return mTL_test_group_any_hour || (hour >= 8 && hour < 10) || (hour >= 13 && hour < 15) ||
+           (hour >= 17 && hour < 20);
+}
+
+extern int mTL_NewGroup(void) {
+    int i;
+
+    for (i = 0; i < mTL_GROUP_NUM; i++) {
+        if (!mTL_groups[i].active) {
+            bzero(&mTL_groups[i], sizeof(mTL_groups[i]));
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+static void mTL_EndGroup(int group) {
+    mTL_group_c* g = &mTL_groups[group];
+
+    if (g->active) {
+        g->active = FALSE;
+        mTL_stats.groups_ended++;
+    }
+}
+
+extern void mTL_LeaveGroup(int idx) {
+    mTL_villager_c* v = mTL_GetVillager(idx);
+    mTL_group_c* g;
+    int left = 0;
+    int i;
+
+    if (v == NULL || v->group < 0 || v->group >= mTL_GROUP_NUM) {
+        return;
+    }
+
+    g = &mTL_groups[v->group];
+    v->group = -1;
+    for (i = 0; i < g->count; i++) {
+        if (g->members[i] == idx) {
+            break;
+        }
+    }
+    if (!g->active || i == g->count) {
+        return;
+    }
+
+    g->members[i] = -1;
+    g->arrived &= ~(1 << i);
+    for (i = 0; i < g->count; i++) {
+        left += g->members[i] >= 0;
+    }
+
+    if (left < 2) {
+        mTL_EndGroup((int)(g - mTL_groups));
+    }
+}
+
+extern int mTL_GroupTurn(int group) {
+    mTL_group_c* g;
+    int i;
+
+    if (group < 0 || group >= mTL_GROUP_NUM || !mTL_groups[group].active) {
+        return -1;
+    }
+
+    g = &mTL_groups[group];
+    if (mTL_SecondsSince(g->start_sec) >= g->seconds) {
+        mTL_EndGroup(group);
+        return -1;
+    }
+
+    if (g->members[g->turn] < 0 || !(g->arrived & (1 << g->turn)) || mTL_SecondsSince(g->turn_sec) >= mTL_GROUP_TURN_SEC) {
+        /* the next member at their place */
+        for (i = 1; i <= g->count; i++) {
+            int t = (g->turn + i) % g->count;
+
+            if (g->members[t] >= 0 && (g->arrived & (1 << t))) {
+                g->turn = t;
+                g->turn_seq++;
+                g->turn_sec = Common_Get(time.now_sec);
+                return g->members[t];
+            }
+        }
+
+        return -1;
+    }
+
+    return g->members[g->turn];
+}
+
+extern void mTL_GroupMeet(int a_idx, int b_idx) {
+    Animal_c* animals = Save_Get(animals);
+    int i;
+
+    if (!mNL_IsEnabled() || a_idx < 0 || b_idx < 0 || a_idx >= ANIMAL_NUM_MAX || b_idx >= ANIMAL_NUM_MAX ||
+        a_idx == b_idx) {
+        return;
+    }
+
+    for (i = 0; i < 2; i++) {
+        Animal_c* animal = &animals[i == 0 ? a_idx : b_idx];
+        int other = i == 0 ? b_idx : a_idx;
+        int rel = animal->animal_relations[other];
+
+        /* a chat among friends: friends grow closer, acquaintances a little */
+        rel += rel >= mNL_RELATION_FRIEND ? 3 : 1;
+        animal->animal_relations[other] = MIN(255, rel);
+    }
+
+    if (animals[a_idx].animal_relations[b_idx] >= mNL_RELATION_FRIEND &&
+        animals[b_idx].animal_relations[a_idx] >= mNL_RELATION_FRIEND &&
+        (animals[a_idx].animal_relations[b_idx] < mNL_RELATION_FRIEND + 3 ||
+         animals[b_idx].animal_relations[a_idx] < mNL_RELATION_FRIEND + 3)) {
+        /* (one of them just crossed the line) */
+        mNL_RecordPairEvent(mNL_EVENT_NEW_FRIENDS, a_idx, b_idx);
+    }
+
+    mNL_ShareNews(&animals[a_idx], &animals[b_idx]);
 }
 
 extern int mTL_SpotTaken(int idx, const xyz_t* pos) {
