@@ -1,5 +1,9 @@
 # Town life plan
 
+**Status:** all phases are in (Phase 0 `138acfd2`, 5 `cd2282cd`, 1 `cd2db3e9`,
+2 `db9cd292`, 3 `0d759711`, 4 `9a1c3dd7`, 6 `08930eb5`, 7 `e5b08505`), each
+checked in Dolphin; results under each phase. Not yet tried on a real Wii.
+
 Make the 5×6 town feel busier and more lived-in: villagers with things to do,
 places to gather, chatter you overhear, small changes they make to the town,
 more of them outside, visitors, and weather and night moments.
@@ -322,6 +326,14 @@ and a stargazer turning all the way round.
   actors, apart from snowmen, which are already ground items.
 - **Bubbles:** one display list each, at most two on screen.
 - **Check:** measure frame time in Dolphin and on hardware with a busy plaza.
+
+**Result:** one toggle covers everything. Props are tool actors (one per busy
+villager holding one) and a visitor is one villager actor; bubbles draw the
+game's balloon, at most two. The town tests log the time between play frames
+every ten seconds: with `life_test = 7` (friends gathering, activities and
+bubbles, up to three villagers busy at once) frames averaged 16.68 ms with
+the slowest at about 23 ms and none over 40 ms, the same as with town life
+off, in Dolphin. Not yet measured on a real Wii.
 
 ## Order and size
 

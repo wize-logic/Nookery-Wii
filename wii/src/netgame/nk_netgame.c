@@ -1954,6 +1954,29 @@ static void town_test_weather(GAME_PLAY* play)
     }
 }
 
+/* Frame time: the time between play frames, in the emulated (or real) clock, so a frame whose work runs over its
+ * budget shows as a long one; logged every ten seconds on the streets ("LIFETEST: frame time") */
+static void town_test_frame_time(void)
+{
+    static OSTime last;
+    static u32 sum_us, max_us, frames, slow;
+    OSTime now = OSGetTime();
+
+    if (last != 0) {
+        u32 us = (u32) OSTicksToMicroseconds(now - last);
+        sum_us += us;
+        max_us = us > max_us ? us : max_us;
+        slow += us > 40000; /* (longer than a 30 fps frame and then some) */
+        if (++frames == 600) {
+            nk_wii_log("LIFETEST: frame time avg %u.%02u ms, max %u.%02u ms, %u over 40 ms, %d villagers busy, %d bubbles\n",
+                       sum_us / frames / 1000, sum_us / frames / 10 % 100, max_us / 1000, max_us / 10 % 100, slow,
+                       mTL_CountBusy(), mTL_BubblesShowing());
+            sum_us = max_us = frames = slow = 0;
+        }
+    }
+    last = now;
+}
+
 static void town_test(GAME_PLAY* play)
 {
     static int field_frames;
@@ -1976,6 +1999,7 @@ static void town_test(GAME_PLAY* play)
         return;
     }
     field_frames++;
+    town_test_frame_time();
 
     if (!warped) {
         if (g_nk_life_test >= 4 && field_frames == 2) {
