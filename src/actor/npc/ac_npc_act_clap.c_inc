@@ -1,6 +1,9 @@
 static void aNPC_act_clap_main_proc(NPC_ACTOR* nactorx, GAME_PLAY* play) {
     if (!mPlib_check_player_actor_main_index_catch_insect((GAME*)play) &&
         !mPlib_check_player_actor_main_index_catch_fish((GAME*)play)) {
+#ifdef ACGC_PORT
+        mNL_SawPlayerCatch(nactorx->npc_info.animal);
+#endif
         nactorx->action.step = aNPC_ACTION_END_STEP;
     }
 }

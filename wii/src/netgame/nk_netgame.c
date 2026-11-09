@@ -625,17 +625,29 @@ static void travel_test(GAME_PLAY* play)
 }
 
 extern int g_nk_life_test;
+extern int g_nk_life_test_topic;
 
-/* settings life_test = 1, villager friendships (m_npc_life.h): on the
- * town's streets, two villagers become close friends and two others fall out,
- * every chat is gossip, the player is taken (as through a door) to the acre
- * with the most villagers, and the nearest villager not yet talked to is
- * brought in front of the player until the input script's A starts a chat.
- * Each message the window loads is logged ("LIFETEST: msg"); "LIFETEST:
- * gossip on screen N" comes 10 frames into the Nth gossip line.
- * life_test = 2 only watches: the same acre, no chats, and every two seconds
- * the distance between each two villagers there, with their opinions of each
- * other ("LIFETEST: pair"). */
+/* The topics life_test_topic = 99 goes through, one gossip line each */
+static const int s_life_cycle[] = {
+    mNL_TOPIC_SELF_MADE_UP,     mNL_TOPIC_SELF_FELL_OUT, mNL_TOPIC_NEWS_MADE_UP, mNL_TOPIC_NEWS_FELL_OUT,
+    mNL_TOPIC_NEWS_NEW_FRIENDS, mNL_TOPIC_PLAYER_CATCH,  mNL_TOPIC_PLAYER_FAN,   mNL_TOPIC_MOVING_SAD,
+    mNL_TOPIC_MOVING_GLAD,
+};
+
+/* settings life_test = 1, villager friendships (m_npc_life.h): on the town's
+ * streets, the drift is checked, two villagers become close friends and two
+ * others fall out, the villagers of the acre with the most of them get news to
+ * tell (made up, fell out, new friends, the player's catch) and opinions about
+ * the villager thinking of moving, every chat is gossip, the player is taken
+ * (as through a door) to that acre, and the nearest villager not yet talked to
+ * is brought to the player until the input script's A starts a chat. Each
+ * message the window loads is logged ("LIFETEST: msg"); "LIFETEST: gossip on
+ * screen N" comes 10 frames into the Nth gossip line. life_test_topic = N
+ * allows only topic N; 99 goes through the news, fan and moving topics.
+ * life_test = 2 only watches that acre: two of its villagers are rivals,
+ * always make up when they meet and are brought together every five seconds;
+ * every two seconds, the distance between each two villagers, their opinions
+ * of each other and how much news they know ("LIFETEST: pair"). */
 static void life_test(GAME_PLAY* play)
 {
     static int field_frames;
@@ -646,9 +658,14 @@ static void life_test(GAME_PLAY* play)
     static int gossip_count;
     static int talked_mask;
     static int talking_idx = -1;
+    static int acre[3];
+    static int acre_num;
+    static int warp_i = -1;
+    static int cycle;
     PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
     mMsg_Window_c* window = mMsg_Get_base_window_p();
     mNpc_NpcList_c* npclist = Common_Get(npclist);
+    Animal_c* animals = Save_Get(animals);
     int i;
 
     if (Save_Get(scene_no) != SCENE_FG || player == NULL) {
@@ -657,7 +674,6 @@ static void life_test(GAME_PLAY* play)
     field_frames++;
 
     if (!seeded && field_frames > 30) {
-        Animal_c* animals = Save_Get(animals);
         int town[4];
         int n = 0;
 
@@ -685,45 +701,90 @@ static void life_test(GAME_PLAY* play)
             animals[town[2]].animal_relations[town[3]] = 60;
             animals[town[3]].animal_relations[town[2]] = 90;
         }
+
         {
-            /* each topic's share of 50 picks for every villager (mNL_DecideGossipMsg), and the facts behind them */
-            static const u16 first[] = { 0, 24, 48, 72, 96, 120, 132, 144, 156 };
-            int counts[mNL_TOPIC_NUM];
-            int k, t, r;
-            bzero(counts, sizeof(counts));
-            /* a fan: villager town[2] very fond of the player, when they've met */
-            if (Now_Private != NULL) {
-                int m = mNpc_GetAnimalMemoryIdx(&Now_Private->player_ID, animals[town[2]].memories, ANIMAL_MEMORY_NUM);
-                if (m != -1) {
-                    animals[town[2]].memories[m].friendship = 90;
-                }
-            }
-            for (k = 0; k < ANIMAL_NUM_MAX; k++) {
-                if (mNpc_CheckFreeAnimalPersonalID(&animals[k].id)) {
+            /* the acre with the most villagers, and its villagers */
+            int count[FG_BLOCK_Z_NUM + 2][FG_BLOCK_X_NUM + 2];
+            int best = -1, bx, bz, wbx = -1, wbz = -1;
+
+            bzero(count, sizeof(count));
+            for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+                if (npclist[i].name == EMPTY_NO) {
                     continue;
                 }
-                for (r = 0; r < 50; r++) {
-                    int no = mNL_DecideGossipMsg(&animals[k], animals[k].id.looks) - mNL_MSG_BASE;
-                    for (t = 0; t < mNL_TOPIC_NUM; t++) {
-                        if (no >= first[t] && no < first[t + 1]) {
-                            counts[t]++;
-                        }
+                mFI_Wpos2BlockNum(&bx, &bz, npclist[i].position);
+                if (bz >= 0 && bz < FG_BLOCK_Z_NUM + 2 && bx >= 0 && bx < FG_BLOCK_X_NUM + 2 &&
+                    ++count[bz][bx] > best)
+                {
+                    best = count[bz][bx];
+                    warp_i = i;
+                    wbx = bx;
+                    wbz = bz;
+                }
+            }
+            for (i = 0; i < ANIMAL_NUM_MAX && acre_num < 3; i++) {
+                if (npclist[i].name != EMPTY_NO) {
+                    mFI_Wpos2BlockNum(&bx, &bz, npclist[i].position);
+                    if (bx == wbx && bz == wbz) {
+                        acre[acre_num++] = i;
                     }
                 }
             }
-            nk_wii_log("LIFETEST: topics like %d dislike %d close %d feud %d neutral %d fan %d moving-sad %d "
-                       "moving-glad %d; moving villager %d\n", counts[0], counts[1], counts[2], counts[3], counts[4],
-                       counts[5], counts[6], counts[7], (int) Save_Get(remove_animal_idx));
-            for (k = 0; k < ANIMAL_NUM_MAX; k++) {
-                int m = Now_Private != NULL ? mNpc_GetAnimalMemoryIdx(&Now_Private->player_ID, animals[k].memories,
-                                                                      ANIMAL_MEMORY_NUM) : -1;
-                if (m != -1 && animals[k].memories[m].friendship >= 40) {
-                    nk_wii_log("LIFETEST:   villager %d friendship with the player %d\n", k,
-                               animals[k].memories[m].friendship);
+        }
+
+        if (acre_num == 3) {
+            /* news to tell: acre[0] made up with acre[1], who fell out with acre[2]; acre[0] heard about two
+             * others becoming friends and about the falling out, acre[2] about the making up; acre[1] and
+             * acre[2] saw the player catch a fish */
+            int x = -1, y = -1, r = Save_Get(remove_animal_idx);
+            for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+                if (!mNpc_CheckFreeAnimalPersonalID(&animals[i].id) && i != acre[0] && i != acre[1] &&
+                    i != acre[2])
+                {
+                    if (x < 0) {
+                        x = i;
+                    } else if (y < 0) {
+                        y = i;
+                    }
                 }
             }
+            mNL_RecordPairEvent(mNL_EVENT_MADE_UP, acre[0], acre[1]);
+            mNL_RecordPairEvent(mNL_EVENT_FELL_OUT, acre[1], acre[2]);
+            if (y >= 0) {
+                mNL_RecordPairEvent(mNL_EVENT_NEW_FRIENDS, x, y);
+                mNL_TellNews(&animals[x], &animals[acre[0]]);
+            }
+            mNL_TellNews(&animals[acre[1]], &animals[acre[0]]);
+            mNL_TellNews(&animals[acre[0]], &animals[acre[2]]);
+            mNL_SetPlayerCatch(ITM_FISH_START + 10);
+            mNL_SawPlayerCatch(&animals[acre[1]]);
+            mNL_SawPlayerCatch(&animals[acre[2]]);
+            /* the villager thinking of moving: missed by acre[0], not by acre[2] */
+            if (r < ANIMAL_NUM_MAX && r != acre[0] && r != acre[2]) {
+                animals[acre[0]].animal_relations[r] = 200;
+                animals[acre[2]].animal_relations[r] = 60;
+            }
+            /* a fan of the player: acre[0], when they've met */
+            if (Now_Private != NULL) {
+                int m = mNpc_GetAnimalMemoryIdx(&Now_Private->player_ID, animals[acre[0]].memories,
+                                                ANIMAL_MEMORY_NUM);
+                if (m != -1) {
+                    animals[acre[0]].memories[m].friendship = 90;
+                }
+            }
+            if (g_nk_life_test == 2) {
+                /* rivals who always make up */
+                animals[acre[1]].animal_relations[acre[2]] = 60;
+                animals[acre[2]].animal_relations[acre[1]] = 60;
+                mNL_make_up_chance = 100;
+            }
+            nk_wii_log("LIFETEST: acre villagers %d %d %d know %d %d %d events (moving villager %d)\n", acre[0],
+                       acre[1], acre[2], mNL_CountEvents(&animals[acre[0]]), mNL_CountEvents(&animals[acre[1]]),
+                       mNL_CountEvents(&animals[acre[2]]), r);
         }
+
         mNL_gossip_chance = 100;
+        mNL_test_topic = g_nk_life_test_topic == 99 ? s_life_cycle[0] : g_nk_life_test_topic;
         /* past the first-job hints, which come before any chat (not saved: the test never saves) */
         if (Now_Private != NULL) {
             Now_Private->hint_count = 0x80;
@@ -734,38 +795,20 @@ static void life_test(GAME_PLAY* play)
     }
 
     if (seeded && !warped && field_frames > 60) {
-        /* the acre with the most villagers */
-        int count[FG_BLOCK_Z_NUM + 2][FG_BLOCK_X_NUM + 2];
-        int best = -1, best_i = -1;
-
-        bzero(count, sizeof(count));
-        for (i = 0; i < ANIMAL_NUM_MAX; i++) {
-            int bx, bz;
-            if (npclist[i].name == EMPTY_NO) {
-                continue;
-            }
-            mFI_Wpos2BlockNum(&bx, &bz, npclist[i].position);
-            if (bz >= 0 && bz < FG_BLOCK_Z_NUM + 2 && bx >= 0 && bx < FG_BLOCK_X_NUM + 2 &&
-                ++count[bz][bx] > best)
-            {
-                best = count[bz][bx];
-                best_i = i;
-            }
-        }
-        if (best_i >= 0) {
+        if (warp_i >= 0) {
             Door_data_c door;
             bzero(&door, sizeof(door));
             door.next_scene_id = SCENE_FG;
             door.exit_orientation = mSc_DIRECT_SOUTH;
-            door.exit_position.x = (s16) npclist[best_i].position.x;
-            door.exit_position.y = (s16) npclist[best_i].position.y;
-            door.exit_position.z = (s16) npclist[best_i].position.z;
+            door.exit_position.x = (s16) npclist[warp_i].position.x;
+            door.exit_position.y = (s16) npclist[warp_i].position.y;
+            door.exit_position.z = (s16) npclist[warp_i].position.z;
             door.door_actor_name = EMPTY_NO;
             door.wipe_type = WIPE_TYPE_FADE_BLACK;
             if (goto_other_scene(play, &door, TRUE) == TRUE) {
                 warped = 1;
-                nk_wii_log("LIFETEST: to %d villagers around villager %d (%d,%d)\n", best, best_i,
-                           (int) door.exit_position.x, (int) door.exit_position.z);
+                nk_wii_log("LIFETEST: to villager %d's acre (%d,%d)\n", warp_i, (int) door.exit_position.x,
+                           (int) door.exit_position.z);
             }
         } else {
             warped = 1;
@@ -774,10 +817,31 @@ static void life_test(GAME_PLAY* play)
     }
 
     if (warped && g_nk_life_test == 2) {
+        Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+        ACTOR* a = list->actor;
+        int n;
+
+        if (field_frames % 300 == 0 && acre_num == 3) {
+            /* the rivals brought together */
+            ACTOR* rival0 = NULL;
+            ACTOR* rival1 = NULL;
+            for (n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+                int idx = mNL_GetAnimalIdx(((NPC_ACTOR*) a)->npc_info.animal);
+                if (idx == acre[1]) {
+                    rival0 = a;
+                } else if (idx == acre[2]) {
+                    rival1 = a;
+                }
+            }
+            if (rival0 != NULL && rival1 != NULL &&
+                animals[acre[1]].animal_relations[acre[2]] <= mNL_RELATION_RIVAL)
+            {
+                rival1->world.position.x = rival0->world.position.x + 50.0f;
+                rival1->world.position.z = rival0->world.position.z;
+            }
+            a = list->actor;
+        }
         if (field_frames % 120 == 0) {
-            Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
-            ACTOR* a = list->actor;
-            int n;
             for (n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
                 NPC_ACTOR* na = (NPC_ACTOR*) a;
                 int ia = mNL_GetAnimalIdx(na->npc_info.animal);
@@ -792,9 +856,10 @@ static void life_test(GAME_PLAY* play)
                     if (ib < 0) {
                         continue;
                     }
-                    nk_wii_log("LIFETEST: pair %d-%d dist %.0f rel %d/%d\n", ia, ib,
+                    nk_wii_log("LIFETEST: pair %d-%d dist %.0f rel %d/%d news %d/%d\n", ia, ib,
                                (double) search_position_distanceXZ(&a->world.position, &b->world.position),
-                               na->npc_info.animal->animal_relations[ib], nb->npc_info.animal->animal_relations[ia]);
+                               na->npc_info.animal->animal_relations[ib], nb->npc_info.animal->animal_relations[ia],
+                               mNL_CountEvents(na->npc_info.animal), mNL_CountEvents(nb->npc_info.animal));
                 }
             }
         }
@@ -865,11 +930,30 @@ static void life_test(GAME_PLAY* play)
         }
     }
 
+    {
+        static int decide_seen;
+        if (mNL_decide_count != decide_seen) {
+            decide_seen = mNL_decide_count;
+            nk_wii_log("LIFETEST: gossip asked of villager %d (looks %d, topic %d): 0x%04X\n", mNL_decide_last[0],
+                       mNL_decide_last[1], mNL_test_topic, mNL_decide_last[2] & 0xFFFF);
+        }
+    }
     if (window->msg_data != NULL && window->main_index != mMsg_INDEX_HIDE && window->msg_data->msg_no != last_msg) {
+        int topic;
+
         last_msg = window->msg_data->msg_no;
-        nk_wii_log("LIFETEST: msg 0x%04X%s\n", last_msg, mNL_IsExtMsg(last_msg) ? " (gossip)" : "");
-        if (mNL_IsExtMsg(last_msg)) {
+        topic = mNL_GetMsgTopic(last_msg);
+        nk_wii_log("LIFETEST: msg 0x%04X%s topic %d\n", last_msg, topic >= 0 ? " (gossip)" : "", topic);
+        if (topic >= 0) {
             gossip_frames = 0;
+            if (g_nk_life_test_topic == 99 && cycle < (int) (sizeof(s_life_cycle) / sizeof(s_life_cycle[0])) &&
+                topic == s_life_cycle[cycle])
+            {
+                cycle++;
+                mNL_test_topic = cycle < (int) (sizeof(s_life_cycle) / sizeof(s_life_cycle[0]))
+                                     ? s_life_cycle[cycle]
+                                     : -1;
+            }
         }
     }
     if (gossip_frames >= 0 && ++gossip_frames == 10) {

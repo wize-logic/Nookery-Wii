@@ -69,6 +69,8 @@ int g_nk_nes_test = 0;
 int g_nk_travel_test = 0;
 /* life_test = 1: villager friendships test (nk_netgame.c life_test) */
 int g_nk_life_test = 0;
+/* life_test_topic = N: only gossip topic N (99: each news, fan and moving topic in turn) */
+int g_nk_life_test_topic = -1;
 /* Online: the host's town clock, while a guest is in the host's town
  * (wii/src/netgame/nk_netgame.c; src/lb_rtc.c reads it): its game time is
  * the hardware clock plus g_nk_clock_offset, not the save's time_delta */
@@ -125,6 +127,7 @@ static const Key s_keys[] = {
     {"nes_test", &g_nk_nes_test, 0, 30},
     {"travel_test", &g_nk_travel_test, 0, 1},
     {"life_test", &g_nk_life_test, 0, 2},
+    {"life_test_topic", &g_nk_life_test_topic, -1, 99},
     {"clock_test_skew", &g_nk_clock_test_skew, -864000, 864000},
     {"net_test_public", &g_nk_net_test_public, 0, 1},
 };

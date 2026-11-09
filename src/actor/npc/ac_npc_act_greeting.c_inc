@@ -399,20 +399,45 @@ static void aNPC_life_greeting_bond(NPC_ACTOR* nactorx, NPC_ACTOR* pal_nactorx) 
     }
 }
 
-/* Two villagers meet: rivals sometimes make up, otherwise each one's opinion deepens */
-static void aNPC_life_greeting(NPC_ACTOR* nactorx, NPC_ACTOR* pal_nactorx) {
-    int rel = mNL_GetRelation(nactorx->npc_info.animal, aNPC_get_animal_idx(pal_nactorx));
-    int pal_rel = mNL_GetRelation(pal_nactorx->npc_info.animal, aNPC_get_animal_idx(nactorx));
+/*
+ * Two villagers meet (after the greeting's own reaction; rel0 and pal_rel0 are their opinions of each other
+ * before it): rivals sometimes make up, otherwise each one's opinion deepens. Making up, falling out and becoming
+ * friends are remembered, and the two pass on their news.
+ */
+static void aNPC_life_greeting(NPC_ACTOR* nactorx, NPC_ACTOR* pal_nactorx, int rel0, int pal_rel0) {
+    int idx = aNPC_get_animal_idx(nactorx);
+    int pal_idx = aNPC_get_animal_idx(pal_nactorx);
+    int rel;
+    int pal_rel;
 
-    if ((rel <= mNL_RELATION_RIVAL || pal_rel <= mNL_RELATION_RIVAL) && RANDOM(100) < mNL_MAKE_UP_CHANCE) {
+    if (idx < 0 || pal_idx < 0) {
+        return;
+    }
+
+    if ((rel0 <= mNL_RELATION_RIVAL || pal_rel0 <= mNL_RELATION_RIVAL) && RANDOM(100) < mNL_make_up_chance) {
+        rel = mNL_GetRelation(nactorx->npc_info.animal, pal_idx);
+        pal_rel = mNL_GetRelation(pal_nactorx->npc_info.animal, idx);
         aNPC_set_relation(nactorx, pal_nactorx, MAX(0, mNL_MAKE_UP_RELATION - rel));
         aNPC_set_relation(pal_nactorx, nactorx, MAX(0, mNL_MAKE_UP_RELATION - pal_rel));
         aNPC_set_feel_info(nactorx, mNpc_FEEL_HAPPY, 1);
         aNPC_set_feel_info(pal_nactorx, mNpc_FEEL_HAPPY, 1);
+        mNL_RecordPairEvent(mNL_EVENT_MADE_UP, idx, pal_idx);
     } else {
         aNPC_life_greeting_bond(nactorx, pal_nactorx);
         aNPC_life_greeting_bond(pal_nactorx, nactorx);
+
+        rel = mNL_GetRelation(nactorx->npc_info.animal, pal_idx);
+        pal_rel = mNL_GetRelation(pal_nactorx->npc_info.animal, idx);
+        if ((rel0 > mNL_RELATION_RIVAL && rel <= mNL_RELATION_RIVAL) ||
+            (pal_rel0 > mNL_RELATION_RIVAL && pal_rel <= mNL_RELATION_RIVAL)) {
+            mNL_RecordPairEvent(mNL_EVENT_FELL_OUT, idx, pal_idx);
+        } else if (rel >= mNL_RELATION_FRIEND && pal_rel >= mNL_RELATION_FRIEND &&
+                   (rel0 < mNL_RELATION_FRIEND || pal_rel0 < mNL_RELATION_FRIEND)) {
+            mNL_RecordPairEvent(mNL_EVENT_NEW_FRIENDS, idx, pal_idx);
+        }
     }
+
+    mNL_ShareNews(nactorx->npc_info.animal, pal_nactorx->npc_info.animal);
 }
 #endif
 
@@ -469,6 +494,10 @@ static void aNPC_act_greeting_reaction(NPC_ACTOR* nactorx, GAME_PLAY* play) {
             NPC_ACTOR* nactorx_B;
             f32 rnd = fqrand();
             int react = aNPC_GREETING_REACTION_NUM;
+#ifdef ACGC_PORT
+            int life_rel0 = mNL_GetRelation(animal_p, aNPC_get_animal_idx(pal_nactorx));
+            int life_pal_rel0 = mNL_GetRelation(animal_pal, aNPC_get_animal_idx(nactorx));
+#endif
 
             reaction_proc = react_proc_table;
             rate_p = react_rate_table;
@@ -491,7 +520,7 @@ static void aNPC_act_greeting_reaction(NPC_ACTOR* nactorx, GAME_PLAY* play) {
 
 #ifdef ACGC_PORT
             if (mNL_IsEnabled()) {
-                aNPC_life_greeting(nactorx, pal_nactorx);
+                aNPC_life_greeting(nactorx, pal_nactorx, life_rel0, life_pal_rel0);
             }
 #endif
 

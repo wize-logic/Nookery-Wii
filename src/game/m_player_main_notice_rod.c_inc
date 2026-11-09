@@ -32,6 +32,11 @@ static void Player_actor_setup_main_Notice_rod(ACTOR* actor, GAME* game) {
     if (uki != NULL && type >= aGYO_TYPE_CRUCIAN_CARP) {
         int free_space = mPlib_Get_space_putin_item();
 
+#ifdef ACGC_PORT
+        /* villagers who saw it remember (m_npc_life.c) */
+        mNL_SetPlayerCatch(uki->get_fish_type_proc(&uki->actor_class));
+#endif
+
         if (free_space >= 0) {
             Player_actor_putin_item(free_space, uki->get_fish_type_proc(&uki->actor_class), NULL);
             main_notice->not_full_pocket = TRUE;

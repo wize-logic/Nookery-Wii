@@ -27,6 +27,9 @@
 #include "ac_set_ovl_gyoei.h"
 #include "m_vibctl.h"
 #include "m_debug.h"
+#ifdef ACGC_PORT
+#include "m_npc_life.h"
+#endif
 
 #ifdef MOUSE_INPUT
 #include "game_pointer.h"

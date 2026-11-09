@@ -25,6 +25,12 @@ TOPICS = {
     "PLAYER_FAN": 2,
     "MOVING_SAD": 2,
     "MOVING_GLAD": 2,
+    "NEWS_MADE_UP": 2,
+    "NEWS_FELL_OUT": 2,
+    "NEWS_NEW_FRIENDS": 2,
+    "SELF_MADE_UP": 2,
+    "SELF_FELL_OUT": 2,
+    "PLAYER_CATCH": 2,
 }
 LOOKS = ["NORMAL", "PEPPY", "LAZY", "JOCK", "CRANKY", "SNOOTY"]
 
@@ -35,6 +41,7 @@ PLACEHOLDER_WIDTH = {
     "STR_FREE14": 8,
     "STR_PLAYERNAME": 8,
     "STR_TAIL": 10,  # ANIMAL_CATCHPHRASE_LEN
+    "STR_ITEM0": 18,  # an item name (mIN_ITEM_NAME_LEN) with its article
 }
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

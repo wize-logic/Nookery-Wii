@@ -43,6 +43,13 @@ static void Player_actor_setup_main_Notice_net(ACTOR* actor, GAME* game) {
             item = ITM_INSECT38;
         }
 
+#ifdef ACGC_PORT
+        /* villagers who saw it remember (m_npc_life.c); not a wisp */
+        if (idx >= 0 && idx != aINS_INSECT_TYPE_SPIRIT) {
+            mNL_SetPlayerCatch(item);
+        }
+#endif
+
         if (idx < 0) {
             main_notice->not_full_pocket = FALSE;
         } else {

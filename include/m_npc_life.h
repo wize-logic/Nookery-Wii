@@ -18,6 +18,12 @@
  * Opinions drift back toward neutral each day (mNL_DriftRelations at game
  * start), and rivals who meet can make up, so friendships need keeping up and
  * feuds fade.
+ *
+ * Each villager also remembers a few recent events in Animal_c.unused (bytes
+ * the game never uses, so saves stay the same size and work on a GameCube):
+ * villagers making up, falling out or becoming friends, and the player
+ * catching something in front of them. Villagers pass news on when they meet
+ * and gossip about it.
  */
 
 #include "types.h"
@@ -47,10 +53,20 @@ extern "C" {
 /* A villager this fond of the player (Anmmem_c.friendship) is a fan */
 #define mNL_PLAYER_FAN_FRIENDSHIP 60
 
+/* Days that news stays worth telling */
+#define mNL_NEWS_DAYS 7
+#define mNL_CATCH_DAYS 3
+
 /* Percent of ordinary chats that become gossip, when there is something to say
  * (a variable for tests: settings life_test on the Wii raises it to 100) */
 #define mNL_GOSSIP_CHANCE 30
 extern int mNL_gossip_chance;
+
+/* Tests: only this topic is gossiped about (-1: any); how often rivals make up */
+extern int mNL_test_topic;
+extern int mNL_decide_count;
+extern int mNL_decide_last[3];
+extern int mNL_make_up_chance;
 
 enum {
     mNL_TOPIC_LIKE,       /* the speaker likes STR_FREE13 */
@@ -61,11 +77,39 @@ enum {
     mNL_TOPIC_PLAYER_FAN, /* STR_FREE13 is fond of the player */
     mNL_TOPIC_MOVING_SAD, /* STR_FREE13, a friend, is thinking of moving away */
     mNL_TOPIC_MOVING_GLAD, /* STR_FREE13, a rival, is thinking of moving away */
+    mNL_TOPIC_NEWS_MADE_UP,     /* STR_FREE13 and STR_FREE14 made up */
+    mNL_TOPIC_NEWS_FELL_OUT,    /* STR_FREE13 and STR_FREE14 fell out */
+    mNL_TOPIC_NEWS_NEW_FRIENDS, /* STR_FREE13 and STR_FREE14 became friends */
+    mNL_TOPIC_SELF_MADE_UP,     /* the speaker made up with STR_FREE13 */
+    mNL_TOPIC_SELF_FELL_OUT,    /* the speaker fell out with STR_FREE13 */
+    mNL_TOPIC_PLAYER_CATCH,     /* the player caught STR_ITEM0 */
 
     mNL_TOPIC_NUM
 };
 
+/* Remembered events */
+enum {
+    mNL_EVENT_NONE,
+    mNL_EVENT_MADE_UP,
+    mNL_EVENT_FELL_OUT,
+    mNL_EVENT_NEW_FRIENDS,
+    mNL_EVENT_PLAYER_CATCH,
+
+    mNL_EVENT_NUM
+};
+
 extern int mNL_IsEnabled(void);
+
+/* Both villagers (Save animals indices) remember the event */
+extern void mNL_RecordPairEvent(int type, int a_idx, int b_idx);
+/* The player caught item (m_player_main_notice_rod/net): witnesses remember it with mNL_SawPlayerCatch */
+extern void mNL_SetPlayerCatch(mActor_name_t item);
+extern void mNL_SawPlayerCatch(Animal_c* witness);
+/* Two villagers met: each tells the other their freshest news (mNL_TellNews: one way) */
+extern void mNL_ShareNews(Animal_c* animal0, Animal_c* animal1);
+extern void mNL_TellNews(Animal_c* teller, Animal_c* listener);
+/* Fresh remembered events of a villager (for tests) */
+extern int mNL_CountEvents(const Animal_c* animal);
 
 /* Index of a town villager in Save animals, or -1 (islander, event NPC, NULL) */
 extern int mNL_GetAnimalIdx(const Animal_c* animal);
@@ -82,6 +126,8 @@ extern int mNL_DecideGossipMsg(const Animal_c* speaker, int looks);
 /* Gossip message lookup for mMsg_LoadMsgData */
 extern int mNL_IsExtMsg(int msg_no);
 extern int mNL_GetMsgData(int msg_no, const u8** data, u32* size);
+/* The topic of a gossip line, or -1 */
+extern int mNL_GetMsgTopic(int msg_no);
 
 /* A message number the message window will load: the game's own or a gossip line */
 #define mNL_MSG_NO_VALID(msg_no) (((msg_no) >= 0 && (msg_no) < MSG_MAX) || mNL_IsExtMsg(msg_no))
