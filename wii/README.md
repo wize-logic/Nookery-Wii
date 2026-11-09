@@ -135,6 +135,7 @@ port to the Wii.
 A freeze (no new picture for 20 seconds) writes one too. Every report, and the log's first line,
 names the build, and the two runs before are kept as `log-1.txt` and `log-2.txt`, so starting again
 doesn't lose a report.
+Once a minute outdoors, the log also says how long frames took.
 
 `wii/tools/crash_report.py log.txt --elf nookery.elf` turns a report's addresses into functions and
 source lines. It needs the symbols of the build that made the log: `build/wii/nookery.elf`, or the
