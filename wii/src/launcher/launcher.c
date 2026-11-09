@@ -67,6 +67,7 @@ extern int g_nk_wii_remote_pointer;
 static Toggle s_toggles[] = {
     {"Fast text", &g_pc_settings.fast_text, s_onoff, s_onoff_names, 2},
     {"Villager friendships", &g_pc_settings.villager_life, s_onoff, s_onoff_names, 2},
+    {"Town life", &g_pc_settings.town_life, s_onoff, s_onoff_names, 2},
     {"No Resetti", &g_pc_settings.disable_resetti, s_onoff, s_onoff_names, 2},
     {"Single-player shop upgrades", &g_pc_settings.disable_shop_visitor_req, s_onoff, s_onoff_names, 2},
     {"Villager follows traveler", &g_pc_settings.travel_move_out_chance, s_move_out, s_move_out_names, 3},

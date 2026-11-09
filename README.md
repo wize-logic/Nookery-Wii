@@ -18,10 +18,13 @@ Nookery-Wii is [Nookery](https://github.com/flyngmt/Nookery) with:
   Opinions drift back toward neutral over the days, and rivals who meet sometimes make up.
   Villagers also remember what happened lately (who fell out, who made up, what you caught in front
   of them) and pass the news on when they meet.
+- **Town life.** Villagers get things to do around town:
+  - everyday activities that suit their personality, the hour, the weather and the season: sitting
+    down, fishing, exercising, dozing, dancing, a drink, a phone call
 
-Villager friendships are a setting, on by default, on every platform: Settings > Gameplay on PC and
-mobile, the launcher's Settings on the Wii. Saves keep their size and still work in the original
-game and in Dolphin.
+Both are settings, on by default, on every platform: Settings > Gameplay on PC and mobile, the
+launcher's Settings on the Wii. Saves keep their size and still work in the original game and in
+Dolphin.
 
 The rest of this page, and the [FAQ](FAQ.md), are Nookery's own and about the PC and mobile ports.
 The builds on Nookery's Releases page don't have what this fork adds: [build](BUILDING.md) this

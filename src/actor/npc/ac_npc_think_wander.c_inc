@@ -226,6 +226,10 @@ static int aNPC_life_decide(NPC_ACTOR* nactorx, u8* act_idx, u8* act_type, u16* 
 }
 #endif
 
+#if defined(ACGC_PORT) && !defined(aNPC_NPC2)
+#include "../src/actor/npc/ac_npc_think_town_life.c_inc"
+#endif
+
 static void aNPC_think_wander_decide_next(NPC_ACTOR* nactorx) {
     static int girl_decide_boarder[] = { 3, 6 }; // 40% wait, 30% walk, 30% run
     static int ko_girl_decide_boarder[] = { 6, 8 }; // 70% wait, 20% walk, 10% run
@@ -303,7 +307,8 @@ static void aNPC_think_wander_decide_next(NPC_ACTOR* nactorx) {
         }
 
 #ifdef ACGC_PORT
-        if (aNPC_life_decide(nactorx, &act_idx, &act_type, arg_data)) {
+        if (aNPC_town_life_decide(nactorx, &act_idx, &act_type, arg_data) ||
+            aNPC_life_decide(nactorx, &act_idx, &act_type, arg_data)) {
             aNPC_set_request_act(nactorx, 1, act_idx, act_type, arg_data);
             return;
         }

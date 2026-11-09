@@ -413,6 +413,9 @@ static void aNPC_act_special_proc(NPC_ACTOR* nactorx, GAME_PLAY* play, int type)
 #include "../src/actor/npc/ac_npc_act_revive.c_inc"
 #include "../src/actor/npc/ac_npc_act_react_tool.c_inc"
 #include "../src/actor/npc/ac_npc_act_clap.c_inc"
+#if defined(ACGC_PORT) && !defined(aNPC_NPC2)
+#include "../src/actor/npc/ac_npc_act_town_life.c_inc"
+#endif
 
 typedef void (*aNPC_ACT_PROC)(NPC_ACTOR* nactorx, GAME_PLAY* play, int type);
 
@@ -447,6 +450,11 @@ static void aNPC_chk_request_act(NPC_ACTOR* nactorx, GAME_PLAY* play) {
         u8 prev_idx = nactorx->action.idx;
         u8 prev_obj = nactorx->action.act_obj;
         mActor_name_t prev_obj_name = nactorx->action.act_obj_id;
+
+#if defined(ACGC_PORT) && !defined(aNPC_NPC2)
+        /* Town life: an activity ends when another act takes over */
+        aNPC_tl_chk_interrupt(nactorx, prev_idx, nactorx->request.act_idx);
+#endif
 
         nactorx->action.prev_idx = nactorx->action.idx;
         nactorx->action.prev_step = nactorx->action.step;

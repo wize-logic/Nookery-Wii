@@ -16,6 +16,7 @@
 #include "m_actor_shadow.h"
 #ifdef ACGC_PORT
 #include "m_npc_life.h"
+#include "m_town_life.h"
 #endif
 #ifdef TARGET_PC
 #include "pc_bswap.h"

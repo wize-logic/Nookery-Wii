@@ -110,6 +110,8 @@ bool set_legacy_value(std::string_view key, int value)
         current.enhancements.disableShopVisitorRequirement.set(value != 0);
     } else if (key == "villager_life" && (value == 0 || value == 1)) {
         current.enhancements.villagerLife.set(value != 0);
+    } else if (key == "town_life" && (value == 0 || value == 1)) {
+        current.enhancements.townLife.set(value != 0);
     } else if (key == "borderless_acres" && (value == 0 || value == 1)) {
         current.enhancements.borderlessAcres.set(value != 0);
     } else if (key == "nes_aspect" && (value == 0 || value == 1)) {
@@ -242,7 +244,7 @@ UserSettings::Enhancements::Enhancements(borealis::config::Registry& registry)
       disableShopVisitorRequirement(registry, "gameplay.disableShopVisitorRequirement", false),
       borderlessAcres(registry, "gameplay.borderlessAcres", true),
       pillarboxNes(registry, "gameplay.pillarboxNes", true), fastText(registry, "gameplay.fastText", true),
-      villagerLife(registry, "gameplay.villagerLife", true),
+      villagerLife(registry, "gameplay.villagerLife", true), townLife(registry, "gameplay.townLife", true),
       travelMoveOutChance(registry, "gameplay.travelMoveOutChance", TravelMoveOutChance::Default)
 {
 }
@@ -347,6 +349,7 @@ void apply_settings_bridge(bool refreshGameplay)
     g_pc_settings.nes_aspect = current.enhancements.pillarboxNes.get() ? 1 : 0;
     g_pc_settings.fast_text = current.enhancements.fastText.get() ? 1 : 0;
     g_pc_settings.villager_life = current.enhancements.villagerLife.get() ? 1 : 0;
+    g_pc_settings.town_life = current.enhancements.townLife.get() ? 1 : 0;
     switch (current.enhancements.travelMoveOutChance.get()) {
         case TravelMoveOutChance::Ten:
             g_pc_settings.travel_move_out_chance = 10;

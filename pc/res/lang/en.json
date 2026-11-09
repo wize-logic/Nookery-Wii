@@ -194,6 +194,8 @@
   "settings.gameplay.resetti_help": "Keep Resetti when you quit without saving.",
   "settings.gameplay.single_player_shop": "Single-Player Shop Upgrades",
   "settings.gameplay.single_player_shop_help": "Unlock the final Nook shop upgrade without another player visiting.",
+  "settings.gameplay.town_life": "Town Life",
+  "settings.gameplay.town_life_help": "Villagers find things to do around town, gather with friends and chat.",
   "settings.gameplay.travel_move_out": "Travel Move-Out Chance",
   "settings.gameplay.travel_move_out.default": "Default",
   "settings.gameplay.travel_move_out_help": "How often the villager planning to move follows you to another town. Default always follows, like the original game.",

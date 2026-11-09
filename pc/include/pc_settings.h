@@ -23,6 +23,7 @@ typedef struct {
     int travel_move_out_chance; /* Percent chance the moving villager follows a traveler: 10, 50 or 100 (default) */
     int hud_at_edges;     /* 0=corner HUD stays in the centered 4:3 area, 1=anchored to widescreen edges */
     int villager_life;    /* 1=villagers seek out friends, avoid rivals and gossip (m_npc_life.c) */
+    int town_life;        /* 1=villagers have things to do, gather and chat around town (m_town_life.c) */
 } PCSettings;
 
 extern PCSettings g_pc_settings;

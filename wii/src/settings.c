@@ -30,6 +30,7 @@ PCSettings g_pc_settings = {
     .travel_move_out_chance = 100,
     .hud_at_edges = 0,
     .villager_life = 1,
+    .town_life = 1,
 };
 
 /* The PC port's command-line overrides, here never set */
@@ -67,7 +68,7 @@ int g_nk_nes_test = 0;
  * to the town in slot B (his card check, the save, the train ride), as if
  * asked for at the station */
 int g_nk_travel_test = 0;
-/* life_test = 1: villager friendships test (nk_netgame.c life_test) */
+/* life_test = 1, 2: villager friendships tests (nk_netgame.c life_test); 3, 4: town life (town_test) */
 int g_nk_life_test = 0;
 /* life_test_topic = N: only gossip topic N (99: each news, fan and moving topic in turn) */
 int g_nk_life_test_topic = -1;
@@ -109,6 +110,7 @@ static const Key s_keys[] = {
     {"fast_text", &g_pc_settings.fast_text, 0, 1},
     {"disable_resetti", &g_pc_settings.disable_resetti, 0, 1},
     {"villager_life", &g_pc_settings.villager_life, 0, 1},
+    {"town_life", &g_pc_settings.town_life, 0, 1},
     {"disable_shop_visitor_req", &g_pc_settings.disable_shop_visitor_req, 0, 1},
     {"travel_move_out_chance", &g_pc_settings.travel_move_out_chance, 10, 100},
     {"nes_aspect", &g_pc_settings.nes_aspect, 0, 1},
@@ -126,7 +128,7 @@ static const Key s_keys[] = {
     {"trace_scenes", &g_nk_trace_scenes, 0, 1},
     {"nes_test", &g_nk_nes_test, 0, 30},
     {"travel_test", &g_nk_travel_test, 0, 1},
-    {"life_test", &g_nk_life_test, 0, 2},
+    {"life_test", &g_nk_life_test, 0, 4},
     {"life_test_topic", &g_nk_life_test_topic, -1, 99},
     {"clock_test_skew", &g_nk_clock_test_skew, -864000, 864000},
     {"net_test_public", &g_nk_net_test_public, 0, 1},

@@ -662,6 +662,8 @@ SettingsWindow::SettingsWindow()
         add_bool(left, right, current.enhancements.villagerLife,
                  localization::get("settings.gameplay.villager_life"),
                  localization::get("settings.gameplay.villager_life_help"));
+        add_bool(left, right, current.enhancements.townLife, localization::get("settings.gameplay.town_life"),
+                 localization::get("settings.gameplay.town_life_help"));
         add_bool(left, right, current.enhancements.pillarboxNes, localization::get("settings.gameplay.nes_aspect"),
                  localization::get("settings.gameplay.nes_aspect_help"));
     });

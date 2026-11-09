@@ -38,6 +38,10 @@
 #include "ac_npc.h"
 #include "m_msg.h"
 #include "m_npc_life.h"
+#include "m_town_life.h"
+#include "m_kankyo.h"
+#include "ac_npc_anim_def.h"
+#include "ac_tools.h"
 #include "m_choice.h"
 #include "m_time.h"
 
@@ -962,6 +966,287 @@ static void life_test(GAME_PLAY* play)
     }
 }
 
+/* Town life (m_town_life.h) tests. Both take the player (as through a door) to the acre with the most villagers.
+ *
+ * life_test = 3 watches activities as they happen: every activity started, ended or interrupted
+ * ("LIFETEST: act"), and each game minute how many villagers are busy ("LIFETEST: busy"). life_test_topic, when
+ * set, is the percent of wander decisions that consider an activity.
+ *
+ * life_test = 4 is the animation and prop check: the villager nearest the player is brought beside it and
+ * plays each candidate animation in turn (mTL_ACT_TEST), facing the camera, from life_test_topic on when set.
+ * Three times during each, "LIFETEST: shot N" asks for a screenshot (the test's watcher touches dolphin_run's
+ * shot-N.req); the log says whether the animation loops or stops, and whether the prop came out. The villager
+ * doesn't seek out or avoid the player meanwhile (the friendship interrupt), which would keep it from starting.
+ */
+typedef struct {
+    const char* name;
+    u8 anim;
+    u8 sub_anim;
+    u8 prop;
+} town_test_anim_c;
+
+static const town_test_anim_c s_town_anims[] = {
+    {"SITDOWN_WAIT1", aNPC_ANIM_SITDOWN_WAIT1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"SITDOWN_DRINK1+cup", aNPC_ANIM_SITDOWN_DRINK1, aNPC_SUB_ANIM_NONE, TOOL_TUMBLER},
+    {"SITDOWN_DRINK1", aNPC_ANIM_SITDOWN_DRINK1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"SITDOWN_CLAP1", aNPC_ANIM_SITDOWN_CLAP1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"SITDOWN_WAIT1+fan", aNPC_ANIM_SITDOWN_WAIT1, aNPC_SUB_ANIM_UTIWA, TOOL_UTIWA},
+    {"SITDOWN_WAIT_D1", aNPC_ANIM_SITDOWN_WAIT_D1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"KOKKURI_D1", aNPC_ANIM_KOKKURI_D1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"KOKKURI_D2", aNPC_ANIM_KOKKURI_D2, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"DANCE1", aNPC_ANIM_DANCE1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TAISOU1", aNPC_ANIM_TAISOU1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TAISOU2", aNPC_ANIM_TAISOU2, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TAISOU3_A", aNPC_ANIM_TAISOU3_A, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TAISOU4_A", aNPC_ANIM_TAISOU4_A, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TAISOU5_A", aNPC_ANIM_TAISOU5_A, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TAISOU6_A", aNPC_ANIM_TAISOU6_A, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TAISOU7", aNPC_ANIM_TAISOU7, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"WARMUP1", aNPC_ANIM_WARMUP1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"ASIHUMI1", aNPC_ANIM_ASIHUMI1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TIRED1", aNPC_ANIM_TIRED1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TAMANAGE1+ball", aNPC_ANIM_TAMANAGE1, aNPC_SUB_ANIM_NONE, TOOL_TAMA1},
+    {"TAMAHIROI1", aNPC_ANIM_TAMAHIROI1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TURI_WAIT1+rod", aNPC_ANIM_TURI_WAIT1, aNPC_SUB_ANIM_NONE, TOOL_NPC_SAO},
+    {"BANZAI1", aNPC_ANIM_BANZAI1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"HATAFURI1+flag", aNPC_ANIM_HATAFURI1, aNPC_SUB_ANIM_NONE, TOOL_FLAG},
+    {"WAIT1+fan", aNPC_ANIM_WAIT1, aNPC_SUB_ANIM_UTIWA, TOOL_UTIWA},
+    {"OMAIRI1", aNPC_ANIM_OMAIRI1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"SAISEN1", aNPC_ANIM_SAISEN1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"KYORO1", aNPC_ANIM_KYORO1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"TKYKYORO1", aNPC_ANIM_TKYKYORO1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"ENSOU_E1", aNPC_ANIM_ENSOU_E1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"KEITAI_TALK1+phone", aNPC_ANIM_KEITAI_TALK1, aNPC_SUB_ANIM_NONE, TOOL_KEITAI},
+    {"KEITAI_TALK2+phone", aNPC_ANIM_KEITAI_TALK2, aNPC_SUB_ANIM_NONE, TOOL_KEITAI},
+    {"CRACKER_WAIT1+cracker", aNPC_ANIM_CRACKER_WAIT1, aNPC_SUB_ANIM_NONE, TOOL_CRACKER},
+    {"KUISINBO1", aNPC_ANIM_KUISINBO1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"CLAP1", aNPC_ANIM_CLAP1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"KIDUKU1", aNPC_ANIM_KIDUKU1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"WAIT_NEMU1", aNPC_ANIM_WAIT_NEMU1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"NEBOKE1", aNPC_ANIM_NEBOKE1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"HAPPY1", aNPC_ANIM_HAPPY1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+    {"SMILE1", aNPC_ANIM_SMILE1, aNPC_SUB_ANIM_NONE, mTL_PROP_NONE},
+};
+
+/* The acre with the most villagers: one of its villagers (npclist index), or -1 */
+static int busiest_acre_npc(void)
+{
+    mNpc_NpcList_c* npclist = Common_Get(npclist);
+    int count[FG_BLOCK_Z_NUM + 2][FG_BLOCK_X_NUM + 2];
+    int best = -1, bx, bz, found = -1, i;
+
+    bzero(count, sizeof(count));
+    for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+        if (npclist[i].name == EMPTY_NO) {
+            continue;
+        }
+        mFI_Wpos2BlockNum(&bx, &bz, npclist[i].position);
+        if (bz >= 0 && bz < FG_BLOCK_Z_NUM + 2 && bx >= 0 && bx < FG_BLOCK_X_NUM + 2 && ++count[bz][bx] > best) {
+            best = count[bz][bx];
+            found = i;
+        }
+    }
+    return found;
+}
+
+static NPC_ACTOR* town_test_npc(GAME_PLAY* play, int idx)
+{
+    Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+    ACTOR* a = list->actor;
+    int n;
+
+    for (n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+        if (ITEM_NAME_GET_TYPE(a->npc_id) == NAME_TYPE_NPC && mNL_GetAnimalIdx(((NPC_ACTOR*) a)->npc_info.animal) == idx) {
+            return (NPC_ACTOR*) a;
+        }
+    }
+    return NULL;
+}
+
+static void town_test(GAME_PLAY* play)
+{
+    static int field_frames;
+    static int warped;
+    static int subject = -1;
+    static int k = -1;
+    static int phase;
+    static int phase_frames;
+    static int events_seen;
+    static int last_min = -1;
+    static int shots;
+    PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+    mNpc_NpcList_c* npclist = Common_Get(npclist);
+    int i;
+
+    if (Save_Get(scene_no) != SCENE_FG || player == NULL) {
+        return;
+    }
+    field_frames++;
+
+    if (!warped) {
+        if (g_nk_life_test >= 4 && field_frames == 2) {
+            /* fine weather, so no umbrellas in the way */
+            Common_Set(weather, mEnv_WEATHER_CLEAR);
+            Common_Set(weather_intensity, mEnv_WEATHER_INTENSITY_NONE);
+        }
+        if (field_frames > 60) {
+            int w = busiest_acre_npc();
+            if (w >= 0) {
+                Door_data_c door;
+                bzero(&door, sizeof(door));
+                door.next_scene_id = SCENE_FG;
+                door.exit_orientation = mSc_DIRECT_SOUTH;
+                door.exit_position.x = (s16) npclist[w].position.x;
+                door.exit_position.y = (s16) npclist[w].position.y;
+                door.exit_position.z = (s16) npclist[w].position.z;
+                door.door_actor_name = EMPTY_NO;
+                door.wipe_type = WIPE_TYPE_FADE_BLACK;
+                if (goto_other_scene(play, &door, TRUE) == TRUE) {
+                    warped = 1;
+                    nk_wii_log("LIFETEST: to villager %d's acre (%d,%d), town life %d\n", w,
+                               (int) door.exit_position.x, (int) door.exit_position.z, mTL_IsEnabled());
+                }
+            } else {
+                warped = 1;
+            }
+        }
+        return;
+    }
+
+    /* every activity started, ended or interrupted */
+    if (mTL_stats.events != events_seen) {
+        static const char* const what[] = {"?", "started", "ended", "interrupted"};
+        mTL_villager_c* v = mTL_GetVillager(mTL_stats.last_villager);
+        const mTL_activity_c* a = mTL_GetActivity(mTL_stats.last_activity);
+        events_seen = mTL_stats.events;
+        nk_wii_log("LIFETEST: act %s villager %d %s (place %d, %d s, repeats %d%s, prop %d) busy %d\n",
+                   what[mTL_stats.last_event & 3], mTL_stats.last_villager, a->name, a->place,
+                   v != NULL ? v->seconds : 0, v != NULL ? v->repeats : 0, v != NULL && v->oneshot ? " one-shot" : "",
+                   v != NULL && v->prop != NULL, mTL_CountBusy());
+    }
+
+    if (g_nk_life_test == 3) {
+        const lbRTC_time_c* t = Common_GetPointer(time.rtc_time);
+        if (field_frames < 200) {
+            mTL_start_chance = g_nk_life_test_topic > 0 ? g_nk_life_test_topic : mTL_START_CHANCE;
+        }
+        if (t->min != last_min) {
+            last_min = t->min;
+            nk_wii_log("LIFETEST: busy %02d:%02d %d of %d out, started %d ended %d interrupted %d no spot %d\n",
+                       (int) t->hour, (int) t->min, mTL_CountBusy(), play->actor_info.list[ACTOR_PART_NPC].num_actors,
+                       mTL_stats.started, mTL_stats.ended, mTL_stats.interrupted, mTL_stats.no_spot);
+        }
+        return;
+    }
+
+    /* life_test = 4: the animation and prop check */
+    if (subject < 0) {
+        f32 best = 1e9f;
+        Actor_list* list = &play->actor_info.list[ACTOR_PART_NPC];
+        ACTOR* a = list->actor;
+        int n;
+        if (field_frames < 120) {
+            return;
+        }
+        for (n = list->num_actors; n != 0 && a != NULL; n--, a = a->next_actor) {
+            int idx;
+            f32 d;
+            if (ITEM_NAME_GET_TYPE(a->npc_id) != NAME_TYPE_NPC) {
+                continue;
+            }
+            idx = mNL_GetAnimalIdx(((NPC_ACTOR*) a)->npc_info.animal);
+            d = search_position_distanceXZ(&a->world.position, &player->actor_class.world.position);
+            if (idx >= 0 && d < best) {
+                best = d;
+                subject = idx;
+            }
+        }
+        if (subject < 0) {
+            return;
+        }
+        mTL_test_villager = subject;
+        mTL_test_seconds = 7;
+        mTL_start_chance = 100;
+        nk_wii_log("LIFETEST: animation check on villager %d (looks %d), %d animations\n", subject,
+                   (int) Save_Get(animals[subject]).id.looks, (int) (sizeof(s_town_anims) / sizeof(s_town_anims[0])));
+        k = g_nk_life_test_topic > 0 ? g_nk_life_test_topic - 1 : -1;
+        phase = 2;
+    }
+
+    {
+        NPC_ACTOR* npc = town_test_npc(play, subject);
+        mTL_villager_c* v = mTL_GetVillager(subject);
+        xyz_t* ppos = &player->actor_class.world.position;
+
+        if (npc == NULL || v == NULL) {
+            return;
+        }
+        npc->think.interrupt_flags &= ~aNPC_THINK_INTERRUPT_FRIENDSHIP;
+        phase_frames++;
+        switch (phase) {
+            case 0: /* waiting for the villager to start it, in front of the player */
+                if (v->state == mTL_STATE_DOING && phase_frames > 2) {
+                    phase = 1;
+                    phase_frames = 0;
+                    v->angle = 0;
+                } else if (phase_frames % 60 == 1 && v->state == mTL_STATE_IDLE) {
+                    npc->actor_class.world.position.x = ppos->x + 90.0f;
+                    npc->actor_class.world.position.z = ppos->z + 10.0f;
+                    if (npc->action.idx != aNPC_ACT_TALK && npc->action.idx != aNPC_ACT_GREETING) {
+                        /* (whatever it was doing ends, so it decides again now) */
+                        npc->action.step = aNPC_ACTION_END_STEP;
+                    }
+                    mTL_start_chance = 100;
+                } else if (phase_frames > 1200) {
+                    nk_wii_log("LIFETEST: anim %d %s never started (act %d step %d think %d state %d talk %d call %d "
+                               "sched %d)\n",
+                               k, s_town_anims[k].name, (int) npc->action.idx, (int) npc->action.step,
+                               (int) npc->think.idx, (int) v->state, (int) npc->condition_info.talk_condition,
+                               (int) npc->think.force_call_flag, (int) npc->schedule.type);
+                    phase = 2;
+                }
+                break;
+            case 1: /* doing it */
+                v->angle = 0;
+                if (phase_frames == 120) {
+                    nk_wii_log("LIFETEST: anim %d %s rot %d prop %d sub %d repeats %d%s\n", k, s_town_anims[k].name,
+                               (int) npc->actor_class.shape_info.rotation.y, v->prop != NULL,
+                               (int) npc->draw.sub_anim_type, v->repeats, v->oneshot ? " one-shot" : "");
+                }
+                if (phase_frames == 50 || phase_frames == 120 || phase_frames == 190) {
+                    nk_wii_log("LIFETEST: shot %d %s@%d\n", ++shots, s_town_anims[k].name, phase_frames);
+                }
+                if (v->state != mTL_STATE_DOING) {
+                    nk_wii_log("LIFETEST: anim %d %s done: repeats %d%s\n", k, s_town_anims[k].name, v->repeats,
+                               v->oneshot ? " one-shot" : "");
+                    phase = 2;
+                }
+                break;
+            case 3:
+                break;
+        }
+        if (phase == 2) {
+            /* the next one, before the villager decides again */
+            if (++k >= (int) (sizeof(s_town_anims) / sizeof(s_town_anims[0]))) {
+                mTL_test_activity = -1;
+                mTL_test_villager = 99;
+                nk_wii_log("LIFETEST: animation check done\n");
+                phase = 3;
+                return;
+            }
+            mTL_test_entry.name = s_town_anims[k].name;
+            mTL_test_entry.anim = s_town_anims[k].anim;
+            mTL_test_entry.sub_anim = s_town_anims[k].sub_anim;
+            mTL_test_entry.prop = s_town_anims[k].prop;
+            mTL_test_entry.place = mTL_PLACE_ANYWHERE;
+            mTL_test_activity = mTL_ACT_TEST;
+            mTL_start_chance = 0;
+            phase = 0;
+            phase_frames = 0;
+        }
+    }
+}
+
 void nk_netgame_play_frame(GAME_PLAY* play)
 {
     if (g_nk_trace_scenes) {
@@ -980,7 +1265,9 @@ void nk_netgame_play_frame(GAME_PLAY* play)
     if (g_nk_travel_test) {
         travel_test(play);
     }
-    if (g_nk_life_test) {
+    if (g_nk_life_test >= 3) {
+        town_test(play);
+    } else if (g_nk_life_test) {
         life_test(play);
     }
     if (g_nk_nes_test > 0) {

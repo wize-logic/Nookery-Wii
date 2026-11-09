@@ -12,6 +12,21 @@ static void aNPC_actor_dt(ACTOR* actorx, GAME* game) {
         eEC_CLIP->effect_kill_all_proc(actorx->npc_id);
     }
 
+#if defined(ACGC_PORT) && !defined(aNPC_NPC2)
+    if (aNPC_IS_NRM_NPC(nactorx)) {
+        /* Town life: the activity's prop goes with the villager, and the activity ends */
+        int tl_idx = mNL_GetAnimalIdx(nactorx->npc_info.animal);
+        mTL_villager_c* tl = mTL_GetVillager(tl_idx);
+
+        if (tl != NULL) {
+            if (tl->prop != NULL && tl->prop != nactorx->right_hand.item_actor_p) {
+                Actor_delete((ACTOR*)tl->prop);
+            }
+            mTL_ClearVillager(tl_idx);
+        }
+    }
+#endif
+
     if (nactorx->right_hand.item_actor_p != NULL) {
         Actor_delete(nactorx->right_hand.item_actor_p);
         nactorx->right_hand.item_actor_p = NULL;

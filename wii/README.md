@@ -80,6 +80,7 @@ comment). On/off keys are `1`/`0`.
 |---|---|---|---|
 | Fast text | `fast_text` | 0 | All text at the fast speed, as if B were held |
 | Villager friendships | `villager_life` | 1 | Villagers make friends and rivals, and gossip about it ([what it does](../README.md#this-fork)) |
+| Town life | `town_life` | 1 | Villagers get things to do around town ([what it does](../README.md#this-fork)) |
 | No Resetti | `disable_resetti` | 0 | No visit from Resetti after leaving without saving. See [known issues](#known-issues) |
 | Single-player shop upgrades | `disable_shop_visitor_req` | 0 | Nook's last shop upgrade without a visitor from another town |
 | Villager follows traveler | `travel_move_out_chance` | 100 | How often the villager planning to move follows you to another town: 100, 50 or 10 (percent). See [known issues](#known-issues) |
@@ -174,7 +175,7 @@ Test keys in `settings.ini`:
 | `nes_test = N` | Starts NES game N from the town |
 | `travel_test` | Takes the train to slot B's town |
 | `net_echo`, `net_title_town`, `net_test_public`, `clock_test_skew` | Online play: yourself as a second player, the title screen as a town, the route between two networks, a clock set off by that many seconds |
-| `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log |
+| `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 and up: town life's tests (`town_test` in `nk_netgame.c`) |
 
 The lobby server has its own test: `python3 wii/server/tests/test_lobby.py`.
 

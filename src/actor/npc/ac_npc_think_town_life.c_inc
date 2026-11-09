@@ -1,0 +1,162 @@
+/*
+ * Town life (m_town_life.h): wandering villagers sometimes pick an activity,
+ * walk to a spot that suits it, and do it (ac_npc_act_town_life.c_inc).
+ */
+
+#define aNPC_TL_ARRIVE_DIST 14.0f /* close enough to the spot */
+#define aNPC_TL_SPOT_TRIES 32      /* tiles tried when looking for a spot */
+#define aNPC_TL_WALK_TRIES 3       /* walks toward the spot before giving up */
+
+/* A free tile in the villager's area that suits place */
+static int aNPC_tl_find_spot(NPC_ACTOR* nactorx, int idx, int place, xyz_t* spot) {
+    int bx = nactorx->actor_class.block_x;
+    int bz = nactorx->actor_class.block_z;
+    int i;
+
+    for (i = 0; i < aNPC_TL_SPOT_TRIES; i++) {
+        xyz_t pos;
+        mActor_name_t* fg_p;
+
+        /* not the acre's edge tiles */
+        mFI_BkandUtNum2CenterWpos(&pos, bx, bz, 1 + RANDOM(UT_X_NUM - 2), 1 + RANDOM(UT_Z_NUM - 2));
+        fg_p = mFI_GetUnitFG(pos);
+        if (fg_p == NULL || (*fg_p != EMPTY_NO && !ITEM_IS_ITEM1(*fg_p))) {
+            continue;
+        }
+
+        if (mCoBG_Wpos2CheckNpc(pos) != TRUE ||
+            aNPC_moveRangeCheck2(nactorx, NULL, pos, nactorx->movement.range_type) != TRUE ||
+            mTL_SpotTaken(idx, &pos) || !mTL_CheckPlace(place, idx, &pos)) {
+            continue;
+        }
+
+        *spot = pos;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+/* The activity starts where the villager stands */
+static void aNPC_tl_begin(NPC_ACTOR* nactorx, mTL_villager_c* v, int idx, u8* act_idx, u8* act_type) {
+    v->state = mTL_STATE_DOING;
+    v->start_sec = Common_Get(time.now_sec);
+    v->repeats = 0;
+    v->oneshot = FALSE;
+    v->prop = NULL;
+    nactorx->action.act_proc = &aNPC_town_life_act_proc;
+    if (nactorx->action.idx == aNPC_ACT_SPECIAL) {
+        /* (one activity right after another: aNPC_chk_request_act only starts an act that differs from the last) */
+        nactorx->action.idx = aNPC_ACT_NONE;
+    }
+    *act_idx = aNPC_ACT_SPECIAL;
+    *act_type = aNPC_ACT_TYPE_DEFAULT;
+    mTL_NoteEvent(idx, v->activity, 1);
+}
+
+static void aNPC_tl_walk_to_spot(NPC_ACTOR* nactorx, mTL_villager_c* v, u8* act_idx, u8* act_type, u16* arg_data) {
+    arg_data[2] = v->spot_x;
+    arg_data[3] = v->spot_z;
+    *act_idx = aNPC_ACT_WALK;
+    if (aNPC_think_wander_check_ones_way(nactorx, arg_data) == TRUE) {
+        *act_idx = aNPC_ACT_TURN;
+    }
+    *act_type = aNPC_ACT_TYPE_TO_POINT;
+}
+
+static int aNPC_town_life_decide(NPC_ACTOR* nactorx, u8* act_idx, u8* act_type, u16* arg_data) {
+    mTL_villager_c* v;
+    int idx;
+
+    if (!mTL_IsEnabled() || !aNPC_IS_NRM_NPC(nactorx) || !aNPC_tl_wandering(nactorx)) {
+        return FALSE;
+    }
+
+    idx = mNL_GetAnimalIdx(nactorx->npc_info.animal);
+    v = mTL_GetVillager(idx);
+    if (v == NULL || (mTL_test_villager >= 0 && idx != mTL_test_villager)) {
+        return FALSE;
+    }
+
+    switch (v->state) {
+        case mTL_STATE_DOING:
+            /* (only here when the act ended without aNPC_tl_stop, which shouldn't happen) */
+            v->state = mTL_STATE_IDLE;
+            return FALSE;
+
+        case mTL_STATE_GOING: {
+            xyz_t spot;
+
+            spot.x = v->spot_x;
+            spot.y = nactorx->actor_class.world.position.y;
+            spot.z = v->spot_z;
+            if (search_position_distanceXZ(&nactorx->actor_class.world.position, &spot) < aNPC_TL_ARRIVE_DIST) {
+                aNPC_tl_begin(nactorx, v, idx, act_idx, act_type);
+                return TRUE;
+            }
+
+            if (v->tries > 0) {
+                v->tries--;
+                aNPC_tl_walk_to_spot(nactorx, v, act_idx, act_type, arg_data);
+                return TRUE;
+            }
+
+            v->state = mTL_STATE_IDLE;
+            v->cooldown = 2;
+            mTL_stats.no_spot++;
+            return FALSE;
+        }
+
+        default: {
+            const mTL_activity_c* a;
+            xyz_t spot;
+            int place;
+            int act;
+
+            if (v->cooldown > 0) {
+                v->cooldown--;
+                return FALSE;
+            }
+
+            if (RANDOM(100) >= mTL_start_chance) {
+                return FALSE;
+            }
+
+            act = mTL_ChooseActivity(mNpc_GetNpcLooks((ACTOR*)nactorx));
+            if (act < 0) {
+                return FALSE;
+            }
+
+            a = mTL_GetActivity(act);
+            if ((a->prop != mTL_PROP_NONE || a->sub_anim != aNPC_SUB_ANIM_NONE) &&
+                (nactorx->right_hand.item_type != aNPC_ITEM_TYPE_NONE || nactorx->right_hand.item_actor_p != NULL)) {
+                /* (the hand is full: an umbrella) */
+                return FALSE;
+            }
+            place = mTL_test_activity >= 0 ? mTL_PLACE_ANYWHERE : a->place;
+            if (place == mTL_PLACE_ANYWHERE) {
+                spot = nactorx->actor_class.world.position;
+            } else if (!aNPC_tl_find_spot(nactorx, idx, place, &spot)) {
+                v->cooldown = 2;
+                mTL_stats.no_spot++;
+                return FALSE;
+            }
+
+            v->activity = act;
+            v->spot_x = (s16)spot.x;
+            v->spot_z = (s16)spot.z;
+            v->angle = mTL_PlaceAngle(place, &spot, nactorx->actor_class.shape_info.rotation.y);
+            v->seconds = mTL_test_seconds > 0 ? mTL_test_seconds
+                                              : a->min_sec + RANDOM(a->max_sec - a->min_sec + 1);
+            v->tries = aNPC_TL_WALK_TRIES;
+            v->state = mTL_STATE_GOING;
+
+            if (place == mTL_PLACE_ANYWHERE) {
+                aNPC_tl_begin(nactorx, v, idx, act_idx, act_type);
+            } else {
+                aNPC_tl_walk_to_spot(nactorx, v, act_idx, act_type, arg_data);
+            }
+            return TRUE;
+        }
+    }
+}
