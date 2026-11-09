@@ -20,6 +20,7 @@ static const int mNL_topic_weight[mNL_TOPIC_NUM] = {
     2, 3, 3,       /* fan, moving sad, moving glad */
     5, 5, 4,       /* news: made up, fell out, new friends */
     5, 5, 5,       /* the speaker made up, fell out; the player's catch */
+    4, 3,          /* planted flowers: the speaker, another villager */
 };
 
 /* Opinion at or above which a villager is sorry to see another move away */
@@ -203,6 +204,9 @@ static int mNL_EventFresh(const mNL_event_c* event) {
             return mNL_PairValid(event) && mNL_EventAge(event) <= mNL_NEWS_DAYS;
         case mNL_EVENT_PLAYER_CATCH:
             return event->a < PLAYER_NUM && mNL_EventAge(event) <= mNL_CATCH_DAYS;
+        case mNL_EVENT_PLANTED:
+            return event->a < ANIMAL_NUM_MAX && mNL_IsTownAnimal(&Save_Get(animals)[event->a]) &&
+                   Save_Get(animals)[event->a].id.name_id == event->b && mNL_EventAge(event) <= mNL_CATCH_DAYS;
         default:
             return FALSE;
     }
@@ -216,6 +220,9 @@ static int mNL_SameEvent(const mNL_event_c* e0, const mNL_event_c* e1) {
     }
     if (type == mNL_EVENT_PLAYER_CATCH) {
         return e0->a == e1->a && e0->data0 == e1->data0 && e0->data1 == e1->data1;
+    }
+    if (type == mNL_EVENT_PLANTED) {
+        return e0->a == e1->a;
     }
 
     return (e0->a == e1->a && e0->b == e1->b) || (e0->a == e1->b && e0->b == e1->a);
@@ -316,6 +323,24 @@ extern void mNL_SawPlayerCatch(Animal_c* witness) {
     mNL_AddEvent(witness, &event);
 }
 
+extern void mNL_RecordPlanted(int idx, mActor_name_t flower) {
+    Animal_c* animals = Save_Get(animals);
+    mNL_event_c event;
+
+    if (!mNL_IsEnabled() || idx < 0 || idx >= ANIMAL_NUM_MAX) {
+        return;
+    }
+
+    bzero(&event, sizeof(event));
+    event.type = mNL_EVENT_PLANTED;
+    event.a = idx;
+    event.b = animals[idx].id.name_id;
+    event.data0 = flower >> 8;
+    event.data1 = flower & 0xFF;
+    mNL_SetEventDate(&event);
+    mNL_AddEvent(&animals[idx], &event);
+}
+
 /* The freshest news teller has that listener hasn't heard and isn't part of */
 extern void mNL_TellNews(Animal_c* teller, Animal_c* listener) {
     mNL_memory_c* memory = mNL_GetMemory(teller, FALSE);
@@ -332,10 +357,13 @@ extern void mNL_TellNews(Animal_c* teller, Animal_c* listener) {
 
     for (i = 0; i < mNL_MEMORY_EVENTS; i++) {
         mNL_event_c* e = &memory->events[i];
-        int is_pair = (e->type & mNL_EVENT_TYPE_MASK) != mNL_EVENT_PLAYER_CATCH;
+        int type = e->type & mNL_EVENT_TYPE_MASK;
+        int is_pair = type == mNL_EVENT_MADE_UP || type == mNL_EVENT_FELL_OUT || type == mNL_EVENT_NEW_FRIENDS;
         int age;
 
-        if (!mNL_EventFresh(e) || (is_pair && (e->a == listener_idx || e->b == listener_idx))) {
+        /* (news about the listener isn't news to them) */
+        if (!mNL_EventFresh(e) || (is_pair && (e->a == listener_idx || e->b == listener_idx)) ||
+            (type == mNL_EVENT_PLANTED && e->a == listener_idx)) {
             continue;
         }
 
@@ -491,6 +519,9 @@ static int mNL_DecideGossipMsgSub(const Animal_c* speaker, int looks) {
                 if (e->a == Common_Get(player_no) && !mLd_PlayerManKindCheck()) {
                     mNL_Consider(&pick[mNL_TOPIC_PLAYER_CATCH], -1, -1, e, weight);
                 }
+            } else if (type == mNL_EVENT_PLANTED) {
+                mNL_Consider(&pick[e->a == self ? mNL_TOPIC_SELF_PLANTED : mNL_TOPIC_NEWS_PLANTED], e->a, -1, e,
+                             weight);
             } else if (e->a == self || e->b == self) {
                 int other = e->a == self ? e->b : e->a;
 
@@ -598,11 +629,14 @@ static int mNL_DecideGossipMsgSub(const Animal_c* speaker, int looks) {
         pick[topic].event->type |= mNL_EVENT_TOLD;
     }
 
-    if (topic == mNL_TOPIC_PLAYER_CATCH) {
+    if (topic == mNL_TOPIC_PLAYER_CATCH || topic == mNL_TOPIC_SELF_PLANTED || topic == mNL_TOPIC_NEWS_PLANTED) {
         mActor_name_t item = (pick[topic].event->data0 << 8) | pick[topic].event->data1;
 
         mIN_copy_name_str(mNL_item_str, item);
         mMsg_SET_ITEM_STR_ART(mMsg_ITEM_STR0, mNL_item_str, mIN_ITEM_NAME_LEN, item);
+        if (topic == mNL_TOPIC_NEWS_PLANTED) {
+            mNL_SetNameFreeStr(0, mMsg_FREE_STR13, pick[topic].a);
+        }
     } else {
         mNL_SetNameFreeStr(0, mMsg_FREE_STR13, pick[topic].a);
         if (pick[topic].b >= 0) {

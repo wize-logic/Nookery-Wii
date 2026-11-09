@@ -83,6 +83,8 @@ enum {
     mNL_TOPIC_SELF_MADE_UP,     /* the speaker made up with STR_FREE13 */
     mNL_TOPIC_SELF_FELL_OUT,    /* the speaker fell out with STR_FREE13 */
     mNL_TOPIC_PLAYER_CATCH,     /* the player caught STR_ITEM0 */
+    mNL_TOPIC_SELF_PLANTED,     /* the speaker planted STR_ITEM0 by their house (town life) */
+    mNL_TOPIC_NEWS_PLANTED,     /* STR_FREE13 planted STR_ITEM0 by their house (town life) */
 
     mNL_TOPIC_NUM
 };
@@ -94,6 +96,7 @@ enum {
     mNL_EVENT_FELL_OUT,
     mNL_EVENT_NEW_FRIENDS,
     mNL_EVENT_PLAYER_CATCH,
+    mNL_EVENT_PLANTED, /* a: the villager, b: their name_id, data0/1: the flower */
 
     mNL_EVENT_NUM
 };
@@ -105,6 +108,8 @@ extern void mNL_RecordPairEvent(int type, int a_idx, int b_idx);
 /* The player caught item (m_player_main_notice_rod/net): witnesses remember it with mNL_SawPlayerCatch */
 extern void mNL_SetPlayerCatch(mActor_name_t item);
 extern void mNL_SawPlayerCatch(Animal_c* witness);
+/* A villager (Save animals index) planted a flower by their house (town life) */
+extern void mNL_RecordPlanted(int idx, mActor_name_t flower);
 /* Two villagers met: each tells the other their freshest news (mNL_TellNews: one way) */
 extern void mNL_ShareNews(Animal_c* animal0, Animal_c* animal1);
 extern void mNL_TellNews(Animal_c* teller, Animal_c* listener);

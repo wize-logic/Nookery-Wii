@@ -41,6 +41,8 @@
 #include "m_town_life.h"
 #include "m_kankyo.h"
 #include "m_npc_schedule.h"
+#include "m_house.h"
+#include "m_mail.h"
 #include "ac_npc_anim_def.h"
 #include "ac_tools.h"
 #include "m_choice.h"
@@ -994,7 +996,13 @@ static void life_test(GAME_PLAY* play)
  * life_test = 7 watches speech bubbles: as in 6, and villagers also do activities; every ten seconds the player
  * is moved next to a group or a busy villager. Each bubble is logged ("LIFETEST: bubble") with a screenshot of
  * the first eight, and a bubble on screen while the speech window is open is an error ("BUBBLE OVER WINDOW";
- * the input script's A starts chats). */
+ * the input script's A starts chats).
+ *
+ * life_test = 8 watches villagers tending the town, with the limits off: in turn they plant flowers, pick
+ * fruit, tend flowers and (in a pretend snowman season) build a snowman. Every ground change against a snapshot
+ * of the town is logged ("LIFETEST: ground"), with screenshots of the first few; a gift letter is sent and the
+ * mailbox counted; then, limits on, villagers who planted may not plant again. On an online host, a guest's log
+ * should show the same changes arriving ("NETGAME: ground change from the others"). */
 typedef struct {
     const char* name;
     u8 anim;
@@ -1497,6 +1505,162 @@ static void town_test_groups(GAME_PLAY* play)
     }
 }
 
+static int mailbox_count(void)
+{
+    int player_no = Common_Get(player_no);
+    mHm_hs_c* home;
+    int i, n = 0;
+    if (player_no >= PLAYER_NUM) {
+        return -1;
+    }
+    home = Save_GetPointer(homes[mHS_get_arrange_idx(player_no)]);
+    for (i = 0; i < HOME_MAILBOX_SIZE; i++) {
+        n += !mMl_check_not_used_mail(&home->mailbox[i]);
+    }
+    return n;
+}
+
+static void town_test_tend(GAME_PLAY* play)
+{
+    static const struct {
+        int act;
+        int seconds;
+    } steps[] = {
+        {mTL_ACT_PLANT, 60}, {mTL_ACT_PICK_FRUIT, 60}, {mTL_ACT_TEND_FLOWERS, 30}, {mTL_ACT_SNOWMAN, 60},
+    };
+    static mActor_name_t snap[FG_BLOCK_Z_NUM][FG_BLOCK_X_NUM][UT_Z_NUM][UT_X_NUM];
+    static int frames, step = -1, step_frames, shots, shot_frames = -1;
+    static int planted_by[ANIMAL_NUM_MAX];
+    PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+    int bx, bz, i;
+
+    frames++;
+    if (step < 0) {
+        int before;
+        if (frames < (nk_net_mode() == NK_NET_HOST ? 60 * 90 : 600)) {
+            return; /* (after the acre has settled: buildings mark their tiles as it loads; online, the guest
+                     * has time to arrive) */
+        }
+        memcpy(snap, Save_Get(fg), sizeof(snap));
+        /* a gift: the first villager who remembers the player becomes a good friend */
+        for (i = 0; i < ANIMAL_NUM_MAX && Now_Private != NULL; i++) {
+            Animal_c* animal = &Save_Get(animals[i]);
+            int m = mNpc_CheckFreeAnimalPersonalID(&animal->id)
+                        ? -1
+                        : mNpc_GetAnimalMemoryIdx(&Now_Private->player_ID, animal->memories, ANIMAL_MEMORY_NUM);
+            if (m >= 0) {
+                animal->memories[m].friendship = 90;
+                break;
+            }
+        }
+        mTL_test_no_limits = TRUE;
+        before = mailbox_count();
+        mTL_DailyGifts();
+        nk_wii_log("LIFETEST: gift letters %d (from villager %d), mailbox %d -> %d\n", mTL_stats.gifts,
+                   mTL_stats.last_villager, before, mailbox_count());
+        mTL_start_chance = 100;
+        mTL_test_keep_place = TRUE;
+        mTL_test_seconds = 0;
+        step = 0;
+        step_frames = 0;
+        mTL_test_activity = steps[0].act;
+        nk_wii_log("LIFETEST: tending: %s\n", mTL_GetActivity(steps[0].act)->name);
+    }
+
+    if (step < (int) (sizeof(steps) / sizeof(steps[0])) && ++step_frames >= steps[step].seconds * 60) {
+        step++;
+        step_frames = 0;
+        if (step < (int) (sizeof(steps) / sizeof(steps[0]))) {
+            mTL_test_activity = steps[step].act;
+            mTL_test_winter = steps[step].act == mTL_ACT_SNOWMAN;
+            if (steps[step].act == mTL_ACT_PICK_FRUIT) {
+                /* an apple tree in fruit beside each house here (snapshot too, so only the picking shows) */
+                for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+                    xyz_t home, p;
+                    int k;
+                    if (town_test_npc(play, i) == NULL || !mTL_GetHomePos(i, &home)) {
+                        continue;
+                    }
+                    for (k = 0; k < 8; k++) {
+                        mActor_name_t* fg;
+                        p.x = home.x + ((k & 1) ? 3 : -3) * mFI_UT_WORLDSIZE_X_F;
+                        p.y = home.y;
+                        p.z = home.z + (k / 2 - 1) * mFI_UT_WORLDSIZE_Z_F;
+                        fg = mFI_GetUnitFG(p);
+                        if (fg != NULL && *fg == EMPTY_NO && mFI_SetFG_common(TREE_APPLE_FRUIT, p, TRUE)) {
+                            int ux, uz, bxx, bzz;
+                            mFI_Wpos2BlockNum(&bxx, &bzz, p);
+                            mFI_Wpos2UtNum_inBlock(&ux, &uz, p);
+                            snap[bzz - 1][bxx - 1][uz][ux] = TREE_APPLE_FRUIT;
+                            nk_wii_log("LIFETEST: apple tree by villager %d's house\n", i);
+                            break;
+                        }
+                    }
+                }
+            }
+            nk_wii_log("LIFETEST: tending: %s\n", mTL_GetActivity(steps[step].act)->name);
+        } else {
+            /* the limits back on: those who planted may not plant again today */
+            mTL_test_activity = -1;
+            mTL_test_no_limits = FALSE;
+            mTL_test_winter = FALSE;
+            mTL_start_chance = 0;
+            for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+                if (planted_by[i]) {
+                    nk_wii_log("LIFETEST: villager %d planted %d; may plant again: %d; news known %d\n", i,
+                               planted_by[i], mTL_ActivityAllowed(mTL_ACT_PLANT, i),
+                               mNL_CountEvents(&Save_Get(animals[i])));
+                }
+            }
+            nk_wii_log("LIFETEST: tending test done (planted %d, picked %d, snowmen %d, gifts %d)\n",
+                       mTL_stats.planted, mTL_stats.picked, mTL_stats.snowmen, mTL_stats.gifts);
+        }
+    }
+
+    if (mTL_stats.events && mTL_stats.last_event == 1 && player != NULL && step_frames % 300 == 0) {
+        /* the player near whoever is busy, for the screenshots */
+        for (i = 0; i < ANIMAL_NUM_MAX; i++) {
+            mTL_villager_c* v = mTL_GetVillager(i);
+            NPC_ACTOR* npc = town_test_npc(play, i);
+            if (v != NULL && v->state != mTL_STATE_IDLE && npc != NULL) {
+                player->actor_class.world.position.x = v->spot_x + 70.0f;
+                player->actor_class.world.position.z = v->spot_z - 30.0f;
+                break;
+            }
+        }
+    }
+
+    if (frames % 60 == 0) {
+        /* the ground against the snapshot */
+        for (bz = 0; bz < FG_BLOCK_Z_NUM; bz++) {
+            for (bx = 0; bx < FG_BLOCK_X_NUM; bx++) {
+                mActor_name_t* live = &Save_Get(fg[bz][bx]).items[0][0];
+                mActor_name_t* old = &snap[bz][bx][0][0];
+                for (i = 0; i < UT_Z_NUM * UT_X_NUM; i++) {
+                    if (live[i] != old[i] && (live[i] >= DUMMY_START || old[i] >= DUMMY_START)) {
+                        old[i] = live[i]; /* (buildings marking their tiles) */
+                    } else if (live[i] != old[i]) {
+                        nk_wii_log("LIFETEST: ground acre %d,%d tile %d,%d: %04x -> %04x (last villager %d)\n", bx,
+                                   bz, i % UT_X_NUM, i / UT_X_NUM, old[i], live[i], mTL_stats.last_villager);
+                        if (IS_ITEM_FLOWER(live[i]) && mTL_stats.last_villager >= 0 &&
+                            mTL_stats.last_villager < ANIMAL_NUM_MAX) {
+                            planted_by[mTL_stats.last_villager]++;
+                        }
+                        old[i] = live[i];
+                        if (shot_frames < 0 && shots < 4) {
+                            shot_frames = 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if (shot_frames >= 0 && ++shot_frames == 60) {
+        shot_frames = -1;
+        nk_wii_log("LIFETEST: shot %d ground\n", ++shots);
+    }
+}
+
 static void town_test(GAME_PLAY* play)
 {
     static int field_frames;
@@ -1622,6 +1786,10 @@ static void town_test(GAME_PLAY* play)
         town_test_groups(play);
         return;
     }
+    if (g_nk_life_test == 8) {
+        town_test_tend(play);
+        return;
+    }
 
     /* life_test = 4: the animation and prop check */
     if (subject < 0) {
@@ -1733,6 +1901,8 @@ static void town_test(GAME_PLAY* play)
 
 void nk_netgame_play_frame(GAME_PLAY* play)
 {
+    /* town life: only the host (or a console on its own) changes the ground; guests get it by the field sync */
+    mTL_ground_changes_allowed = nk_net_mode() != NK_NET_GUEST;
     if (g_nk_trace_scenes) {
         static int last_scene = -1;
         static int frames;

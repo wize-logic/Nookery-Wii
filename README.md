@@ -26,6 +26,8 @@ Nookery-Wii is [Nookery](https://github.com/flyngmt/Nookery) with:
   - gatherings: friends meet on the plaza or in the open and talk in turns, and in the evening one
     walks another home
   - a few words to each other in speech bubbles as you walk by
+  - tending the town: looking after the flowers near their house, planting one now and then, picking
+    fruit, building a snowman, and now and then mailing a present to a player they are fond of
 
 Both are settings, on by default, on every platform: Settings > Gameplay on PC and mobile, the
 launcher's Settings on the Wii. Saves keep their size and still work in the original game and in

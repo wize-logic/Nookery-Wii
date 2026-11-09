@@ -159,6 +159,15 @@ static void aNPC_act_town_life_main_proc(NPC_ACTOR* nactorx, GAME_PLAY* play) {
             }
 
             if (mTL_SecondsDoing(v) >= v->seconds || !aNPC_tl_wandering(nactorx)) {
+                if (mTL_SecondsDoing(v) >= v->seconds && a->effect != mTL_EFFECT_NONE) {
+                    /* done: the flower planted, the snowman built */
+                    xyz_t spot;
+
+                    spot.x = v->spot_x;
+                    spot.y = nactorx->actor_class.world.position.y;
+                    spot.z = v->spot_z;
+                    mTL_DoEffect(mNL_GetAnimalIdx(nactorx->npc_info.animal), v->activity, &spot, v->angle, TRUE);
+                }
                 aNPC_tl_stop(nactorx, 2);
                 aNPC_setupAction(nactorx, aNPC_ACTION_TYPE_WAIT);
                 nactorx->action.step = aNPC_ACTION_END_STEP;

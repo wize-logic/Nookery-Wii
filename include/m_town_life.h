@@ -32,6 +32,9 @@ enum {
     mTL_PLACE_BEACH,    /* on the sand */
     mTL_PLACE_TREE,     /* beside a tree */
     mTL_PLACE_HOME,     /* near the villager's own house */
+    mTL_PLACE_FLOWERS,  /* beside flowers near home, facing them */
+    mTL_PLACE_PLANT,    /* beside a free patch of grass near home where a flower may go, facing it */
+    mTL_PLACE_FRUIT,    /* beside a fruit tree with fruit near home, facing it */
 
     mTL_PLACE_NUM
 };
@@ -52,6 +55,16 @@ enum {
 
 /* No prop */
 #define mTL_PROP_NONE 0xFF
+
+/* What an activity changes in town (only where this console may change the ground) */
+enum {
+    mTL_EFFECT_NONE,
+    mTL_EFFECT_PLANT,   /* at the end: a flower on the tile in front */
+    mTL_EFFECT_PICK,    /* at the start: the fruit off the tree in front (then eaten) */
+    mTL_EFFECT_SNOWMAN, /* at the end: a snowman on the tile in front */
+
+    mTL_EFFECT_NUM
+};
 
 /* What a villager says when talked to mid-activity: the ACT_* message topics (tools/npc_life_msg.py), which
  * follow the gossip topics (mNL_TOPIC_NUM + line) */
@@ -77,6 +90,7 @@ typedef struct {
     u8 prop;           /* TOOL_* held in the right hand, or mTL_PROP_NONE */
     u8 place;          /* mTL_PLACE_* */
     u8 line;           /* mTL_LINE_*: what they say when talked to while doing it */
+    u8 effect;         /* mTL_EFFECT_* */
     u8 looks_weight[6]; /* how much each personality (mNpc_LOOKS_*) likes it; 0 never */
     u8 hour_from;      /* from this hour... */
     u8 hour_to;        /* ...until before this one (wraps past midnight when smaller) */
@@ -105,6 +119,10 @@ enum {
     mTL_ACT_PHONE,
     mTL_ACT_CHEER,
     mTL_ACT_WAVE_FLAG,
+    mTL_ACT_TEND_FLOWERS,
+    mTL_ACT_PLANT,
+    mTL_ACT_PICK_FRUIT,
+    mTL_ACT_SNOWMAN,
 
     mTL_ACT_NUM,
     mTL_ACT_TEST = mTL_ACT_NUM, /* mTL_test_entry, for tests */
@@ -193,15 +211,37 @@ extern int mTL_IsEnabled(void);
 extern mTL_villager_c* mTL_GetVillager(int idx);
 extern void mTL_ClearVillager(int idx);
 
-/* An activity that suits looks (mNpc_LOOKS_*) now, chosen by weight, or -1 */
-extern int mTL_ChooseActivity(int looks);
-/* Whether an activity may start now (time, weather, season) */
-extern int mTL_ActivityAllowed(int act);
+/* An activity that suits looks (mNpc_LOOKS_*) now for the villager at Save animals index idx, chosen by weight,
+ * or -1 */
+extern int mTL_ChooseActivity(int looks, int idx);
+/* Whether an activity may start now (time, weather, season, and for ones that change the town, its limits) */
+extern int mTL_ActivityAllowed(int act, int idx);
+
+/*
+ * Tending the town. Plantings are limited (mTL_PLANTS_PER_DAY in town, one per villager every
+ * mTL_PLANT_DAYS days, none near a house already with mTL_PLANT_MAX_NEAR flowers) so the town rating isn't swamped;
+ * fruit is picked once a day per villager; a snowman only when the town has none. The online play code clears
+ * mTL_ground_changes_allowed on a guest, whose ground comes from the host.
+ */
+#define mTL_PLANTS_PER_DAY 2
+#define mTL_PLANT_DAYS 2
+#define mTL_PLANT_MAX_NEAR 6
+extern int mTL_ground_changes_allowed;
+/* Does an activity's effect now, at its start or end; the spot and angle are where the villager stands */
+extern int mTL_DoEffect(int idx, int act, const xyz_t* spot, s16 angle, int at_end);
+/* At game start: villagers fond of a player sometimes send them a present by mail */
+extern void mTL_DailyGifts(void);
+/* Tests: no limits on plantings, fruit, snowmen and gifts; the snowman season */
+extern int mTL_test_no_limits;
+extern int mTL_test_winter;
 
 /* Seconds of game time since the villager's activity started */
 extern int mTL_SecondsDoing(const mTL_villager_c* v);
 /* Whether another villager is going to or using a spot near pos */
 extern int mTL_SpotTaken(int idx, const xyz_t* pos);
+
+/* The middle of a villager's house (Save animals index); FALSE when they have none */
+extern int mTL_GetHomePos(int idx, xyz_t* pos);
 
 /* Whether a spot suits place for the villager at Save animals index idx */
 extern int mTL_CheckPlace(int place, int idx, const xyz_t* pos);
@@ -222,6 +262,7 @@ extern int mTL_test_group_any_hour;
 extern int mTL_test_activity;
 extern int mTL_test_villager;
 extern int mTL_test_seconds;
+extern int mTL_test_keep_place; /* the forced activity still goes to its own kind of place */
 extern mTL_activity_c mTL_test_entry;
 
 /* Counts for tests and logs */
@@ -235,6 +276,10 @@ typedef struct {
     int last_event; /* 1 started, 2 ended, 3 interrupted */
     int events;     /* increases with every start/end/interruption */
     int last_interrupt_act; /* the act (aNPC_ACT_*) that took over at the last interruption */
+    int planted;
+    int picked;
+    int snowmen;
+    int gifts;
     int groups_formed;
     int groups_ended;
     int group_members; /* members of all groups formed */

@@ -12,14 +12,31 @@
 static int aNPC_tl_find_spot(NPC_ACTOR* nactorx, int idx, int place, xyz_t* spot) {
     int bx = nactorx->actor_class.block_x;
     int bz = nactorx->actor_class.block_z;
+    int around_home = place == mTL_PLACE_FLOWERS || place == mTL_PLACE_PLANT || place == mTL_PLACE_FRUIT;
+    int tries = around_home ? 11 * 11 : aNPC_TL_SPOT_TRIES;
+    int start = RANDOM(11 * 11);
+    xyz_t home;
     int i;
 
-    for (i = 0; i < aNPC_TL_SPOT_TRIES; i++) {
+    if (around_home && !mTL_GetHomePos(idx, &home)) {
+        return FALSE;
+    }
+
+    for (i = 0; i < tries; i++) {
         xyz_t pos;
         mActor_name_t* fg_p;
 
-        /* not the acre's edge tiles */
-        mFI_BkandUtNum2CenterWpos(&pos, bx, bz, 1 + RANDOM(UT_X_NUM - 2), 1 + RANDOM(UT_Z_NUM - 2));
+        if (around_home) {
+            /* every tile within five of the house, from a random one on */
+            int k = (start + i) % (11 * 11);
+
+            pos.x = home.x + (k % 11 - 5) * mFI_UT_WORLDSIZE_X_F;
+            pos.y = home.y;
+            pos.z = home.z + (k / 11 - 5) * mFI_UT_WORLDSIZE_Z_F;
+        } else {
+            /* not the acre's edge tiles */
+            mFI_BkandUtNum2CenterWpos(&pos, bx, bz, 1 + RANDOM(UT_X_NUM - 2), 1 + RANDOM(UT_Z_NUM - 2));
+        }
         fg_p = mFI_GetUnitFG(pos);
         if (fg_p == NULL || (*fg_p != EMPTY_NO && !ITEM_IS_ITEM1(*fg_p))) {
             continue;
@@ -53,6 +70,17 @@ static void aNPC_tl_begin(NPC_ACTOR* nactorx, mTL_villager_c* v, int idx, u8* ac
     *act_idx = aNPC_ACT_SPECIAL;
     *act_type = aNPC_ACT_TYPE_DEFAULT;
     mTL_NoteEvent(idx, v->activity, 1);
+    if (mTL_GetActivity(v->activity)->effect == mTL_EFFECT_PICK) {
+        xyz_t spot;
+
+        spot.x = v->spot_x;
+        spot.y = nactorx->actor_class.world.position.y;
+        spot.z = v->spot_z;
+        if (!mTL_DoEffect(idx, v->activity, &spot, v->angle, FALSE)) {
+            /* (someone got the fruit first) */
+            v->seconds = 0;
+        }
+    }
 }
 
 static void aNPC_tl_walk_to_spot(NPC_ACTOR* nactorx, mTL_villager_c* v, u8* act_idx, u8* act_type, u16* arg_data) {
@@ -442,7 +470,7 @@ static int aNPC_town_life_decide(NPC_ACTOR* nactorx, u8* act_idx, u8* act_type, 
 
             /* a few tries: the first choice may need a place this acre doesn't have (a river, a tree) */
             for (tries = 0; tries < aNPC_TL_CHOOSE_TRIES; tries++) {
-                act = mTL_ChooseActivity(mNpc_GetNpcLooks((ACTOR*)nactorx));
+                act = mTL_ChooseActivity(mNpc_GetNpcLooks((ACTOR*)nactorx), idx);
                 if (act < 0) {
                     return FALSE;
                 }
@@ -455,7 +483,7 @@ static int aNPC_town_life_decide(NPC_ACTOR* nactorx, u8* act_idx, u8* act_type, 
                     continue;
                 }
 
-                place = mTL_test_activity >= 0 ? mTL_PLACE_ANYWHERE : a->place;
+                place = mTL_test_activity >= 0 && !mTL_test_keep_place ? mTL_PLACE_ANYWHERE : a->place;
                 if (place == mTL_PLACE_ANYWHERE) {
                     spot = nactorx->actor_class.world.position;
                     break;

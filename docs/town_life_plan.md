@@ -220,6 +220,28 @@ to the bottom of the screen.
 - **Test:** before/after ground diffs per day in watch mode, and that an
   online guest sees the change through the ground sync.
 
+**Result (done):** the GameCube game has no watering (no watering can, flowers
+never wilt), so "water flowers" became tending them: bending down beside
+flowers near home. Planting picks a free patch of grass within five tiles of
+the villager's house (nothing buried on or beside it, not the two tiles below
+a door, fewer than six flowers around) and puts down a bloom of that
+villager's kind of flower; at most two plantings a day in town and one per
+villager every two days (the day is kept in the last two bytes of
+`Animal_c.unused`, after the news memory), and it becomes news ("I planted
+white tulips by my house!", 12 new lines). Picking takes the fruit off a
+fruit tree near home (the tree regrows it as usual) and the villager eats
+it. In the snowman season (Dec 25 to Feb 17), when the town has no snowman, a
+villager builds one in a free slot (`mSN_regist_snowman_society`). Gifts: at
+game start, a villager who is a good friend (friendship 70+) of a player of
+this town and hasn't sent one for a week may mail them a common piece of
+furniture or clothing, one villager a day (the letter text is the port's
+own, per personality). Ground changes only happen when
+`mTL_ground_changes_allowed` (cleared on an online guest). `life_test = 8`:
+with the limits off, villagers planted 14 flowers and built a snowman in five
+minutes; with them back on, none could plant again; the gift arrived. Online
+(host and guest in Dolphin over the LAN), every flower, the picked trees and
+the snowman reached the guest through the ground sync.
+
 ## Phase 5: more time outdoors (S)
 
 - Rework the schedules in `m_npc_schedule.c` (port only) so more villagers

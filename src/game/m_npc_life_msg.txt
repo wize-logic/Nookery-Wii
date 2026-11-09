@@ -2246,3 +2246,89 @@ stylist,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
 actually.<<PAUSE [0A]>> Nothing bad.<<PAUSE [0A]>>
 Mostly.
 <<MSGEND>>
+
+@SELF_PLANTED NORMAL 0
+<<DEMONPC0 [00 00 0A]>>I planted <<STR_ITEM0>>
+by my house,<<PAUSE [06]>> <<STR_TAIL>>!<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>Every house needs a little
+color, don't you think?
+<<MSGEND>>
+
+@SELF_PLANTED PEPPY 0
+<<DEMONPC0 [00 00 0A]>>Did you see?<<PAUSE [08]>> I planted
+<<STR_ITEM0>>!<<PAUSE [08]>>
+My house is SO pretty now,
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@SELF_PLANTED LAZY 0
+<<DEMONPC0 [00 00 03]>>I planted <<STR_ITEM0>>
+by my door,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 0B]>>Can you eat 'em?<<PAUSE [0A]>> No?<<PAUSE [08]>>
+Huh. Pretty, though.
+<<MSGEND>>
+
+@SELF_PLANTED JOCK 0
+<<DEMONPC0 [00 00 0A]>>Planted <<STR_ITEM0>>
+today,<<PAUSE [06]>> <<STR_PLAYERNAME>>!<<PAUSE [08]>> Digging
+is great for the arms,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@SELF_PLANTED CRANKY 0
+<<DEMONPC0 [00 00 16]>>I put <<STR_ITEM0>> by
+my house,<<PAUSE [06]>> <<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 01]>>Don't go trampling 'em.
+<<MSGEND>>
+
+@SELF_PLANTED SNOOTY 0
+<<DEMONPC0 [00 00 12]>>My garden now has
+<<STR_ITEM0>>,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>A home should be as lovely
+as its owner.
+<<MSGEND>>
+
+@NEWS_PLANTED NORMAL 0
+<<DEMONPC0 [00 00 03]>><<STR_FREE13>> planted
+<<STR_ITEM0>>,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>>Their house looks so
+cheerful now!
+<<MSGEND>>
+
+@NEWS_PLANTED PEPPY 0
+<<DEMONPC0 [00 00 0A]>><<STR_FREE13>> planted
+<<STR_ITEM0>>!<<PAUSE [08]>>
+Now I want flowers too,<<PAUSE [06]>>
+<<STR_TAIL>>!
+<<MSGEND>>
+
+@NEWS_PLANTED LAZY 0
+<<DEMONPC0 [00 00 0B]>><<STR_FREE13>> was digging
+around,<<PAUSE [06]>> <<STR_TAIL>>.<<PAUSE [08]>> Planted
+<<STR_ITEM0>>.<<BTN>>
+<<MSGCLEAR>>I thought they found snacks.
+<<MSGEND>>
+
+@NEWS_PLANTED JOCK 0
+<<DEMONPC0 [00 00 0A]>><<STR_FREE13>> planted
+<<STR_ITEM0>>,<<PAUSE [06]>>
+<<STR_TAIL>>!<<PAUSE [08]>> That's a
+workout with a view!
+<<MSGEND>>
+
+@NEWS_PLANTED CRANKY 0
+<<DEMONPC0 [00 00 0B]>><<STR_FREE13>> went and
+planted <<STR_ITEM0>>,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 16]>>Show-off.
+<<MSGEND>>
+
+@NEWS_PLANTED SNOOTY 0
+<<DEMONPC0 [00 00 12]>><<STR_FREE13>> planted
+<<STR_ITEM0>>,<<PAUSE [06]>>
+<<STR_TAIL>>.<<BTN>>
+<<MSGCLEAR>><<DEMONPC0 [00 00 03]>>Not bad.<<PAUSE [0A]>> Not as nice as
+mine, of course.
+<<MSGEND>>

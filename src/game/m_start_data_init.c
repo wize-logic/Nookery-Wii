@@ -26,6 +26,7 @@
 #include "m_design_ovl.h"
 #ifdef ACGC_PORT
 #include "m_npc_life.h"
+#include "m_town_life.h"
 #endif
 
 static void famicom_emu_initial_common_data() {
@@ -547,6 +548,7 @@ extern void mSDI_StartInitAfter(GAME* game, int renew_mode, int malloc_flag) {
     mNpc_ForceRemove();
 #ifdef ACGC_PORT
     mNL_DriftRelations(); /* before renew_time moves on to today */
+    mTL_DailyGifts();     /* town life: presents in the mail */
 #endif
     mTM_renewal_renew_time();
     mEv_ClearEventInfo();

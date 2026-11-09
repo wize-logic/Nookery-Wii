@@ -32,6 +32,8 @@ TOPICS = {
     "SELF_MADE_UP": 2,
     "SELF_FELL_OUT": 2,
     "PLAYER_CATCH": 2,
+    "SELF_PLANTED": 1,  # town life: the speaker planted STR_ITEM0
+    "NEWS_PLANTED": 1,  # town life: STR_FREE13 planted STR_ITEM0
     # Town life (m_town_life.c): what a villager says when talked to in the middle of an activity
     "ACT_SIT": 1,
     "ACT_DRINK": 1,
