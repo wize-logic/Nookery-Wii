@@ -528,6 +528,18 @@ extern int mFI_GetNowPlayerHouseFloorNo() {
     return mFI_GetPlayerHouseFloorNo(Save_Get(scene_no));
 }
 
+#ifdef TARGET_WII
+u16 mFI_remove_cut_tree_bits;
+
+/* settings narrow_items_test = 1: the original four acres' items even with borderless acres (a comparison) */
+extern int g_nk_narrow_items_test;
+
+/* The 3x3 acres' items: with borderless acres */
+static int mFI_WideItems(void) {
+    return mPlib_IsWadeDisabled() && !g_nk_narrow_items_test;
+}
+#endif
+
 typedef struct register_bg_info_s {
     int dma_active;
     int bg_num;
@@ -614,8 +626,7 @@ static void mFI_DmaBg() {
         if (bg_info->dma_active == TRUE) {
             mFI_DmaBg_sub(bg_info);
             mFI_BornItemON();
-            Common_Set(remove_cut_tree_info_bitfield,
-                       Common_Get(remove_cut_tree_info_bitfield) | (1 << bg_info->bg_num));
+            mFI_SET_CUT_TREE_BITS(mFI_GET_CUT_TREE_BITS() | (1 << bg_info->bg_num));
             bg_info->dma_active = FALSE;
 
             break;
@@ -967,7 +978,12 @@ extern EVW_ANIME_DATA* mFI_GetBGTexAnimInfo(s8* anim_num, int bx, int bz) {
 }
 
 static int mFI_BGDispMatch(int* idx, int bx, int bz) {
+#ifdef TARGET_WII
+    /* (every slot mFI_SearchNullDisp hands out, more than the scene's bg_num with borderless acres) */
+    int max = mFM_VISIBLE_BLOCK_NUM;
+#else
     int max = g_fdinfo->bg_num;
+#endif
     int res = FALSE;
     int i;
 
@@ -997,7 +1013,7 @@ static int mFI_SearchNullDisp(int* idx) {
     return res;
 }
 
-static void mFI_BGDispMake(u8* disp_bitfield, int bx, int bz) {
+static void mFI_BGDispMake(mFM_visible_bits_t* disp_bitfield, int bx, int bz) {
     int num = mFI_GetBlockNum(bx, bz);
     int idx;
 
@@ -1070,8 +1086,34 @@ static void mFI_WhereisInBlock(u8* pos_bitfield, xyz_t wpos) {
     }
 }
 
+#ifdef TARGET_WII
+/* For the walk test: whether the original selection (the nearest four acres) would have had (bx, bz)'s items, the
+ * player at wpos */
+extern int mFI_NarrowItemsHave(int bx, int bz, xyz_t wpos) {
+    u8 where = 0;
+    int px;
+    int pz;
+    int nx;
+    int nz = -1;
+
+    if (!mFI_Wpos2BlockNum(&px, &pz, wpos)) {
+        return FALSE;
+    }
+    mFI_WhereisInBlock(&where, wpos);
+    nx = (where & 1) ? px - 1 : ((where >> 2) & 1) ? px + 1 : -100;
+    if ((where >> 3) & 1) {
+        nz = pz - 1;
+    } else if ((where >> 5) & 1) {
+        nz = pz + 1;
+    } else {
+        nz = -100;
+    }
+    return (bz == pz && (bx == px || bx == nx)) || (bz == nz && (bx == px || bx == nx));
+}
+#endif
+
 extern void mFI_BGDisplayListRefresh(xyz_t wpos) {
-    u8 disp_bitfield;
+    mFM_visible_bits_t disp_bitfield;
     u8 where_bitfield;
     int bx;
     int bz;
@@ -1083,7 +1125,37 @@ extern void mFI_BGDisplayListRefresh(xyz_t wpos) {
 
     disp_bitfield = 0;
     where_bitfield = 0;
-    Common_Set(remove_cut_tree_info_bitfield, 0);
+    mFI_SET_CUT_TREE_BITS(0);
+#ifdef TARGET_WII
+    if (mFI_WideItems()) {
+        /* borderless acres: the 3x3 acres around the player, the one they stand in first */
+        static const s8 ofs[8][2] = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 }, { -1, -1 }, { 1, -1 }, { -1, 1 }, { 1, 1 } };
+
+        if (mFI_Wpos2BlockNum(&bx, &bz, wpos)) {
+            num = mFI_GetBlockNum(bx, bz);
+
+            if (g_fdinfo->block_info[num].bg_info.bg_id.combination_type != BG_TYPE_292) {
+                mFI_BGDispMake(&disp_bitfield, bx, bz);
+            }
+
+            for (i = 0; i < 8; i++) {
+                if (mFI_BlockCheck(bx + ofs[i][0], bz + ofs[i][1])) {
+                    mFI_BGDispMake(&disp_bitfield, bx + ofs[i][0], bz + ofs[i][1]);
+                }
+            }
+        }
+
+        for (i = 0; i < mFM_VISIBLE_BLOCK_NUM; i++) {
+            if (((disp_bitfield >> i) & 1) != 1) {
+                g_fdinfo->bg_draw_info[i].dma_loaded = FALSE;
+                g_fdinfo->bg_draw_info[i].block_x = 0xFF;
+                g_fdinfo->bg_draw_info[i].block_z = 0xFF;
+                mFI_ClearRegisterBgInfoIdx(i);
+            }
+        }
+        return;
+    }
+#endif
     if (mFI_Wpos2BlockNum(&bx, &bz, wpos)) {
         num = mFI_GetBlockNum(bx, bz);
 
@@ -1484,14 +1556,25 @@ extern int mFI_GetItemTable_NoReset(mFI_item_table_c* item_table, xyz_t wpos) {
     mFM_field_draw_info_c* bg_disp = mFI_BGDisplayListTop();
     int t_no;
     u8 _num = 0;
-    u8 _bitfield = 0;
-    u8 clear_tree_cut_bitfield = 0;
+    mFM_visible_bits_t _bitfield = 0;
+    mFM_visible_bits_t clear_tree_cut_bitfield = 0;
     int bx;
     int bz;
     int block_x_tbl[mFM_VISIBLE_BLOCK_NUM];
     int block_z_tbl[mFM_VISIBLE_BLOCK_NUM];
     int i;
     int j;
+    /* the acre the player is in first, then (the original's) the one beside it in the same row: a single row
+     * neighbor, which the 3x3 acres of borderless acres (two of them, sharing that place) don't have */
+    int near_num = 3;
+    int first_num = 2;
+
+#ifdef TARGET_WII
+    if (mFI_WideItems()) {
+        near_num = 1;
+        first_num = 1;
+    }
+#endif
 
     if (mFI_Wpos2BlockNum(&bx, &bz, wpos) == FALSE) {
         return FALSE;
@@ -1504,7 +1587,7 @@ extern int mFI_GetItemTable_NoReset(mFI_item_table_c* item_table, xyz_t wpos) {
 
     for (i = 0; i < mFM_VISIBLE_BLOCK_NUM; i++) {
         if (mFI_CheckFinishBgDma(i) == TRUE && bg_disp->block_z == bz) {
-            for (j = 0; j < 3; j++) {
+            for (j = 0; j < near_num; j++) {
                 int bx_near = bx + check_x[j];
 
                 t_no = table_no[j];
@@ -1514,7 +1597,7 @@ extern int mFI_GetItemTable_NoReset(mFI_item_table_c* item_table, xyz_t wpos) {
                     _num++;
                     _bitfield |= (1 << i);
 
-                    if ((Common_Get(remove_cut_tree_info_bitfield) >> i) & 1) {
+                    if ((mFI_GET_CUT_TREE_BITS() >> i) & 1) {
                         clear_tree_cut_bitfield |= (1 << t_no);
                     }
 
@@ -1523,7 +1606,7 @@ extern int mFI_GetItemTable_NoReset(mFI_item_table_c* item_table, xyz_t wpos) {
             }
         }
 
-        if (_num >= 2) {
+        if (_num >= first_num) {
             break;
         }
 
@@ -1536,7 +1619,7 @@ extern int mFI_GetItemTable_NoReset(mFI_item_table_c* item_table, xyz_t wpos) {
             bg_disp->block_z != 0xFF) {
             mFI_SetBlockTable(&item_table->block_info_tbl[_num], bg_disp->block_x, bg_disp->block_z);
 
-            if ((Common_Get(remove_cut_tree_info_bitfield) >> i) & 1) {
+            if ((mFI_GET_CUT_TREE_BITS() >> i) & 1) {
                 clear_tree_cut_bitfield |= (1 << _num);
             }
 
@@ -1550,7 +1633,7 @@ extern int mFI_GetItemTable_NoReset(mFI_item_table_c* item_table, xyz_t wpos) {
         bg_disp++;
     }
 
-    Common_Set(remove_cut_tree_info_bitfield, clear_tree_cut_bitfield);
+    mFI_SET_CUT_TREE_BITS(clear_tree_cut_bitfield);
 
     /* Clear any unused entries */
     for (i = _num; i < mFM_VISIBLE_BLOCK_NUM; i++) {

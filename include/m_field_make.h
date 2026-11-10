@@ -37,7 +37,16 @@ extern "C" {
 #define BLOCKXZ_2_BLOCKIDX(x, z) ((z) * BLOCK_X_NUM + (x))
 #define UNITXZ_2_UNIT(x, z) ((z) * UT_X_NUM + (x))
 
+#ifdef TARGET_WII
+/* With borderless acres, the trees, flowers and other ground items of all 3x3 acres around the player (the acres the
+ * ground is drawn for, ac_field_draw.c) instead of the nearest 2x2: the camera sees the neighbors' edges, more so in
+ * 16:9. Without borderless acres, still the original four (m_field_info.c mFI_BGDisplayListRefresh). */
+#define mFM_VISIBLE_BLOCK_NUM 9
+typedef u16 mFM_visible_bits_t; /* a bit per visible block */
+#else
 #define mFM_VISIBLE_BLOCK_NUM 4 /* number of visible blocks (nearest to the Player) */
+typedef u8 mFM_visible_bits_t;
+#endif
 #define mFM_SOUND_SOURCE_NUM 6
 #define mFM_MOVE_ACTOR_NUM 16
 #define mFM_HANIWA_STEP_NUM 4

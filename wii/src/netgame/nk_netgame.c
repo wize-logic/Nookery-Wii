@@ -1999,15 +1999,19 @@ static void town_test_frame_time(u32 period)
  * cost, with borderless acres on or off */
 extern int g_nk_walk_test;
 extern unsigned nk_wii_dvd_reads, nk_wii_dvd_kb;
+extern int nk_wii_gfx_free_min[4]; /* src/graph.c */
+/* src/bg_item/bg_item_common.c_inc: this frame's items on the screen from acres the original four wouldn't have had */
+int nk_wii_extra_items_seen;
 void nk_wii_pad_remote(u16 buttons, int stick_x, int stick_y, int sub_x, int sub_y, u32 reads);
 
 static void walk_test(GAME_PLAY* play)
 {
     /* (block x, block z) to walk to, in turn */
     static const s8 route[][2] = { { 3, 2 }, { 4, 2 }, { 4, 3 }, { 3, 3 }, { 2, 3 }, { 2, 2 }, { 3, 2 }, { 3, 1 } };
-    static int frames, at, at_frames, stuck, dodge, dodge_dir = 1, shots, border_frames;
+    static int frames, at, at_frames, stuck, dodge, dodge_dir = 1, shots, border_frames, hold;
     static f32 best = 1.0e9f;
     static u32 fsum, fmax, fn, wsum, wmax;
+    static int extra_frames, extra_max;
     static OSTime last;
     const int stops = (int) (sizeof(route) / sizeof(route[0]));
     PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
@@ -2025,6 +2029,8 @@ static void walk_test(GAME_PLAY* play)
         fmax = us > fmax ? us : fmax;
         wsum += nk_wii_frame_work_us;
         wmax = nk_wii_frame_work_us > wmax ? nk_wii_frame_work_us : wmax;
+        extra_frames += nk_wii_extra_items_seen > 0;
+        extra_max = nk_wii_extra_items_seen > extra_max ? nk_wii_extra_items_seen : extra_max;
         fn++;
     }
     last = now;
@@ -2038,7 +2044,15 @@ static void walk_test(GAME_PLAY* play)
                    (unsigned) (zelda_GetTotalFreeSize() / 1024), nk_wii_dvd_reads, nk_wii_dvd_kb, fsum / fn / 1000,
                    fsum / fn / 10 % 100, fmax / 1000, fmax / 10 % 100, wsum / fn / 1000, wsum / fn / 10 % 100,
                    wmax / 1000, wmax / 10 % 100);
-        fsum = fmax = fn = wsum = wmax = 0;
+        fsum = fmax = wsum = wmax = 0;
+        nk_wii_log("WALKTEST: display list room left (least): opa %d KB, xlu %d KB, shadow %d KB, bg %d KB; items "
+                   "seen only thanks to the 3x3 acres: in %d of %u frames, at most %d\n",
+                   nk_wii_gfx_free_min[0] / 1024, nk_wii_gfx_free_min[1] / 1024, nk_wii_gfx_free_min[2] / 1024,
+                   nk_wii_gfx_free_min[3] / 1024, extra_frames, fn, extra_max);
+        extra_frames = extra_max = 0;
+        fn = 0;
+        nk_wii_gfx_free_min[0] = nk_wii_gfx_free_min[1] = nk_wii_gfx_free_min[2] = nk_wii_gfx_free_min[3] =
+            0x7FFFFFFF;
     }
     if (frames < 120) {
         return;
@@ -2049,11 +2063,31 @@ static void walk_test(GAME_PLAY* play)
         }
         return;
     }
+    if (hold > 0) {
+        /* walk_test = 2: standing still at the acre's middle; halfway through, which acres have their trees and
+         * flowers made (the item table's), and a screenshot */
+        if (--hold == 30) {
+            int i;
+            char made[96];
+            int n = 0;
+            for (i = 0; i < mFM_VISIBLE_BLOCK_NUM && n < (int) sizeof(made) - 8; i++) {
+                if (g_fdinfo->bg_draw_info[i].block_x != 0xFF) {
+                    n += sprintf(made + n, " (%d,%d)", g_fdinfo->bg_draw_info[i].block_x,
+                                 g_fdinfo->bg_draw_info[i].block_z);
+                }
+            }
+            made[n] = '\0';
+            nk_wii_log("WALKTEST: standing in (%d,%d), items made for%s\n", play->block_table.block_x,
+                       play->block_table.block_z, made);
+            nk_wii_log("LIFETEST: shot %d\n", ++shots);
+        }
+        return;
+    }
     /* a screenshot while a border is on the screen (a few, spaced out) */
     edge_x = fmodf(x, mFI_BK_WORLDSIZE_X_F);
     edge_z = fmodf(z, mFI_BK_WORLDSIZE_Z_F);
     border_frames++;
-    if (shots < 8 && border_frames > 240 &&
+    if (g_nk_walk_test == 1 && shots < 8 && border_frames > 240 &&
         (edge_x < 40.0f || edge_x > mFI_BK_WORLDSIZE_X_F - 40.0f || edge_z < 40.0f ||
          edge_z > mFI_BK_WORLDSIZE_Z_F - 40.0f))
     {
@@ -2063,9 +2097,12 @@ static void walk_test(GAME_PLAY* play)
     dx = route[at][0] * mFI_BK_WORLDSIZE_X_F + mFI_BK_WORLDSIZE_HALF_X_F - x;
     dz = route[at][1] * mFI_BK_WORLDSIZE_Z_F + mFI_BK_WORLDSIZE_HALF_Z_F - z;
     dist = sqrtf(dx * dx + dz * dz);
-    if (dist < 120.0f || ++at_frames > 2700) {
-        nk_wii_log("WALKTEST: %s (%d,%d) after %d frames\n", dist < 120.0f ? "reached" : "gave up on", route[at][0],
-                   route[at][1], at_frames);
+    if (dist < (g_nk_walk_test == 2 ? 30.0f : 120.0f) || ++at_frames > 2700) {
+        nk_wii_log("WALKTEST: %s (%d,%d) after %d frames\n", at_frames <= 2700 ? "reached" : "gave up on",
+                   route[at][0], route[at][1], at_frames);
+        if (g_nk_walk_test == 2 && at_frames <= 2700) {
+            hold = 60;
+        }
         at++;
         at_frames = stuck = dodge = 0;
         best = 1.0e9f;

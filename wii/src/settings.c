@@ -71,8 +71,12 @@ int g_nk_travel_test = 0;
 /* crash_test = 1: a bad memory read on the town's streets, 2: a freeze there, waiting forever (tests of the crash and freeze
  * reports, wii/src/ogc/stall.c; nk_netgame.c) */
 int g_nk_crash_test = 0;
-/* walk_test = 1: the player walks a round of the town's acres by itself, with the cost logged (nk_netgame.c) */
+/* walk_test = 1: the player walks a round of the town's acres by itself, with the cost logged; 2: stops in each
+ * acre's middle for a screenshot (nk_netgame.c) */
 int g_nk_walk_test = 0;
+/* narrow_items_test = 1: trees and flowers for only the nearest four acres, as without borderless acres, even with it
+ * (src/game/m_field_info.c; to compare) */
+int g_nk_narrow_items_test = 0;
 /* screenshot_test = 1: a screenshot every 30 s; home_test = N: HOME held from N s on (ogc/remote.c) */
 int g_nk_screenshot_test = 0;
 int g_nk_home_test = 0;
@@ -139,7 +143,8 @@ static const Key s_keys[] = {
     {"travel_test", &g_nk_travel_test, 0, 1},
     {"life_test", &g_nk_life_test, 0, 10},
     {"crash_test", &g_nk_crash_test, 0, 2},
-    {"walk_test", &g_nk_walk_test, 0, 1},
+    {"walk_test", &g_nk_walk_test, 0, 2},
+    {"narrow_items_test", &g_nk_narrow_items_test, 0, 1},
     {"screenshot_test", &g_nk_screenshot_test, 0, 1},
     {"home_test", &g_nk_home_test, 0, 3600},
     {"life_test_topic", &g_nk_life_test_topic, -1, 99},

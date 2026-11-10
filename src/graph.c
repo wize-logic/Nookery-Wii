@@ -205,9 +205,28 @@ static void graph_task_set00(GRAPH* this) {
     TracyCZoneEnd(graph_task_zone);
 }
 
+#ifdef TARGET_WII
+/* The least room left in the frame's display list arenas since the walk test last logged it (polygon opaque,
+ * polygon translucent, shadow, bg opaque; wii/src/netgame/nk_netgame.c walk_test resets them) */
+int nk_wii_gfx_free_min[4] = { 0x7FFFFFFF, 0x7FFFFFFF, 0x7FFFFFFF, 0x7FFFFFFF };
+#endif
+
 static int graph_draw_finish(GRAPH* this) {
     TracyCZone(graph_draw_finish_zone, 1);
     int err;
+#ifdef TARGET_WII
+    {
+        THA_GA* arenas[4] = { &this->polygon_opaque_thaga, &this->polygon_translucent_thaga, &this->shadow_thaga,
+                              &this->bg_opaque_thaga };
+        int k;
+        for (k = 0; k < 4; k++) {
+            int left = THA_GA_getFreeBytes(arenas[k]);
+            if (left < nk_wii_gfx_free_min[k]) {
+                nk_wii_gfx_free_min[k] = left;
+            }
+        }
+    }
+#endif
     OPEN_DISP(this);
 
     gSPBranchList(NOW_WORK_DISP++, this->Gfx_list10);

@@ -20,8 +20,8 @@ struct birth_control_s {
   int boat_spawned;
   int last_quadrant;
   mFM_move_actor_c move_actor_list[mFM_MOVE_ACTOR_NUM];
-  s8 nearby_block[mFM_VISIBLE_BLOCK_NUM - 1][2];
-  u16 nearby_retry_bitfield[mFM_VISIBLE_BLOCK_NUM - 1];
+  s8 nearby_block[3][2]; /* (the three acres of the player's quadrant, borderless acres) */
+  u16 nearby_retry_bitfield[3];
 };
 
 extern ACTOR_PROFILE Birth_Control_Profile;

@@ -242,6 +242,17 @@ extern void mFI_UtNum2PosXZInBk(f32* pos_x, f32* pos_z, int ut_x, int ut_z);
 extern void mFI_BkandUtNum2Wpos(xyz_t* wpos, int bx, int bz, int ut_x, int ut_z);
 extern void mFI_BkandUtNum2CenterWpos(xyz_t* wpos, int bx, int bz, int ut_x, int ut_z);
 extern mFM_field_draw_info_c* mFI_BGDisplayListTop();
+
+/* Common_Data's remove_cut_tree_info_bitfield, a bit per visible block: on the Wii, nine blocks don't fit its u8, so
+ * a u16 of its own (the common data's layout stays as it is) */
+#ifdef TARGET_WII
+extern u16 mFI_remove_cut_tree_bits;
+#define mFI_GET_CUT_TREE_BITS() (mFI_remove_cut_tree_bits)
+#define mFI_SET_CUT_TREE_BITS(v) (mFI_remove_cut_tree_bits = (u16)(v))
+#else
+#define mFI_GET_CUT_TREE_BITS() Common_Get(remove_cut_tree_info_bitfield)
+#define mFI_SET_CUT_TREE_BITS(v) Common_Set(remove_cut_tree_info_bitfield, v)
+#endif
 extern mFM_field_pal_c* mFI_GetFieldPal();
 extern int mFI_GetPlayerHouseFloorNo(int scene);
 extern int mFI_GetNowPlayerHouseFloorNo();
