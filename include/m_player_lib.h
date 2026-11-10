@@ -11,9 +11,10 @@ extern "C" {
 #endif
 
 extern int g_mPlib_wade_disabled;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern int g_mPlib_wade_suspended;
 extern void mPlib_SuspendWade(BOOL suspend);
+extern void mPlib_RefreshWade(void);
 #endif
 
 extern BOOL mPlib_IsWadeDisabled(void);

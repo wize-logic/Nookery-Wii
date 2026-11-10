@@ -10,16 +10,24 @@
 #include "ac_uki.h"
 #ifdef TARGET_PC
 #include "pc_bswap.h"
+#endif
+#ifdef ACGC_PORT
 #include "pc_settings.h"
 #endif
 
 int g_mPlib_wade_disabled = FALSE;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 int g_mPlib_wade_suspended = FALSE;
 
 extern void mPlib_SuspendWade(BOOL suspend) {
     g_mPlib_wade_suspended = suspend;
     g_mPlib_wade_disabled = !suspend && g_pc_settings.borderless_acres && !mEv_CheckFirstIntro();
+}
+
+/* The borderless acres setting, taken up again (the Wii: at each scene's start, as nothing there applies
+ * settings while the game runs) */
+extern void mPlib_RefreshWade(void) {
+    g_mPlib_wade_disabled = !g_mPlib_wade_suspended && g_pc_settings.borderless_acres && !mEv_CheckFirstIntro();
 }
 #endif
 

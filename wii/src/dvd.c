@@ -71,6 +71,9 @@ static u8 s_stack[32 * 1024] ATTRIBUTE_ALIGN(32);
 
 #define CISO_HEADER 0x8000u
 
+/* How much the game has read from the image (the walk test logs it) */
+unsigned nk_wii_dvd_reads, nk_wii_dvd_kb;
+
 static void* io_thread(void* arg);
 static void kick(void* arg);
 static void complete(void* arg);
@@ -618,6 +621,8 @@ static void* io_thread(void* arg)
             length = block->offset < s_gcm.size ? (u32) (s_gcm.size - block->offset) : 0;
         }
         WlResult r = length == 0 ? WL_OK : read_image(&s_src, block->offset, block->addr, length);
+        nk_wii_dvd_reads++;
+        nk_wii_dvd_kb += (length + 1023) / 1024;
         /* The SDK's DMA writes memory under the cache: the game may
          * invalidate the lines over the buffer after the read */
         DCFlushRange(block->addr, block->length);

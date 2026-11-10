@@ -21,6 +21,7 @@
 #include "m_common_data.h"
 #include "m_field_info.h"
 #include "m_lib.h"
+#include "m_malloc.h"
 #include "m_needlework.h"
 #include "m_play.h"
 #include "m_player.h"
@@ -1960,10 +1961,12 @@ static void town_test_weather(GAME_PLAY* play)
 /* Frame time: the time between play frames, in the emulated (or real) clock, so a frame whose work runs over its
  * budget shows as a long one; logged every `frames` frames on the streets ("LIFETEST: frame time" in the town
  * tests, every ten seconds; "frame time" in play, every minute) */
+u32 nk_wii_frame_work_us; /* src/static/jsyswrap.cpp: the last frame's work, without the wait for the picture */
+
 static void town_test_frame_time(u32 period)
 {
     static OSTime last;
-    static u32 sum_us, max_us, frames, slow;
+    static u32 sum_us, max_us, frames, slow, work_sum, work_max;
     OSTime now = OSGetTime();
 
     if (last != 0) {
@@ -1976,14 +1979,118 @@ static void town_test_frame_time(u32 period)
         sum_us += us;
         max_us = us > max_us ? us : max_us;
         slow += us > 40000; /* (longer than a 30 fps frame and then some) */
+        work_sum += nk_wii_frame_work_us;
+        work_max = nk_wii_frame_work_us > work_max ? nk_wii_frame_work_us : work_max;
         if (++frames == period) {
-            nk_wii_log("%sframe time avg %u.%02u ms, max %u.%02u ms, %u over 40 ms, %d villagers busy, %d bubbles\n",
+            nk_wii_log("%sframe time avg %u.%02u ms, max %u.%02u ms, %u over 40 ms, work avg %u.%02u ms, max %u.%02u "
+                       "ms, %d villagers busy, %d bubbles\n",
                        period == 600 ? "LIFETEST: " : "", sum_us / frames / 1000, sum_us / frames / 10 % 100,
-                       max_us / 1000, max_us / 10 % 100, slow, mTL_CountBusy(), mTL_BubblesShowing());
-            sum_us = max_us = frames = slow = 0;
+                       max_us / 1000, max_us / 10 % 100, slow, work_sum / frames / 1000, work_sum / frames / 10 % 100,
+                       work_max / 1000, work_max / 10 % 100, mTL_CountBusy(), mTL_BubblesShowing());
+            sum_us = max_us = frames = slow = work_sum = work_max = 0;
         }
     }
     last = now;
+}
+
+/* settings walk_test = 1: the player walks a round of the town's acres by itself (the stick held toward each acre's
+ * middle in turn, around what stands in the way), with the acre, the actors alive, the free memory and the disc reads
+ * logged every five seconds, and a screenshot asked for near each acre border: how acre changes look and what they
+ * cost, with borderless acres on or off */
+extern int g_nk_walk_test;
+extern unsigned nk_wii_dvd_reads, nk_wii_dvd_kb;
+void nk_wii_pad_remote(u16 buttons, int stick_x, int stick_y, int sub_x, int sub_y, u32 reads);
+
+static void walk_test(GAME_PLAY* play)
+{
+    /* (block x, block z) to walk to, in turn */
+    static const s8 route[][2] = { { 3, 2 }, { 4, 2 }, { 4, 3 }, { 3, 3 }, { 2, 3 }, { 2, 2 }, { 3, 2 }, { 3, 1 } };
+    static int frames, at, at_frames, stuck, dodge, dodge_dir = 1, shots, border_frames;
+    static f32 best = 1.0e9f;
+    static u32 fsum, fmax, fn, wsum, wmax;
+    static OSTime last;
+    const int stops = (int) (sizeof(route) / sizeof(route[0]));
+    PLAYER_ACTOR* player = GET_PLAYER_ACTOR(play);
+    OSTime now = OSGetTime();
+    f32 x, z, dx, dz, dist, edge_x, edge_z;
+    int sx, sy;
+
+    if (Save_Get(scene_no) != SCENE_FG || player == NULL) {
+        last = 0;
+        return;
+    }
+    if (last != 0) {
+        u32 us = (u32) OSTicksToMicroseconds(now - last);
+        fsum += us;
+        fmax = us > fmax ? us : fmax;
+        wsum += nk_wii_frame_work_us;
+        wmax = nk_wii_frame_work_us > wmax ? nk_wii_frame_work_us : wmax;
+        fn++;
+    }
+    last = now;
+    x = player->actor_class.world.position.x;
+    z = player->actor_class.world.position.z;
+    if (++frames % 300 == 0 && fn != 0) {
+        nk_wii_log("WALKTEST: acre (%d,%d) at %d,%d, stop %d, borderless %d, actors %d (npc %d), free %u KB, "
+                   "disc reads %u (%u KB), frame avg %u.%02u ms max %u.%02u ms, work avg %u.%02u ms max %u.%02u ms\n",
+                   play->block_table.block_x, play->block_table.block_z, (int) x, (int) z, at,
+                   g_mPlib_wade_disabled, play->actor_info.total_num, play->actor_info.list[ACTOR_PART_NPC].num_actors,
+                   (unsigned) (zelda_GetTotalFreeSize() / 1024), nk_wii_dvd_reads, nk_wii_dvd_kb, fsum / fn / 1000,
+                   fsum / fn / 10 % 100, fmax / 1000, fmax / 10 % 100, wsum / fn / 1000, wsum / fn / 10 % 100,
+                   wmax / 1000, wmax / 10 % 100);
+        fsum = fmax = fn = wsum = wmax = 0;
+    }
+    if (frames < 120) {
+        return;
+    }
+    if (at >= stops) {
+        if (at++ == stops) {
+            nk_wii_log("WALKTEST: done\n");
+        }
+        return;
+    }
+    /* a screenshot while a border is on the screen (a few, spaced out) */
+    edge_x = fmodf(x, mFI_BK_WORLDSIZE_X_F);
+    edge_z = fmodf(z, mFI_BK_WORLDSIZE_Z_F);
+    border_frames++;
+    if (shots < 8 && border_frames > 240 &&
+        (edge_x < 40.0f || edge_x > mFI_BK_WORLDSIZE_X_F - 40.0f || edge_z < 40.0f ||
+         edge_z > mFI_BK_WORLDSIZE_Z_F - 40.0f))
+    {
+        nk_wii_log("LIFETEST: shot %d\n", ++shots);
+        border_frames = 0;
+    }
+    dx = route[at][0] * mFI_BK_WORLDSIZE_X_F + mFI_BK_WORLDSIZE_HALF_X_F - x;
+    dz = route[at][1] * mFI_BK_WORLDSIZE_Z_F + mFI_BK_WORLDSIZE_HALF_Z_F - z;
+    dist = sqrtf(dx * dx + dz * dz);
+    if (dist < 120.0f || ++at_frames > 2700) {
+        nk_wii_log("WALKTEST: %s (%d,%d) after %d frames\n", dist < 120.0f ? "reached" : "gave up on", route[at][0],
+                   route[at][1], at_frames);
+        at++;
+        at_frames = stuck = dodge = 0;
+        best = 1.0e9f;
+        return;
+    }
+    /* no nearer for a second and a half: around the obstacle, to one side then the other */
+    if (dist < best - 4.0f) {
+        best = dist;
+        stuck = 0;
+    } else if (++stuck > 90 && dodge == 0) {
+        dodge = 75;
+        dodge_dir = -dodge_dir;
+        stuck = 0;
+        best = 1.0e9f;
+    }
+    if (dodge > 0) {
+        f32 t = dx;
+        dodge--;
+        dx = -dz * dodge_dir + dx * 0.3f;
+        dz = t * dodge_dir + dz * 0.3f;
+        dist = sqrtf(dx * dx + dz * dz);
+    }
+    sx = (int) (dx / dist * 100.0f);
+    sy = (int) (-dz / dist * 100.0f);
+    nk_wii_pad_remote(0, sx, sy, 0, 0, 4);
 }
 
 static void town_test(GAME_PLAY* play)
@@ -2276,6 +2383,9 @@ void nk_netgame_play_frame(GAME_PLAY* play)
     if (g_nk_life_test == 0 && Save_Get(scene_no) == SCENE_FG && GET_PLAYER_ACTOR(play) != NULL) {
         /* in play, once a minute on the streets: how long frames take (the same measure as the town tests') */
         town_test_frame_time(3600);
+    }
+    if (g_nk_walk_test) {
+        walk_test(play);
     }
     if (g_nk_life_test >= 3) {
         town_test(play);

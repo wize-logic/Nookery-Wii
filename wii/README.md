@@ -84,6 +84,7 @@ comment). On/off keys are `1`/`0`.
 | Fast text | `fast_text` | 0 | All text at the fast speed, as if B were held |
 | Villager friendships | `villager_life` | 1 | Villagers make friends and rivals, and gossip about it ([what it does](../README.md#this-fork)) |
 | Town life | `town_life` | 1 | Villagers get things to do around town ([what it does](../README.md#this-fork)) |
+| Borderless acres | `borderless_acres` | 1 | The camera follows you across acre borders; 0 scrolls acre by acre, as the original does |
 | No Resetti | `disable_resetti` | 0 | No visit from Resetti after leaving without saving. See [known issues](#known-issues) |
 | Single-player shop upgrades | `disable_shop_visitor_req` | 0 | Nook's last shop upgrade without a visitor from another town |
 | Villager follows traveler | `travel_move_out_chance` | 100 | How often the villager planning to move follows you to another town: 100, 50 or 10 (percent). See [known issues](#known-issues) |
@@ -193,6 +194,7 @@ Test keys in `settings.ini`:
 | `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 to 10: town life's tests (activities, animations and props, interruptions, gatherings, speech bubbles, tending the town, visitors, weather and night; `town_test` in `nk_netgame.c`) |
 | `crash_test` | 1: a crash in town; 2: a freeze there (for the reports) |
 | `screenshot_test`, `home_test = N` | A screenshot every 30 s; HOME held from N s on |
+| `walk_test` | The player walks a round of the town's acres by itself, with the actors, memory, disc reads and frame times logged |
 
 The lobby server has its own test: `python3 wii/server/tests/test_lobby.py`.
 

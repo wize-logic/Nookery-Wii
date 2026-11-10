@@ -12,7 +12,7 @@
 #include "m_play.h"
 #include "m_scene_table.h"
 #include "m_soncho.h"
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include "pc_settings.h"
 #endif
 
@@ -221,7 +221,7 @@ extern void mEv_SetFirstIntro() {
         u32 ev = mEv_SAVED_FIRSTINTRO_PLR0;
         ev += player_no;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         /* The scripted introduction expects normal acre transitions. */
         g_mPlib_wade_disabled = FALSE;
 #endif
@@ -251,7 +251,7 @@ extern void mEv_UnSetFirstIntro() {
     if (player_no < PLAYER_NUM) {
         u32 ev = mEv_SAVED_FIRSTINTRO_PLR0;
         ev += player_no;
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
         if (mEv_CheckFirstIntro()) {
             g_mPlib_wade_disabled = g_pc_settings.borderless_acres;
         }

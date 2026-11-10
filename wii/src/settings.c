@@ -21,7 +21,7 @@ PCSettings g_pc_settings = {
     .max_fps = 60,
     .disable_resetti = 0,
     .disable_shop_visitor_req = 0,
-    .borderless_acres = 0,
+    .borderless_acres = 1,
     .nes_aspect = 1,
     .master_volume = 100,
     .stick_deadzone = 12,
@@ -71,6 +71,8 @@ int g_nk_travel_test = 0;
 /* crash_test = 1: a bad memory read on the town's streets, 2: a freeze there, waiting forever (tests of the crash and freeze
  * reports, wii/src/ogc/stall.c; nk_netgame.c) */
 int g_nk_crash_test = 0;
+/* walk_test = 1: the player walks a round of the town's acres by itself, with the cost logged (nk_netgame.c) */
+int g_nk_walk_test = 0;
 /* screenshot_test = 1: a screenshot every 30 s; home_test = N: HOME held from N s on (ogc/remote.c) */
 int g_nk_screenshot_test = 0;
 int g_nk_home_test = 0;
@@ -117,6 +119,7 @@ static const Key s_keys[] = {
     {"disable_resetti", &g_pc_settings.disable_resetti, 0, 1},
     {"villager_life", &g_pc_settings.villager_life, 0, 1},
     {"town_life", &g_pc_settings.town_life, 0, 1},
+    {"borderless_acres", &g_pc_settings.borderless_acres, 0, 1},
     {"disable_shop_visitor_req", &g_pc_settings.disable_shop_visitor_req, 0, 1},
     {"travel_move_out_chance", &g_pc_settings.travel_move_out_chance, 10, 100},
     {"nes_aspect", &g_pc_settings.nes_aspect, 0, 1},
@@ -136,6 +139,7 @@ static const Key s_keys[] = {
     {"travel_test", &g_nk_travel_test, 0, 1},
     {"life_test", &g_nk_life_test, 0, 10},
     {"crash_test", &g_nk_crash_test, 0, 2},
+    {"walk_test", &g_nk_walk_test, 0, 1},
     {"screenshot_test", &g_nk_screenshot_test, 0, 1},
     {"home_test", &g_nk_home_test, 0, 3600},
     {"life_test_topic", &g_nk_life_test_topic, -1, 99},

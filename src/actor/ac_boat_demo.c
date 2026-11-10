@@ -5,7 +5,7 @@
 #include "m_bg_item.h"
 #include "m_bgm.h"
 #include "m_msg.h"
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 #include "m_player_lib.h"
 #endif
 
@@ -76,7 +76,7 @@ static void aBTD_actor_ct(ACTOR* actorx, GAME* game) {
 }
 
 static void aBTD_actor_dt(ACTOR* actorx, GAME* game) {
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (g_mPlib_wade_suspended) {
         mPlib_SuspendWade(FALSE);
     }

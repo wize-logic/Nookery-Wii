@@ -328,6 +328,10 @@ extern "C" int g_pc_running;
 #ifdef TARGET_WII
 /* The freeze watch follows the thread that begins the frames (wii/src/ogc/stall.c) */
 extern "C" void nk_wii_stall_game_thread(void);
+/* How long the last frame's work took: from the end of one wait for the picture to the start of the next (the
+ * frame time log, wii/src/netgame/nk_netgame.c) */
+extern "C" u32 nk_wii_frame_work_us;
+static OSTime s_wii_work_start;
 #endif
 
 extern void JW_BeginFrame() {
@@ -363,7 +367,16 @@ extern void JW_BeginFrame() {
 #endif
     void* displayManager = JC_JFWDisplay_getManager();
     JC_JFWDisplay_endFrame(displayManager);
+#ifdef TARGET_WII
+    /* (beginRender is the wait for the picture) */
+    if (s_wii_work_start != 0) {
+        nk_wii_frame_work_us = (u32)OSTicksToMicroseconds(OSGetTime() - s_wii_work_start);
+    }
     JC_JFWDisplay_beginRender(displayManager);
+    s_wii_work_start = OSGetTime();
+#else
+    JC_JFWDisplay_beginRender(displayManager);
+#endif
     JC_J2DOrthoGraph_setOrtho(jc_gport, 0, 0, JC_JFWDisplay_getEfbWidth(displayManager),
                               JC_JFWDisplay_getEfbHeight(displayManager));
     JC_J2DOrthoGraph_setPort(jc_gport);

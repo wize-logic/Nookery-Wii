@@ -415,6 +415,9 @@ extern void play_init(GAME* game) {
     u32 size;
 
     game_resize_hyral(game, -Game_play_HYRAL_SIZE); // reserve bytes from gamealloc
+#ifdef TARGET_WII
+    mPlib_RefreshWade();
+#endif
     Common_Set(rhythym_updated, 0);
 
     mFI_ChangeClimate_ForEventNotice();

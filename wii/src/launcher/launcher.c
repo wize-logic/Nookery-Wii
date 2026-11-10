@@ -68,6 +68,7 @@ static Toggle s_toggles[] = {
     {"Fast text", &g_pc_settings.fast_text, s_onoff, s_onoff_names, 2},
     {"Villager friendships", &g_pc_settings.villager_life, s_onoff, s_onoff_names, 2},
     {"Town life", &g_pc_settings.town_life, s_onoff, s_onoff_names, 2},
+    {"Borderless acres", &g_pc_settings.borderless_acres, s_onoff, s_onoff_names, 2},
     {"No Resetti", &g_pc_settings.disable_resetti, s_onoff, s_onoff_names, 2},
     {"Single-player shop upgrades", &g_pc_settings.disable_shop_visitor_req, s_onoff, s_onoff_names, 2},
     {"Villager follows traveler", &g_pc_settings.travel_move_out_chance, s_move_out, s_move_out_names, 3},
@@ -89,9 +90,10 @@ static int toggle_index(const Toggle* t)
     return 0;
 }
 
+/* (user: the first row shown, as the list scrolls) */
 static const char* toggle_detail(int item, void* user)
 {
-    (void) user;
+    item += *(const int*) user;
     if (item >= TOGGLE_COUNT) {
         return NULL;
     }
@@ -100,17 +102,39 @@ static const char* toggle_detail(int item, void* user)
 
 void ui_settings(void)
 {
+    /* More rows than the screen holds: SETTINGS_ROWS of them shown, scrolled to keep the cursor in sight */
+    enum { SETTINGS_ROWS = 10 };
     const char* items[TOGGLE_COUNT + 1];
-    int cursor = 0;
+    int cursor = 0, first = 0;
     for (int i = 0; i < TOGGLE_COUNT; i++) {
         items[i] = s_toggles[i].label;
     }
     items[TOGGLE_COUNT] = "Save and go back";
     for (;;) {
         unsigned int pressed = input_poll();
+        int shown = TOGGLE_COUNT + 1 < SETTINGS_ROWS ? TOGGLE_COUNT + 1 : SETTINGS_ROWS;
+        if (pressed & IN_UP) {
+            cursor = (cursor + TOGGLE_COUNT) % (TOGGLE_COUNT + 1);
+        }
+        if (pressed & IN_DOWN) {
+            cursor = (cursor + 1) % (TOGGLE_COUNT + 1);
+        }
+        if (cursor < first) {
+            first = cursor;
+        } else if (cursor >= first + shown) {
+            first = cursor - shown + 1;
+        }
         ui_background("Settings");
-        int chosen = ui_menu_rows(items, TOGGLE_COUNT + 1, &cursor, 104, 33, toggle_detail, NULL, pressed);
-        ui_footer("A / Left / Right: Change    B: Back");
+        int local = cursor - first;
+        int chosen = ui_menu_rows(items + first, shown, &local, 104, 33, toggle_detail, &first,
+                                  pressed & ~(unsigned int) (IN_UP | IN_DOWN));
+        cursor = first + local;
+        if (chosen >= 0) {
+            chosen = cursor;
+        }
+        ui_footer(first + shown < TOGGLE_COUNT + 1 ? "A / Left / Right: Change    B: Back    Down: More"
+                  : first > 0                      ? "A / Left / Right: Change    B: Back    Up: More"
+                                                   : "A / Left / Right: Change    B: Back");
         ui_present();
         int step = (pressed & IN_LEFT) ? -1 : (pressed & IN_RIGHT) ? 1 : (chosen >= 0 ? 1 : 0);
         if (cursor < TOGGLE_COUNT && step != 0 && (chosen >= 0 || (pressed & (IN_LEFT | IN_RIGHT)))) {
