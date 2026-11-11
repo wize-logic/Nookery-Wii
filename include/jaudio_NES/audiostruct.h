@@ -942,7 +942,10 @@ typedef struct AudioGlobals {
     /* 0x8790 */ chnode channel_node; /* main chnode */
     /* 0x87D0 */ struct group_ main_group;
     /* 0x8930 */ sub main_sub;
-#ifdef TARGET_PC
+#if defined(TARGET_PC) || defined(TARGET_WII)
+    /* (16 bits for the ports' 2048 commands, below: with the GameCube's 8 on the Wii, the write position came back
+     * to 0 after 256 commands and the rest of that frame's were taken for more than the buffer holds and dropped,
+     * one frame in five: the music's starts and stops among them) */
     /* 0x8A30 */ u16 thread_cmd_write_pos;
     /* 0x8A32 */ u16 thread_cmd_read_pos;
 #else
