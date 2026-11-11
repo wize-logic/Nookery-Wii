@@ -1,8 +1,10 @@
 /* The launcher's drawing: a canvas in MEM2 (RGB, 640 pixels wide, or 854
  * when Wii Settings say 16:9, so shapes keep their proportions on a wide
  * TV), drawn to by shapes and text, and turned into the video interface's
- * YUV frame buffer each frame. The frame buffers are at the top of MEM1,
- * which the game's arena takes over (and clears) once the launcher is done. */
+ * YUV frame buffer each frame. On 16:9 the video interface shows the frame
+ * buffer over the whole line, so the picture fills the TV as the game's
+ * does. The frame buffers are at the top of MEM1, which the game's arena
+ * takes over (and clears) once the launcher is done. */
 
 #include "gfx.h"
 
@@ -23,14 +25,26 @@ void* nk_wii_arena_scratch(unsigned int size);
 
 void gfx_init(void)
 {
+    static GXRModeObj mode;
     u32 size;
+    int wide;
     VIDEO_Init();
-    s_mode = VIDEO_GetPreferredMode(NULL);
+    wide = CONF_GetAspectRatio() == CONF_ASPECT_16_9;
+    mode = *VIDEO_GetPreferredMode(NULL);
+    if (wide && mode.viWidth < VI_MAX_WIDTH_NTSC) {
+        /* The mode shows its 640 pixels in the middle of the line, with a
+         * margin at each side: right for 4:3, bars on a 16:9 TV. The whole
+         * line instead (the video interface stretches the frame buffer to
+         * it), as the game's video (wii/src/vi.c's VIConfigure) */
+        mode.viXOrigin = 0;
+        mode.viWidth = VI_MAX_WIDTH_NTSC; /* (PAL's and EURGB60's the same) */
+    }
+    s_mode = &mode;
     VIDEO_Configure(s_mode);
     size = VIDEO_GetFrameBufferSize(s_mode);
     s_xfb[0] = nk_wii_arena_scratch(size * 2);
     s_xfb[1] = (u32*) ((u8*) s_xfb[0] + ((size + 31) & ~31u));
-    s_width = CONF_GetAspectRatio() == CONF_ASPECT_16_9 ? 854 : 640;
+    s_width = wide ? 854 : 640;
     s_canvas = memalign(32, s_width * HEIGHT * 4);
     memset(s_canvas, 0, s_width * HEIGHT * 4);
     VIDEO_ClearFrameBuffer(s_mode, s_xfb[0], COLOR_BLACK);
