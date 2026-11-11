@@ -71,6 +71,8 @@ Hold Z on a GameCube controller while Nookery starts to skip the launcher and pl
 - **1** on any Wii Remote saves a screenshot (the Remote rumbles once).
 - **HOME** held for a second, on a Remote or a Classic Controller, goes back to the Homebrew Channel.
 - **RESET** on the console goes back to the Homebrew Channel; **POWER** turns the console off.
+- Progressive scan (480p) follows Wii Settings (Screen, TV Resolution) with a component cable: the game does not
+  ask at each start as it does on a GameCube. Hold **B** as it starts to be asked, to play interlaced for once.
 
 Leaving loses what you haven't saved.
 

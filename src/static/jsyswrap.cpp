@@ -561,6 +561,15 @@ extern void JW_Init() {
     JC_JFWDisplay_setClearColor(display_manager, TCOLOR_BLACK);
     JC_JFWDisplay_setGamma(display_manager, 0);
     JW_SetVideoPan(20, 6, 598, 464);
+#ifdef TARGET_WII
+    /* Progressive scan as the Wii is set (Wii Settings, Screen, TV Resolution: EDTV or HDTV, with a component
+     * cable), from the first picture: a GameCube asks at every start (src/static/initial_menu.c), a Wii's own
+     * games never do. */
+    if (OSGetProgressiveMode() && VIGetDTVStatus()) {
+        video_progressive = TRUE;
+        OSReport("video: progressive scan (480p), as the Wii is set\n");
+    }
+#endif
     JW_SetLogoMode(1);
     JC_JKRExpHeap_changeGroupID(JC_JFWSystem_getSystemHeap(), 2);
 }

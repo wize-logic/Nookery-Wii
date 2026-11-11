@@ -264,7 +264,13 @@ extern void keycheck() {
   }
 
   if (menu_step == 0) {
+#ifdef TARGET_WII
+    /* The Wii's setting has decided already (jsyswrap.cpp's JW_Init): the question only with B held, as on a
+     * GameCube, to choose otherwise for this once */
+    if (button == B && VIGetDTVStatus()) {
+#else
     if ((button == B || OSGetProgressiveMode()) && VIGetDTVStatus()) {
+#endif
       progressive_mode = VIGetDTVStatus();
       menu_step = 1;
       start_time = now;
