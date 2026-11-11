@@ -2,8 +2,8 @@
 <app version="1">
 	<name>Nookery</name>
 	<coder>wize-logic</coder>
-	<version>1.0.0</version>
-	<release_date>20261108</release_date>
+	<version>0.1.0</version>
+	<release_date>20261111</release_date>
 	<short_description>Animal Crossing (GameCube), native, with online towns</short_description>
 	<long_description>Nookery, the port of the Animal Crossing decompilation, running natively on the Wii from your own disc image on the SD card or a USB drive. Its quality-of-life options (fast text, no Resetti, single-player shop upgrades, dates to 3000), villagers who make friends and gossip, saves as Dolphin-compatible GCI files on the SD card, and online play: host your town in a public or private lobby, or browse and join others', over Wi-Fi or a USB LAN adapter.
 
