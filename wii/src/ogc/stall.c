@@ -142,6 +142,13 @@ static void report_calls(const char* prefix, u32 frame)
     WL_LOG_W("nookery", "%s", line);
 }
 
+/* os.c's OSPanic: the calls that led to it, from the caller's stack frame */
+void nk_wii_report_calls(const char* prefix, void* frame)
+{
+    WL_LOG_W("nookery", "%s: build %s", prefix, build_id());
+    report_calls(prefix, (u32) frame);
+}
+
 static u32 cp32(u32 off)
 {
     volatile u16* cp = (volatile u16*) 0xCC000000u;

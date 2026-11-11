@@ -134,9 +134,20 @@ void OSReportEnable(void)
     s_report_off = FALSE;
 }
 
+/* The last report the switch kept out of the log: its format and its first four arguments, for OSPanic's line
+ * (the game says what is wrong in a report, then panics with no message). Kept and not written: a report costs
+ * nothing while they are off. */
+static const char* s_last_report;
+static u32 s_last_report_args[4];
+
 static void report(const char* msg, va_list args)
 {
     if (s_report_off && !g_pc_verbose) {
+        s_last_report = msg;
+        for (int i = 0; i < 4; i++) {
+            /* (integers and pointers: past the call's own arguments these are whatever its registers held) */
+            s_last_report_args[i] = va_arg(args, u32);
+        }
         return;
     }
     BOOL enabled = OSDisableInterrupts();
@@ -201,17 +212,55 @@ void OSVReport(const char* msg, va_list args)
     report(msg, args);
 }
 
+/* The last report kept out of the log, written out: only a format of integers and pointers (four at most), which
+ * is what was kept of its arguments */
+static void last_report(char* out, size_t size)
+{
+    const char* f = s_last_report;
+    int conversions = 0;
+    out[0] = '\0';
+    if (f == NULL) {
+        return;
+    }
+    for (const char* c = f; *c != '\0'; c++) {
+        if (c[0] == '%' && c[1] == '%') {
+            c++;
+        } else if (c[0] == '%') {
+            c++;
+            while (*c != '\0' && strchr("0123456789-+ #.l", *c) != NULL) {
+                c++;
+            }
+            if (*c == '\0' || strchr("dixXup", *c) == NULL || ++conversions > 4) {
+                snprintf(out, size, "%s", f);
+                return;
+            }
+        }
+    }
+    snprintf(out, size, f, s_last_report_args[0], s_last_report_args[1], s_last_report_args[2],
+             s_last_report_args[3]);
+}
+
+/* stall.c */
+void nk_wii_report_calls(const char* prefix, void* frame);
+
 void OSPanic(const char* file, int line, const char* msg, ...)
 {
     char buf[256];
+    char before[256];
     va_list args;
     OSDisableInterrupts();
     va_start(args, msg);
     vsnprintf(buf, sizeof(buf), msg, args);
     va_end(args);
+    last_report(before, sizeof(before));
     wl_log_write(WL_LOG_LEVEL_ERROR, "nookery", "OSPanic in \"%s\" on line %d: %s",
                  file, line, buf);
-    nk_wii_fatal("OSPanic in \"%s\" on line %d:\n%s", file, line, buf);
+    if (before[0] != '\0') {
+        wl_log_write(WL_LOG_LEVEL_ERROR, "nookery", "panic: the game's report before it: %s", before);
+    }
+    nk_wii_report_calls("panic", __builtin_frame_address(0));
+    nk_wii_fatal("OSPanic in \"%s\" on line %d:\n%s\n\nThe details are in apps/nookery/logs/log.txt on the SD card.",
+                 file, line, buf);
 }
 
 OSErrorHandler OSSetErrorHandler(OSError error, OSErrorHandler handler)

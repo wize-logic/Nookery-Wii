@@ -146,7 +146,7 @@ static const Key s_keys[] = {
     {"nes_test", &g_nk_nes_test, 0, 30},
     {"travel_test", &g_nk_travel_test, 0, 1},
     {"life_test", &g_nk_life_test, 0, 10},
-    {"crash_test", &g_nk_crash_test, 0, 2},
+    {"crash_test", &g_nk_crash_test, 0, 3},
     {"walk_test", &g_nk_walk_test, 0, 2},
     {"narrow_items_test", &g_nk_narrow_items_test, 0, 1},
     {"screenshot_test", &g_nk_screenshot_test, 0, 1},

@@ -2399,10 +2399,17 @@ void nk_netgame_play_frame(GAME_PLAY* play)
     }
     if (g_nk_crash_test != 0) {
         /* settings crash_test: ten seconds on the streets, then a crash (1: a read from address 0x1d, as a NULL
-         * pointer's field) or a freeze (2: the game waits forever), for the reports of stall.c */
+         * pointer's field), a freeze (2: the game waits forever) or a panic (3), for the reports of stall.c and
+         * os.c */
         static int crash_frames;
         if (Save_Get(scene_no) == SCENE_FG && GET_PLAYER_ACTOR(play) != NULL && ++crash_frames == 600) {
-            nk_wii_log("CRASHTEST: %s now\n", g_nk_crash_test == 1 ? "a crash" : "a freeze");
+            nk_wii_log("CRASHTEST: %s now\n",
+                       g_nk_crash_test == 1 ? "a crash" : g_nk_crash_test == 2 ? "a freeze" : "a panic");
+            if (g_nk_crash_test == 3) {
+                /* 3: the game's own panic, a free of what its heap never gave (os.c's OSPanic) */
+                static u8 not_heap[64];
+                zelda_free(not_heap + 32);
+            }
             if (g_nk_crash_test == 1) {
                 volatile uintptr_t bad = 0x1d; /* (volatile: the compiler doesn't see the bad address coming) */
                 g_nk_crash_test = *(volatile u8*) bad;
