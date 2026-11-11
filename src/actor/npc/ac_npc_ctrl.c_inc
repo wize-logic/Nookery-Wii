@@ -519,10 +519,14 @@ static int aNPC_setupActor_proc(GAME_PLAY* play, mActor_name_t name, s8 idx, int
 }
 
 #ifndef aNPC_NPC2
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* LP64 expands pointer-bearing NPC subclasses beyond the base NPC_ACTOR.
  * The largest compiled subclass currently needs 128 extra bytes; keep a
- * further 128 bytes of headroom while retaining the runtime size guard. */
+ * further 128 bytes of headroom while retaining the runtime size guard.
+ * The Wii too: its pointers are the GameCube's, but the port's own fields
+ * made NPC_ACTOR 0x20 bytes bigger, and the classes that came to more than
+ * the GameCube's 0x9D0 were never made (Tom Nook's at a new player's
+ * arrival, for one: the player waited for him for good). */
 #define aNPC_ACTOR_CLASS_SLOT_SIZE (sizeof(NPC_ACTOR) + 0x100)
 #else
 #define aNPC_ACTOR_CLASS_SLOT_SIZE 0x9D0
@@ -659,6 +663,16 @@ static ACTOR* aNPC_get_actor_area_proc(size_t size, const char* actor_name, int 
             printf("[NPC] actor slot REJECTED: size=0x%x > slot=0x%x (%s:%d)\n", (unsigned)size,
                    aNPC_ACTOR_CLASS_SLOT_SIZE, actor_name, line);
         }
+#elif defined(TARGET_WII)
+        {
+            /* (once a size: a caller that waits for its actor asks again every frame) */
+            static size_t reported;
+            if (size != reported) {
+                reported = size;
+                printf("NPC: an actor of 0x%x bytes does not fit its slot of 0x%x: not made\n", (unsigned)size,
+                       (unsigned)aNPC_ACTOR_CLASS_SLOT_SIZE);
+            }
+        }
 #endif
         return NULL;
     }
@@ -713,7 +727,7 @@ typedef struct {
     u8 buf[aNPC_ACTOR_CLASS_SLOT_SIZE];
 } aNPC_actor_class_overlay_c;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 typedef char aNPC_pc_actor_slot_backing_too_small
     [(aNPC_ACTOR_CLASS_SLOT_SIZE >= (sizeof(NPC_ACTOR) + 15)) ? 1 : -1];
 #endif
