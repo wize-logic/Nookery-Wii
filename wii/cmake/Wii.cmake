@@ -9,6 +9,9 @@ find_package(Python3 REQUIRED COMPONENTS Interpreter)
 
 # No unwind tables: nothing here unwinds (the game's C++ has no exceptions)
 add_compile_options(-fno-asynchronous-unwind-tables -fno-unwind-tables)
+# __FILE__ (the game's panics and assertions print it) and the debug information name the sources from the
+# repository's root, not by where it is on the builder's computer
+add_compile_options(-ffile-prefix-map=${NK_ROOT}/=)
 
 option(NOOKERY_WII_NET "Build the online play (lobbies, P2P sessions)" ON)
 
