@@ -11,7 +11,9 @@
 extern "C" {
 #endif
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
+/* (the Wii as the PC: borderless acres keep the structures of the 3x3 acres around the player, more than the
+ * GameCube's nine; and a slot holds any structure's class, see ac_structure.c) */
 #define aSTR_ACTOR_TBL_COUNT 32
 #define aSTR_ACTOR_CLASS_SLOT_SIZE 0x400
 #else

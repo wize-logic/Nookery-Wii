@@ -740,8 +740,10 @@ static int Actor_malloc_actor_class(ACTOR** actor_pp, ACTOR_PROFILE* profile, AC
                 *alloc_kind = mAc_PC_ACTOR_ALLOC_ZELDA;
                 break;
             }
+#endif
+#ifdef ACGC_PORT
             if (profile->class_size > aSTR_ACTOR_CLASS_SLOT_SIZE) {
-                OSPanic(__FILE__, __LINE__, "Structure actor exceeds the PC pool slot");
+                OSPanic(__FILE__, __LINE__, "Structure actor exceeds the pool slot");
             }
 #endif
             *actor_pp = (ACTOR*)((*Common_Get(clip).structure_clip->get_actor_area_proc)());

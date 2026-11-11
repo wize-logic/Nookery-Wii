@@ -23,9 +23,14 @@ ACTOR_PROFILE Structure_Profile = { mAc_PROFILE_STRUCTURE,
                                     NULL };
 
 static u8 aSTR_overlay[aSTR_ACTOR_TBL_COUNT][aSTR_OVERLAY_SIZE];
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 /* Native pointer/alignment growth makes some derived structure actors larger
- * than STRUCTURE_ACTOR. Keep a fixed stride so one actor cannot clear the next. */
+ * than STRUCTURE_ACTOR. Keep a fixed stride so one actor cannot clear the next.
+ * The Wii too, with the GameCube's pointers: the boat's and the shrine's
+ * classes are bigger than STRUCTURE_ACTOR there as well (by 0x14 and 4 bytes),
+ * and making one cleared the next slot's actor's first fields, its name with
+ * them: deleted, that actor was freed as the heap's and the game stopped
+ * ("__osFree" in __osMalloc.c, line 738). */
 
 typedef union {
     u64 align;
