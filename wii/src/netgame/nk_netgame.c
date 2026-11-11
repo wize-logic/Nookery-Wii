@@ -2382,20 +2382,82 @@ void nk_netgame_play_frame(GAME_PLAY* play)
     /* town life: only the host (or a console on its own) changes the ground; guests get it by the field sync */
     mTL_ground_changes_allowed = nk_net_mode() != NK_NET_GUEST;
     if (g_nk_trace_scenes) {
+        /* each scene's first frame: how long since the scene before's last one (the load, with no frame shown), and
+         * what of it was the disc's */
+        extern unsigned nk_wii_dvd_reads, nk_wii_dvd_kb, nk_wii_dvd_ms;
         static int last_scene = -1;
         static int frames;
+        static OSTime last_frame;
+        static unsigned reads, kb, ms;
+        OSTime now = OSGetTime();
         int scene = Save_Get(scene_no);
         frames++;
         if (scene != last_scene) {
             PLAYER_ACTOR* pl = GET_PLAYER_ACTOR(play);
             const lbRTC_time_c* t = Common_GetPointer(time.rtc_time);
-            nk_wii_log("SCENE %d (after %d frames)%s, game time %d/%d %02d:%02d\n", scene, frames,
-                       pl != NULL ? " player" : "", (int) t->month, (int) t->day, (int) t->hour, (int) t->min);
+            nk_wii_log("SCENE %d (after %d frames)%s, game time %d/%d %02d:%02d, loaded in %d ms (disc: %u reads, %u KB, "
+                       "%u ms)\n",
+                       scene, frames, pl != NULL ? " player" : "", (int) t->month, (int) t->day, (int) t->hour,
+                       (int) t->min, last_frame != 0 ? (int) OSTicksToMilliseconds(now - last_frame) : 0,
+                       nk_wii_dvd_reads - reads, nk_wii_dvd_kb - kb, nk_wii_dvd_ms - ms);
             last_scene = scene;
         }
+        last_frame = now;
+        reads = nk_wii_dvd_reads;
+        kb = nk_wii_dvd_kb;
+        ms = nk_wii_dvd_ms;
     }
-    if (g_nk_travel_test) {
+    if (g_nk_travel_test == 1) {
         travel_test(play);
+    } else if (g_nk_travel_test == 2) {
+        /* travel_test = 2: into the player's house two seconds into the town, as its door goes (ac_my_house: the
+         * music's fade as the door opens, the scene change a second on), out again four seconds later, and so on:
+         * the scene trace's lines of an interior's load, and the music's changes again and again */
+        static int field_frames;
+        static s_xyz back; /* where the player stood in the town */
+        if (Save_Get(scene_no) == SCENE_FG && GET_PLAYER_ACTOR(play) != NULL && field_frames == 0) {
+            const xyz_t* pos = &GET_PLAYER_ACTOR(play)->actor_class.world.position;
+            back.x = (s16) pos->x;
+            back.y = (s16) pos->y;
+            back.z = (s16) pos->z;
+        }
+        if (Save_Get(scene_no) == SCENE_FG && GET_PLAYER_ACTOR(play) != NULL && ++field_frames == 60) {
+            mBGMPsComp_make_ps_wipe(0x249); /* (the door, as it opens) */
+        } else if (Save_Get(scene_no) == SCENE_FG && GET_PLAYER_ACTOR(play) != NULL && field_frames == 120) {
+            Door_data_c door;
+            bzero(&door, sizeof(door));
+            door.next_scene_id = SCENE_MY_ROOM_S;
+            door.exit_orientation = mSc_DIRECT_NORTH;
+            door.exit_position.x = 120;
+            door.exit_position.z = 220;
+            door.door_actor_name = EMPTY_NO;
+            door.wipe_type = WIPE_TYPE_TRIFORCE;
+            nk_wii_log("TRAVELTEST: into the house\n");
+            goto_other_scene(play, &door, 0);
+            play->fb_fade_type = FADE_TYPE_DEMO;
+        }
+        {
+            static int room_frames;
+            if (Save_Get(scene_no) == SCENE_MY_ROOM_S && GET_PLAYER_ACTOR(play) != NULL) {
+                field_frames = 0;
+                if (++room_frames == 180) {
+                    mBGMPsComp_make_ps_wipe(0x249);
+                } else if (room_frames == 240) {
+                    Door_data_c door;
+                    bzero(&door, sizeof(door));
+                    door.next_scene_id = SCENE_FG;
+                    door.exit_orientation = mSc_DIRECT_SOUTH;
+                    door.exit_position = back;
+                    door.door_actor_name = EMPTY_NO;
+                    door.wipe_type = WIPE_TYPE_TRIFORCE;
+                    nk_wii_log("TRAVELTEST: out of the house\n");
+                    goto_other_scene(play, &door, 0);
+                    play->fb_fade_type = FADE_TYPE_DEMO;
+                }
+            } else {
+                room_frames = 0;
+            }
+        }
     }
     if (g_nk_crash_test != 0) {
         /* settings crash_test: ten seconds on the streets, then a crash (1: a read from address 0x1d, as a NULL

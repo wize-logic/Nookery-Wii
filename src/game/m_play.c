@@ -217,7 +217,26 @@ static void Game_play_fbdemo_fade_out_game_end_move_end(GAME_PLAY* play) {
     GAME_GOTO_NEXT(&play->game, trademark, TRADEMARK);
 }
 
+#ifdef TARGET_WII
+/* The scene trace (settings.c's g_nk_trace_scenes): what a scene change's way out took, in frames: the wipe, then
+ * the waits for the sounds and for the music to have faded (each given up after 120) */
+extern int g_nk_trace_scenes;
+extern void nk_wii_log(const char* msg, ...);
+static int S_trace_wipe_frames, S_trace_se_frames, S_trace_bgm_frames;
+#endif
+
 static void Game_play_change_scene_move_end(GAME_PLAY* play) {
+#ifdef TARGET_WII
+    if (g_nk_trace_scenes) {
+        nk_wii_log("SCENE change: wipe %d frames, then %d for the sounds, %d for the music%s\n", S_trace_wipe_frames,
+                   S_trace_se_frames, S_trace_bgm_frames, S_back_title_timer <= 0.0f ? " (given up)" : "");
+        if (S_back_title_timer <= 0.0f) {
+            extern void Na_BgmTraceGroups(const char* when);
+            Na_BgmTraceGroups("given up");
+        }
+    }
+    S_trace_wipe_frames = S_trace_se_frames = S_trace_bgm_frames = 0;
+#endif
     game_goto_next_game_play(&play->game);
     Common_Set(last_scene_no, Save_Get(scene_no));
     Save_Set(scene_no, play->next_scene_no);
@@ -234,6 +253,9 @@ static void Game_play_fbdemo_wipe_move(GAME_PLAY* play) {
 
             if ((sAdo_SeFadeoutCheck() == 0) && (S_se_endcheck_timeout > 0.0f)) {
                 isDone = FALSE;
+#ifdef TARGET_WII
+                S_trace_se_frames++;
+#endif
             } else {
                 sAdo_Set_ongenpos_refuse_fg(1);
             }
@@ -242,6 +264,11 @@ static void Game_play_fbdemo_wipe_move(GAME_PLAY* play) {
             sAdo_Set_ongenpos_refuse_fg(2);
         }
 
+#ifdef TARGET_WII
+        if (isDone == TRUE && play->fb_fade_type != FADE_TYPE_IN) {
+            S_trace_bgm_frames++;
+        }
+#endif
         if (isDone == TRUE) {
             switch (play->fb_fade_type) {
                 case FADE_TYPE_IN:
@@ -318,6 +345,11 @@ static void Game_play_fbdemo_wipe_move(GAME_PLAY* play) {
             }
         }
     } else {
+#ifdef TARGET_WII
+        if (play->fb_fade_type != FADE_TYPE_IN) {
+            S_trace_wipe_frames++;
+        }
+#endif
         wipe->wipe_procs.move_proc(&wipe->wipe_data, game_GameFrame);
     }
 }

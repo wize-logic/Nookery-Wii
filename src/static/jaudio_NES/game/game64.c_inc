@@ -1938,19 +1938,60 @@ void Na_Tenki(u8 a) {
     }
 }
 
+#ifdef TARGET_WII
+/* The scene trace (settings.c's g_nk_trace_scenes): the music's requests in the log, and one that replaces another
+ * the audio's frame had not yet taken (there is room for one) */
+#ifdef __cplusplus
+extern "C" {
+#endif
+extern int g_nk_trace_scenes;
+extern void nk_wii_log(const char* msg, ...);
+#ifdef __cplusplus
+}
+#endif
+static void Sou_BgmCallTrace(int kind, int arg) {
+    static const char* const names[] = { "none", "start", "crossfade", "stop" };
+    if (sou_bgm_call_buffer != 0) {
+        nk_wii_log("BGM: %s %d replaces %s %d, not yet taken\n", names[kind], arg, names[sou_bgm_call_buffer],
+                   sou_bgm_call_buffer == 3 ? sou_bgm_call_buffer_u16 : sou_bgm_call_buffer_u8);
+    } else if (g_nk_trace_scenes) {
+        nk_wii_log("BGM: %s %d (now group %d; groups on: %d %d)\n", names[kind], arg, sou_now_bgm_handle,
+                   AG.groups[BGM0_GROUP].flags.enabled, AG.groups[BGM1_GROUP].flags.enabled);
+    }
+}
+
+/* The two music groups as the audio thread has them (m_play.c: when a scene change gave up waiting for them) */
+extern "C" void Na_BgmTraceGroups(const char* when) {
+    static const int ids[2] = { BGM0_GROUP, BGM1_GROUP };
+    for (int i = 0; i < 2; i++) {
+        group* g = &AG.groups[ids[i]];
+        nk_wii_log("BGM: %s: group %d %s, sequence %d, state %d, fade timer %d of volume %d/1000 by %d/1000000, skip "
+                   "%d%s\n",
+                   when, ids[i], g->flags.enabled ? "on" : "off", (int)g->seq_id, (int)g->state, (int)g->fade_timer,
+                   (int)(g->fade_volume * 1000.0f), (int)(g->fade_velocity * 1000000.0f), (int)g->skip_ticks,
+                   ids[i] == sou_now_bgm_handle ? " (the current one)" : "");
+    }
+}
+#else
+#define Sou_BgmCallTrace(kind, arg)
+#endif
+
 void Na_BgmStart(u8 a) {
     u16 unused = 0;
 
+    Sou_BgmCallTrace(1, a);
     sou_bgm_call_buffer_u8 = a;
     sou_bgm_call_buffer = 1;
 }
 
 void Na_BgmCrossfadeStart(u8 a) {
+    Sou_BgmCallTrace(2, a);
     sou_bgm_call_buffer_u8 = a;
     sou_bgm_call_buffer = 2;
 }
 
 void Na_BgmStop(u16 a) {
+    Sou_BgmCallTrace(3, a);
     sou_bgm_call_buffer_u16 = a;
     sou_bgm_call_buffer = 3;
 }

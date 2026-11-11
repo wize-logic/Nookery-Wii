@@ -187,9 +187,9 @@ Test keys in `settings.ini`:
 
 | Key | |
 |---|---|
-| `trace_scenes` | Logs each scene change |
+| `trace_scenes` | Logs each scene change: how long its way out waited (the wipe, the sounds, the music), how long the load took and what it read from the disc; and the music's requests |
 | `nes_test = N` | Starts NES game N from the town |
-| `travel_test` | Takes the train to slot B's town |
+| `travel_test` | 1: takes the train to slot B's town; 2: goes into the player's house and out, again and again (an interior's load and the music's changes, for `trace_scenes`) |
 | `net_echo`, `net_title_town`, `net_test_public`, `clock_test_skew` | Online play: yourself as a second player, the title screen as a town, the route between two networks, a clock set off by that many seconds |
 | `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 to 10: town life's tests (activities, animations and props, interruptions, gatherings, speech bubbles, tending the town, visitors, weather and night; `town_test` in `nk_netgame.c`) |
 | `crash_test` | 1: a crash in town; 2: a freeze there; 3: a panic of the game's own (for the reports) |
