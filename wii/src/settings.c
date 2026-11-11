@@ -12,6 +12,8 @@
 
 #include "pc_settings.h"
 
+#include <wl/base/base.h>
+
 #define SETTINGS_PATH NK_WII_DIR "/settings.ini"
 
 PCSettings g_pc_settings = {
@@ -59,7 +61,13 @@ int g_nk_net_echo = 0;
 /* A test: the title screen's demo counts as the town (two consoles at the
  * title see each other) */
 int g_nk_net_title_town = 0;
-/* A test: each scene the game enters, in the log */
+/* Diagnostics (the launcher's Settings): 1, the log on the SD card (apps/nookery/logs/log.txt) has everything: the
+ * start's lines, each scene change (how long its way out waited, how long the load took, what it read from the
+ * disc), the music's requests, a line a minute on the frames' times. 0, only what goes wrong is written: warnings
+ * and errors, a crash's, a panic's and a freeze's reports among them. */
+int g_nk_diagnostics = 0;
+/* The detail above, for the code that logs it (netgame/nk_netgame.c, src/game/m_play.c, the audio's game64.c_inc):
+ * as g_nk_diagnostics is */
 int g_nk_trace_scenes = 0;
 /* A test: the NES furniture's game of this number (1 on) starts from the
  * town, as if played on the furniture */
@@ -142,7 +150,7 @@ static const Key s_keys[] = {
     {"lobby_max_players", &g_nk_lobby_max_players, 2, 4},
     {"net_echo", &g_nk_net_echo, 0, 1},
     {"net_title_town", &g_nk_net_title_town, 0, 1},
-    {"trace_scenes", &g_nk_trace_scenes, 0, 1},
+    {"diagnostics", &g_nk_diagnostics, 0, 1},
     {"nes_test", &g_nk_nes_test, 0, 30},
     {"travel_test", &g_nk_travel_test, 0, 2},
     {"life_test", &g_nk_life_test, 0, 10},
@@ -158,12 +166,32 @@ static const Key s_keys[] = {
     {"net_test_public", &g_nk_net_test_public, 0, 1},
 };
 
+/* The diagnostics setting taken up: at the start, and when the launcher's Settings screen is left */
+static void diagnostics_apply(void)
+{
+    static int applied = -1;
+    if (applied == g_nk_diagnostics) {
+        return;
+    }
+    if (!g_nk_diagnostics) {
+        /* (said while the log still takes it) */
+        WL_LOG_I("nookery", "diagnostics are off (Settings in the launcher): from here, only warnings and errors");
+    }
+    wl_log_set_level(g_nk_diagnostics ? WL_LOG_LEVEL_INFO : WL_LOG_LEVEL_WARN);
+    if (g_nk_diagnostics && applied == 0) {
+        WL_LOG_I("nookery", "diagnostics are on");
+    }
+    g_nk_trace_scenes = g_nk_diagnostics;
+    applied = g_nk_diagnostics;
+}
+
 void nk_wii_settings_load(void)
 {
     FILE* f = fopen(SETTINGS_PATH, "r");
     char line[160];
     if (f == NULL) {
         nk_wii_settings_save();
+        diagnostics_apply();
         return;
     }
     while (fgets(line, sizeof(line), f) != NULL) {
@@ -193,11 +221,13 @@ void nk_wii_settings_load(void)
     if (g_pc_settings.travel_move_out_chance != 10 && g_pc_settings.travel_move_out_chance != 50) {
         g_pc_settings.travel_move_out_chance = 100;
     }
+    diagnostics_apply();
 }
 
 void nk_wii_settings_save(void)
 {
     FILE* f = fopen(SETTINGS_PATH, "w");
+    diagnostics_apply();
     if (f == NULL) {
         return;
     }

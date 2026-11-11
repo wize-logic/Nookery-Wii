@@ -64,6 +64,9 @@ extern int g_nk_widescreen;
 /* settings.c: Wii Remote 1's pointer in the game (wii/src/ogc/pointer.c) */
 extern int g_nk_wii_remote_pointer;
 
+/* settings.c: the detailed log on the SD card, or only what goes wrong */
+extern int g_nk_diagnostics;
+
 static Toggle s_toggles[] = {
     {"Fast text", &g_pc_settings.fast_text, s_onoff, s_onoff_names, 2},
     {"Villager friendships", &g_pc_settings.villager_life, s_onoff, s_onoff_names, 2},
@@ -77,6 +80,7 @@ static Toggle s_toggles[] = {
     {"Wii Remote pointer in the game", &g_nk_wii_remote_pointer, s_onoff, s_onoff_names, 2},
     {"NES games in 4:3", &g_pc_settings.nes_aspect, s_onoff, s_onoff_names, 2},
     {"Volume", &g_pc_settings.master_volume, s_volume, s_volume_names, 5},
+    {"Diagnostics log", &g_nk_diagnostics, s_onoff, s_onoff_names, 2},
 };
 #define TOGGLE_COUNT ((int) (sizeof(s_toggles) / sizeof(s_toggles[0])))
 

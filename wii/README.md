@@ -95,6 +95,7 @@ comment). On/off keys are `1`/`0`.
 | Wii Remote pointer in the game | `wii_remote_pointer` | 1 | Wii Remote 1's pointer as a mouse |
 | NES games in 4:3 | `nes_aspect` | 1 | On a 16:9 TV, 1 keeps NES games 4:3 and 0 fills the screen |
 | Volume | `master_volume` | 100 | 0 to 100. See [known issues](#known-issues) |
+| Diagnostics log | `diagnostics` | 0 | 1 writes everything to `logs/log.txt`: the start, each scene change (how long its way out waited, how long the load took, what it read from the disc), the music's requests, the frames' times once a minute. 0 writes only warnings and errors, a crash's, a panic's and a freeze's reports among them |
 | (Online screens) | `online_name` | Villager | The name other players see, 15 characters at most |
 | (Host your town) | `lobby_name`, `lobby_private`, `lobby_max_players` | | The last lobby you hosted |
 | | `verbose` | 0 | The game's own debug lines in the log |
@@ -189,9 +190,8 @@ Test keys in `settings.ini`:
 
 | Key | |
 |---|---|
-| `trace_scenes` | Logs each scene change: how long its way out waited (the wipe, the sounds, the music), how long the load took and what it read from the disc; and the music's requests |
 | `nes_test = N` | Starts NES game N from the town |
-| `travel_test` | 1: takes the train to slot B's town; 2: goes into the player's house and out, again and again (an interior's load and the music's changes, for `trace_scenes`) |
+| `travel_test` | 1: takes the train to slot B's town; 2: goes into the player's house and out, again and again (an interior's load and the music's changes, for the diagnostics log) |
 | `net_echo`, `net_title_town`, `net_test_public`, `clock_test_skew` | Online play: yourself as a second player, the title screen as a town, the route between two networks, a clock set off by that many seconds |
 | `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 to 10: town life's tests (activities, animations and props, interruptions, gatherings, speech bubbles, tending the town, visitors, weather and night; `town_test` in `nk_netgame.c`) |
 | `crash_test` | 1: a crash in town; 2: a freeze there; 3: a panic of the game's own (for the reports) |
