@@ -978,7 +978,7 @@ void Sou_TrgEndCheck() {
         if (sou_trg_se[i].id != 0) {
             sou_trg_se[i].frames++;
             s8 p5 = Nap_ReadSubPort(SE_GROUP, i, 5);
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
             /* Force-free stuck slots where sequencer never started the note */
             if (sou_trg_se[i].frames > 30 && !sou_trg_se[i]._1D && !p5) {
                 sou_trg_se[i].id = 0;
@@ -1262,7 +1262,8 @@ void Sou_Insect_Lev_Cont() {
     }
 }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
+/* (the Wii as the PC: an audio game frame can come twice in a game frame, or not at all, when a frame is late) */
 static u8 sou_ongen_entry_missed[ARRAY_COUNT(sou_ongen_entry)];
 static u8 sou_ongen_game_frame_ran;
 
@@ -1274,7 +1275,7 @@ void Na_OngenGameFrameRan(void) {
 static u8 Sou_Ongen_Entry_Stale(u8 i) {
     u8 stale = sou_ongen_entry[i]._09 == sou_ongen_entry[i]._0A;
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
     if (!stale) {
         sou_ongen_entry_missed[i] = FALSE;
     } else if (!sou_ongen_game_frame_ran) {
@@ -1866,7 +1867,7 @@ void Na_GameFrame() {
             }
             Sou_ChimeMake();
             Sou_Ongen_Lev_Cont();
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
             sou_ongen_game_frame_ran = FALSE;
 #endif
             Sou_Insect_Lev_Cont();

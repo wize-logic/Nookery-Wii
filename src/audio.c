@@ -47,7 +47,7 @@ extern void sAdo_GameFrame() {
     /* pc_audio_process_frame() now runs on dedicated audio producer thread */
 }
 
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void sAdo_OngenGameFrameRan(void) {
     Na_OngenGameFrameRan();
 }

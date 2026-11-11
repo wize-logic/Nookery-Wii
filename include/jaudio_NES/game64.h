@@ -19,7 +19,7 @@ f32 distance2vol4MD(f32);
 extern void Na_InitAudio(void (*fatal_callback)(), u8* load_addr, size_t load_size, u8* bootsound,
                          size_t bootsound_size, BOOL cut_flag);
 extern void Na_GameFrame();
-#ifdef TARGET_PC
+#ifdef ACGC_PORT
 extern void Na_OngenGameFrameRan(void);
 #endif
 extern void Na_Reset();
