@@ -429,6 +429,11 @@ static void graph_main(GRAPH* this, GAME* game) {
 }
 #endif
 
+#ifdef TARGET_WII
+/* The frames that took more than one retrace, two to four (the frame time log, wii/src/netgame/nk_netgame.c) */
+u32 nk_wii_frames_late;
+#endif
+
 extern void graph_proc(void* arg) {
     GRAPH* __graph = &graph_class;
     DLFTBL_GAME* dlftbl = &game_dlftbls[0];
@@ -458,6 +463,25 @@ extern void graph_proc(void* arg) {
             double dt_num_60fps_frames = SECONDS_TO_FRAMES(delta_time);
             GRAPH* graph = __graph;
 
+#ifdef TARGET_WII
+            {
+                /* A frame's time is the TV's: the retraces between the one this frame waited for and the one
+                 * before's (JFWDisplay's waitForTick), a whole number, 1 unless a frame was late. The clock's time
+                 * between two passes here wanders with each frame's drawing and with the audio thread's turns (a
+                 * third of a frame either way on a console): steps meant for each sixtieth of a second ran twice in
+                 * a frame or not at all, and everything moved unevenly on a picture that changes at every retrace. */
+                extern u32 nk_wii_frame_retrace;
+                static u32 last_retrace;
+                u32 retraces = nk_wii_frame_retrace - last_retrace;
+                last_retrace = nk_wii_frame_retrace;
+                if (retraces != 0 && retraces < 600) {
+                    /* (a 50 Hz picture's retraces are longer) */
+                    dt_num_60fps_frames = VIGetTvFormat() == VI_PAL ? retraces * 1.2 : (double)retraces;
+                    delta_time = dt_num_60fps_frames / 60.0;
+                    nk_wii_frames_late += retraces > 1 && retraces <= 4;
+                }
+            }
+#endif
             if (dt_num_60fps_frames > 4.0) {
                 dt_num_60fps_frames = 4.0;
                 delta_time = dt_num_60fps_frames / 60.0;

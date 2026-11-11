@@ -1962,11 +1962,12 @@ static void town_test_weather(GAME_PLAY* play)
  * budget shows as a long one; logged every `frames` frames on the streets ("LIFETEST: frame time" in the town
  * tests, every ten seconds; "frame time" in play, every minute) */
 u32 nk_wii_frame_work_us; /* src/static/jsyswrap.cpp: the last frame's work, without the wait for the picture */
+extern u32 nk_wii_frames_late; /* src/graph.c: the frames that took more than one retrace (two to four) */
 
 static void town_test_frame_time(u32 period)
 {
     static OSTime last;
-    static u32 sum_us, max_us, frames, slow, work_sum, work_max;
+    static u32 sum_us, max_us, frames, slow, work_sum, work_max, late;
     OSTime now = OSGetTime();
 
     if (last != 0) {
@@ -1982,11 +1983,13 @@ static void town_test_frame_time(u32 period)
         work_sum += nk_wii_frame_work_us;
         work_max = nk_wii_frame_work_us > work_max ? nk_wii_frame_work_us : work_max;
         if (++frames == period) {
-            nk_wii_log("%sframe time avg %u.%02u ms, max %u.%02u ms, %u over 40 ms, work avg %u.%02u ms, max %u.%02u "
-                       "ms, %d villagers busy, %d bubbles\n",
+            nk_wii_log("%sframe time avg %u.%02u ms, max %u.%02u ms, %u over 40 ms, %u late for their retrace, work "
+                       "avg %u.%02u ms, max %u.%02u ms, %d villagers busy, %d bubbles\n",
                        period == 600 ? "LIFETEST: " : "", sum_us / frames / 1000, sum_us / frames / 10 % 100,
-                       max_us / 1000, max_us / 10 % 100, slow, work_sum / frames / 1000, work_sum / frames / 10 % 100,
-                       work_max / 1000, work_max / 10 % 100, mTL_CountBusy(), mTL_BubblesShowing());
+                       max_us / 1000, max_us / 10 % 100, slow, nk_wii_frames_late - late, work_sum / frames / 1000,
+                       work_sum / frames / 10 % 100, work_max / 1000, work_max / 10 % 100, mTL_CountBusy(),
+                       mTL_BubblesShowing());
+            late = nk_wii_frames_late;
             sum_us = max_us = frames = slow = work_sum = work_max = 0;
         }
     }

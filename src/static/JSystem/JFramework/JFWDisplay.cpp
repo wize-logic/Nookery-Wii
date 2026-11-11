@@ -343,6 +343,13 @@ void JFWDisplay::waitBlanking(int p1) {
     }
 }
 
+#ifdef TARGET_WII
+/* The retrace the last frame waited for (src/graph.c: a frame's time is the retraces since the one before's) */
+extern "C" {
+u32 nk_wii_frame_retrace;
+}
+#endif
+
 void waitForTick(u32 p1, u16 p2) {
     if (p1 != 0) {
         static s64 nextTick = OSGetTime();
@@ -362,6 +369,9 @@ void waitForTick(u32 p1, u16 p2) {
             }
         } while (((s32)(uintptr_t)msg - (s32)nextCount) < 0);
         nextCount = (u32)(uintptr_t)msg + uVar1;
+#ifdef TARGET_WII
+        nk_wii_frame_retrace = (u32)(uintptr_t)msg;
+#endif
     }
 }
 
