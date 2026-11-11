@@ -80,6 +80,10 @@ int g_nk_narrow_items_test = 0;
 /* screenshot_test = 1: a screenshot every 30 s; home_test = N: HOME held from N s on (ogc/remote.c) */
 int g_nk_screenshot_test = 0;
 int g_nk_home_test = 0;
+/* reset_test = N: RESET pressed N s into the game (ogc/stall.c); stub_test = 1: in Dolphin, leaving takes the
+ * console's way, to the loader's stub (ogc/main.c) */
+int g_nk_reset_test = 0;
+int g_nk_stub_test = 0;
 /* life_test = 1, 2: villager friendships tests (nk_netgame.c life_test); 3, 4: town life (town_test) */
 int g_nk_life_test = 0;
 /* life_test_topic = N: only gossip topic N (99: each news, fan and moving topic in turn) */
@@ -147,6 +151,8 @@ static const Key s_keys[] = {
     {"narrow_items_test", &g_nk_narrow_items_test, 0, 1},
     {"screenshot_test", &g_nk_screenshot_test, 0, 1},
     {"home_test", &g_nk_home_test, 0, 3600},
+    {"reset_test", &g_nk_reset_test, 0, 3600},
+    {"stub_test", &g_nk_stub_test, 0, 1},
     {"life_test_topic", &g_nk_life_test_topic, -1, 99},
     {"clock_test_skew", &g_nk_clock_test_skew, -864000, 864000},
     {"net_test_public", &g_nk_net_test_public, 0, 1},

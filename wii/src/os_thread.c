@@ -6,6 +6,8 @@
 #include "nk_wii.h"
 #include "ogc_bridge.h"
 
+#include <malloc.h>
+#include <reent.h>
 #include <string.h>
 
 #include <dolphin/os.h>
@@ -276,6 +278,21 @@ BOOL OSSetThreadPriority(OSThread* thread, OSPriority priority)
 s32 OSGetThreadPriority(OSThread* thread)
 {
     return thread->base;
+}
+
+/* Leaving (ogc/main.c): the game's threads stopped where they are, for good, all but the caller's: nothing of the
+ * game runs while the console shuts down (a GameCube's OSResetSystem stops them the same way). None is stopped
+ * inside malloc, whose lock the shutdown takes too: it is held meanwhile. */
+void nk_wii_threads_stop(void)
+{
+    ogc_lwp_t self = LWP_GetSelf();
+    __malloc_lock(_REENT);
+    for (int i = 0; i < MAX_THREADS; i++) {
+        if (s_slots[i].thread != NULL && s_slots[i].lwp != 0 && s_slots[i].lwp != self) {
+            LWP_SuspendThread(s_slots[i].lwp);
+        }
+    }
+    __malloc_unlock(_REENT);
 }
 
 /* The SDK's scheduler switch: libogc preempts by priority itself */

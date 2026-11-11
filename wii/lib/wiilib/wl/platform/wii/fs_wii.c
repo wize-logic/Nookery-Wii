@@ -19,6 +19,7 @@ struct WlPlatformFile {
     FILE *f;
     uint64_t size;
     bool used;
+    uint8_t device;
 };
 
 static WlPlatformFile g_files[WL_FS_MAX_FILES];
@@ -79,6 +80,13 @@ void wl_platform_fs_unmount(WlDevice device) {
     if ((unsigned)device > 1u || !g_mounted[device]) {
         return;
     }
+    // the files still open on it closed first: their FILEs would be left naming a device that is gone (newlib
+    // calls through a null devoptab then), and a written one's last bytes are in its FILE's buffer
+    for (uint32_t i = 0; i < WL_FS_MAX_FILES; i++) {
+        if (g_files[i].used && g_files[i].device == (uint8_t)device) {
+            wl_platform_fs_close(&g_files[i]);
+        }
+    }
     char name[8];
     snprintf(name, sizeof name, "%s:", device_name(device));
     fatUnmount(name);
@@ -125,6 +133,7 @@ WlResult wl_platform_fs_open(const char *path, WlPlatformFileMode mode, WlPlatfo
     struct stat st;
     file->f = f;
     file->size = fstat(fileno(f), &st) == 0 ? (uint64_t)st.st_size : 0u;
+    file->device = (uint8_t)device;
     file->used = true;
     *out = file;
     return WL_OK;

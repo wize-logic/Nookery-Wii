@@ -10,8 +10,13 @@
 // System buttons and leaving
 // ---------------------------------------------------------------------------------------------
 
-// Installs the reset and power button callbacks (interrupt context: they only latch a bit).
+// Installs the reset and power button callbacks (interrupt context: they only latch a bit), and keeps a copy of
+// the loader's stub (wl_platform_loader_stub_keep).
 void wl_platform_system_init(void);
+
+// Keeps a copy of the loader's stub (0x80001800 to 0x80003000) as it is now: wl_platform_exit puts it back
+// before it leaves, should the program have written over it. For tests that put a stub of their own there.
+void wl_platform_loader_stub_keep(void);
 
 typedef enum {
     WL_EXIT_LOADER = 0, // return to the Homebrew Channel (or whatever loaded the program)
@@ -24,9 +29,16 @@ enum { WL_SYS_RESET = 1u << 0, WL_SYS_POWER = 1u << 1 };
 // The buttons pressed since the last call (WL_SYS_*), cleared.
 uint32_t wl_platform_system_events(void);
 
-// Flushes the log, unmounts the SD card and the USB drive (their caches written out) and leaves.
-// WL_EXIT_LOADER powers off when no loader left a stub to return to (Dolphin booting the DOL).
+// Flushes the log, unmounts the SD card and the USB drive (their files closed, their caches written out) and
+// leaves. WL_EXIT_LOADER powers off when no loader left a stub to return to (Dolphin booting the DOL).
+// The program's other threads are still there while the system shuts down: a program with threads of its own
+// that keep running defines wl_platform_exit_prepare(int to_loader), called first, and stops them in it.
+// Not from an interrupt, and it needs some kilobytes of stack: see wl_platform_exit_request.
 WL_NORETURN void wl_platform_exit(WlExitTarget target);
+
+// Has the watcher thread (wl_platform_system_watch_start) leave at its next look, and returns: for a caller
+// that cannot leave itself (an interrupt, a thread with a small stack). WL_ERR_STATE without a watcher.
+WlResult wl_platform_exit_request(WlExitTarget target);
 
 // Starts a thread that looks at the buttons every `period_ms` and leaves: power with
 // WL_EXIT_POWER_OFF, reset with WL_EXIT_LOADER. `tick` (may be NULL) runs on that thread between

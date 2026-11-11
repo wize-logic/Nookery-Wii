@@ -48,6 +48,9 @@ static volatile u64 s_last_frame;
 static volatile u32 s_frames;
 static u32 s_reported = 0xFFFFFFFFu;
 
+/* settings.c: reset_test */
+extern int g_nk_reset_test;
+
 /* The VI's retraces the game has had (vi.c) */
 u32 VIGetRetraceCount(void);
 
@@ -178,6 +181,11 @@ void nk_wii_stall_tick(void* user)
     u32 seconds;
     int kind;
     (void) user;
+    if (g_nk_reset_test && s_armed && ticks_to_secs(gettime() - s_started) >= (u32) g_nk_reset_test) {
+        /* settings reset_test = N: RESET pressed N s into the game, as the watch thread takes it */
+        WL_LOG_I("nookery", "RESETTEST: RESET pressed");
+        wl_platform_exit(WL_EXIT_LOADER);
+    }
     if (!s_armed || s_reported == s_frames || s_crashes != 0) {
         return;
     }

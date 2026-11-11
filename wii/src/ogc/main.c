@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <gccore.h>
 #include <ogc/lwp_watchdog.h>
@@ -49,13 +50,18 @@ void nk_wii_settings_load(void);
  * lines */
 static lwp_t s_main_thread = LWP_THREAD_NULL;
 static volatile int s_log_sync = 1;
+static volatile int s_log_writing;
 
 void nk_wii_log_point(void)
 {
     u32 msr;
     __asm__ volatile("mfmsr %0" : "=r"(msr));
     if (s_log_sync && (msr & 0x8000) && LWP_GetSelf() == s_main_thread) {
-        wl_platform_log_flush();
+        s_log_writing = 1;
+        if (s_log_sync) {
+            wl_platform_log_flush();
+        }
+        s_log_writing = 0;
     }
 }
 
@@ -69,11 +75,19 @@ void nk_wii_log_sync_end(void)
  * executable's own, compiled without its definitions) */
 void nk_socket_shutdown(void) __attribute__((weak));
 
-/* wiilib's wl_platform_exit, before the system's shutdown (libogc's exit into
- * the Homebrew Channel's stub runs IOS's): what of ours uses IOS or the
- * audio stopped. A Wii hung there with the network thread running (Dolphin
- * never takes that way out: no stub, it powers off), and the music played on
- * over the hang (save and quit resets, and leaves by this way). */
+/* os_thread.c, vi.c, os_alarm.c, dvd.c, card.c, remote.c: their parts of leaving */
+void nk_wii_threads_stop(void);
+void nk_wii_vi_stop(void);
+void nk_wii_alarms_stop(void);
+void nk_wii_dvd_stop(void);
+int nk_wii_card_sync(unsigned ms);
+void nk_wii_remote_sync(unsigned ms);
+
+/* wiilib's wl_platform_exit, before the system's shutdown (libogc's, then the Homebrew Channel's stub, which runs
+ * IOS's): the game stopped, as a GameCube's OSResetSystem stops it. The network first, whose lock the game's
+ * threads take (a Wii hung in the shutdown with the network thread running); then the game's threads, its retrace
+ * callbacks (they showed its picture again) and its alarms; then the files: a save the game had just written
+ * reaches its file before the card is unmounted. */
 void wl_platform_exit_prepare(int to_loader)
 {
     WL_LOG_I("nookery", "leaving (%s)", to_loader ? "to the loader" : "power off");
@@ -81,12 +95,33 @@ void wl_platform_exit_prepare(int to_loader)
     if (nk_socket_shutdown != NULL) {
         nk_socket_shutdown();
     }
-    WL_LOG_I("nookery", "leaving: the audio and the network are stopped");
+    /* (the game's main thread is not stopped while it writes the boot's log, holding the log's lock) */
+    s_log_sync = 0;
+    while (s_log_writing && LWP_GetSelf() != s_main_thread) {
+        usleep(1000);
+    }
+    nk_wii_threads_stop();
+    nk_wii_vi_stop();
+    nk_wii_alarms_stop();
+    AUDIO_StopDMA(); /* (again: the game's audio thread ran until here) */
+    nk_wii_dvd_stop();
+    if (!nk_wii_card_sync(5000)) {
+        WL_LOG_W("nookery", "leaving: a save was still being written");
+    }
+    nk_wii_remote_sync(5000);
+    WL_LOG_I("nookery", "leaving: the game, the audio and the network are stopped");
     wl_platform_log_flush();
 }
 
+/* By the system watch thread, as RESET is, wherever the call comes from: the game's threads' stacks are small, and
+ * it stops them all */
 void nk_wii_exit(void)
 {
+    if (wl_platform_exit_request(WL_EXIT_LOADER) == WL_OK) {
+        for (;;) {
+            usleep(100 * 1000);
+        }
+    }
     wl_platform_exit(WL_EXIT_LOADER);
 }
 
@@ -101,6 +136,9 @@ void nk_wii_fatal(const char* fmt, ...)
     wl_platform_log_flush();
     wl_platform_stop_screen("Nookery\n\n%s", msg);
 }
+
+/* settings.c */
+extern int g_nk_stub_test;
 
 /* The GPU's command FIFO reset, as libogc's GX_AbortFrame does it, before the
  * game's GXInit, which takes the GPU as a GameCube's start leaves it: on a
@@ -179,6 +217,17 @@ int main(int argc, char** argv)
     WL_LOG_I("nookery", "Nookery for the Wii, build %s (%s) (MEM1 %p-%p free, MEM2 tables %p-%p)", nk_build_id,
              nk_build_date, SYS_GetArena1Lo(), SYS_GetArena1Hi(), __mem2bss_start, __mem2bss_end);
     nk_wii_settings_load();
+    if (g_nk_stub_test) {
+        /* Dolphin stops the emulation at the Homebrew Channel's stub's address but has no code there, which wiilib
+         * takes for no stub (it powers off): with an instruction there, leaving takes the way to the loader, as on
+         * a console, and Dolphin ends by itself when it gets there (its log may show an ISI exception at 0 and a
+         * crash report's first line as it stops: the processor runs on a moment) */
+        u32* stub = (u32*) 0x80001800u;
+        *stub = 0x48000000u;
+        DCFlushRange(stub, 4);
+        ICInvalidateRange(stub, 4);
+        wl_platform_loader_stub_keep();
+    }
 
     /* The player's disc, then the game's tables out of its DOL and REL */
     if (nk_wii_disc_open() != 0) {

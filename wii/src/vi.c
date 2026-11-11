@@ -142,6 +142,14 @@ VIRetraceCallback VISetPreRetraceCallback(VIRetraceCallback cb)
     return old;
 }
 
+/* Leaving (ogc/main.c): the game's retrace callbacks off. JUTVideo's shows the game's frame again at every retrace,
+ * over the black of the way out. */
+void nk_wii_vi_stop(void)
+{
+    VISetPreRetraceCallback(NULL);
+    VIDEO_SetPostRetraceCallback(NULL);
+}
+
 VIRetraceCallback VISetPostRetraceCallback(VIRetraceCallback cb)
 {
     return (VIRetraceCallback) VIDEO_SetPostRetraceCallback(

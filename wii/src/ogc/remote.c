@@ -3,7 +3,7 @@
  *   1     a screenshot: the picture on the TV, as a PNG in
  *         sd:/apps/nookery/screenshots/ (the Remote rumbles once);
  *   HOME  held for a second (the Remote's or a Classic Controller's): back to
- *         the Homebrew Channel, as RESET does (the system watch thread).
+ *         the Homebrew Channel, as RESET does (by the system watch thread).
  * Looked at once a frame, after the Remotes are read (nk_wii_classic_scan).
  *
  * The picture is copied out of the frame buffer being shown (vi.c) at once,
@@ -211,6 +211,15 @@ static void screenshot(int chan)
     }
 }
 
+/* Leaving (ogc/main.c): waits until a screenshot being written is in its file, `ms` at most */
+void nk_wii_remote_sync(unsigned ms)
+{
+    while (s_busy && ms >= 10) {
+        usleep(10 * 1000);
+        ms -= 10;
+    }
+}
+
 void nk_wii_remote_frame(void)
 {
     static u32 frames;
@@ -247,7 +256,7 @@ void nk_wii_remote_frame(void)
             s_home_since[chan] = now;
         } else if (ticks_to_millisecs(now - s_home_since[chan]) >= HOME_HOLD_MS) {
             WL_LOG_I("SYS", "HOME held: leaving");
-            wl_platform_exit(WL_EXIT_LOADER);
+            nk_wii_exit();
         }
     }
 }

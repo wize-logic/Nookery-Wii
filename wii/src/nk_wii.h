@@ -11,7 +11,7 @@
 /* os_thread.c: the main thread's OSThread; from OSInit */
 void nk_wii_thread_init(void);
 
-/* main.c: leaves for the loader (the Homebrew Channel) */
+/* main.c: leaves for the loader (the Homebrew Channel), from any thread */
 __attribute__((noreturn)) void nk_wii_exit(void);
 /* main.c: a stop screen with the message, then leaves */
 __attribute__((noreturn, format(printf, 1, 2))) void nk_wii_fatal(const char* fmt, ...);

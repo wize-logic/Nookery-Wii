@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <dolphin/dvd.h>
 #include <dolphin/os.h>
@@ -60,7 +61,8 @@ static const char* s_names;
 /* The queue of reads (linked by their command blocks) and the thread */
 static DVDCommandBlock* s_head;
 static DVDCommandBlock* s_tail;
-static DVDCommandBlock* s_current;
+static DVDCommandBlock* volatile s_current;
+static volatile BOOL s_stopping; /* leaving: no more reads (nk_wii_dvd_stop) */
 static DVDCommandBlock* s_done_head;
 static DVDCommandBlock* s_done_tail;
 static ogc_KThrQueue s_wait;
@@ -571,6 +573,16 @@ s32 DVDReadPrio(DVDFileInfo* fileInfo, void* addr, s32 length, s32 offset, s32 p
     return state == DVD_STATE_END ? (s32) block->transferredSize : DVD_RESULT_FATAL_ERROR;
 }
 
+/* Leaving (ogc/main.c): the read in progress finished, no other started, so that the card is unmounted under no
+ * read */
+void nk_wii_dvd_stop(void)
+{
+    s_stopping = TRUE;
+    for (int i = 0; i < 100 && s_current != NULL; i++) {
+        usleep(10000);
+    }
+}
+
 /* Interrupt context: the IO thread, woken here, runs once it returns */
 static void kick(void* arg)
 {
@@ -601,7 +613,7 @@ static void* io_thread(void* arg)
     (void) arg;
     for (;;) {
         BOOL enabled = OSDisableInterrupts();
-        while (s_head == NULL) {
+        while (s_head == NULL || s_stopping) {
             KThrQueueBlock(&s_wait, (uintptr_t) &s_head);
         }
         DVDCommandBlock* block = s_head;

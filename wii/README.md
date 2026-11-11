@@ -193,7 +193,8 @@ Test keys in `settings.ini`:
 | `net_echo`, `net_title_town`, `net_test_public`, `clock_test_skew` | Online play: yourself as a second player, the title screen as a town, the route between two networks, a clock set off by that many seconds |
 | `life_test`, `life_test_topic` | 1: every chat is gossip (about topic N only); 2: villagers' distances and opinions in the log; 3 to 10: town life's tests (activities, animations and props, interruptions, gatherings, speech bubbles, tending the town, visitors, weather and night; `town_test` in `nk_netgame.c`) |
 | `crash_test` | 1: a crash in town; 2: a freeze there (for the reports) |
-| `screenshot_test`, `home_test = N` | A screenshot every 30 s; HOME held from N s on |
+| `screenshot_test`, `home_test = N`, `reset_test = N` | A screenshot every 30 s; HOME held from N s on; RESET pressed N s into the game |
+| `stub_test` | In Dolphin, leaving goes to the loader's stub, as on a console (Dolphin stops there), rather than powering off |
 | `walk_test` | 1: the player walks a round of the town's acres by itself, with the actors, memory, disc reads and frame times logged; 2: also stops in each acre for a screenshot |
 | `narrow_items_test` | Trees and flowers for the nearest four acres only, as without borderless acres (to compare) |
 

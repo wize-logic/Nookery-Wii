@@ -62,6 +62,19 @@ static void fire(ogc_syswd_t wd, void* arg)
     }
 }
 
+/* Leaving (ogc/main.c): the game's alarms off (their handlers are the game's code, in interrupt context) */
+void nk_wii_alarms_stop(void)
+{
+    BOOL enabled = OSDisableInterrupts();
+    for (int i = 0; i < MAX_ALARMS; i++) {
+        if (s_slots[i].alarm != NULL) {
+            SYS_CancelAlarm(s_slots[i].wd);
+            s_slots[i].alarm->handler = NULL;
+        }
+    }
+    OSRestoreInterrupts(enabled);
+}
+
 static struct timespec to_timespec(OSTime ticks)
 {
     struct timespec ts;

@@ -17,6 +17,7 @@
 #include <malloc.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <dolphin/os.h>
 #include <dolphin/card.h>
@@ -239,6 +240,8 @@ static void card_flush(Card* card)
     }
 }
 
+static volatile int s_writing;
+
 static void* writer_main(void* arg)
 {
     (void) arg;
@@ -247,11 +250,32 @@ static void* writer_main(void* arg)
         if (!card_has_work(&s_cards[0]) && !card_has_work(&s_cards[1])) {
             KThrQueueBlock(&s_writer_wait, (uintptr_t) &s_writer_wait);
         }
+        s_writing = 1;
         OSRestoreInterrupts(enabled);
         card_flush(&s_cards[0]);
         card_flush(&s_cards[1]);
+        s_writing = 0;
     }
     return NULL;
+}
+
+/* Leaving (ogc/main.c): waits until the saves the game has written are in their files, `ms` at most. 1 when they
+ * are. */
+int nk_wii_card_sync(unsigned ms)
+{
+    for (;;) {
+        BOOL enabled = OSDisableInterrupts();
+        BOOL idle = s_writer == 0 || (!s_writing && !card_has_work(&s_cards[0]) && !card_has_work(&s_cards[1]));
+        OSRestoreInterrupts(enabled);
+        if (idle) {
+            return 1;
+        }
+        if (ms < 10) {
+            return 0;
+        }
+        usleep(10 * 1000);
+        ms -= 10;
+    }
 }
 
 static void load(Card* card)
